@@ -1,0 +1,36 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="Blog_MasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <link type="text/css" href="StyleSheet.css" rel="stylesheet" />
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+    <table cellpadding="0" cellspacing="0" width="100%" class="BlogBack">
+    <tr>
+        <td height="40px" bgcolor="#a0a7ab">
+            <div class="HippoBlog">
+                <asp:Literal runat="server" ID="ArticleLiteral"></asp:Literal>
+            </div>
+            <div class="HippoHappenings">
+                <a href="http://HippoHappenings.com"><img class="HippoLink" src="../NewImages/HippoLink.png" /></a>
+            </div>
+        </td>
+    </tr>
+
+                <asp:contentplaceholder id="ContentPlaceHolder1" runat="server">
+                </asp:contentplaceholder>
+
+    <tr>
+        <td height="40px" bgcolor="#a0a7ab">
+            
+        </td>
+    </tr>
+    </table>
+    </div>
+    </form>
+</body>
+</html>

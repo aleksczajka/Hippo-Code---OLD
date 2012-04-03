@@ -1,0 +1,88 @@
+<%@ WebHandler Language="C#" Class="MyNamespace.iCalendar" %>
+using System;
+using System.Data;
+using System.Configuration;
+using System.Collections;
+using System.Web;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Web.UI.HtmlControls;
+using System.Data.SqlClient;
+using System.Collections.Generic;
+using System.Web.SessionState;
+namespace MyNamespace
+{
+    public class iCalendar : IHttpHandler, IReadOnlySessionState
+	{
+
+		public bool IsReusable
+		{
+			get
+			{
+				return true;
+			}
+		}
+
+		string DateFormat
+		{
+			get
+			{
+				return "yyyyMMddTHHmmssZ"; // 20060215T092000Z
+			}
+		}
+
+		public void ProcessRequest(HttpContext ctx)
+		{
+            Data dat = new Data(DateTime.Now);
+            DataView dv = dat.GetDataDV("SELECT EO.DateTimeStart AS Start, " +
+                "EO.DateTimeEnd AS [End], E.Header, E.ID, E.Address, V.Name, " +
+                "E.Content, E.ShortDescription, E.Venue FROM User_Calendar UC, Events E, " +
+                "Event_Occurance EO, Venues V WHERE E.Venue=V.ID AND EO.EventID=E.ID " +
+                "AND UC.EventID=E.ID AND UC.UserID=" + dat.TheUser);
+
+            ctx.Response.ContentType = "text/calendar";
+            ctx.Response.AddHeader("Content-disposition", "attachment; filename=appointment.ics");
+
+            ctx.Response.Write("BEGIN:VCALENDAR");
+            ctx.Response.Write("\r\nVERSION:2.0");
+            ctx.Response.Write("\r\nMETHOD:PUBLISH");
+            
+            foreach (DataRowView row in dv)
+            {
+                DateTime startDate = DateTime.Parse(row["Start"].ToString());
+                DateTime endDate = DateTime.Parse(row["End"].ToString());
+                string organizer = "hippohappening@hippohappenings.com";
+                string location = row["Name"].ToString(); ;
+                string summary = row["Header"].ToString() + ": " + row["ShortDescription"].ToString();
+                string description = "<a href=\"http://HippoHappenings.com/" +
+                    dat.MakeNiceName(row["Header"].ToString()) + "_" +
+                    row["ID"].ToString() + "_Event\">" + row["Header"].ToString() +
+                    "</a><a href=\"http://HippoHappenings.com/" +
+                    dat.MakeNiceName(row["Name"].ToString()) +
+                            "_" + row["Venue"].ToString() + "_Venue\">" +
+                            row["Name"].ToString() + "</a>" + row["Content"].ToString().Replace("\n", "").Replace("\r", "");
+
+                
+                ctx.Response.Write("\r\nBEGIN:VEVENT");
+                ctx.Response.Write("\r\nORGANIZER:MAILTO:" + organizer);
+                ctx.Response.Write("\r\nDTSTART:" + startDate.ToUniversalTime().ToString(DateFormat));
+                ctx.Response.Write("\r\nDTEND:" + endDate.ToUniversalTime().ToString(DateFormat));
+                ctx.Response.Write("\r\nLOCATION:" + location);
+                ctx.Response.Write("\r\nUID:" + DateTime.Now.ToUniversalTime().ToString(DateFormat) +
+                    "@hippohappenings.com");
+                ctx.Response.Write("\r\nDTSTAMP:" + DateTime.Now.ToUniversalTime().ToString(DateFormat));
+                ctx.Response.Write("\r\nSUMMARY:" + summary);
+                ctx.Response.Write("\r\nDESCRIPTION:" + description);
+                ctx.Response.Write("\r\nPRIORITY:5");
+                ctx.Response.Write("\r\nCLASS:PUBLIC");
+                ctx.Response.Write("\r\nEND:VEVENT");
+                
+            }
+
+            ctx.Response.Write("\r\nEND:VCALENDAR");
+            ctx.Response.End();
+		}
+	}
+}

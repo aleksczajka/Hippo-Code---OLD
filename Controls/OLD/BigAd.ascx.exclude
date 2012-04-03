@@ -1,0 +1,57 @@
+<%@ Control Language="C#" AutoEventWireup="true" CodeFile="BigAd.ascx.cs" Inherits="Controls_BigAd" %>
+
+<asp:Label runat="server" ForeColor="red" ID="Errorlabel"></asp:Label>
+<div style="margin-top: -30px;">
+    <asp:Timer ID="Timer1" OnTick="Timer1_Tick" runat="server" Interval="20000">
+    </asp:Timer>
+    <asp:UpdatePanel ID="UpdatePanel1" UpdateMode="Conditional" RenderMode="block" ChildrenAsTriggers="false" runat="server">
+        <Triggers>
+            <asp:AsyncPostBackTrigger ControlID="Timer1" EventName="Tick" />
+        </Triggers>
+        <ContentTemplate>
+            <asp:Panel runat="server" ID="Template1Panel" Visible="false">
+                <div style="height: 206px; width: 419px; background-color: #686868;">
+                 <div class="topDiv" style="width: 419px; height: 206px; background-color: #686868;"> 
+                   <div style="padding-top: 5px;padding-left: 3px; float: left;">
+                   <a id="A1" runat="server" >
+                   <div style="float: left;"><table width='212px' height='190px'
+                    cellpadding="0" cellspacing="0"><tbody align="center"><tr>
+                    <td valign="middle">
+                   <asp:Image ID="CustomerImage" runat="server" ImageAlign="left" />
+                   </td></tr></tbody></table></div>
+                   </a>
+                    </div>    
+                   <div style="padding-top: 5px; padding-left: 5px; float:right; width: 195px;">
+                        <asp:HyperLink CssClass="AdTitle" runat="server" ID="TitleLabel" ></asp:HyperLink><br />
+                        <asp:Label runat="server" CssClass="AdBody"  ID="BodyLabel"></asp:Label>
+                        <div style="float: left; padding-right: 8px; height: 10px; width: 80px; padding-top: 5px; padding-left: 3px;">
+                            <div style="float: left;padding-top: 5px; clear: none;"><img src="image/ReadMoreArrow.png" />
+                            </div>
+                            <div style="float: right;clear: none;"><asp:HyperLink ID="ReadMoreLink" CssClass="ReadMoreLink" 
+                            runat="server" Text="Read More" ></asp:HyperLink>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+            </asp:Panel>
+            <asp:Panel runat="server" ID="Template2Panel" Visible="false">
+                <div style="height: 206px; width: 419px; background-color: #686868;">
+                 <div class="topDiv" style="width: 419px; height: 206px; background-color: #686868;"> 
+                   <div style="padding-top: 5px;padding-left: 3px; float: left;">
+                   <a id="A2" runat="server" >
+                   <div style="float: left;"><table width='415px' height='190px'
+                    cellpadding="0" cellspacing="0"><tbody align="center"><tr>
+                    <td valign="middle">
+                   <asp:Image ID="Image1" runat="server" ImageAlign="left" />
+                   </td></tr></tbody></table></div>
+                   </a>
+                    </div> 
+                </div> 
+            </div>
+            </asp:Panel>
+        </ContentTemplate>
+    </asp:UpdatePanel>
+
+
+</div>

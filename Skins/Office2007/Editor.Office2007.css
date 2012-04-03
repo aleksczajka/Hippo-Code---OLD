@@ -1,0 +1,881 @@
+.rade_toolbar.Office2007 li .rade_tool_text span
+{
+	background-image: url('Editor/CommandSprites.gif');
+	background-repeat: no-repeat;
+	width: 25px;
+	height: 22px;
+	line-height: 22px;
+}
+
+.rade_toolbar.Office2007 li .rade_tool_text
+{
+	height: 22px;
+	margin: 0 0 0 0;
+	color: white;
+	font: normal 11px Arial, Verdana, Sans-serif;
+}
+
+.rade_toolbar.Office2007 li .rade_tool_text:hover,
+.rade_toolbar.Office2007 li .rade_tool_text.rade_tool_selected
+{
+	margin: 2px 0 0 0;
+	background-color: #d3eb99;
+    background-image: none;
+}
+
+.rade_toolbar.Office2007 li .rade_tool_text:hover,
+.rade_toolbar.Office2007 li .rade_tool_text.rade_tool_selected
+{
+	_border: 0 !important;
+}
+
+.rade_toolbar.Office2007 li .rade_tool_text .rade_button_text
+{
+	padding-right: 4px;
+	color: black;
+}
+
+.Office2007.rade_toolbarWrapper
+{
+	background: transparent;
+}
+
+.Office2007.rade_toolZone .rade_toolbarWrapper
+{
+	background:transparent;
+	float:none;
+	clear:both;
+}
+
+.radeditor.Office2007.rade_wrapper
+{
+	font: normal 11px Arial, Verdana, Sans-serif;
+	border: 1px solid #3b5a82;
+	background: #cddcee !important;
+}
+
+.rade_tlbVertical
+{
+	width: 2px; font-size:1px;
+}
+
+.radeditor.Office2007.rade_wrapper table td.rade_contentCell
+{
+	border: solid 1px #c8c8c8;
+	background: white;
+}
+
+.Office2007.rade_AlignmentSelector
+{
+	border: solid 1px #777;
+	background: white;	
+}
+
+.Office2007.rade_AlignmentSelector div
+{
+	width: 18px;
+	height: 18px;
+	margin: 1px auto;
+	background-image: url('Editor/CommandSprites.gif');
+	background-repeat: no-repeat;
+}
+
+.Office2007.rade_SpinBox li
+{
+	float: none; clear: both;
+	line-height: 11px;
+	margin: 0 0 1px 1px;
+}
+
+.Office2007.rade_SpinBox input
+{	
+	border: solid 1px #818181;
+	height: 19px; line-height: 19px;
+	background: white;
+}
+
+.Office2007.rade_SpinBox label
+{
+	width: 100px;
+	line-height: 24px;
+}
+
+.Office2007.rade_SpinBox a
+{
+	border: solid 1px #818181;
+	text-align: center;
+	font: bold 10px Arial, Verdana, Sans-serif;
+	color: #818181;
+	background: #fff;
+}
+
+.Office2007.rade_SpinBox a:hover
+{
+	background: #fff;
+	border: solid 1px #333;
+	color: #333;
+}
+
+.Office2007.rade_SpinBox a span
+{
+	width: 9px; height: 9px; line-height: 9px;
+}
+
+.radeditor.Office2007.rade_wrapper
+{
+	height:480px;
+	width:640px;
+}
+
+.radeditor.Office2007 .rade_wrapper_corner
+{
+    width: 1px; height: 1px; line-height: 1px; font-size:1px; background: transparent;
+}
+
+.radeditor.Office2007 .rade_wrapper_center
+{		
+	height: 4px; line-height: 4px; font-size:1px;
+}
+
+.rade_center_top,
+.rade_leftVerticalSide,
+.rade_rightVerticalSide,
+.rade_toolZone,
+.rade_center_bottom
+{
+	background-color: transparent !important;
+}
+
+.rade_module
+{
+	color: #333;
+	font: normal 11px Tahoma, sans-serif;
+	line-height:normal;
+	padding: 1px 5px;
+	border-top: solid 1px #f4f7f9;
+	border-right: solid 1px #f4f7f9;
+	border-bottom: solid 1px #b1c7db;
+	border-left: solid 1px #b1c7db;
+	background:#e2edfd;	
+}
+
+.rade_module_visible_icon,
+.rade_module_hidden_icon
+{
+	width: 16px;
+	height: 16px;
+	background: transparent url('Editor/CommandSprites.gif') no-repeat;
+	margin: -2px 4px 0;
+}
+
+.rade_module_visible_icon
+{
+	background-position: -2368px -2px;
+}
+
+.rade_module_hidden_icon
+{
+	background-position: -2368px -24px;
+}
+
+a.rade_module_domlink
+{
+	color:#333;
+	font: normal 11px Tahoma;
+	padding: 3px 6px 1px;
+	text-decoration: underline;
+}	
+
+a.rade_module_domlink_selected
+{
+	color:#333;
+	font: normal 11px Tahoma;
+	text-decoration: none;
+	background-color:#eee;
+	border:1px solid #898989;
+	padding:0 5px;
+}
+
+.radeditor.Office2007 .rade_resizeCell div
+{
+    width:20px;
+    height:25px;
+    float:right;
+    background:url('Editor/CornersSprites.gif') center -74px no-repeat; 
+}
+
+.rade_loading
+{
+    width:30px;
+    background:url('Editor/LoadingSpell.gif') center center no-repeat;
+    float:left;
+}
+
+.rade_ajaxspell_wrapper
+{
+    border: 1px solid #515151 !important;    
+}
+
+div.rade_editorModes
+{
+	width: 100%;
+    position: relative; top: -1px;
+}
+
+.radeditor.Office2007 .rade_editorModesCell
+{
+    width:100px ;        
+    
+}
+
+div.rade_editorModes a
+{
+	width: 27px; height: 21px;
+	margin: 1px;
+	margin-top: 0;
+}
+
+div.rade_editorModes .rade_mode_selected
+{
+	background-color: white;
+	border: solid 1px #C8C8C8;
+	border-top: 0;
+	margin: 0;
+}
+
+div.rade_editorModes a span
+{
+	background-image: url('Editor/ModesSprites.gif');
+	background-repeat: no-repeat;
+	background-color: transparent;
+	height: 16px;
+	width: 16px;
+	margin: 2px 0 0 6px;
+}
+
+div.rade_editorModes .rade_mode_design span,
+div.rade_editorModes .rade_mode_selected.rade_mode_design span
+{
+	background-position: 0 0;
+}
+
+div.rade_editorModes .rade_mode_html span,
+div.rade_editorModes .rade_mode_selected.rade_mode_html span
+{
+	background-position: -16px 0;
+}
+
+div.rade_editorModes .rade_mode_preview span,
+div.rade_editorModes .rade_mode_selected.rade_mode_preview span
+{
+	background-position: -32px 0;
+}
+
+.Office2007.rade_dropDownBody
+{
+	background-color: white !important;
+	background-image: none !important;
+	border: solid 1px #8f8f8f;
+	-moz-border-radius: 0.3em;
+	border-radius: 0.3em; 
+	-webkit-border-radius: 0.3;
+	scrollbar-face-color: #e9e9e9;
+	scrollbar-highlight-color: #ffffff;
+	scrollbar-shadow-color: #e9e9e9;
+	scrollbar-3dlight-color: #dbdbdb;
+	scrollbar-arrow-color: #787878;
+	scrollbar-track-color: #f5f5f5;
+	scrollbar-darkshadow-color: #aeaeae;
+}
+
+.Office2007.rade_dropDownBody,
+.Office2007.rade_dropDownBody table
+{
+	font:12px arial,verdana,sans-serif;
+}
+
+.Office2007.rade_dropDownBody .rade_toolbar.Office2007
+{
+    height: auto;
+    background:white;
+}
+
+.Office2007.rade_dropDownBody a
+{
+    background-image: none;
+    background-color: white;
+    border-bottom: solid 1px #aaaaaa;
+    margin: 0;
+}
+
+.Office2007.rade_dropDownBody a:hover
+{
+    background-image: none;
+    background-color: #eaeaea;
+    border-bottom: solid 1px #aaaaaa;
+}
+
+.Office2007.rade_dropDownBody .rade_CustomLinks a
+{
+    background-image: none;
+    background-color: white;
+    border-bottom: 0;
+}
+
+.Office2007.rade_dropDownBody .rade_CustomLinks a:hover
+{
+    background-image: none;
+    background-color: white;
+    text-decoration: underline;
+    border-bottom: 0;
+}
+
+.Office2007.rade_dropDownBody table td
+{
+	padding:1px 2px;
+	border:1px solid #fff;
+	color:#000;
+	text-align:left;
+}
+
+.Office2007.rade_dropDownBody .rade_itemOver
+{
+	border: solid 1px #8f8f8f !important;
+	b/ackground: #ffd38e !important;
+}
+
+.Office2007.rade_ColorPicker
+{
+	border: solid 1px #868686;
+	padding: 4px;
+	-moz-border-radius: 3px;
+	background: #fafafa;
+}
+
+.Office2007.rade_ColorPicker table div
+{
+	width: 11px; height: 11px; line-height: 11px; font-size: 1px;
+	border: solid 1px #c5c5c5;
+}
+
+.Office2007.rade_ColorPicker table td.rade_itemOver div
+{
+	border-color:#000;
+}
+
+.Office2007.rade_ColorPicker table td
+{
+	padding: 2px;
+	padding-bottom: 0;
+	padding-top: 0;
+}
+
+.Office2007.rade_dropDownBody.rade_ColorPicker table td.rade_itemOver
+{
+	border: 0 !important;
+	background: transparent !important;
+}
+
+.Office2007.rade_ColorPicker .rade_ColorPickerFooter
+{
+	margin:0 auto;
+	font: normal 11px Verdana, Arial, Sans-serif;
+	height: 22px;
+	line-height: 18px;
+	width: 166px;
+	padding:4px 0;
+}
+
+.Office2007.rade_ColorPicker span
+{
+	width: 82px;
+	height: 20px;
+	line-height: 18px;
+	border: solid 1px #c5c5c5;
+}
+
+.rade_ColorPicker .rade_ColorPickerFooter .rade_DarkColor
+{
+	background: black;
+	color: white;
+	border-right:0;
+}
+
+.rade_ColorPicker .rade_ColorPickerFooter .rade_LightColor
+{
+	background: white;
+	color: black;
+	border-left:0;
+}
+
+.rade_InsertSymbol
+{
+	border: solid 1px #8f8f8f;
+	background: white;
+	width: auto !important;
+}
+
+.Office2007.rade_InsertSymbol table
+{
+	width: auto !important;
+}
+
+.Office2007.rade_InsertSymbol table td
+{
+	font: bold 11px Tahoma,"Lucida Grande",Verdana,Arial,Helvetica,sans-serif;
+	color: #333;
+	width: 18px !important;
+	height: 22px !important;
+	padding: 2px;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.Office2007.rade_InsertSymbol table td.rade_itemOver
+{
+	color: #000;
+}
+
+.rade_InsertTable table
+{
+	float: left;
+	background-color:#f9f9f9;
+	cursor:default;	
+	width: 142px;
+}
+
+.rade_InsertTable td 
+{
+	padding:0 !important;
+	border-color: #777 !important;
+}
+
+.rade_InsertTable td.rade_itemOver
+{
+	border-color: #ddd !important;
+}
+
+.rade_InsertTable td div
+{	
+	font-size:1px;
+	width:10px;
+	height: 10px;
+	margin:1px !important;
+	padding:0 !important;
+}
+
+.rade_InsertTable .rade_tlbVertical li
+{
+	float: left !important;
+	width: 23px;
+	margin: 0;
+}
+
+.rade_InsertTable .rade_tlbVertical li a,
+.Office2007.rade_InsertTable .rade_tlbVertical .Office2007.rade_toolbar a.rade_tool_disabled
+{
+    background: none !important;
+    margin: 0 !important;
+    padding: 1px !important;
+    border: 0 !important;
+}
+
+.rade_InsertTable .rade_tlbVertical li a:hover
+{
+	border: 1px solid #ccc !important;
+	padding: 0 !important;
+}
+
+.Office2007.rade_InsertTable .rade_tlbVertical li a .rade_button_text
+{
+	width: auto !important;
+	padding-left: 4px;
+	color: #ccc;
+}
+
+.Office2007.rade_InsertTable .rade_tlbVertical li a .rade_button_text:hover
+{
+	color: black;
+}
+
+.rade_UndoRedo
+{
+	border: solid 1px #8f8f8f;
+	background-color: white;
+	padding: 0;
+}
+
+.Office2007.rade_UndoRedo table td,
+.Office2007.rade_UndoRedo table td.rade_itemOver
+{
+	border: 0 !important;
+	margin: 0 !important;
+}
+
+.Office2007.rade_ApplyClass table td
+{
+	border: 1px solid #cacaca;
+	padding: 2px;
+}
+
+ .rade_ApplyClass span
+{
+	width: 12px; height: 13px; line-height: 13px;
+	background-image: url('Editor/ApplyClassSprites.gif');
+	background-repeat: no-repeat;
+}
+
+.rade_ApplyClass .rade_class_all
+{
+	background-position: 0 -52px;
+}
+
+.rade_ApplyClass .rade_class_img
+{
+	background-position: 0 -13px;
+}
+
+.rade_ApplyClass .rade_class_a
+{
+	background-position: 0 -26px;
+}
+
+.rade_ApplyClass .rade_class_table
+{
+	background-position: 0 -39px;
+}
+
+.rade_ApplyClass .rade_class_unknown
+{	
+	background-position: 0 0;
+}
+
+ul.rade_CustomLinks,
+ul.rade_CustomLinks ul
+{
+	font: normal 11px Verdana, Arial, Sans-serif;
+	color: black;
+	background: none;		
+}
+
+ul.rade_CustomLinks
+{
+	margin: 0 2px;
+}
+
+ul.rade_CustomLinks a
+{
+	color: black;
+}
+
+ul.rade_CustomLinks ul
+{
+	margin-left: 12px;
+}
+
+ul.rade_CustomLinks a:hover
+{
+	text-decoration: underline;
+	color: #666;
+}
+
+ul.rade_CustomLinks li
+{
+	padding: 1px 0;
+}
+
+ul.rade_CustomLinks a
+{
+	cursor: hand; cursor: pointer;
+}
+
+ul.rade_CustomLinks .rade_CustomLinksIcon
+{
+	width: 9px; height: 9px;
+	background-image: url('Editor/CustomLinksSprites.gif');
+	background-repeat: no-repeat;
+	margin: 2px 4px 0 0;
+}
+
+ul.rade_CustomLinks .rade_CustomLinksIcon.rade_icon_plus
+{
+	background-position: 0 0;
+}
+
+ul.rade_CustomLinks .rade_CustomLinksIcon.rade_icon_minus
+{
+	background-position: -9px 0;
+}
+
+ul.rade_CustomLinks .rade_CustomLinksIcon.rade_icon_empty
+{
+	background: none;
+}
+
+.Office2007.rade_toolbar
+{
+	background: transparent url('Editor/ToolBarSprites.gif') repeat-x 0 -242px; 
+	height: 22px;
+}
+
+* html .radeditor{background-image: none !important}
+
+.rade_tool
+{
+	width: 22px; height: 21px;
+	margin: 0 0 0 0;
+}
+
+.rade_tool:hover
+{
+	background: url('Editor/ToolBarSprites.gif') repeat-x 0 -217px;
+}
+
+.rad_splitbutton:hover
+{
+    background: transparent url('Editor/ToolBarSprites.gif') repeat-x 0 -217px !important;
+}
+
+.rade_tool:active,
+.rade_tool:focus,
+.rade_tool_selected,
+.rade_tool_selected:hover,
+.rade_tool_selected:active,
+.rade_tool_selected:focus
+{
+	background: url('Editor/ToolBarSprites.gif') repeat-x 0 -167px;
+}
+
+.rade_tool_disabled,
+.rade_tool_disabled:hover,
+.rade_tool_disabled:active,
+.rade_tool_disabled:focus
+{
+	border: 0;
+	background: none;
+}
+
+.rade_dropDownBody .rade_tlbVertical .Office2007.rade_toolbar .rade_tool_text
+{
+	background: white;
+	border: 0;
+	padding: 3px 1px 3px 3px;
+	margin: 0 1px;
+}
+
+.rade_dropDownBody .rade_tlbVertical .Office2007.rade_toolbar .rade_tool_text:hover,
+.rade_dropDownBody .rade_tlbVertical .Office2007.rade_toolbar .rade_tool_selected
+{
+	border: 1px solid #8f8f8f;
+	padding: 2px 0 2px 2px;
+	background: white;
+	color: #fff;
+}
+
+.Office2007.rade_dropDownBody .rade_tlbVertical .Office2007.rade_toolbar .rade_tool_disabled
+{
+	background: white !important;
+	border: 0;
+	padding: 1px;
+	color: #000;
+}
+
+.Office2007.rade_dropDownBody .rade_tlbVertical .Office2007.rade_toolbar .rade_tool_text span.rade_button_text
+{
+	padding-left: 13px;
+}
+
+.Office2007.rade_dropDownBody .rade_tlbVertical .Office2007.rade_toolbar .rade_tool_disabled span
+{
+	opacity: 0.4;
+	-moz-opacity: 0.4;
+	filter: alpha(opacity=40);
+}
+
+.rade_tool span
+{
+	background-image: url('Editor/CommandSprites.gif');
+	background-repeat: no-repeat;
+	background-color: transparent;
+	height: 22px;
+}
+
+.rade_toolbar.Office2007 .rade_dropdown,
+.rade_toolbar.Office2007 .rade_tool_disabled.rade_dropdown:hover
+{
+	height: 16px;
+	border: solid 1px #b3c7e1 !important;
+	margin: 1px 0 2px 0;
+	padding: 2px 14px 0 2px;
+	font: normal 11px Verdana, Arial, Sans-serif;
+	color: black;
+	background: white url('Editor/ToolBarSprites.gif') no-repeat right -92px;
+	-moz-border-radius: 0.3em;
+	-moz-border: 0.3em;
+	-webkit-border-radius: 0.3;
+}
+
+.rade_toolbar.Office2007 .rade_dropdown:hover,
+.rade_toolbar.Office2007 .rade_dropdown:active,
+.rade_toolbar.Office2007 .rade_dropdown:focus
+{
+	border: solid 1px #b3c7e1 !important;
+	background-color: #eaf2fb;
+}
+
+* html .rade_dropDownBody .rade_tlbVertical .rade_toolbar.Office2007 .rade_tool_disabled,
+* html .rade_dropDownBody .rade_tlbVertical .rade_toolbar.Office2007 .rade_tool_disabled:hover,
+* html .rade_dropDownBody .rade_tlbVertical .rade_toolbar.Office2007 .rade_tool_disabled:active,
+* html .rade_dropDownBody .rade_tlbVertical .rade_toolbar.Office2007 .rade_tool_disabled:focus
+{
+	border: 0 !important;
+	padding:1px !important;
+	background:transparent url('Editor/ToolbarVerticalSprites.gif') repeat-y -40px 0 !important;
+}
+
+.rade_tlbVertical .rade_dropdown
+{
+	width: 4px;
+}
+
+.rade_toolbar.Office2007 .rade_grip
+{
+	background: transparent url('Editor/ToolBarSprites.gif') no-repeat; 
+	width: 2px; height: 22px;
+}
+
+.rade_toolbar.Office2007 .grip_first
+{
+    background-position: 0 -271px;
+}
+
+.rade_toolbar.Office2007 .grip_last
+{
+    background-position: -39px -271px;
+}
+
+.rad_splitbutton
+{
+	width: 32px;
+}
+
+.rade_tool_disabled:hover
+{
+	background: none !important;
+}
+
+.rad_splitbutton span
+{
+	width: 25px;
+}
+
+.split_arrow
+{
+	background: transparent url('Editor/ToolBarSprites.gif') no-repeat 0 -108px !important;
+	width: 5px !important;
+	height: 22px;
+	padding: 0 1px 0 1px;
+}
+
+.rade_toolbar.Office2007 li.rade_separator
+{
+	height: 29px; width: 6px;
+	padding: 0;
+	margin: 0;
+}
+
+.rade_tlbVertical .rade_toolbar.Office2007 li.rade_separator
+{
+	border-top: solid 1px #dcdcdc;
+	background: white;
+	height: 1px; width: 18px; line-height: 1px;
+	margin: 2px 0 2px 3px;
+}
+
+.RadEXhtmlButton
+{
+    border: solid 1px #c7dbe6;
+    background: #f0f2f4;
+    color: black;
+    font: normal 11px Verdana, Arial, Sans-serif;
+}
+
+.Office2007.rade_dropDownBody.rade_InsertTable
+{
+    overflow: hidden;
+}
+
+td.rade_tlbVertical .rade_toolbar.Office2007
+{
+    width: 22px !important;
+    background: url('Editor/ToolBarVerticalSprites.gif') repeat-y -22px 0;
+    height: auto !important;
+}
+
+td.rade_tlbVertical .rade_toolbar.Office2007 .rade_grip
+{
+    background: url('Editor/ToolBarVerticalSprites.gif') !important;
+    width: 22px !important;
+    height: 2px !important;
+    line-height: 2px !important;
+    font-size: 1px !important;
+}
+
+td.rade_tlbVertical .rade_toolbar.Office2007 .rade_grip.grip_first
+{
+    background-position: 0 0 !important;
+}
+
+td.rade_tlbVertical .rade_toolbar.Office2007 .rade_grip.grip_last
+{
+    background-position: 0 -2px !important;
+}
+
+td.rade_tlbVertical .rade_toolbar.Office2007 .split_arrow
+{
+    display: none;
+}
+
+td.rade_tlbVertical .rade_toolbar.Office2007 .rade_separator
+{
+    border-bottom: solid 1px #fff !important;
+    background: #bed4ed !important;
+    height: 1px !important;
+    line-height: 1px !important;
+    width: 20px !important;
+    margin: 0 !important;
+}
+
+td.rade_tlbVertical .rade_toolbar.Office2007 .rade_tool.rad_splitbutton,
+td.rade_tlbVertical .rade_toolbar.Office2007 .rade_tool,
+td.rade_tlbVertical .rade_toolbar.Office2007 .rade_tool.rade_tool_selected
+{
+	width: 21px !important;
+	height: 21px !important;
+	padding: 2px 0 0 0 !important;
+}
+
+td.rade_tlbVertical .rade_toolbar.Office2007 .rade_tool:hover
+{
+	background: url('Editor/ToolBarVerticalSprites.gif') no-repeat -44px 0 !important;
+}
+
+td.rade_tlbVertical .rade_toolbar.Office2007 .rade_tool.rade_tool_selected
+{
+    background: url('Editor/ToolBarVerticalSprites.gif') no-repeat -65px 0 !important;
+}
+
+.rade_dropDownBody.rade_InsertTable .rade_tool_text .TableWizard
+{
+    height: 23px;
+    width: 23px; 
+    line-height: 23px;
+    background-image: url('Editor/CommandSprites.gif') !important;
+    background-position: -3006px center;
+}
+
+.rade_dropDownBody.rade_InsertTable .rade_tool_text .rade_button_text,
+.rade_dropDownBody.rade_InsertTable .rade_tool_text:hover .rade_button_text
+{
+    color: black !important;
+}

@@ -1,0 +1,64 @@
+using System;
+using System.Data;
+using System.Configuration;
+using System.Collections;
+using System.Web;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Web.UI.HtmlControls;
+
+public partial class iCalTemplate : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        ProcessRequest();
+    }
+
+
+
+
+    string DateFormat
+    {
+        get
+        {
+            return "yyyyMMddTHHmmssZ"; // 20060215T092000Z
+        }
+    }
+
+
+    public void ProcessRequest(HttpContext ctx)
+    {
+        DateTime startDate = DateTime.Now.AddDays(5);
+        DateTime endDate = startDate.AddMinutes(35);
+        string organizer = "foo@bar.com";
+        string location = "My House";
+        string summary = "My Event";
+        string description = "Please come to\\nMy House";
+
+        ctx.Response.ContentType = "text/calendar";
+        ctx.Response.AddHeader("Content-disposition", "attachment; filename=appointment.ics");
+
+        ctx.Response.Write("BEGIN:VCALENDAR");
+        ctx.Response.Write("\nVERSION:2.0");
+        ctx.Response.Write("\nMETHOD:PUBLISH");
+        ctx.Response.Write("\nBEGIN:VEVENT");
+        ctx.Response.Write("\nORGANIZER:MAILTO:" + organizer);
+        ctx.Response.Write("\nDTSTART:" + startDate.ToUniversalTime().ToString(DateFormat));
+        ctx.Response.Write("\nDTEND:" + endDate.ToUniversalTime().ToString(DateFormat));
+        ctx.Response.Write("\nLOCATION:" + location);
+        ctx.Response.Write("\nUID:" + DateTime.Now.ToUniversalTime().ToString(DateFormat) + "@mysite.com");
+        ctx.Response.Write("\nDTSTAMP:" + DateTime.Now.ToUniversalTime().ToString(DateFormat));
+        ctx.Response.Write("\nSUMMARY:" + summary);
+        ctx.Response.Write("\nDESCRIPTION:" + description);
+        ctx.Response.Write("\nPRIORITY:5");
+        ctx.Response.Write("\nCLASS:PUBLIC");
+        ctx.Response.Write("\nEND:VEVENT");
+        ctx.Response.Write("\nEND:VCALENDAR");
+        ctx.Response.End();
+    }
+}
+
+
+

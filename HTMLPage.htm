@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>Untitled Page</title>
+</head>
+<body>
+<script type="text/javascript">
+                var lastdown = 0;
+			    function KeyDown()
+			    {
+			        var a = document.getElementById('testText');
+			        var b = document.getElementById('outputDiv');
+			        
+			        var today = new Date();
+			        lastdown = today.getTime();
+			        
+			        b.innerHTML += '<br/>' +today.getTime(); 
+			    }
+			    
+			    function KeyUp()
+			    {
+			        var a = document.getElementById('testText');
+			        var b = document.getElementById('outputDiv');
+			        
+			        var today = new Date();
+			        b.innerHTML += '<br/>' +today.getTime();  //today.getTime() - lastdown);
+			    }
+			</script>
+            <input type="text" onkeydown="KeyDown()" id="testText" />
+                
+            <div id="outputDiv"></div>
+            
+           <!-- <div id="cse" style="width: 100%;">Loading</div>
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+<script type="text/javascript"> 
+  google.load('search', '1', {language : 'en', style : google.loader.themes.BUBBLEGUM});
+  google.setOnLoadCallback(function() {
+    var customSearchControl = new google.search.CustomSearchControl('007618836567812136185:rkaomghzmpy');
+    customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
+    customSearchControl.draw('cse');
+  }, true);
+</script>-->
+            
+</body>
+</html>

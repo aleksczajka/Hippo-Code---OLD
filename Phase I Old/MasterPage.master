@@ -1,0 +1,154 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" 
+Inherits="MasterPage" %>
+<%@ Register TagName="Header" TagPrefix="ctrl" Src="~/Controls/Header.ascx" %>
+<%@ Register TagName="Footer" TagPrefix="ctrl" Src="~/Controls/Footer.ascx" %>
+<%@ Register TagName="BottomFooter" TagPrefix="ctrl" Src="~/Controls/BottomFooter.ascx" %>
+<%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="rad" %>
+<%@ Register Assembly="System.Web.Extensions, Version=1.0.61025.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
+    Namespace="System.Web.UI" TagPrefix="asp" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head  runat="server" id="HeadTag">
+    <!--[if gte IE 6]><meta http-equiv="Page-Enter" content="BlendTrans(Duration=0.1)" /><![endif]-->
+    <!--[if lt IE 7.]>
+    <script defer type="text/javascript" src="js/pngfix.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8.]>
+    <script defer type="text/javascript" src="js/pngfix.js"></script>
+    <![endif]-->
+    <link type="text/css" href="StyleSheet.css" rel="stylesheet" />
+
+<script src="js/TotalJS.js" type="text/javascript"></script>
+    <title>Local Events, Venues, Community, Neighborhood, Ads & Classifieds</title>
+<script type="text/javascript">timedout();</script> 
+
+<script runat="server">protected void ScriptManager1_AsyncPostBackError(object sender, AsyncPostBackErrorEventArgs e) { if (e.Exception.Data["GUID"] != null) { ScriptManager1.AsyncPostBackErrorMessage = e.Exception.Message + " When reporting this error use the following ID: " + e.Exception.Data["GUID"].ToString(); } else { ScriptManager1.AsyncPostBackErrorMessage = "The server could not process the request.";}}</script>
+
+    <link id="Link1" href="../Skins/HippoHappenings/Tabstrip.HippoHappenings.css" rel="stylesheet" 
+    type="text/css" runat="server" />
+    <link rel="shortcut icon" HREF="http://hippohappenings.com/favicon.ico">
+
+
+</head>
+<body id="bodytag" runat="server" style="padding: 0; margin: 0; background: url('image/MiddleBackground2.png'); background-repeat: repeat-y; scrollbar-base-color: #666666; scrollbar-shadow-color: #666666; scrollbar-highlight-color: #666666; scrollbar-darkshadow-color: #666666; scrollbar-3dlight-color: #666666; scrollbar-track-color: #999999; scrollbar-arrow-color: #363636;">
+    <form id="form1" runat="server">
+    
+    <asp:ScriptManager runat="server" ID="ScriptManager1"
+    OnAsyncPostBackError="ScriptManager1_AsyncPostBackError" EnablePageMethods="true" >
+    </asp:ScriptManager>
+    <script type="text/javascript">
+    function onWinClose(r, b)
+    {
+        if(b != null && b != undefined) 
+            window.location = b; 
+        else 
+            __doPostBack('ctl00$somelink', '');
+     }
+     
+     var prm=Sys.WebForms.PageRequestManager.getInstance();
+     prm.add_beginRequest(beginRequest);
+     function beginRequest()
+     {
+        prm._scrollPosition=null;
+     }
+     </script>
+<rad:RadAjaxLoadingPanel ID="loadingpanelconfig" Transparency="80"  runat="server" IsSticky="true" BackColor="Black"   >
+      
+</rad:RadAjaxLoadingPanel>
+
+
+<script type="text/javascript" language="javascript">Sys.WebForms.PageRequestManager.getInstance().add_endRequest(EndRequestHandler);var divElem='AlertDiv';var messageElem='AlertMessage';var bodyTag='bodytag';Sys.WebForms.PageRequestManager.getInstance().add_endRequest(EndRequestHandler);function ToggleAlertDiv(visString){if($get(bodyTag)!=null&&$get(bodyTag)!=undefined){if(visString=='hidden'){$get(bodyTag).style.backgroundColor='white'}else{$get(bodyTag).style.backgroundColor='gray'}var adiv=$get(divElem);adiv.style.visibility=visString}}function ClearErrorState(){$get(messageElem).innerHTML='';ToggleAlertDiv('hidden')}function EndRequestHandler(sender,args){if(args.get_error()!=undefined){var errorMessage=args.get_error().message;args.set_errorHandled(true);ToggleAlertDiv('visible');$get(messageElem).innerHTML=errorMessage}}</script>
+<rad:RadWindowManager Behaviors="Close, Move, Resize,Maximize"
+            ID="RadWindowManager"  Skin="Black" DestroyOnClose="false" runat="server">
+            <Windows>
+                
+                <rad:RadWindow ShowContentDuringLoad="true"  Modal="false" 
+                Behaviors="Close, Move, Resize, Maximize, Minimize, Pin" ReloadOnShow="true"
+                ClientCallBackFunction="onWinClose"  KeepInScreenBounds="true" 
+                NavigateUrl="SearchResults.aspx" VisibleStatusbar="false"
+                EnableEmbeddedSkins="true" Skin="Vista" CssClass="SearchWindow"
+                ID="RadWindow3" Title="Your Search Results" runat="server">
+                </rad:RadWindow>             
+            </Windows>
+        </rad:RadWindowManager>
+        <asp:UpdatePanel runat="server" UpdateMode="Conditional">
+            <ContentTemplate>
+                <asp:LinkButton runat="server" id="somelink" OnClick="setsession" ></asp:LinkButton>
+            </ContentTemplate>
+        </asp:UpdatePanel>
+ <div id="AlertDiv">
+                <div id="AlertMessage">
+                </div>
+                <br />
+                <div id="AlertButtons" >
+                    <input id="OKButton" type="button" value="OK" 
+                           runat="server" onclick="ClearErrorState()" />
+                </div>
+           </div>
+
+<%--<rad:RadAjaxPanel ID="RadAjaxPanel1" runat="server" LoadingPanelID="loadingpanelconfig" EnablePageHeadUpdate="false" EnableViewState="true" >--%>
+<asp:Label runat="server" ID="dateLabel"></asp:Label>
+        <div style="background-image: url(images/BackgroundColor2.png); background-repeat: repeat-y;">
+        <div align="center">
+       
+        <%--<div style="height: 100%; z-index: 100; bottom: 0px;  background-image: url('image/MiddleBackground2.png'); background-repeat: repeat-y; width: 1400px;">
+            <div style=" clear: both; display: block;top: 0px; position: static;">
+                <img src="image/TopBackground2.png" />
+            </div>
+            
+            
+        </div>--%>
+      
+      <div style="background: url('images/TopBackground4.png'); background-repeat: no-repeat; background-position: top;">
+      <div style="background: url('image/BottomBackground2.png'); background-position: bottom; background-repeat: no-repeat;"> 
+        <div style=" display: block;height: 100%; bottom: 0px; ">
+            <div align="center" style=" width: 912px; background-image: url('image/TransparentBackground.png'); background-repeat: repeat-y; z-index: 1000;">
+                <div style="background-color: #393939; width: 900px;">
+                    <div style="z-index: 1600;">
+                        <%--<asp:UpdatePanel runat="server" UpdateMode="Conditional">
+                            <ContentTemplate>--%>
+                                <ctrl:Header runat="server"></ctrl:Header>
+                                
+                                    <div id="topDiv" style="width: 880px; padding-left: 20px; z-index: 1600;">
+                                        <div align="left" style=" background: url('image/BackgroundVectors.png'); background-position: bottom; background-repeat: repeat-y; min-height: 1000px;">
+        <%--                                     <rad:RadAjaxPanel ID="RadAjaxPanel2"  LoadingPanelID="loadingpanelconfig" runat="server">
+        --%>                                       
+                                                <%--<asp:UpdatePanel runat="server" UpdateMode="Conditional">
+                                                    <ContentTemplate>--%>
+                                                         <asp:contentplaceholder id="ContentPlaceHolder1" runat="server">
+                                                         </asp:contentplaceholder>
+                                                    <%--</ContentTemplate>
+                                                </asp:UpdatePanel>--%>
+        <%--                                    </rad:RadAjaxPanel>
+        --%>                                </div>
+                                        
+                                    </div>
+                                    
+                                  
+                                <ctrl:Footer runat="server" ID="TheFooter" CUT_OFF="9" PAGE_TYPE="Main" />
+                                <ctrl:BottomFooter runat="server" ID="BottomFooter"  />
+                        <%--
+                            </ContentTemplate>
+                        </asp:UpdatePanel>--%>
+                    </div>
+                    
+                </div>
+               
+            </div>
+            
+         </div>
+       </div>
+     </div>
+     </div> 
+      <%--  <div style=" clear: both ;bottom: 0px; position: static; width: 1400px;z-index: 100;">
+                <img src="image/BottomBackground2.png" />
+            </div>--%>
+    </div>
+   <%-- </rad:RadAjaxPanel>--%>
+   
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,1392 @@
+<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" Inherits="BlogEvent" 
+ValidateRequest="false" EnableEventValidation="false" AutoEventWireup="true" Title="Blog Event & Happenings | HippoHappenings"  
+CodeFile="BlogEvent.aspx.cs" %>
+<%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="rad" %>
+<%@ Register TagName="HippoTextBox" TagPrefix="ctrl" Src="~/Controls/HippoTextBox.ascx" %>
+<%@ OutputCache Duration="86400" VaryByParam="*" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+<rad:RadWindowManager ShowContentDuringLoad="true" VisibleTitlebar="false" 
+                KeepInScreenBounds="true" VisibleOnPageLoad="false"  Behaviors="none"
+            ID="MessageRadWindowManager" Modal="true" RestrictionZoneID="RestrictionZone"
+            runat="server">
+                <Windows>
+                    <rad:RadWindow Width="300" ClientCallBackFunction="OnClientClose" 
+                    VisibleStatusbar="false" Skin="Black" Height="350" ID="MessageRadWindow" 
+                     runat="server">
+                    </rad:RadWindow>
+                    <rad:RadWindow Width="400" ClientCallBackFunction="FillVenueJS" 
+                    VisibleStatusbar="false" Skin="Black" Height="500" ID="RadWindow1" 
+                     runat="server">
+                    </rad:RadWindow>
+                </Windows>
+            </rad:RadWindowManager>
+            <script type="text/javascript">
+            function OnClientClose(oWnd, args)
+            {
+
+                window.location = args;
+            }
+           
+            </script>
+              
+<%--<rad:RadAjaxPanel runat="server">--%>
+ 
+
+<div style="padding-bottom: 100px;">
+
+    <div style="font-family: Arial; font-size: 30px; color: #cccccc; padding-bottom: 10px;">
+        <asp:Label runat="server" ID="nameLabel" Text="Enter an Event"></asp:Label>
+        <asp:Label runat="server" ID="UserNameLabel" Visible="false"></asp:Label>
+        <asp:Label runat="server" ID="isEdit" Visible="false"></asp:Label>
+        <asp:Label runat="server" ID="eventID" Visible="false"></asp:Label>
+    </div>
+    <div id="topDiv6">
+        <div style="float: left; width: 680px;">
+        <div style="margin-left: 11px;">
+            <rad:RadTabStrip runat="server" ID="EventTabStrip" Height="40px"
+            Skin="HippoHappenings" CssClass="EventTabStrip" 
+            EnableEmbeddedSkins="false" OnTabClick="TabClick"  MultiPageID="BlogEventPages" SelectedIndex="0">
+                <Tabs>
+                    <rad:RadTab runat="server" PageViewID="TabOne" 
+                    ImageUrl="images/DetailsBlueFull.gif" 
+                    HoveredImageUrl="images/DetailsBlueFull.gif" TabIndex="0" 
+                    DisabledImageUrl="images/DetailsBlueFull.gif" 
+                    SelectedImageUrl="images/DetailsBlueFull.gif" >
+
+                    </rad:RadTab>
+                    <rad:RadTab runat="server" Enabled="false"  PageViewID="RadPageView1" 
+                    ImageUrl="images/DescriptionBlueFull.gif" 
+                    HoveredImageUrl="images/DescriptionBlueFull.gif"  TabIndex="1"  
+                    DisabledImageUrl="images/DescriptionBlueEmpty.gif" 
+                    SelectedImageUrl="images/DescriptionBlueFull.gif" >
+                        
+                    </rad:RadTab>
+                    <rad:RadTab runat="server" Enabled="false"   PageViewID="RadPageView2" 
+                    ImageUrl="images/MediaBlueFull.gif" 
+                    HoveredImageUrl="images/MediaBlueFull.gif"  TabIndex="2" 
+                    DisabledImageUrl="images/MediaBlueEmpty.gif" 
+                    SelectedImageUrl="images/MediaBlueFull.gif" ></rad:RadTab>
+                    <rad:RadTab runat="server" Enabled="false"   PageViewID="RadPageView3" 
+                    ImageUrl="images/CategoriesBlueFull.gif" 
+                    HoveredImageUrl="images/CategoriesBlueFull.gif"  TabIndex="3" 
+                    DisabledImageUrl="images/CategoriesBlueEmpty.gif" 
+                    SelectedImageUrl="images/CategoriesBlueFull.gif" ></rad:RadTab>
+                    <rad:RadTab runat="server"  Enabled="false"  PageViewID="RadPageView4" 
+                    ImageUrl="images/PostBlueFull.gif" 
+                    HoveredImageUrl="images/PostBlueFull.gif" 
+                    DisabledImageUrl="images/PostBlueEmpty.gif"  TabIndex="4" 
+                    SelectedImageUrl="images/PostBlueFull.gif" ></rad:RadTab>
+                </Tabs>
+            </rad:RadTabStrip>
+        </div>
+        <rad:RadMultiPage runat="server" ID="BlogEventPages" SelectedIndex="0">
+            <rad:RadPageView runat="server" ID="TabOne" TabIndex="0" >
+                <asp:Panel runat="server" ID="Panel1" DefaultButton="DetailsOnwardsButton">
+                    <div style="background: url('image/TabsBackgroundTop.png'); background-repeat: no-repeat; width: 668px; height: 4px;">
+                    </div>
+                    <div id="topDiv" style="background: url('image/TabsBackground.png'); background-repeat: repeat-y; width: 668px; padding-top: 10px;">
+                        <div class="EventDiv" style="padding-left: 30px; padding-bottom: 10px;">
+                            <h1>Details</h1>
+                            <table width="100%">
+                                <tr>
+                                    <td valign="top" width="250px">
+                                    <label>All HTML tags will be removed except for links. However, the header cannot contain links at all.</label>
+                                            <br />
+                                            <script type="text/javascript">
+                                                            
+//                                                                            function OnClientLoad(editor)
+//                                                                            {
+//                                                                                editor.attachEventHandler("onkeyup", CountChars);
+//                                                                                editor.attachEventHandler("onkeypress", function(evt){if(evt.keyCode == 13)return false;});
+//                                                                            }  
+                                                        function CountCharsHeadline(editor, e){
+                                                            
+                                                                var theDiv = document.getElementById("CharsDivHeadline");
+                                                                var theText = document.getElementById("ctl00_ContentPlaceHolder1_EventNameTextBox_TheTextBox");
+                                                                theDiv.innerHTML = "characters left: "+ (70 - theText.value.length).toString();
+                                                            
+                                                        }
+                                                    </script>
+                                        <h1 class="Blue"><span style='color: #1fb6e7; font-weight: bold;'>* </span>Event Name</h1>
+                                        <span style="font-family: Arial; font-size: 10px; color: #ff770d; font-weight: bold;">max 70 characters
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <span style="color: Red;" id="CharsDivHeadline"></span></span>
+                                        <ctrl:HippoTextBox runat="server" ON_CLIENT_KEYPRESS="CountCharsHeadline(event)" TEXTBOX_WIDTH="240" 
+                                        ID="EventNameTextBox" CSS_CLASS="TextBox25" LITERAL_CSS_CLASS="TextBoxLeftImage25" />
+                                        <br /><br /><br />
+                                         
+                                    </td>
+                                    <td style=" padding-left: 32px;">
+                                        <h1 class="Green"><span style='color: #1fb6e7; font-weight: bold;'>* </span>Venue</h1>
+                                         <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="conditional">
+                                            <ContentTemplate>
+                                 
+                                        <div style="width: 300px; float: left;">
+                                        <div style="float: left; width: 300px ;padding-left: 10px; padding-bottom: 20px;">
+                                        
+                                        <asp:Panel runat="server" ID="ExistingVenuePanel">
+                                        <script type="text/javascript">
+                                               function fillDrop(theText, theID)
+                                               {
+                                                    var theDiv = document.getElementById('ctl00_ContentPlaceHolder1_TimeFrameDiv');
+                                                    theDiv.innerHTML = theText.replace("&&", "'");
+                                                    
+                                                    var theidDiv = document.getElementById('ctl00_ContentPlaceHolder1_VenueIDDIV');
+                                                    theidDiv.innerHTML = theID;
+                                                    
+                                                    var tooltip = Telerik.Web.UI.RadToolTip.getCurrent();
+                                                    if (tooltip) tooltip.hide();
+                                                    
+                                                    __doPostBack('ctl00$ContentPlaceHolder1$LinkButton1',theID);
+                                               }
+                                               
+                                               function HideAllDivs()
+                                               {
+                                                    var theDiv = document.getElementById('contentDivA');
+                                                    
+                                                    if(theDiv != null && theDiv != undefined)
+                                                    {
+                                                        theDiv.style.display = 'none';
+                                                        
+                                                        theDiv = document.getElementById('titleDivA');
+                                                        theDiv.className = 'AddWhiteLink';
+                                                    }
+                                                    
+                                                    theDiv = document.getElementById('contentDivB');
+                                                    if(theDiv != null && theDiv != undefined)
+                                                    {
+                                                        theDiv.style.display = 'none';
+                                                        
+                                                        theDiv = document.getElementById('titleDivB');
+                                                        theDiv.className = 'AddWhiteLink';
+                                                    }
+                                                    
+                                                    theDiv = document.getElementById('contentDivC');
+                                                    if(theDiv != null && theDiv != undefined)
+                                                    {
+                                                        theDiv.style.display = 'none';
+                                                        
+                                                        theDiv = document.getElementById('titleDivC');
+                                                        theDiv.className = 'AddWhiteLink';
+                                                    }
+                                                    
+                                                    theDiv = document.getElementById('contentDivD');
+                                                    if(theDiv != null && theDiv != undefined)
+                                                    {
+                                                        theDiv.style.display = 'none';
+                                                        
+                                                        theDiv = document.getElementById('titleDivD');
+                                                        theDiv.className = 'AddWhiteLink';
+                                                    }
+                                                    
+                                                    theDiv = document.getElementById('contentDivE');
+                                                    if(theDiv != null && theDiv != undefined)
+                                                    {
+                                                        theDiv.style.display = 'none';
+                                                        
+                                                        theDiv = document.getElementById('titleDivE');
+                                                        theDiv.className = 'AddWhiteLink';
+                                                    }
+                                                    
+                                                    theDiv = document.getElementById('contentDivF');
+                                                    if(theDiv != null && theDiv != undefined)
+                                                    {
+                                                        theDiv.style.display = 'none';
+                                                        
+                                                        theDiv = document.getElementById('titleDivF');
+                                                        theDiv.className = 'AddWhiteLink';
+                                                    }
+                                                    
+                                                    theDiv = document.getElementById('contentDivG');
+                                                    if(theDiv != null && theDiv != undefined)
+                                                    {
+                                                        theDiv.style.display = 'none';
+                                                        
+                                                        theDiv = document.getElementById('titleDivG');
+                                                        theDiv.className = 'AddWhiteLink';
+                                                    }
+                                                    
+                                                    theDiv = document.getElementById('contentDivH');
+                                                    if(theDiv != null && theDiv != undefined)
+                                                    {
+                                                        theDiv.style.display = 'none';
+                                                        
+                                                        theDiv = document.getElementById('titleDivH');
+                                                        theDiv.className = 'AddWhiteLink';
+                                                    }
+                                                    
+                                                    theDiv = document.getElementById('contentDivI');
+                                                    if(theDiv != null && theDiv != undefined)
+                                                    {
+                                                        theDiv.style.display = 'none';
+                                                        
+                                                        theDiv = document.getElementById('titleDivI');
+                                                        theDiv.className = 'AddWhiteLink';
+                                                    }
+                                                    
+                                                    theDiv = document.getElementById('contentDivJ');
+                                                    if(theDiv != null && theDiv != undefined)
+                                                    {
+                                                        theDiv.style.display = 'none';
+                                                        
+                                                        theDiv = document.getElementById('titleDivJ');
+                                                        theDiv.className = 'AddWhiteLink';
+                                                    }
+                                                    
+                                                    theDiv = document.getElementById('contentDivK');
+                                                    if(theDiv != null && theDiv != undefined)
+                                                    {
+                                                        theDiv.style.display = 'none';
+                                                        
+                                                        theDiv = document.getElementById('titleDivK');
+                                                        theDiv.className = 'AddWhiteLink';
+                                                    }
+                                                    
+                                                    theDiv = document.getElementById('contentDivL');
+                                                    if(theDiv != null && theDiv != undefined)
+                                                    {
+                                                        theDiv.style.display = 'none';
+                                                        
+                                                        theDiv = document.getElementById('titleDivL');
+                                                        theDiv.className = 'AddWhiteLink';
+                                                    }
+                                                    
+                                                    theDiv = document.getElementById('contentDivM');
+                                                    if(theDiv != null && theDiv != undefined)
+                                                    {
+                                                        theDiv.style.display = 'none';
+                                                        
+                                                        theDiv = document.getElementById('titleDivM');
+                                                        theDiv.className = 'AddWhiteLink';
+                                                    }
+                                                    
+                                                    theDiv = document.getElementById('contentDivN');
+                                                    if(theDiv != null && theDiv != undefined)
+                                                    {
+                                                        theDiv.style.display = 'none';
+                                                        
+                                                        theDiv = document.getElementById('titleDivN');
+                                                        theDiv.className = 'AddWhiteLink';
+                                                    }
+                                                    
+                                                    theDiv = document.getElementById('contentDivO');
+                                                    if(theDiv != null && theDiv != undefined)
+                                                    {
+                                                        theDiv.style.display = 'none';
+                                                        
+                                                        theDiv = document.getElementById('titleDivO');
+                                                        theDiv.className = 'AddWhiteLink';
+                                                    }
+                                                    
+                                                    theDiv = document.getElementById('contentDivP');
+                                                    if(theDiv != null && theDiv != undefined)
+                                                    {
+                                                        theDiv.style.display = 'none';
+                                                        
+                                                        theDiv = document.getElementById('titleDivP');
+                                                        theDiv.className = 'AddWhiteLink';
+                                                    }
+                                                    
+                                                    theDiv = document.getElementById('contentDivQ');
+                                                    if(theDiv != null && theDiv != undefined)
+                                                    {
+                                                        theDiv.style.display = 'none';
+                                                        
+                                                        theDiv = document.getElementById('titleDivQ');
+                                                        theDiv.className = 'AddWhiteLink';
+                                                    }
+                                                    
+                                                    theDiv = document.getElementById('contentDivR');
+                                                    if(theDiv != null && theDiv != undefined)
+                                                    {
+                                                        theDiv.style.display = 'none';
+                                                        
+                                                        theDiv = document.getElementById('titleDivR');
+                                                        theDiv.className = 'AddWhiteLink';
+                                                    }
+                                                    
+                                                    theDiv = document.getElementById('contentDivS');
+                                                    if(theDiv != null && theDiv != undefined)
+                                                    {
+                                                        theDiv.style.display = 'none';
+                                                        
+                                                        theDiv = document.getElementById('titleDivS');
+                                                        theDiv.className = 'AddWhiteLink';
+                                                    }
+                                                    
+                                                    theDiv = document.getElementById('contentDivT');
+                                                    if(theDiv != null && theDiv != undefined)
+                                                    {
+                                                        theDiv.style.display = 'none';
+                                                        
+                                                        theDiv = document.getElementById('titleDivT');
+                                                        theDiv.className = 'AddWhiteLink';
+                                                    }
+                                                    
+                                                    theDiv = document.getElementById('contentDivU');
+                                                    if(theDiv != null && theDiv != undefined)
+                                                    {
+                                                        theDiv.style.display = 'none';
+                                                        
+                                                        theDiv = document.getElementById('titleDivU');
+                                                        theDiv.className = 'AddWhiteLink';
+                                                    }
+                                                    
+                                                    theDiv = document.getElementById('contentDivV');
+                                                    if(theDiv != null && theDiv != undefined)
+                                                    {
+                                                        theDiv.style.display = 'none';
+                                                        
+                                                        theDiv = document.getElementById('titleDivV');
+                                                        theDiv.className = 'AddWhiteLink';
+                                                    }
+                                                    
+                                                    theDiv = document.getElementById('contentDivW');
+                                                    if(theDiv != null && theDiv != undefined)
+                                                    {
+                                                        theDiv.style.display = 'none';
+                                                        
+                                                        theDiv = document.getElementById('titleDivW');
+                                                        theDiv.className = 'AddWhiteLink';
+                                                    }
+                                                    
+                                                    theDiv = document.getElementById('contentDivX');
+                                                    if(theDiv != null && theDiv != undefined)
+                                                    {
+                                                        theDiv.style.display = 'none';
+                                                        
+                                                        theDiv = document.getElementById('titleDivX');
+                                                        theDiv.className = 'AddWhiteLink';
+                                                    }
+                                                    
+                                                    theDiv = document.getElementById('contentDivY');
+                                                    if(theDiv != null && theDiv != undefined)
+                                                    {
+                                                        theDiv.style.display = 'none';
+                                                        
+                                                        theDiv = document.getElementById('titleDivY');
+                                                        theDiv.className = 'AddWhiteLink';
+                                                    }
+                                                    
+                                                    theDiv = document.getElementById('contentDivZ');
+                                                    if(theDiv != null && theDiv != undefined)
+                                                    {
+                                                        theDiv.style.display = 'none';
+                                                        
+                                                        theDiv = document.getElementById('titleDivZ');
+                                                        theDiv.className = 'AddWhiteLink';
+                                                    }
+                                               }
+                                               
+                                               function SelectLetterDiv(letter)
+                                               {
+                                                HideAllDivs();
+                                                var theDiv = document.getElementById('contentDiv'+letter);
+                                                theDiv.style.display = 'block';
+                                                
+                                                theDiv = document.getElementById('titleDiv'+letter);
+                                                theDiv.className = "AddGreenLink";
+                                               }
+                                               
+                                               function OpenCreateVenue()
+                                               {
+                                                    var win = $find("<%=RadWindow1.ClientID %>");
+                                                    win.setUrl('CreateVenue.aspx');
+                                                    win.show(); 
+                                                    win.center(); 
+                                               }
+                                               function FillVenueJS(returnV, returnValue)
+                                               {
+                                                    __doPostBack('ctl00$ContentPlaceHolder1$GetNewVenueButton','');
+                                               }
+                                               </script>
+<%--                                                   <asp:UpdatePanel ID="UpdatePanel2" runat="server" UpdateMode="conditional">
+                                            <ContentTemplate>
+--%>                                                    <asp:LinkButton runat="server" ID="GetNewVenueButton" OnClick="GetNewVenue"></asp:LinkButton>
+                                                        <asp:LinkButton runat="server" ID="LinkButton1" OnClick="SetNewVenue"></asp:LinkButton>
+<%--                                               
+</ContentTemplate>
+                                               </asp:UpdatePanel>
+--%>                                            <span style="font-family: Arial; font-size: 12px; color: #cccccc;"><span style='color: #1fb6e7; font-weight: bold;'>*</span>To find if your venue already exists, select the location, click go and select your venue. If you find it does not exist <span style='color: #1fb6e7; font-weight: bold; cursor: pointer;' onclick="OpenCreateVenue();">please create one.</span></span>
+                                            <div style="padding-top: 5px;">
+                                                <asp:DropDownList runat="server" ID="VenueCountry" OnSelectedIndexChanged="ChangeVenueStateAction" AutoPostBack="true" ></asp:DropDownList>
+                                            </div>
+                                            <div style="float: left;padding-top: 5px;">
+                                                <asp:DropDownList runat="server" ID="VenueState"></asp:DropDownList>
+                                                
+                                                <asp:TextBox runat="server" ID="VenueStateTextBox"></asp:TextBox>
+                                                
+                                            </div>
+                                            <div style="float: left; padding-top: 2px;">
+                                                    <asp:ImageButton OnClick="GetVenues" runat="server" ID="GoButton" ImageUrl="image/GoButton.png" onmouseover="this.src='image/GoButtonSelected.png'" onmouseout="this.src='image/GoButton.png'" />
+                                                    <%--<asp:DropDownList Visible="false" runat="server" ID="VenueDropDown" Visible="false">
+                                                    </asp:DropDownList>--%>
+                                                </div>
+                                            <div style="float: left;">
+                                                <div style="float: right; padding-top: 8px;padding-right: 10px;">
+                                           
+                                                <rad:RadToolTip RelativeTo="Element" Position="topCenter" ManualClose="true" 
+                                                runat="server" ID="Tip1" TargetControlID="Div1" ShowEvent="OnClick">
+                                                    stuff
+                                                </rad:RadToolTip>
+                                                <div runat="server" id="VenueIDDIV" style="display: none;"></div>
+                                                <div runat="server" style="cursor: pointer;width: 154px; height: 20px; margin-top: -3px;" id="Div1">
+                                                <table cellpadding="0" cellspacing="0">
+                                                    <tr>
+                                                        <td>
+                                                            <div style="float: left;border: solid 2px #628E02;padding: 2px;background-color: transparent;color: White; font-weight: bold; font-family: Arial;font-size: 12px;" runat="server" id="TimeFrameDiv">
+                                                                Select Venue >
+                                                            </div>
+<%--                                                            <img style="padding-top: 7px;float: left;" src="image/VenuesArrow.png" />
+--%>                                                    </td>
+                                                    </tr>
+                                                </table>
+                                                </div>
+                                                
+                                             </div>
+                                            </div>
+                                        </asp:Panel>
+                                        </div>
+                                       
+                                      <%--  <div style="background-color: #666666; padding-left: 10px; padding-bottom: 20px; width: 300px;">
+                                         <asp:Panel runat="server" ID="LocationPanel"  Visible="false">
+                                       
+                                            <label><b>Enter Venue Details</b></label>
+                                            
+                                            <table cellpadding="0" cellspacing="0">
+                                                <tr>
+                                                    <td>
+                                                        <label>Venue Name</label>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="padding-bottom: 20px;">
+                                                        <ctrl:HippoTextBox Visible="false" ID="VenueNameTextBox" TEXTBOX_WIDTH="200" runat="server" 
+                                                            CSS_CLASS="TextBox25" LITERAL_CSS_CLASS="TextBoxLeftImage25" />
+                                                            
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <label>Location</label>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                <td colspan="2" style="padding-top: 5px;">
+                                                    <label style="padding-right: 10px;">*Country</label><br />
+                                                    <asp:DropDownList OnSelectedIndexChanged="ChangeState" AutoPostBack="true" runat="server" 
+                                                    DataSourceID="SqlDataSourceCountry" DataTextField="country_name" DataValueField="country_id" 
+                                                    ID="CountryDropDown"></asp:DropDownList>
+                                                    <asp:SqlDataSource runat="server" ID="SqlDataSourceCountry" SelectCommand="SELECT * FROM Countries"
+                                                    ConnectionString="<%$ ConnectionStrings:Connection %>"></asp:SqlDataSource>
+                                                </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <table cellpadding="0" cellspacing="0">
+                                            
+                                                <asp:Panel runat="server" ID="USPanel">
+                                                <tr>
+                                                <td colspan="2">
+                                                    <table width="100%" cellpadding="0" cellspacing="0">
+                                                        <tr>
+                                                            <td style="padding-top: 3px;">
+                                                                <label>*Street No.</label>
+                                                            </td>
+                                                            <td style="padding-top: 3px;padding-left: 3px;">
+                                                                <label>*Street Name</label>
+                                                            </td>
+                                                            <td style="padding-top: 3px;padding-left: 3px;">
+                                                               
+                                                            </td>
+                                                            
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <asp:TextBox runat="server" ID="StreetNumberTextBox" Width="70px"></asp:TextBox>
+                                                            </td>
+                                                            <td style="padding-left: 3px;">
+                                                                <asp:TextBox runat="server" ID="StreetNameTextBox" Width="100px"></asp:TextBox>
+                                                            </td>
+                                                            <td style="padding-left: 3px;">
+                                                                <asp:DropDownList runat="server" ID="StreetDropDown" Width="100px">
+                                                                    <asp:ListItem Text="Select One..."></asp:ListItem>
+                                                                    <asp:ListItem Text="Alley"></asp:ListItem>
+                                                                    <asp:ListItem Text="Annex"></asp:ListItem>
+                                                                    <asp:ListItem Text="Arcade"></asp:ListItem>
+                                                                    <asp:ListItem Text="Avenue"></asp:ListItem>
+                                                                    <asp:ListItem Text="Bayoo"></asp:ListItem>
+                                                                    <asp:ListItem Text="Beach"></asp:ListItem>
+                                                                    <asp:ListItem Text="Bend"></asp:ListItem>
+                                                                    <asp:ListItem Text="Bluff"></asp:ListItem>
+                                                                    <asp:ListItem Text="Bluffs"></asp:ListItem>
+                                                                    <asp:ListItem Text="Bottom"></asp:ListItem>
+                                                                    <asp:ListItem Text="Boulevard"></asp:ListItem>
+                                                                    <asp:ListItem Text="Branch"></asp:ListItem>
+                                                                    <asp:ListItem Text="Bridge"></asp:ListItem>
+                                                                    <asp:ListItem Text="Brook"></asp:ListItem>
+                                                                    <asp:ListItem Text="Brooks"></asp:ListItem>
+                                                                    <asp:ListItem Text="Burg"></asp:ListItem>
+                                                                    <asp:ListItem Text="Burgs"></asp:ListItem>
+                                                                    <asp:ListItem Text="Bypass"></asp:ListItem>
+                                                                    <asp:ListItem Text="Camp"></asp:ListItem>
+                                                                    <asp:ListItem Text="Canyon"></asp:ListItem>
+                                                                    <asp:ListItem Text="Cape"></asp:ListItem>
+                                                                    <asp:ListItem Text="Causeway"></asp:ListItem>
+                                                                    <asp:ListItem Text="Center"></asp:ListItem>
+                                                                    <asp:ListItem Text="Centers"></asp:ListItem>
+                                                                    <asp:ListItem Text="Circle"></asp:ListItem>
+                                                                    <asp:ListItem Text="Circles"></asp:ListItem>
+                                                                    <asp:ListItem Text="Cliff"></asp:ListItem>
+                                                                    <asp:ListItem Text="Cliffs"></asp:ListItem>
+                                                                    <asp:ListItem Text="Club"></asp:ListItem>
+                                                                    <asp:ListItem Text="Common"></asp:ListItem>
+                                                                    <asp:ListItem Text="Corner"></asp:ListItem>
+                                                                    <asp:ListItem Text="Corners"></asp:ListItem>
+                                                                    <asp:ListItem Text="Course"></asp:ListItem>
+                                                                    <asp:ListItem Text="Court"></asp:ListItem>
+                                                                    <asp:ListItem Text="Courts"></asp:ListItem>
+                                                                    <asp:ListItem Text="Cove"></asp:ListItem>
+                                                                    <asp:ListItem Text="Coves"></asp:ListItem>
+                                                                    <asp:ListItem Text="Creek"></asp:ListItem>
+                                                                    <asp:ListItem Text="Crescent"></asp:ListItem>
+                                                                    <asp:ListItem Text="Crest"></asp:ListItem>
+                                                                    <asp:ListItem Text="Crossing"></asp:ListItem>
+                                                                    <asp:ListItem Text="Crossroad"></asp:ListItem>
+                                                                    <asp:ListItem Text="Curve"></asp:ListItem>
+                                                                    <asp:ListItem Text="Dale"></asp:ListItem>
+                                                                    <asp:ListItem Text="Dam"></asp:ListItem>
+                                                                    <asp:ListItem Text="Divide"></asp:ListItem>
+                                                                    <asp:ListItem Text="Drive"></asp:ListItem>
+                                                                    <asp:ListItem Text="Drives"></asp:ListItem>
+                                                                    <asp:ListItem Text="Estate"></asp:ListItem>
+                                                                    <asp:ListItem Text="Estates"></asp:ListItem>
+                                                                    <asp:ListItem Text="Expressway"></asp:ListItem>
+                                                                    <asp:ListItem Text="Extension"></asp:ListItem>
+                                                                    <asp:ListItem Text="Extensions"></asp:ListItem>
+                                                                    <asp:ListItem Text="Fall"></asp:ListItem>
+                                                                    <asp:ListItem Text="Falls"></asp:ListItem>
+                                                                    <asp:ListItem Text="Ferry"></asp:ListItem>
+                                                                    <asp:ListItem Text="Field"></asp:ListItem>
+                                                                    <asp:ListItem Text="Fields"></asp:ListItem>
+                                                                    <asp:ListItem Text="Flat"></asp:ListItem>
+                                                                    <asp:ListItem Text="Flats"></asp:ListItem>
+                                                                    <asp:ListItem Text="Ford"></asp:ListItem>
+                                                                    <asp:ListItem Text="Fords"></asp:ListItem>
+                                                                    <asp:ListItem Text="Forest"></asp:ListItem>
+                                                                    <asp:ListItem Text="Forge"></asp:ListItem>
+                                                                    <asp:ListItem Text="Forges"></asp:ListItem>
+                                                                    <asp:ListItem Text="Fork"></asp:ListItem>
+                                                                    <asp:ListItem Text="Forks"></asp:ListItem>
+                                                                    <asp:ListItem Text="Fort"></asp:ListItem>
+                                                                    <asp:ListItem Text="Freeway"></asp:ListItem>
+                                                                    <asp:ListItem Text="Garden"></asp:ListItem>
+                                                                    <asp:ListItem Text="Gardens"></asp:ListItem>
+                                                                    <asp:ListItem Text="Gateway"></asp:ListItem>
+                                                                    <asp:ListItem Text="Glen"></asp:ListItem>
+                                                                    <asp:ListItem Text="Glens"></asp:ListItem>
+                                                                    <asp:ListItem Text="Green"></asp:ListItem>
+                                                                    <asp:ListItem Text="Greens"></asp:ListItem>
+                                                                    <asp:ListItem Text="Grove"></asp:ListItem>
+                                                                    <asp:ListItem Text="Harbor"></asp:ListItem>
+                                                                    <asp:ListItem Text="Harbors"></asp:ListItem>
+                                                                    <asp:ListItem Text="Haven"></asp:ListItem>
+                                                                    <asp:ListItem Text="Heights"></asp:ListItem>
+                                                                    <asp:ListItem Text="Highway"></asp:ListItem>
+                                                                    <asp:ListItem Text="Hill"></asp:ListItem>
+                                                                    <asp:ListItem Text="Hills"></asp:ListItem>
+                                                                    <asp:ListItem Text="Hollow"></asp:ListItem>
+                                                                    <asp:ListItem Text="Inlet"></asp:ListItem>
+                                                                    <asp:ListItem Text="Island"></asp:ListItem>
+                                                                    <asp:ListItem Text="Islands"></asp:ListItem>
+                                                                    <asp:ListItem Text="Isle"></asp:ListItem>
+                                                                    <asp:ListItem Text="Junction"></asp:ListItem>
+                                                                    <asp:ListItem Text="Junctions"></asp:ListItem>
+                                                                    <asp:ListItem Text="Key"></asp:ListItem>
+                                                                    <asp:ListItem Text="Keys"></asp:ListItem>
+                                                                    <asp:ListItem Text="Knoll"></asp:ListItem>
+                                                                    <asp:ListItem Text="Knolls"></asp:ListItem>
+                                                                    <asp:ListItem Text="Lake"></asp:ListItem>
+                                                                    <asp:ListItem Text="Lakes"></asp:ListItem>
+                                                                    <asp:ListItem Text="Land"></asp:ListItem>
+                                                                    <asp:ListItem Text="Landing"></asp:ListItem>
+                                                                    <asp:ListItem Text="Lane"></asp:ListItem>
+                                                                    <asp:ListItem Text="Light"></asp:ListItem>
+                                                                    <asp:ListItem Text="Lights"></asp:ListItem>
+                                                                    <asp:ListItem Text="Loaf"></asp:ListItem>
+                                                                    <asp:ListItem Text="Lock"></asp:ListItem>
+                                                                    <asp:ListItem Text="Locks"></asp:ListItem>
+                                                                    <asp:ListItem Text="Lodge"></asp:ListItem>
+                                                                    <asp:ListItem Text="Loop"></asp:ListItem>
+                                                                    <asp:ListItem Text="Mall"></asp:ListItem>
+                                                                    <asp:ListItem Text="Manor"></asp:ListItem>
+                                                                    <asp:ListItem Text="Manors"></asp:ListItem>
+                                                                    <asp:ListItem Text="Meadow"></asp:ListItem>
+                                                                    <asp:ListItem Text="Meadows"></asp:ListItem>
+                                                                    <asp:ListItem Text="Mews"></asp:ListItem>
+                                                                    <asp:ListItem Text="Mill"></asp:ListItem>
+                                                                    <asp:ListItem Text="Mills"></asp:ListItem>
+                                                                    <asp:ListItem Text="Mission"></asp:ListItem>
+                                                                    <asp:ListItem Text="Motorway"></asp:ListItem>
+                                                                    <asp:ListItem Text="Mount"></asp:ListItem>
+                                                                    <asp:ListItem Text="Mountain"></asp:ListItem>
+                                                                    <asp:ListItem Text="Mountains"></asp:ListItem>
+                                                                    <asp:ListItem Text="Neck"></asp:ListItem>
+                                                                    <asp:ListItem Text="Orchard"></asp:ListItem>
+                                                                    <asp:ListItem Text="Oval"></asp:ListItem>
+                                                                    <asp:ListItem Text="Overpass"></asp:ListItem>
+                                                                    <asp:ListItem Text="Park"></asp:ListItem>
+                                                                    <asp:ListItem Text="Parks"></asp:ListItem>
+                                                                    <asp:ListItem Text="Parkway"></asp:ListItem>
+                                                                    <asp:ListItem Text="Parkways"></asp:ListItem>
+                                                                    <asp:ListItem Text="Pass"></asp:ListItem>
+                                                                    <asp:ListItem Text="Passage"></asp:ListItem>
+                                                                    <asp:ListItem Text="Path"></asp:ListItem>
+                                                                    <asp:ListItem Text="Pike"></asp:ListItem>
+                                                                    <asp:ListItem Text="Pine"></asp:ListItem>
+                                                                    <asp:ListItem Text="Pines"></asp:ListItem>
+                                                                    <asp:ListItem Text="Place"></asp:ListItem>
+                                                                    <asp:ListItem Text="Plain"></asp:ListItem>
+                                                                    <asp:ListItem Text="Plains"></asp:ListItem>
+                                                                    <asp:ListItem Text="Plaza"></asp:ListItem>
+                                                                    <asp:ListItem Text="Point"></asp:ListItem>
+                                                                    <asp:ListItem Text="Points"></asp:ListItem>
+                                                                    <asp:ListItem Text="Port"></asp:ListItem>
+                                                                    <asp:ListItem Text="Ports"></asp:ListItem>
+                                                                    <asp:ListItem Text="Prairie"></asp:ListItem>
+                                                                    <asp:ListItem Text="Radial"></asp:ListItem>
+                                                                    <asp:ListItem Text="Ramp"></asp:ListItem>
+                                                                    <asp:ListItem Text="Ranch"></asp:ListItem>
+                                                                    <asp:ListItem Text="Rapid"></asp:ListItem>
+                                                                    <asp:ListItem Text="Rapids"></asp:ListItem>
+                                                                    <asp:ListItem Text="Rest"></asp:ListItem>
+                                                                    <asp:ListItem Text="Ridge"></asp:ListItem>
+                                                                    <asp:ListItem Text="Ridges"></asp:ListItem>
+                                                                    <asp:ListItem Text="River"></asp:ListItem>
+                                                                    <asp:ListItem Text="Road"></asp:ListItem>
+                                                                    <asp:ListItem Text="Roads"></asp:ListItem>
+                                                                    <asp:ListItem Text="Route"></asp:ListItem>
+                                                                    <asp:ListItem Text="Row"></asp:ListItem>
+                                                                    <asp:ListItem Text="Rue"></asp:ListItem>
+                                                                    <asp:ListItem Text="Run"></asp:ListItem>
+                                                                    <asp:ListItem Text="Shoal"></asp:ListItem>
+                                                                    <asp:ListItem Text="Shoals"></asp:ListItem>
+                                                                    <asp:ListItem Text="Shore"></asp:ListItem>
+                                                                    <asp:ListItem Text="Shores"></asp:ListItem>
+                                                                    <asp:ListItem Text="Skyway"></asp:ListItem>
+                                                                    <asp:ListItem Text="Spring"></asp:ListItem>
+                                                                    <asp:ListItem Text="Springs"></asp:ListItem>
+                                                                    <asp:ListItem Text="Spur"></asp:ListItem>
+                                                                    <asp:ListItem Text="Spurs"></asp:ListItem>
+                                                                    <asp:ListItem Text="Square"></asp:ListItem>
+                                                                    <asp:ListItem Text="Squares"></asp:ListItem>
+                                                                    <asp:ListItem Text="Station"></asp:ListItem>
+                                                                    <asp:ListItem Text="Stravenue"></asp:ListItem>
+                                                                    <asp:ListItem Text="Stream"></asp:ListItem>
+                                                                    <asp:ListItem Text="Street"></asp:ListItem>
+                                                                    <asp:ListItem Text="Streets"></asp:ListItem>
+                                                                    <asp:ListItem Text="Summit"></asp:ListItem>
+                                                                    <asp:ListItem Text="Terrace"></asp:ListItem>
+                                                                    <asp:ListItem Text="Throughway"></asp:ListItem>
+                                                                    <asp:ListItem Text="Trace"></asp:ListItem>
+                                                                    <asp:ListItem Text="Track"></asp:ListItem>
+                                                                    <asp:ListItem Text="Trafficway"></asp:ListItem>
+                                                                    <asp:ListItem Text="Trail"></asp:ListItem>
+                                                                    <asp:ListItem Text="Tunnel"></asp:ListItem>
+                                                                    <asp:ListItem Text="Turnpike"></asp:ListItem>
+                                                                    <asp:ListItem Text="Underpass"></asp:ListItem>
+                                                                    <asp:ListItem Text="Union"></asp:ListItem>
+                                                                    <asp:ListItem Text="Valley"></asp:ListItem>
+                                                                    <asp:ListItem Text="Valleys"></asp:ListItem>
+                                                                    <asp:ListItem Text="Viaduct"></asp:ListItem>
+                                                                    <asp:ListItem Text="View"></asp:ListItem>
+                                                                    <asp:ListItem Text="Views"></asp:ListItem>
+                                                                    <asp:ListItem Text="Village"></asp:ListItem>
+                                                                    <asp:ListItem Text="Villages"></asp:ListItem>
+                                                                    <asp:ListItem Text="Ville"></asp:ListItem>
+                                                                    <asp:ListItem Text="Vista"></asp:ListItem>
+                                                                    <asp:ListItem Text="Walk"></asp:ListItem>
+                                                                    <asp:ListItem Text="Walks"></asp:ListItem>
+                                                                    <asp:ListItem Text="Wall"></asp:ListItem>
+                                                                    <asp:ListItem Text="Way"></asp:ListItem>
+                                                                    <asp:ListItem Text="Ways"></asp:ListItem>
+                                                                    <asp:ListItem Text="Well"></asp:ListItem>
+                                                                    <asp:ListItem Text="Wells"></asp:ListItem>
+                                                                </asp:DropDownList>
+                                                            </td>
+                                                       </tr>
+                                                    </table>
+                                                </td>
+                                                </tr>
+                                                </asp:Panel>
+                                               
+                                            
+                                             <asp:Panel runat="server" ID="InternationalPanel" Visible="false">
+                                               <tr>
+                                                <td colspan="2">
+                                                    <table>
+                                                        <tr>
+                                                            <td>
+                                                                <label>*Location</label>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <asp:TextBox runat="server" ID="LocationTextBox" Width="200px"></asp:TextBox>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                                </tr>
+                                                </asp:Panel>
+                                                       <tr>
+                                                            <td colspan="2"  style="padding-top: 5px;">
+                                                                <asp:DropDownList runat="server" ID="AptDropDown">
+                                                                    <asp:ListItem Text="Suite" Value="1"></asp:ListItem>
+                                                                    <asp:ListItem Text="Apt" Value="2"></asp:ListItem>
+                                                                </asp:DropDownList>
+                                                                <asp:TextBox runat="server" ID="AptNumberTextBox" Width="50px"></asp:TextBox>
+                                                            </td>
+                                                        </tr>
+                                                <tr>
+                                                <td colspan="2" style="padding-top: 3px;">
+                                                    <label>*State</label><br />
+                                                    <asp:Panel runat="server" ID="StateTextBoxPanel">
+                                                        <ctrl:HippoTextBox ID="StateTextBox" runat="server" TEXTBOX_WIDTH="100" CSS_CLASS="TextBox25" LITERAL_CSS_CLASS="TextBoxLeftImage25" />
+                                                    </asp:Panel>
+                                                    <asp:Panel runat="server" ID="StateDropDownPanel" Visible="false">
+                                                        <asp:DropDownList runat="server" ID="StateDropDown"></asp:DropDownList>
+                                                    </asp:Panel>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2">
+                                                    <table cellpadding="0" cellspacing="0">
+                                                        <tr>
+                                                            <td style="padding-top: 3px;">
+                                                                <label>*City</label>
+                                                            </td>
+                                                            <td style="padding-top: 3px; padding-left: 3px;">
+                                                                <label>*Zip</label>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <ctrl:HippoTextBox ID="VenueCityTextBox" runat="server" TEXTBOX_WIDTH="100" 
+                                                    CSS_CLASS="TextBox25" LITERAL_CSS_CLASS="TextBoxLeftImage25" />
+                                                            </td>
+                                                            <td style="padding-left: 3px;">
+                                                                <ctrl:HippoTextBox ID="ZipTextBox" runat="server" TEXTBOX_WIDTH="100" CSS_CLASS="TextBox25" LITERAL_CSS_CLASS="TextBoxLeftImage25" />
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                                    </td>
+                                                </tr>
+                                              
+                                            </table>
+                                        </asp:Panel>
+                                        </div>--%>
+                                        </div>
+                                        </ContentTemplate>
+                                         </asp:UpdatePanel>
+                                    </td>
+                                    
+                                </tr>
+                                <tr>
+                                    <td valign="top" colspan="2">
+                                        <asp:UpdatePanel runat="server" UpdateMode="conditional">
+                                            <ContentTemplate>
+                                            
+                                            
+                                        <div class="topDiv" style="border-top: solid 1px #666666; width: 614px;margin-top: -10px; padding-top: 10px;">
+                                            <div style="float: left; width: 215px;">
+                                                <h1 class="Green">Event Occurance</h1>
+                                                <span style="font-family: Arial; font-size: 10px; color: #ff770d; font-weight: bold;"> [choose all dates this event re-occurs]</span>
+                                                                           <br />     <label><span style='color: #1fb6e7; font-weight: bold;'>* </span>Start Date & Time</label> 
+                                                                                <br />
+                                                   <style type="text/css">
+                                                    .RadCalendarPopup {
+                                                            left:420px !important;
+                                                            top:480px !important;
+                                                            }
+                                                   </style>
+                                                <rad:RadDateTimePicker runat="server" ID="StartDateTimePicker" ></rad:RadDateTimePicker><br />
+                                                <label><span style='color: #1fb6e7; font-weight: bold;'>* </span>End Date & Time</label><br />
+                                                <rad:RadDateTimePicker runat="server" ID="EndDateTimePicker" ></rad:RadDateTimePicker><br />
+                                            </div>
+                                            <div style="float: left; width: 130px; padding-top: 50px;">
+                                                 <asp:Button runat="server" ID="AddButton" Text="Add Date >>" 
+                                                 CssClass="SearchButton"
+                                                 OnClick="AddDate"
+                                                 onmouseout="this.style.backgroundImage='url(image/PostButtonNoPost.png)'" 
+                                                 onmouseover="this.style.backgroundImage='url(image/PostButtonNoPostHover.png)'"
+                                                 onclientclick="this.value = 'Working...';" 
+                                                 />
+                                                                                               
+                                                <asp:Button runat="server" ID="RemoveButton" Text="<< Remove" 
+                                                 CssClass="SearchButton"
+                                                 OnClick="SubtractDate"
+                                                 onmouseout="this.style.backgroundImage='url(image/PostButtonNoPost.png)'" 
+                                                 onmouseover="this.style.backgroundImage='url(image/PostButtonNoPostHover.png)'"
+                                                 onclientclick="this.value = 'Working...';" 
+                                                 />
+
+                                            </div>
+                                            <div style="float: left; ">
+                                                <h1 class="Blue">Your Dates:</h1>
+        <%--                                        <span style="font-family: Arial; font-size: 10px; color: #666666;"> [choose all dates this event re-occurs]</span> 
+        --%><%--                                        <rad:RadDateTimePicker runat="server" ID="ReoccuringRadDateTimePicker"></rad:RadDateTimePicker><asp:ImageButton runat="server" AlternateText="add date" OnClick="AddDate" ImageUrl="image/AddIcon.png" CssClass="BigWhiteButton" />
+        --%>                                       
+        <%--                                        <label>Your selections</label><br />
+        --%>                                       
+                                                            <asp:ListBox runat="server" EnableViewState="true" ID="DateSelectionsListBox" 
+                                                              CssClass="ListBox" SelectionMode="single" 
+                                                            ForeColor="#cccccc" BackColor="#666666" Width="250px" Height="100px"></asp:ListBox>
+                                            </div>
+                                            <asp:Label runat="server" ID="DateErrorLabel" ForeColor="red" Font-Bold="true" Font-Names="Arial" Font-Size="12px"></asp:Label> 
+                                        </div>
+                                        
+                                                   <%-- <asp:LinkButton ID="LinkButton1" ToolTip="remove date" runat="server" 
+                                                    OnClick="SubtractDate" Text="-" ForeColor="Orange"  Font-Underline="false" 
+                                                    Font-Bold="true" Font-Size="30"/>--%>
+                                              
+                                        
+                                        </ContentTemplate>
+                                        </asp:UpdatePanel>
+                                            
+                                                                               
+                                    </td>
+                                </tr>
+                            </table>
+                             <label><span style='color: #ff770d; font-weight: bold;'><span style='color: #1fb6e7; font-weight: bold;'>* </span>reqiured fields</span></label>
+                            <br /><br />
+                        </div>
+                        
+                        <div align="right" style="vertical-align: bottom; width: 600px;">
+                                <asp:ImageButton runat="server" ID="DetailsOnwardsButton" OnClick="Onwards" ImageUrl="image/OnwardsButton.png" 
+                                onmouseout="this.src='image/OnwardsButton.png'" onmouseover="this.src='image/OnwardsButtonSelected.png'"  />
+                             </div>
+                    </div>
+                    <div align="center" style=" margin-left: 11px ;background-color: #515151 ;height: 4px; width: 640px;"></div>
+                </asp:Panel>
+            </rad:RadPageView>
+            <rad:RadPageView runat="server" ID="RadPageView1" TabIndex="1" >
+                <asp:Panel runat="server" ID="Panel2" DefaultButton="DescriptionOnwardsButton">
+                    <div style="background: url('image/TabsBackgroundTop.png'); background-repeat: no-repeat; width: 668px; height: 4px;">
+                    </div>
+                    <div  class="EventDiv" style="background: url('image/TabsBackground.png'); background-repeat: repeat-y; width: 668px;">
+                        <div style="padding-left: 50px; padding-top: 10px; padding-bottom: 20px; width: 550px;">
+                            <div style="margin-left: -20px;"><h1>Description</h1></div>
+                            <label><span style='color: #1fb6e7; font-weight: bold;'>* </span>Description</label><br /><br />
+                            <span style="font-family: Arial; font-size: 10px; color: #ff770d; font-weight: bold;"> min 50
+                             characters &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                <span style="color: Red;" id="CharsDivEditor"></span></span><br />
+                            <%--<asp:TextBox ID="DescriptionTextBox" runat="server" CssClass="AddCommentTextBox" Height="150px" 
+                            TextMode="multiLine" Wrap="true"></asp:TextBox>--%>
+                            <script type="text/javascript">
+                                                            
+                                                                function OnClientLoad(editor)
+                                                                {
+                                                                    editor.attachEventHandler("onkeyup", CountCharsEditor);
+                                                                }  
+                                                                function CountCharsEditor(editor)
+                                                                {                                                                    
+                                                                    var editor = (editor) ? editor : ((event) ? event : null);
+                                                                    var node = (editor.target) ? editor.target : ((editor.srcElement) ? editor.srcElement : null);
+                                                                    
+                                                                    var theEditorBig = document.getElementById("ctl00_ContentPlaceHolder1_DescriptionTextBox_contentIframe");
+                                                                    var theDiv = document.getElementById("CharsDivEditor");
+                                                                    theDiv.innerHTML = navigator.appCodeName;
+                                                                    if(navigator.appName == 'Netscape')
+                                                                    {
+                                                                        if(this.activeElement.textContent.length > 50)
+                                                                            theDiv.innerHTML = "characters needed: 0";
+                                                                        else
+                                                                            theDiv.innerHTML = "characters needed: "+ (50 - this.activeElement.textContent.length).toString();
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        var theEditor = $find("<%=DescriptionTextBox.ClientID %>");
+                                                                        if(theEditor.get_contentArea().innerText.length > 50)
+                                                                            theDiv.innerHTML = "characters needed: 0";
+                                                                        else
+                                                                            theDiv.innerHTML = "characters needed: "+ (50 - theEditor.get_contentArea().innerText.length).toString();
+                                                                    }
+                                                                }
+                                                            </script>
+                                                            
+<%--                                                            <asp:TextBox runat="server" ID="SummaryTextBox" BackColor="#686868" Width="200" Height="100" TextMode="multiLine" Wrap="true"></asp:TextBox>
+--%>                                                         <%-- <rad:RadEditor OnClientLoad="OnClientLoad" EditModes="Design" Skin="Black" runat="server" 
+                                                            ID="SummaryTextBox" Width="200" Height="103"
+                                                                EnableResize="False"  ToolsFile="toolsfile.xml" 
+                                                                StripFormattingOptions="MSWordRemoveAll" 
+                                                                StripFormattingOnPaste="MSWordRemoveAll">
+                                                                <CssFiles>
+                                                                <rad:EditorCssFile Value="contentarea2.css" />
+                                                               </CssFiles>
+                                                            </rad:RadEditor>--%>
+                                                    <rad:RadEditor EditModes="Design" OnClientLoad="OnClientLoad" 
+                                                    Skin="Black" runat="server" 
+                                                    ID="DescriptionTextBox" Height="200px" Width="580px" 
+                                                        EnableResize="False"  ToolsFile="toolsfile.xml" 
+                                                        StripFormattingOptions="MSWordRemoveAll" 
+                                                        StripFormattingOnPaste="MSWordRemoveAll">
+                                                        <CssFiles>
+                                                        <rad:EditorCssFile Value="contentarea.css" />
+                                                       </CssFiles>
+                                                        <Tools>
+                                                           <rad:EditorToolGroup>
+                                                               <rad:EditorTool Name="InsertLink" Text="Insert Link" />
+                                                           </rad:EditorToolGroup>
+                                                       </Tools>
+                                                    </rad:RadEditor>
+                                                    <script type="text/javascript">
+                                                        Telerik.Web.UI.Editor.CommandList["InsertLink"] = function(commandName, editor, args)
+                                                        {
+                                                          var elem = editor.getSelectedElement(); //returns the selected element.
+                                                                
+                                                          if (elem.tagName == "A")
+                                                          {
+                                                               editor.selectElement(elem);
+                                                               argument = elem;
+                                                          }
+                                                          else
+                                                          {
+                                                             var content = editor.getSelectionHtml();
+                                                             var link = editor.get_document().createElement("A");
+                                                             link.innerHTML = content;         
+                                                             argument = link;
+                                                          }
+
+                                                         
+                                                          var myCallbackFunction = function(sender, args)
+                                                          {
+                                                              editor.pasteHtml(String.format("<a target='_blank' class='AddLink' href='{0}'>{1}</a>", args.url, args.name))
+                                                          }
+                                                          editor.showExternalDialog(
+                                                               'InsertLink.html',
+                                                               argument,
+                                                               270,
+                                                               300,
+                                                               myCallbackFunction,
+                                                               null,
+                                                               'Insert Link',
+                                                               true,
+                                                               Telerik.Web.UI.WindowBehaviors.Close + Telerik.Web.UI.WindowBehaviors.Move,
+                                                               false,
+                                                               false);
+                                                        };
+                                                    </script>
+                            
+                        </div>
+                       <div style="padding-left: 50px; padding-top: 10px; padding-bottom: 20px; width: 550px;">
+                       <script type="text/javascript">
+                                    
+//                                                                            function OnClientLoad(editor)
+//                                                                            {
+//                                                                                editor.attachEventHandler("onkeyup", CountChars);
+//                                                                                editor.attachEventHandler("onkeypress", function(evt){if(evt.keyCode == 13)return false;});
+//                                                                            }  
+                                function CountChars(editor, e){
+                                    
+                                    var theDiv = document.getElementById("CharsDiv");
+                                        var theText = document.getElementById("ctl00_ContentPlaceHolder1_ShortDescriptionTextBox_TheTextBox");
+                                        theDiv.innerHTML = "characters left: "+ (150 - theText.value.length).toString();
+                                    
+                                }
+                            </script>
+                            <label><span style='color: #1fb6e7; font-weight: bold;'>* </span>Short Description</label><span style="font-family: Arial; font-size: 12px; color: #ff770d; font-weight: bold;"> [this short description will appear in search results and venue calendars]</span><br /><br />
+                            <span style="font-family: Arial; font-size: 10px; color: #ff770d; font-weight: bold;"> max 150 characters 
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: Red;" id="CharsDiv"></span></span><br />
+                            <ctrl:HippoTextBox ID="ShortDescriptionTextBox" ON_CLIENT_KEYPRESS="CountChars(event)" TEXTBOX_WIDTH="536" CSS_CLASS="TextBox25" LITERAL_CSS_CLASS="TextBoxLeftImage25" runat="server"></ctrl:HippoTextBox>
+
+                        </div>
+                        <div align="right" style=" padding-top: 30px; padding-right: 50px;">
+                            <asp:ImageButton runat="server" ID="ImageButton2" OnClick="Backwards" ImageUrl="image/BackwardsButton.png" 
+                            onmouseout="this.src='image/BackwardsButton.png'" onmouseover="this.src='image/BackwardsButtonSelected.png'"  />
+                            <asp:ImageButton runat="server" ID="DescriptionOnwardsButton" OnClick="Onwards" ImageUrl="image/OnwardsButton.png" 
+                            onmouseout="this.src='image/OnwardsButton.png'" onmouseover="this.src='image/OnwardsButtonSelected.png'"  />
+                         </div>
+                    </div>
+                    <div align="center" style=" margin-left: 11px ;background-color: #515151 ;height: 4px; width: 640px;"></div>
+                </asp:Panel>
+            </rad:RadPageView>
+
+            <rad:RadPageView runat="server" ID="RadPageView2" TabIndex="2" >
+                <asp:Panel runat="server" ID="Panel3" DefaultButton="MediaOnwardsButton">
+                    <div style="background: url('image/TabsBackgroundTop.png'); background-repeat: no-repeat; width: 668px; height: 4px;">
+                    </div>
+                    <div class="topDiv" style="background: url('image/TabsBackground.png'); background-repeat: repeat-y;width: 668px;">
+                        <a href="#top"></a>
+                        <div class="EventDiv">
+                            <div style="padding-left: 50px; width: 632px; padding-bottom: 30px; padding-top: 10px;">
+                                <div style="margin-left: -20px;"><h1>Media</h1></div>
+                                <asp:CheckBox ID="MusicCheckBox" runat="server" Text="Music  <span style='color: #ff770d;'>[Can upload up to 3. Required format is .mp3]</span>" OnCheckedChanged="EnableMusicPanel" AutoPostBack="true" />
+                                    <asp:Panel runat="server" ID="MusicPanel">
+                                        <div class="topDiv" style="clear: both; width: 500px;">
+                                            <div style="float: left; padding-left: 30px;">
+                                                <div style="float: left; padding-top: 4px;">
+                                                    <asp:FileUpload runat="server" ID="MusicUpload" Width="230px" EnableViewState="true" />
+                                                </div>
+                                                <div style="float: left;">
+                                                 <asp:Button runat="server" ID="MusicUploadButton" Text="Upload!" 
+                                                 CssClass="SearchButton"  PostBackUrl="BlogEvent.aspx#top"
+                                                 OnClick="MusicUpload_Click"
+                                                 onmouseout="this.style.backgroundImage='url(image/PostButtonNoPost.png)'" 
+                                                 onmouseover="this.style.backgroundImage='url(image/PostButtonNoPostHover.png)'"
+                                                 onclientclick="this.value = 'Working...';" 
+                                                 />
+                                                    <%--<asp:ImageButton runat="server" ID="MusicUploadButton" 
+                                                     OnClick="MusicUpload_Click" PostBackUrl="BlogEvent.aspx#top"
+                                                     ImageUrl="image/MakeItSoButton.png" 
+                                                    onmouseout="this.src='image/MakeItSoButton.png'" 
+                                                    onmouseover="this.src='image/MakeItSoButtonSelected.png'"  />--%>
+                                                </div>
+
+                                            </div>
+                                            <div style="float: right; padding-right: 70px;">
+                                                <asp:CheckBoxList CssClass="MusicCheckBoxes" ID="SongCheckList" runat="server"></asp:CheckBoxList>
+                                                <asp:ImageButton Visible="false" runat="server" OnClick="NixIt" ID="DeleteSongButton" ImageUrl="image/NixItButton.png" 
+                                                onmouseout="this.src='image/NixItButton.png'" onmouseover="this.src='image/NixItButtonSelected.png'"  />
+                                               
+                                            </div>
+                                            
+                                        </div>
+                                    </asp:Panel>
+                            </div>
+                           
+                            <div style="padding-left: 50px; width: 632px; clear: both;">
+                                <asp:CheckBox ID="MainAttractionCheck" Text="Main Attraction  <span style='color: #ff770d;'>[these will be shown together in a rotator window. 20 is the max]</span>" runat="server" AutoPostBack="true" OnCheckedChanged="EnableMainAttractionPanel" />
+                                    <asp:Panel runat="server" ID="MainAttractionPanel" Visible="false" Enabled="false"> 
+                                        <div style="padding-left: 30px;">
+                                            <asp:RadioButtonList runat="server" ID="MainAttracionRadioList" AutoPostBack="true" 
+                                            OnSelectedIndexChanged="ShowSliderOrVidPic">
+                                                <asp:ListItem Text="Add You Tube Video" Value="0"></asp:ListItem>
+                                                <asp:ListItem Text="Add Picture" Value="1"></asp:ListItem>
+                                            </asp:RadioButtonList>
+                                            <div style="padding-left: 30px; border: solid 4px #515151; width: 500px; padding-bottom: 10px; padding-left: 30px;">
+                                                <asp:Panel runat="server" ID="VideoPanel" Visible="false">
+                                                    <div class="topDiv" style="padding-left: 20px;">
+                                                        <%--<asp:RadioButtonList runat="server" ID="VideoRadioList" AutoPostBack="true" 
+                                                        OnSelectedIndexChanged="ShowVideo">
+                                                            <asp:ListItem Text="Upload a Video" Value="0"></asp:ListItem>
+                                                            <asp:ListItem Text="Paste a You Tube Link" Value="1"></asp:ListItem>
+                                                        </asp:RadioButtonList>--%>
+                                                        <asp:Panel runat="server" ID="UploadPanel" Visible="false">
+                                                            <div id="topDiv3">
+                                                                <div style="float: left; padding-top: 4px;">
+                                                                    <asp:FileUpload runat="server" ID="VideoUpload" Width="230px" EnableViewState="true" />
+                                                                </div>
+                                                                <div style="float: left;">
+                                                                <asp:Button runat="server" ID="ImageButton6" Text="Upload!" CssClass="SearchButton" 
+                                                                 OnClick="VideoUpload_Click" PostBackUrl="BlogEvent.aspx#top"
+                                                                 onmouseout="this.style.backgroundImage='url(image/PostButtonNoPost.png)'" 
+                                                                 onmouseover="this.style.backgroundImage='url(image/PostButtonNoPostHover.png)'"
+                                                                 onclientclick="this.value = 'Working...';" 
+                                                                 />
+<%--                                                                <asp:ImageButton runat="server" ID="ImageButton6" 
+                                                                    PostBackUrl="BlogEvent.aspx#top" OnClick="VideoUpload_Click"
+                                                                     ImageUrl="image/MakeItSoButton.png" 
+                                                                    onmouseout="this.src='image/MakeItSoButton.png'" 
+                                                                    onmouseover="this.src='image/MakeItSoButtonSelected.png'"  />
+--%>                                                                </div>
+                                                            </div>
+                                                        </asp:Panel>
+                                                        <asp:Panel runat="server" ID="YouTubePanel" Visible="false">
+                                                            <div style="clear: both;">
+                                                                <label>Insert the ID of the YouTube video:</label><br />
+                                                                <div class="topDiv">
+                                                                <div style="float: left;padding-top: 4px;">
+                                                                    <asp:TextBox runat="server" ID="YouTubeTextBox"></asp:TextBox>
+                                                                </div>
+                                                                <div style="float: left;">
+                                                                <asp:Button runat="server" ID="ImageButton7" Text="Upload!" CssClass="SearchButton" 
+                                                                 OnClick="YouTubeUpload_Click" PostBackUrl="BlogEvent.aspx#top"
+                                                                 onmouseout="this.style.backgroundImage='url(image/PostButtonNoPost.png)'" 
+                                                                 onmouseover="this.style.backgroundImage='url(image/PostButtonNoPostHover.png)'"
+                                                                 onclientclick="this.value = 'Working...';" 
+                                                                 />
+<%--                                                                    <asp:ImageButton runat="server" ID="ImageButton7" 
+                                                                        PostBackUrl="BlogEvent.aspx#top" OnClick="YouTubeUpload_Click"
+                                                                         ImageUrl="image/MakeItSoButton.png" 
+                                                                        onmouseout="this.src='image/MakeItSoButton.png'" onmouseover="this.src='image/MakeItSoButtonSelected.png'"  />
+--%>                                                                </div>
+                                                                </div>
+                                                                <label>ex: if this is the url of your YouTube video <br />http://www.youtube.com/watch?v=<span style="color: Red;">YMLTwq1M2pw</span>  <--This is the ID</label>
+
+                                                            </div>
+                                                        </asp:Panel>
+                                                        
+                                                     </div>
+                                                 </asp:Panel> 
+                                                 <div class="topDiv" style="padding-left: 30px;">
+                                                        <asp:Panel runat="server" ID="PicturePanel" Visible="false">
+                                                            <div id="topDiv2">
+                                                                <div style="float: left; padding-top: 4px;">
+                                                                    <asp:FileUpload runat="server" ID="PictureUpload" Width="230px" EnableViewState="true" />
+                                                                </div>
+                                                                <div style="float: left;">
+                                                                <asp:Button runat="server" ID="ImageButton5" Text="Upload!" CssClass="SearchButton" 
+                                                                 OnClick="PictureUpload_Click" PostBackUrl="BlogEvent.aspx#top"
+                                                                 onmouseout="this.style.backgroundImage='url(image/PostButtonNoPost.png)'" 
+                                                                 onmouseover="this.style.backgroundImage='url(image/PostButtonNoPostHover.png)'"
+                                                                 onclientclick="this.value = 'Working...';" 
+                                                                 />
+<%--                                                                    <asp:ImageButton runat="server" ID="ImageButton5" 
+                                                                    PostBackUrl="BlogEvent.aspx#top" OnClick="PictureUpload_Click"
+                                                                     ImageUrl="image/MakeItSoButton.png" 
+                                                                    onmouseout="this.src='image/MakeItSoButton.png'" onmouseover="this.src='image/MakeItSoButtonSelected.png'"  />
+--%>                                                                </div>
+                                                                
+                                                            </div>
+                                                        </asp:Panel>
+                                                    </div>
+                                                   
+                                           </div> 
+                                              
+                                       </div>
+                                        <div style="color: #cccccc;font-family: Arial;float: left; padding-right: 70px;" class="EventDiv topDiv">
+                                        Your Chosen Pics and Videos <br />
+                                                                    <asp:CheckBoxList CssClass="MusicCheckBoxes" ID="PictureCheckList" runat="server"></asp:CheckBoxList>
+                                                                    <asp:ImageButton Visible="false" runat="server" OnClick="SliderNixIt" ID="PictureNixItButton" ImageUrl="image/NixItButton.png" 
+                                                                    onmouseout="this.src='image/NixItButton.png'" onmouseover="this.src='image/NixItButtonSelected.png'"  />
+                                                                </div>
+                                    </asp:Panel>
+                            </div>
+                        </div>
+                    
+                        <div align="right" style=" padding-top: 30px; padding-right: 50px;">
+                            <asp:ImageButton runat="server" ID="ImageButton3" OnClick="Backwards" ImageUrl="image/BackwardsButton.png" 
+                            onmouseout="this.src='image/BackwardsButton.png'" onmouseover="this.src='image/BackwardsButtonSelected.png'"  />
+                            <asp:ImageButton runat="server" ID="MediaOnwardsButton" OnClick="Onwards" ImageUrl="image/OnwardsButton.png" 
+                            onmouseout="this.src='image/OnwardsButton.png'" onmouseover="this.src='image/OnwardsButtonSelected.png'"  />
+                         </div>
+                    
+                    </div>
+                    <div align="center" style=" margin-left: 11px ;background-color: #515151 ;height: 4px; width: 640px;"></div>
+                </asp:Panel>
+            </rad:RadPageView>
+
+            <rad:RadPageView runat="server" ID="RadPageView3" TabIndex="3" >
+                
+                <asp:Panel runat="server" ID="Panel4" DefaultButton="CategoryOnwardButton">          
+                    <div style="background: url('image/TabsBackgroundTop.png'); background-repeat: no-repeat; width: 668px; height: 4px;">
+                    </div>
+                    <div class="EventDiv" style="background: url('image/TabsBackground.png'); background-repeat: repeat-y;  width: 668px;">
+                        <div style="color: #cccccc;padding-left: 30px; width: 550px; padding-top: 10px;">
+                            <h1>Categories</h1>
+                            <div style="padding-left: 20px;">
+                            <label><span style="font-weight: bold;"><span style='color: #1fb6e7; font-weight: bold;'>* </span>Choose Categories to put your event under. </span> <span style="color: #ff770d;">[These will help your viewers find your event faster]</span></label>
+                            <br /><br />
+                            <table>
+                                        <tr>
+                                            <td valign="top">
+                                                    <%--<asp:CheckBoxList runat="server" ID="CategoriesCheckBoxes" 
+                                                    RepeatColumns="4" RepeatDirection="horizontal">
+                                                    
+                                                    </asp:CheckBoxList>--%>
+                                                    <div class="FloatLeft" style="width: 150px; color: #cccccc;">
+                                                        <rad:RadTreeView ForeColor="#cccccc"  Width="150px" runat="server"  
+                                                        ID="CategoryTree" DataFieldID="ID" DataSourceID="SqlDataSource1" 
+                                                        DataFieldParentID="ParentID"
+                                                        CheckBoxes="true">
+                                                        <DataBindings>
+                                                             <rad:RadTreeNodeBinding  Checkable="true" Checked="false" 
+                                                             TextField="Name" Expanded="false" ValueField="ID" />
+                                                         </DataBindings>
+                                                        </rad:RadTreeView>
+                                                        <asp:SqlDataSource runat="server" ID="SqlDataSource1" 
+                                                            SelectCommand="SELECT * FROM EventCategories WHERE ID < 26 OR ID=52 OR ID=53 OR ID= 34 OR ID=40 OR ID=50 OR ID=51 OR ID=35 OR ID=47 OR ID=56 OR ID=57 OR ID=58 OR ID=61 OR ID=62 ORDER BY Name ASC"
+                                                            ConnectionString="<%$ ConnectionStrings:Connection %>">
+                                                        </asp:SqlDataSource>
+                                                    </div>
+                                                    
+                                           
+                                            </td>
+                                            <td valign="top">
+                                                <asp:CheckBoxList runat="server" ID="CheckBoxList1" 
+                                                    RepeatColumns="4" RepeatDirection="horizontal">
+                                                    
+                                                    </asp:CheckBoxList>
+                                                    <div class="FloatLeft" style="width: 150px; color: #cccccc;">
+                                                        <rad:RadTreeView ForeColor="#cccccc"  Width="150px" runat="server"  
+                                                        ID="RadTreeView2" DataFieldID="ID" DataSourceID="SqlDataSource3"
+                                                        DataFieldParentID="ParentID"
+                                                        CheckBoxes="true">
+                                                        <DataBindings>
+                                                             <rad:RadTreeNodeBinding  Checkable="true" Checked="false" 
+                                                             TextField="Name" Expanded="false" ValueField="ID"  />
+                                                         </DataBindings>
+                                                        </rad:RadTreeView>
+                                                        <asp:SqlDataSource runat="server" ID="SqlDataSource3" 
+                                                            SelectCommand="SELECT * FROM EventCategories WHERE ID >= 26 AND  NOT(ID= 52) AND  NOT(ID= 53) AND NOT(ID= 34) AND NOT(ID=40) AND NOT(ID=50) AND NOT(ID=51) AND NOT (ID=62) AND NOT (ID=61) AND NOT (ID=35) AND NOT (ID=47) AND NOT (ID=56) AND NOT (ID=57) AND NOT (ID=58) ORDER BY Name ASC"
+                                                            ConnectionString="<%$ ConnectionStrings:Connection %>">
+                                                        </asp:SqlDataSource>
+                                                    </div>
+                                            </td>
+                                            <td valign="top">
+                                                <div style=" width: 150px; color: #cccccc;">
+                                                    <rad:RadTreeView ForeColor="#cccccc"  Width="150px"  runat="server"  
+                                                    ID="RadTreeView1" DataFieldID="ID" 
+                                                    DataFieldParentID="ParentID"
+                                                    CheckBoxes="true">
+                                                    <DataBindings>
+                                                         <rad:RadTreeNodeBinding  Checkable="true" Checked="false" 
+                                                         TextField="Name" Expanded="false" ValueField="ID"  />
+                                                     </DataBindings>
+                                                    </rad:RadTreeView>
+                                                    <asp:SqlDataSource runat="server" ID="SqlDataSource2" 
+                                                        SelectCommand=""
+                                                        ConnectionString="<%$ ConnectionStrings:Connection %>">
+                                                    </asp:SqlDataSource>
+                                                </div>
+                                            </td>
+                                            <td valign="top">
+                                                <div style=" width: 150px; color: #cccccc;">
+                                                    <rad:RadTreeView ForeColor="#cccccc" Width="150px"  runat="server"  
+                                                    ID="RadTreeView3" DataFieldID="ID"
+                                                    DataFieldParentID="ParentID"
+                                                    CheckBoxes="true">
+                                                    <DataBindings>
+                                                         <rad:RadTreeNodeBinding  Checkable="true" Checked="false" 
+                                                         TextField="Name" Expanded="false" ValueField="ID"  />
+                                                     </DataBindings>
+                                                    </rad:RadTreeView>
+                                                    <asp:SqlDataSource runat="server" ID="SqlDataSource4" 
+                                                        SelectCommand=""
+                                                        ConnectionString="<%$ ConnectionStrings:Connection %>">
+                                                    </asp:SqlDataSource>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>       
+                                                     
+                        <div style="width: 550px; clear: both;">
+                            <div style="float: left; padding-top: 10px;">
+                                <label>Don't see a category you want? Suggest one!</label>
+                                <asp:TextBox runat="server" ID="CategoriesTextBox"></asp:TextBox>
+                            </div>
+                            <div style="padding-top: 16px; float: left; padding-left: 10px;">     
+                                <asp:LinkButton runat="server" ID="ImageButton11"  
+                                CssClass="AddLink" Text="Suggest" OnClick="SuggestCategoryClick"
+                                onmouseout="this.src='image/MakeItSoButton.png'" 
+                                onmouseover="this.src='image/MakeItSoButtonSelected.png'" ></asp:LinkButton>
+                            </div>
+                        </div>
+                        </div>
+                                                     </div>
+                        <div align="right" style=" padding-top: 30px; padding-right: 50px; clear: both;">
+                            <asp:ImageButton runat="server" ID="ImageButton9" OnClick="Backwards" ImageUrl="image/BackwardsButton.png" 
+                            onmouseout="this.src='image/BackwardsButton.png'" onmouseover="this.src='image/BackwardsButtonSelected.png'"  />
+                            <asp:ImageButton runat="server" ID="CategoryOnwardButton" OnClick="Onwards" ImageUrl="image/OnwardsButton.png" 
+                            onmouseout="this.src='image/OnwardsButton.png'" onmouseover="this.src='image/OnwardsButtonSelected.png'"  />
+                         </div>
+                    
+                    </div>
+                    <div align="center" style=" margin-left: 11px ;background-color: #515151 ;height: 4px; width: 640px;"></div>
+                </asp:Panel>
+            </rad:RadPageView>
+            <rad:RadPageView runat="server" ID="RadPageView4" TabIndex="4" >
+                <asp:Panel runat="server" ID="Panel5" DefaultButton="PostItButton"> 
+                    <div style="background: url('image/TabsBackgroundTop.png'); background-repeat: no-repeat; width: 668px; height: 4px;">
+                    </div>
+                    <div class="EventDiv"  style="background: url('image/TabsBackground.png'); background-repeat: repeat-y; width: 668px;">
+                        <div style="padding-left: 30px; width: 550px; padding-top: 10px;">
+                           <h1>Post It</h1>
+                        </div>
+                        <div style="padding-left: 50px;">
+                            <label><span style="font-weight: bold;">You're Almost Done!</span> <br /> <span style="color: #ff770d;">Preview your post below and read the Terms and Conditions. Go Backwards! if you'd like to change anything!</span></label>
+
+                            <asp:Panel runat="server" ID="OwnerPanel">
+                            <asp:CheckBox runat="server" ID="OwnerCheckBox" Text="Check here if you would like to be the 'Owner' of this event."  />
+
+                            <asp:Image CssClass="HelpImage" runat="server"  ID="QuestionMark6" ImageUrl="~/image/helpIcon.png"></asp:Image>
+                                                                           <rad:RadToolTip ID="RadToolTip5" runat="server" Skin="Black" Width="200px" Height="200px" ManualClose="true" ShowEvent="onclick" Position="MiddleRight" RelativeTo="Element" TargetControlID="QuestionMark6">
+                                    <label>When you become the owner of this event, you will be 
+                                    responsible for approving any change request users post before the 
+                                    changes go live. Being the owner, you have 7 days to approve/reject the changes that 
+                                    are submitted by other users. If you do not reply, your ownership 
+                                    will be forfeited and this event's ownership will be up for grabs to everyone.
+                                    You do not have to be the 'Owner' of this event, 
+                                    but keep in mind that anyone will be able to freely edit this event 
+                                    until someone chooses to become the owner. 
+                                    
+ </label>
+                                    </rad:RadToolTip>
+                         </asp:Panel>
+                            <br />
+                            <label>Terms & Conditions</label>
+<div style="margin-top: 10px;margin-bottom: 10px;border: solid 2px #1B1B1B; padding-top: 20px; padding-bottom: 20px; background-color: #666666; width: 580px;">    
+                            <asp:Panel runat="server" CssClass="TermsPanel"  ScrollBars="Vertical" ID="TACTextBox" Height="100px" Width="550px"></asp:Panel>
+                            </div>                              <asp:CheckBox runat="server" ID="AgreeCheckBox" Text="<span style='color: #1fb6e7; font-weight: bold;'>* </span>Agree to the Terms & Conditions" />
+                        </div>
+                        <div>
+                            <asp:Literal runat="server" ID="PostLiteral"></asp:Literal>
+                        </div>
+                        <div align="right" style=" padding-top: 30px; padding-right: 50px;">
+                            <asp:ImageButton runat="server" ID="ImageButton12" OnClick="Backwards" ImageUrl="image/BackwardsButton.png" 
+                            onmouseout="this.src='image/BackwardsButton.png'" onmouseover="this.src='image/BackwardsButtonSelected.png'"  />
+                            <asp:ImageButton runat="server" ID="PostItButton" OnClick="PostIt" ImageUrl="image/PostItButton.png" 
+                            onmouseout="this.src='image/PostItButton.png'" onmouseover="this.src='image/PostItButtonSelected.png'"  />
+                         </div>
+                    </div>
+                    <div align="center" style=" margin-left: 11px ;background-color: #515151 ;height: 4px; width: 640px;"></div>
+                
+                
+                    <div style=" background-color: #1b1b1b; border: solid 4px #515151; width: 840px; margin-left: 10px; margin-top: 20px; padding: 5px;">
+                        <asp:Panel runat="server" ID="EventPanel" Visible="false">
+                           <div style="padding-top: 5px;" class="topDiv">
+                                <div style="width: 420px; float: left;">
+                                    <h1 class="EventHeader"><asp:Label runat="server" ID="ShowEventName"></asp:Label></h1>
+                                    <asp:Label runat="server" ID="ShowVenueName" CssClass="VenueName"></asp:Label><br />
+                                    <asp:Label runat="server" ID="ShowDateAndTimeLabel" CssClass="DateTimeLabel"></asp:Label><br /><br />
+                                 <asp:Label runat="server" ID="ShowRestOfDescription" CssClass="EventBody"></asp:Label>
+                            
+                            
+                                <asp:Label runat="server" ID="ShowDescriptionBegining" CssClass="EventBody"></asp:Label>
+                                </div>
+                                <div style=" padding-top: 40px;width: 420px; float: right;" >
+                                
+                                
+                                <asp:Literal runat="server" ID="ShowVideoPictureLiteral">
+                                </asp:Literal>
+                                    <asp:Panel runat="server" ID="RotatorPanel" Visible="false">
+                                        <rad:RadRotator runat="server" ScrollDuration="200" ID="Rotator1" ItemHeight="250" ItemWidth="400"  
+                                        Width="440px" Height="250px" RotatorType="Buttons">
+                                            
+                                            <%--<ItemTemplate>
+                                                <div style="border: solid 2px blue; padding: 3px; margin: 3px;">
+                                                    <img width="184px" height="184px" src='<%# Container.DataItem %>' />
+                                                </div>            
+                                            </ItemTemplate>--%>
+                                        </rad:RadRotator>
+                                    </asp:Panel>
+                                </div>
+                            </div>
+                            
+                        </asp:Panel>
+                    </div>
+                </asp:Panel>
+             </rad:RadPageView>
+
+        </rad:RadMultiPage>
+        </div>
+        <div style="float: right;">
+            <asp:Panel runat="server" ID="MessagePanel" Visible="false">
+                <div style="width: 170px; border: solid 3px red; margin-right: 10px; padding: 5px; color: White; font-family: Arial;">
+                    Your Messages <br />
+                    <asp:Label CssClass="AddLink" runat="server" ID="YourMessagesLabel"></asp:Label>
+                </div>
+            </asp:Panel>
+        </div>
+    </div>
+    </div>
+    
+
+<%--</rad:RadAjaxPanel>--%>
+</asp:Content>
+

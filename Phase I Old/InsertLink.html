@@ -1,0 +1,118 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="/RadControls/Editor/Skins/Monochrome/Dialogs.css" />
+</head>
+<body bgcolor="#333333">
+<script language="javascript" src="/RadControls/Editor/Scripts/7_3_0/RadWindow.js"></script>
+<!--<script language="javascript">
+	function GetDialogArguments()
+	{
+		if (window.radWindow) 
+		{
+			return window.radWindow.Argument;
+		}
+		else
+		{
+			return null;
+		}
+	}
+
+	var isRadWindow = true;
+	var radWindow = GetEditorRadWindowManager().GetCurrentRadWindow(window);
+	if (radWindow)
+	{ 
+		if (window.dialogArguments) 
+		{ 
+			radWindow.Window = window;
+		} 
+		radWindow.OnLoad(); 
+	}
+</script>-->
+ <div style="font-family: Arial; font-size: 14px; color: #cccccc;">Enter a Link</div><br />  
+
+<fieldset style="width: 200px; height: 192px;font-family: Arial; font-size: 14px; color: #cccccc; border: 0;">
+       Link Name: <input type="text" id="linkName"/><br/>
+       Link URL: <input type="text" id="linkUrl"/><br/>
+<!--              Link target: <input type="text" id="linkTarget"/><br/>
+       Link class: <input type="text" id="linkClass"/><br/>-->
+    <button onclick="javascript:insertLink();"  style=" cursor: pointer;font-weight: bold;padding:0;padding-bottom: 
+    4px; font-size: 11px;height: 30px; width: 112px;background-color: transparent; 
+    color: White; background-image: url('image/PostButtonNoPost.png'); background-repeat:no-repeat; border: 0;" 
+    onmouseout="this.style.backgroundImage='url(image/PostButtonNoPost.png)'" 
+    onmouseover="this.style.backgroundImage='url(image/PostButtonNoPostHover.png)'" >Insert Link</button>
+
+   </fieldset>
+   <script type="text/javascript">
+   if (window.attachEvent)
+   {
+       window.attachEvent("onload", initDialog);
+   }
+   else if (window.addEventListener)
+   {
+       window.addEventListener("load", initDialog, false);
+   }
+   var linkUrl = document.getElementById("linkUrl");
+//   var linkTarget = document.getElementById("linkTarget");
+//   var linkClass = document.getElementById("linkClass");
+   var linkName = document.getElementById("linkName");
+   var workLink = null;
+   function getRadWindow()
+   {
+          if (window.radWindow)
+       {
+           return window.radWindow;
+       }
+       if (window.frameElement && window.frameElement.radWindow)
+       {
+           return window.frameElement.radWindow;
+       }
+       return null;
+   }
+   function initDialog()
+   {
+      var clientParameters = getRadWindow().ClientParameters; //return the arguments supplied from the parent page
+           
+      linkName.value = clientParameters.innerHTML;
+//      linkTarget.value = clientParameters.target;
+//      linkClass.value = clientParameters.className;
+//      linkName.value = clientParameters.innerHTML;
+     
+//      workLink = clientParameters;
+   }
+   function insertLink() //fires when the Insert Link button is clicked
+   {
+      //create an object and set some custom properties to it     
+//      workLink.href = linkName.value;
+//      workLink.target = linkTarget.value;
+//      workLink.className = linkClass.value;
+//      workLink.name = linkName.value;
+        var url = document.getElementById("linkUrl").value;
+                                                                
+        if (url.indexOf("http://") == -1 && 
+        url.indexOf("https://") == -1) 
+        {
+            url = "http://" + url;
+        }
+      var returnValue =
+			{
+			    url: url,
+			    name: document.getElementById("linkName").value
+			};
+      getRadWindow().close(returnValue); //use the close function of the getRadWindow to close the dialog and pass the arguments from the dialog to the callback function on the main page.
+   }
+   </script>
+
+<!--&nbsp;&nbsp;<input id="url" size="35"  /><br />
+&nbsp;&nbsp;<button class="Button" onclick="javascript:insertLink();">Insert&nbsp;Youtube	</button>
+	<script language="javascript">
+		function sinsertYoutube()
+		{
+			var returnValue = 
+			{
+				url:document.getElementById("url").value
+			};
+			CloseDlg(returnValue);
+		}
+	</script>-->
+</body>
+</html>

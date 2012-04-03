@@ -1,0 +1,128 @@
+<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Ad.aspx.cs" Inherits="Ad" Title="View Ad" %>
+<%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="rad" %>
+<%@ Register Src="~/Controls/TagCloud.ascx" TagName="TagCloud" TagPrefix="ctrl" %>
+<%@ Register Src="~/Controls/SendMessage.ascx" TagName="SendMessage" TagPrefix="ctrl" %>
+<%@ Register Src="~/Controls/SendEmail.ascx" TagName="SendEmail" TagPrefix="ctrl" %>
+<%@ Register Src="~/Controls/FlagItem.ascx" TagName="Flag" TagPrefix="ctrl" %>
+<%@ Register Src="~/Controls/ContactAd.ascx" TagName="ContactAd" TagPrefix="ctrl" %>
+<%@ Register Src="~/Controls/PlayerXML/SongPlayer.ascx" TagName="Songs" TagPrefix="ctrl" %>
+<%@ OutputCache Duration="86400" VaryByParam="*" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+
+<rad:RadAjaxPanel runat="server">
+<script type="text/javascript">
+    function  ReturnURL()
+                {
+                    var TA = document.getElementById('TweeterA');
+                    TA.href = 'http://twitter.com/home?status=' + window.location;
+                }
+</script>
+<script type="text/javascript">
+(function() {
+var s = document.createElement('SCRIPT'), s1 = document.getElementsByTagName('SCRIPT')[0];
+s.type = 'text/javascript';
+s.async = true;
+s.src = 'http://widgets.digg.com/buttons.js';
+s1.parentNode.insertBefore(s, s1);
+})();
+</script>
+<asp:Panel CssClass="FloatLeft" runat="server" ID="TopPanel" Visible="false">
+        <div class="topDiv" style="margin-top: -30px; margin-left: -20px;background-image: url(image/NavBarBackground.gif); background-repeat: repeat-x;height: 25px;vertical-align: middle;">
+        <div style="background:url(image/HeaderRound.gif) no-repeat bottom right;height: 25px; vertical-align: middle;">
+        <asp:Panel runat="server" ID="ReturnPanel" Width="160px" CssClass="FloatLeft" Visible="false">
+        <a style="text-decoration:none; border: 0;  color: #ffffff; font-family: Arial; font-size: 11px; font-weight: bold;" href="AdSearch.aspx#search">
+        <img style="float: left;border:0; padding: 6px;" src="image/BackArrow.png" name="Back to search results" alt="Back to search results" />
+        <span style="float: left; position: relative; top: 5px;height: 25px; vertical-align: middle;"> Back to search results&nbsp;&nbsp;
+        </span></a>
+        </asp:Panel>
+        <div style="float: left; margin-top: 5px;">
+            <span style=" text-decoration: none; color: #ffffff; font-family: Arial; font-size: 11px; font-weight: bold;height: 25px; vertical-align: middle;">
+            <asp:LinkButton runat="server" Width="100px" ForeColor="white" Font-Underline="false" Visible="false" OnClick="GoToAd" ID="EditLink" Text=" |&nbsp;&nbsp;&nbsp;Edit Ad" 
+                 CssClass="FloatLeft"></asp:LinkButton>
+            </span>
+        </div>
+        </div></div>
+        <%--<div style="margin-top: -20px; z-index: 4000; float: right; width: 600px; height: 20px;">
+            
+                 <asp:HyperLink runat="server" CssClass="AddGreenLink FloatLeft" ID="link" 
+                 Text="<< Return to search results" NavigateUrl="~/EventSearch.aspx#search"></asp:HyperLink>
+            </div>--%>
+            </asp:Panel>
+<div class="topDiv" style="padding-top: 5px;">
+<div style="float: left; width: 430px; padding-bottom: 200px;">
+    <h1 class="EventHeader"><asp:Label runat="server" ID="ShowHeaderName"></asp:Label></h1>
+    
+    <div class="topDiv" style="padding-bottom: 30px;">
+                <asp:Panel runat="server" ID="SongPanel"></asp:Panel>
+                
+                <div class="topDiv">
+                <asp:Panel runat="server" ID="LoggedInPanel" Visible="false">
+                <ctrl:SendEmail runat="server" THE_TEXT="Send Email with this Info" />
+                
+                <div style="float: left; clear: both;">
+               <asp:Panel runat="server" Height="20px" ID="ContactPanel"></asp:Panel>
+               </div>
+               <div style="float: left; clear: both; width: 300px;">
+               <ctrl:Flag ID="Flag1" runat="server" />
+               </div>
+                </asp:Panel>
+                </div>
+                <asp:Panel ID="LoggedOutPanel" runat="server">
+                     <div style="padding-top: 10px; padding-bottom: 10px;">           
+                                        <div class="EventDiv">
+                                            <label class="AddGreenLink">To send email/text with ad 
+                                            information as well, contact this user, and much more <a href="Register.aspx" class="AddLink">Register</a> or <a href="UserLogin.aspx" class="AddLink">Log in</a></label>
+                                        </div>
+                      </div>             
+                            </asp:Panel>
+      </div>
+ <table>
+                <tr>
+                    <td style="padding-top: 10px;">
+                    <div class="addthis_toolbox addthis_default_style ">
+                    <a href="http://www.addthis.com/bookmark.php?v=250&amp;username=xa-4cfc36bb62b28389" class="addthis_button_compact">Share</a>
+                    <span class="addthis_separator">|</span>
+                    <a class="addthis_button_preferred_1"></a>
+                    <a class="addthis_button_preferred_2"></a>
+                    <a class="addthis_button_preferred_3"></a>
+                    <a class="addthis_button_preferred_4"></a>
+                    </div>
+                    <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=xa-4cfc36bb62b28389"></script>
+                    <!-- AddThis Button END -->
+                    </td>
+                </tr>
+             </table>
+                            <asp:Literal runat="server" ID="DiggLiteral"></asp:Literal>
+                              <br /><br />
+             <asp:Label runat="server" ID="ShowDescription" CssClass="EventBody"></asp:Label>
+        </div>
+        
+        <div style="float:left; width: 440px;">
+            <div>
+                <asp:Literal runat="server" ID="ShowVideoPictureLiteral">
+                </asp:Literal>
+                <asp:Panel runat="server" ID="RotatorPanel" Visible="false">
+                    <rad:RadRotator runat="server" ScrollDuration="200" ID="Rotator1" 
+                        ItemHeight="250" ItemWidth="400"  
+                        Width="440px" Height="250px" RotatorType="Buttons">
+                            
+                            <%--<ItemTemplate>
+                                <div style="border: solid 2px blue; padding: 3px; margin: 3px;">
+                                    <img width="184px" height="184px" src='<%# Container.DataItem %>' />
+                                </div>            
+                            </ItemTemplate>--%>
+                        </rad:RadRotator>
+                </asp:Panel>
+            </div>
+             <div style="padding-left: 10px; clear: both; padding-top: 50px;">
+                <ctrl:TagCloud runat="server" TAG_TYPE="AD" ID="TagCloud" />
+             </div>
+        </div>
+       
+    </div>
+     <script type="text/javascript">
+            ReturnURL();
+        </script>
+</rad:RadAjaxPanel>
+</asp:Content>
+

@@ -1,0 +1,1266 @@
+/* Skin CSS */
+
+.RadScheduler_Office2007
+{
+    color:#000;
+    background:#fff;
+}
+
+/* table header */
+
+.RadScheduler_Office2007 .rsColumnHeader,
+.RadScheduler_Office2007 .rsAllDay
+{
+    border-left: 1px solid #868686; 
+    border-right: 1px solid #868686;
+}
+
+.RadScheduler_Office2007 .rsAllDayCell
+{
+    border-right: 1px solid #6B696B;
+    background: #d6d6d6;
+    cursor: default;
+}
+
+.RadScheduler_Office2007 .rsDayView .rsAllDayCell,
+.RadScheduler_Office2007 .rsWeekView .rsAllDayCell
+{
+    border-color: #6B6B6B;
+}
+
+/* Begin IE6 Fix - All day-appointments disappear on click */
+* html .RadScheduler_Office2007 .rsAllDayCell
+{
+	height: 25px;
+	_height: auto;
+}
+
+* html .RadScheduler_Office2007 .rsAllDayCell .rsWrap
+{
+	height: 100%;
+	_height: 25px;
+}
+/* End IE6 Fix  */
+
+.RadScheduler_Office2007 .rsAllDayCell .rsWrap
+{
+	height: 25px;
+}
+
+.RadScheduler_Office2007 .rsColumnHeader
+{
+    background: #D9EEF6; 
+}
+
+.RadScheduler_Office2007 .rsColumnHeaderFirstCell
+{
+    background: #D9EEF6; 
+    height: 25px;
+}
+
+.RadScheduler_Office2007 .rsColumnHeaderSpacerCell,
+.RadScheduler_Office2007 .rsColumnHeaderLastSpacerCell,
+.RadScheduler_Office2007 .rsColumnHeaderCell
+{
+    background:#6099C6 url(Scheduler/WeekDay.gif) repeat-x scroll 0pt 50%;    
+}
+
+.RadScheduler_Office2007 .rsColumnHeaderSpacerCell,
+.RadScheduler_Office2007 .rsColumnHeaderLastSpacerCell
+{
+	border-bottom: 1px solid #6B696B;
+}
+
+.RadScheduler_Office2007 table.rsHoursTable
+{
+	table-layout: auto;
+}
+
+.RadScheduler_Office2007 .rsColumnHeaderFirstCell div,
+.RadScheduler_Office2007 .rsColumnHeaderSpacerCell div,
+.RadScheduler_Office2007 .rsColumnHeaderLastSpacerCell div,
+.RadScheduler_Office2007 .rsHoursTable th,
+.RadScheduler_Office2007 .rsHoursTable th div
+{
+    width: 100px;
+}
+
+.RadScheduler_Office2007 .rsMonthView .rsVertical .rsColumnHeaderSpacerCell div
+{
+	width:98px;
+}
+
+.RadScheduler_Office2007 .rsHoursTable .rsAllDayFirstCell div
+{
+	width: 100%;
+	text-align: center;
+}
+
+.RadScheduler_Office2007 .rsMonthView .rsColumnHeaderFirstCell div,
+.RadScheduler_Office2007 .rsMonthView .rsColumnHeaderLastSpacerCell,
+.RadScheduler_Office2007 .rsMonthView .rsColumnHeaderLastSpacerCell div,
+.RadScheduler_Office2007 .rsMonthView .rsHoursTable th,
+.RadScheduler_Office2007 .rsMonthView .rsHoursTable th div,
+/*.RadScheduler_Office2007 .rsWeekView .rsVertical .rsColumnHeaderSpacerCell,
+.RadScheduler_Office2007 .rsWeekView .rsVertical .rsColumnHeaderSpacerCell div,*/
+.RadScheduler_Office2007 .rsHoursTable .rsSubHeaderHidden,
+.RadScheduler_Office2007 .rsHoursTable .rsSubHeaderHidden div,
+.RadScheduler_Office2007 .rsTimelineView .rsColumnHeaderLastSpacerCell,
+.RadScheduler_Office2007 .rsTimelineView .rsColumnHeaderLastSpacerCell div
+{
+    width: 0;
+}
+
+.RadScheduler_Office2007 .rsMonthView .rsHoursTable th
+{
+	border-right: 0;
+}
+
+.RadScheduler_Office2007 .rsMonthView .rsHoursTable .rsMainHeader,
+.RadScheduler_Office2007 .rsMonthView .rsHoursTable .rsMainHeader div,
+.RadScheduler_Office2007 .rsTimelineView .rsHoursTable .rsMainHeader,
+.RadScheduler_Office2007 .rsTimelineView .rsHoursTable .rsMainHeader div
+{
+	border-right-color: #D9EEF6;
+}
+
+.RadScheduler_Office2007 .rsMonthView .rsHoursTable .rsMainHeader,
+.RadScheduler_Office2007 .rsMonthView .rsHoursTable .rsMainHeader div
+{
+	width: 100px;
+}
+
+.RadScheduler_Office2007 .rsAllDayFirstCell
+{
+	color: #3278B2;
+	font-size: 12px;
+    height: 25px;
+    text-align:center;
+    background: #D9EEF6; 
+    border-right: 1px solid #6b6b6b;
+}
+
+.RadScheduler_Office2007 .rsAllDayFirstCell div
+{
+	width: 100px;
+}
+
+.RadScheduler_Office2007 .rsAllDayLastCell
+{
+    border-left: 1px solid #F4FCFF;
+    background: #d6d6d6; 
+}
+
+.RadScheduler_Office2007 .rsColumnHeaderSpacerCell
+{
+	padding-right: 1px;
+}
+
+.RadScheduler_Office2007 .rsColumnHeaderLastSpacerCell
+{
+    border-right: 1px solid #6B696B;
+}
+
+.RadScheduler_Office2007 .rsMonthView .rsVertical .rsColumnHeaderLastSpacerCell
+{
+    border-right: 0;
+}
+
+.RadScheduler_Office2007 .rsColumnHeaderSpacerCell,
+.RadScheduler_Office2007 .rsColumnHeaderLastSpacerCell
+{
+	border-top: 1px solid #6B696B;
+}
+
+.RadScheduler_Office2007 .rsAllDayLastCell div,
+.RadScheduler_Office2007 .rsColumnHeaderLastCell div
+{
+	width: 15px;
+}
+
+.RadScheduler_Office2007 .rsColumnHeaderTable
+
+{
+	border-left: 0;
+    border-right: 1px solid #6B696B;
+}
+
+.RadScheduler_Office2007 .rsTimelineTable
+{
+    border-right: 1px solid #6B696B !important;
+    border-bottom: 1px solid #6B696B;
+}
+
+.RadScheduler_Office2007 .rsColumnHeaderTable .rsLastCell
+{
+	border-right: 0;
+}
+
+.RadScheduler_Office2007 .rsAllDayTable,
+.RadScheduler_Office2007 .rsTimelineTable
+{
+    border-right: 1px solid #6B696B;
+}
+
+.RadScheduler_Office2007 .rsColumnHeaderFirstCell,
+.RadScheduler_Office2007 .rsColumnHeaderRow th
+{
+    border-top: 1px solid #6b696b; 
+    border-right: 1px solid #6b696b; 
+    border-bottom: 1px solid #6b696b; 
+    background:#D9EEF6;    
+    height: 20px;
+}
+
+.RadScheduler_Office2007 .rsColumnHeaderRow th
+{
+	color: #fff;
+
+    text-align:center;
+    white-space: nowrap;
+}
+
+.RadScheduler_Office2007 .rsColumnHeaderRow th.rsTodayCol
+{
+    background:url('Scheduler/WeekDayToday.gif') center 0 repeat-x #ea8e00;
+}
+
+.RadScheduler_Office2007 .rsColumnHeaderLastCell
+{
+	border-top: 1px solid #6B696B;
+	border-left: 1px solid #6099C6;
+    background:#D9EEF6;
+}
+
+.RadScheduler_Office2007 .rsTimelineView .rsHoursTable .rsMainHeader
+{
+	border-bottom: 1px solid #6B696B;
+}
+
+.RadScheduler_Office2007 .rsHoursTable .rsSubHeaderLast
+{
+	height: 26px;
+}
+
+/*.RadScheduler_Office2007 .rsContentTable .rsLastCell,*/
+.RadScheduler_Office2007 .rsAllDayRow .rsLastCell
+{
+    border-right: 0;
+}
+
+.RadScheduler_Office2007 .rsShowMore
+{
+	cursor: pointer;
+	text-align: center;
+	color: #074121;
+	text-decoration: underline;
+}
+
+/* main content */
+
+.RadScheduler_Office2007 .rsContent
+{
+    border: 1px solid #D9EEF6;
+    border-top-width: 0; 
+}
+
+.RadScheduler_Office2007 .rsHoursTable th
+{
+	color: #fff;
+    height: 25px;
+    border-top: 1px solid #6b6b6b;
+    border-right: 1px solid #6b6b6b; 
+    background: #D9EEF6;
+    font-size: 12px;
+}
+
+.RadScheduler_Office2007 .rsVertical .rsHoursTable .rsMainHeader
+{
+	height: auto;
+}
+
+.RadScheduler_Office2007 .rsHoursTable .rsMainHeader div
+{
+	height: 100%;
+	vertical-align: middle;
+}
+
+.RadScheduler .rsMainHeader .rsHoursContent
+{
+	position: static;
+}
+
+.RadScheduler_Office2007 .rsHoursTable .rsHoursWrapper
+{
+	zoom: 1;
+}
+
+.RadScheduler_Office2007 .rsTimelineView .rsHoursTable th
+{
+	border-top: 0;
+}
+
+.RadScheduler_Office2007 .rsVertical .rsHoursTable .rsMainHeader
+{
+	border-bottom: 1px solid #D9EEF6;
+}
+
+.RadScheduler_Office2007 .rsVertical .rsHoursTable .rsMainHeader th
+{
+	height: auto;
+}
+
+.RadScheduler_Office2007 .rsHoursTable .rsMainHeader .rsHoursWrapper
+{
+	/*height: auto;*/
+}
+
+.RadScheduler_Office2007 .rsHoursTable .rsMainHeader .rsHoursWrapper,
+.RadScheduler_Office2007 .rsHoursTable .rsMainHeader .rsHoursContent
+{
+	/*display: inline;
+	position: static;*/
+}
+
+.RadScheduler_Office2007 .rsMonthView .rsHoursTable th
+{
+	border-top: 0;
+}
+
+.RadScheduler_Office2007 .rsDayView .rsAltHour,
+.RadScheduler_Office2007 .rsWeekView .rsAltHour
+{
+	padding-bottom: 1px;
+}
+
+.RadScheduler_Office2007 .rsDayView .rsAllDayTable,
+.RadScheduler_Office2007 .rsWeekView .rsAllDayTable
+{
+	border-top: 1px solid #6B6B6B;
+}
+
+.RadScheduler_Office2007 .rsHoursTable th.rsAltHour
+{
+    border-top: 0;
+
+}
+
+.RadScheduler_Office2007,
+.RadScheduler_Office2007 table
+{
+    font:11px/16px verdana,sans-serif;
+}
+
+.RadScheduler_Office2007 .rsAllDayFirstCell,
+.RadScheduler_Office2007 .rsColumnHeaderFirstCell
+{
+    border-top: 1px solid #8BBDE8; 
+    background-color: #D9EEF6; 
+    height: 25px;
+}
+
+.RadScheduler_Office2007 .rsAllDayFirstCell
+{
+    text-align:center;
+    color:#3278B2;
+}
+
+.RadScheduler_Office2007 .rsAllDayLastCell
+{
+    border-top: 1px solid #8BBDE8;
+    background-color: #F4FCFF; 
+    height: 25px;
+}
+
+.RadScheduler_Office2007 .rsAllDayLastCell div,
+.RadScheduler_Office2007 .rsColumnHeaderLastCell div
+{
+	width: 16px;
+}
+
+.RadScheduler_Office2007 .rsAllDayTable,
+.RadScheduler_Office2007 .rsTimelineTable
+{
+    border-right: 1px solid #8BBDE8; 
+}
+
+.RadScheduler_Office2007 .rsColumnHeaderTable
+{
+	border-left: 1px solid #8BBDE8; 
+    border-right: 1px solid #8BBDE8;
+}
+
+.RadScheduler_Office2007 .rsColumnHeaderRow th,
+.RadScheduler_Office2007 .rsColumnHeaderFirstCell
+{
+    border-top: 1px solid #8BBDE8; 
+    background:#6099C6 url(Scheduler/WeekDay.gif) repeat-x scroll 0pt 50%;    
+    height: 20px;
+}
+
+.RadScheduler_Office2007 .rsColumnHeaderRow th
+{
+	color: #FFFFFF;
+    border-right: 1px solid #8BBDE8;     
+    text-align:center;
+}
+
+.RadScheduler_Office2007 .rsColumnHeaderRow th.rsTodayCol
+{
+    background:url(Scheduler/WeekDayToday.gif) center 0 repeat-x #ea8e00;
+    color:#333;
+}
+
+
+.RadScheduler_Office2007 .rsColumnHeaderLastCell
+{
+	border-top: 1px solid #8BBDE8;
+    background:#6099C6 url(Scheduler/WeekDay.gif) repeat-x scroll 0pt 50%;
+    color: #FFFFFF;	
+}
+
+.RadScheduler_Office2007 .rsContentTable .rsLastCell,
+.RadScheduler_Office2007 .rsAllDayRow .rsLastCell,
+.RadScheduler_Office2007 .rsColumnHeaderRow .rsLastCell
+{
+    border-right:none;
+}
+
+.RadScheduler_Office2007 .rsAllDayCell
+{
+    border-top: 1px solid #8BBDE8; 
+    border-right: 1px solid #8BBDE8; 
+    background-color: #F4FCFF; 
+    cursor: default; 
+}
+
+/* Begin IE6 Fix - All day-appointments disappear on click */
+* html .RadScheduler_Office2007 .rsAllDayCell
+{
+	height: 25px;
+}
+
+* html .RadScheduler_Office2007 .rsAllDayCell .rsWrap
+{
+	height: 100%;
+}
+/* End IE6 Fix  */
+
+.RadScheduler_Office2007 .rsAllDayCell .rsWrap
+{
+	height: 25px;
+}
+
+.RadScheduler_Office2007 .rsColumnHeader
+{
+    border-left: 1px solid #8BBDE8; 
+    border-right: 1px solid #8BBDE8;
+}
+
+.RadScheduler_Office2007 .rsContent
+{
+    border: 1px solid #8BBDE8; 
+}
+
+.RadScheduler_Office2007 .rsHoursTable th
+{
+	color: #3278B2;
+    height: 25px;
+    border-top: 1px solid rgb(194, 220, 243); 
+    background-color: #D9EEF6;
+    font-size: 12px;
+}
+
+.RadScheduler_Office2007 .rsHoursTable th.rsFirstCell
+{
+    border-top: none;
+}
+
+.RadScheduler_Office2007 .rsHoursTable th.rsAltHour
+{
+    border-top: none;
+}
+
+.RadScheduler_Office2007 .rsCell
+{
+	border-right: 1px solid #8BBDE8; 
+    background:#f4fcff;
+    height: 25px;
+    border-bottom: 1px solid rgb(194, 220, 243);
+    vertical-align: top;
+}
+
+.RadScheduler_Office2007 .rsMonthView .rsCell
+{
+	background-color: #fff;
+	height: auto;
+}
+
+.RadScheduler_Office2007 td.rsWorkHour 
+{
+	background-color: #fff;
+}
+
+.RadScheduler_Office2007 .rsMonthView .rsWrap
+{
+	height: 25px;
+}
+
+.RadScheduler_Office2007 .rsAltRow .rsCell
+{
+	border-bottom-style: dotted;
+}
+
+.RadScheduler_Office2007 .rsContentTable .rsAptCreate
+{
+    background-color:#e9f7fc;
+}
+
+.RadScheduler_Office2007 .rsAllDay
+{
+    border-left: 1px solid #8BBDE8; 
+    border-right: 1px solid #8BBDE8;
+}
+
+.RadScheduler_Office2007 .rsAptDelete 
+{	
+    background:transparent url(Scheduler/AppointmentDelete.gif) left top no-repeat;    
+    height:11px;
+    right:3px;
+    top:3px;
+    width:11px;
+    text-indent:-99em;
+}
+
+.RadScheduler_Office2007 .rsAptEdit
+{
+    background: #c8d8ed url(Scheduler/AppointmentBg.gif) repeat-x top left;
+}
+
+.RadScheduler_Office2007 .rsEditOptions
+{
+	float: right;
+    margin-right: 2px;
+}
+
+.RadScheduler_Office2007 .rsAptEditConfirm
+{
+    background:transparent url(Scheduler/rsAdvEditSave.gif) no-repeat scroll 50%;    
+    height:20px;
+}
+
+.RadScheduler_Office2007 .rsAptEditCancel
+{
+    background:transparent url(Scheduler/AppointmentEditCancel.gif) no-repeat scroll 50%;    
+    height:20px;
+}
+
+.RadScheduler_Office2007 .rsEditOptions a.rsAptEditMore 
+{
+    font-size:0.9em;
+    line-height:20px;
+    text-align:right;
+    text-indent:0pt;
+    color:#4985AB;
+    text-decoration: none;
+}
+
+.RadScheduler_Office2007 .rsEditOptions a 
+{
+	float: left;
+	width: 15px;
+}
+
+.RadScheduler_Office2007 .rsEditOptions a.rsAptEditMore 
+{
+	width: 30px;
+}
+
+.RadScheduler_Office2007 .rsAptEditTextareaWrapper textarea 
+{
+    border-color:#ABADB3 rgb(219, 223, 230) rgb(227, 233, 239) rgb(226, 227, 234);
+    border-style:solid;
+    border-width:1px;
+    font-family:arial,sans-serif;
+    font-size: 12px;
+    overflow: auto;
+}
+
+.RadScheduler_Office2007 .rsContentTable
+{
+    border-right: 1px solid #8BBDE8; 
+}
+
+.RadScheduler_Office2007 .rsContentTable .rsApt
+{
+	width:100%;
+}
+
+.RadScheduler_Office2007 .rsLastRow .rsCell
+{
+	border-bottom: 0px none;
+}
+
+.RadScheduler_Office2007 .rsMonthView td.rsOtherMonth
+{
+    background:#f2f2f2;
+}
+
+.RadScheduler_Office2007 .rsContentTable .rsSatCol,
+.RadScheduler_Office2007 .rsContentTable .rsSunCol
+{
+	background:#f4fcff;
+    border-bottom-color:#daecf9;
+}
+
+.RadScheduler_Office2007 .rsMonthView .rsLastRow td.rsSatCol,
+.RadScheduler_Office2007 .rsMonthView .rsLastRow td.rsSunCol
+{
+    border-bottom-color:#c2dcf3;
+}
+
+.RadScheduler_Office2007 .rsAptResize
+{
+    background: transparent url(Scheduler/AppointmentExpand.gif) no-repeat scroll 50% bottom;    
+    width: 15px;
+    height: 6px;
+    bottom: 1px;
+    margin-left: -7px;
+    left: 50%;
+    cursor: s-resize;
+}
+
+.RadScheduler_Office2007 .rsAptInner
+{
+    border-top: 1px solid #4b71a2;
+}
+
+.RadScheduler_Office2007 .rsAptWrap
+{
+    border-left: 1px solid #4b71a2;
+    border-right: 1px solid #4b71a2;
+    background: #c8d8ed url(Scheduler/AppointmentBg.gif) repeat-x top left;
+}
+
+.RadScheduler_Office2007 .rsAptBottom
+{
+    border-bottom: 1px solid #4b71a2;
+}
+
+.RadScheduler_Office2007 .rsAptRecurrence
+{
+	padding: 0px 3px;
+	margin: 0px 3px;
+    background:url(Scheduler/rsRecurrence.gif) no-repeat scroll 0% 50%;
+}
+
+.RadScheduler_Office2007 .rsAptRecurrenceException
+{
+	padding: 0px 3px;
+	margin: 0px 3px;
+    background:url(Scheduler/rsRecurrenceException.gif) no-repeat scroll 0% 50%;
+}
+
+.RadScheduler_Office2007 .rsConfirmation
+{
+    position:absolute;
+    z-index:10001;
+    width:284px;
+    min-height:185px; _height:185px;
+    border:1px solid #8bbde8;
+    padding-left:96px;
+    background:#f4fcff url(Scheduler/rsConfirmation.gif) repeat-y;
+}
+
+.RadScheduler_Office2007 .rsConfirmation h1,
+.RadScheduler_Office2007 .rsConfirmation h2
+{
+    margin:22px 0;
+    padding:2px 0 2px 5px;
+    font:normal 14px/1.2 arial,sans-serif;
+    color:#333;
+}
+
+.RadScheduler_Office2007 .rsConfirmation div
+{
+    font:normal 14px/1.2 arial,sans-serif !important;
+    color:#085ba1;
+}
+
+.RadScheduler_Office2007 .rsConfirmation input
+{
+    position:relative;
+    top:1px;
+}
+
+.RadScheduler_Office2007 .rsConfirmation .rsButtonContainer
+{
+    margin:20px 0 0 !important;
+}
+
+.RadScheduler_Office2007 .rsConfirmation .rsButtonContainer a
+{
+    margin: 5px;
+    padding:3px;
+    background:#085ba1 !important;
+    color:#fff;
+    text-decoration:none;
+}
+
+
+/* Header */
+
+.RadScheduler_Office2007 .rsHeader
+{
+    border:1px solid #8bbde8;
+    border-bottom:0
+}
+.RadScheduler_Office2007 .rsHeader p
+{
+	float:left;
+    height:26px;
+    margin:4px 5px 0 11px;
+    padding:0;   
+    background:url(Scheduler/PrevNext.gif) no-repeat;
+    line-height:26px;
+    color:#4081b8;
+}
+.RadScheduler_Office2007 .rsPrevDay,
+.RadScheduler_Office2007 .rsNextDay
+{
+    top:0;
+    width:24px;
+    height:26px;
+}
+.RadScheduler_Office2007 .rsPrevDay
+{
+    left:0px;
+}
+.RadScheduler_Office2007 .rsNextDay
+{
+    left:24px;
+}
+.RadScheduler_Office2007 .rsHeader em
+{
+    font-style: normal;
+}
+.RadScheduler_Office2007 .rsHeader p em
+{
+    margin-left: 56px;
+}
+.RadScheduler_Office2007 .rsHeader p em a
+{
+    color:#4081b8;
+}
+ 
+.RadSchedule_Office2007 .rsHeader p em a:hover
+{
+    text-decoration:none;
+}
+
+.RadScheduler_Office2007 .rsHeader h2
+{
+    margin:0;
+    padding:0 0 0 150px;
+    font-size:12px;
+    line-height:34px;
+    color:#666;
+    font-weight:normal;
+}
+
+.RadScheduler_Office2007 .rsHeader ul
+{
+    list-style:none;
+    float:right;
+    margin:0;
+    text-align:right;
+    font-size:12px;
+    line-height:36px;
+    height:36px;
+}
+
+.RadScheduler_Office2007 .rsHeader li
+{
+    float:left;
+    border-left:1px solid #8bbde8;
+    background:url(Scheduler/menuItem.gif) 0 100% repeat-x #fbfdfe;
+}
+.RadScheduler_Office2007 .rsHeader .rsSelected,
+.RadScheduler_Office2007 .rsHeader ul a
+{
+    padding:0 12px;
+}
+.RadScheduler_Office2007 .rsHeader ul a
+{
+    float:left;
+    display:block;
+    color:#085ba1;
+    text-decoration:none;
+}
+.RadScheduler_Office2007 .rsHeader .rsSelected,
+.RadScheduler_Office2007 .rsHeader ul a:hover
+{
+    background:url(Scheduler/menuItemSelected.gif) center 0 repeat-x #fdf9d5;
+    color:#2d3236;
+}
+
+.RadScheduler_Office2007 .rsFooter
+{
+    border:1px solid #8bbde8;
+    border-top:0;
+    background:#f4fcff;
+    line-height:20px;
+}
+
+.RadScheduler_Office2007 .rsFooter a
+{
+    margin-left:10px;
+    padding-left:11px;
+    background:url(Scheduler/Show24.gif) 0 0.3em no-repeat;
+    color:#4786ba;
+}
+
+.RadScheduler_Office2007 .rsFooter div
+{
+    float:right;
+    width:130px;
+    height:1.8em;
+    padding-left:10px;
+    background:url(Scheduler/Footer.gif) repeat-y;
+}
+
+.RadScheduler_Office2007 .rsFooter span
+{
+    display:block;
+    width:87px;
+    height:12px;
+    margin-top:4px;
+    background:url(Scheduler/ProgressBar.gif) no-repeat;
+}
+
+.RadScheduler_Office2007 .rsShowMore
+{
+	cursor: pointer;
+	text-align: center;
+	color: Office2007;
+	text-decoration: underline;
+}
+
+/* Appointment Arrows */
+
+.RadScheduler_Office2007 .rsWArrowTop .rsAptContent
+{
+    padding-top:7px;
+}
+.RadScheduler_Office2007 .rsWArrowBottom .rsAptContent
+{
+    padding-bottom:7px;
+}
+.RadScheduler_Office2007 .rsWArrowLeft .rsAptContent
+{
+    padding-left:10px;
+}
+.RadScheduler_Office2007 .rsWArrowRight .rsAptContent
+{
+    padding-right:10px;
+}
+
+.RadScheduler_Office2007 .rsArrowTop,
+.RadScheduler_Office2007 .rsArrowBottom
+{
+    width:100%;
+    height:4px;
+    left:0;
+}
+
+.RadScheduler_Office2007 .rsArrowLeft,
+.RadScheduler_Office2007 .rsArrowRight
+{
+    width:4px;
+    height:100%;
+    top:0;
+}
+
+.RadScheduler_Office2007 .rsArrowTop
+{
+    top:2px;
+    background:url(Scheduler/AppointmentArrowU.gif) 50% 0 no-repeat;
+}
+.RadScheduler_Office2007 .rsArrowBottom
+{
+    background:url(Scheduler/AppointmentArrowD.gif) 50% 0 no-repeat;
+    bottom:2px;
+}
+.RadScheduler_Office2007 .rsArrowLeft
+{
+    background:url(Scheduler/AppointmentArrowL.gif) 0 50% no-repeat;
+    left:3px;
+}
+.RadScheduler_Office2007 .rsArrowRight
+{
+    background:url(Scheduler/AppointmentArrowR.gif) 0 50% no-repeat;
+    right:3px;
+}
+
+/* Advanced Edit */
+
+.RadScheduler_Office2007 .rsAdvancedEdit
+{
+    background:#e6edf7;
+	border:1px solid #5d8cc9;
+	cursor: default;
+}
+
+.RadScheduler_Office2007 .rsAdvancedEdit .rsAdvInput,
+.RadScheduler_Office2007 .rsAdvancedEdit select,
+.RadScheduler_Office2007 .rsAdvancedEdit textarea
+{
+	border:1px solid;
+	border-color: #7f9db9;
+	color:#7f9db9;
+}
+
+.RadScheduler_Office2007 .rsAdvancedEdit .rsAdvInput:hover,
+.RadScheduler_Office2007 .rsAdvancedEdit select:hover,
+.RadScheduler_Office2007 .rsAdvancedEdit textarea:hover
+{
+	border-color: #38577e;
+	color: #38577e;
+}
+
+.RadScheduler_Office2007 .rsAdvancedEdit .rsAdvInput:focus,
+.RadScheduler_Office2007 .rsAdvancedEdit select:focus,
+.RadScheduler_Office2007 .rsAdvancedEdit textarea:focus
+{
+	border-color: #7f9db9;
+	color:#7f9db9;
+}
+
+.RadScheduler_Office2007 .rsAdvancedEdit .pickerWrapper_Office2007
+{
+	border: 0;
+}
+
+.RadScheduler_Office2007 .rsAdvancedEdit textarea
+{
+    display:block;
+	width:80%;
+	font: 12px Arial,sans-serif;
+}
+
+.RadScheduler_Office2007 .rsAdvMoreDetails,
+.RadScheduler_Office2007 .rsAdvRecurrence
+{
+	border-top: 1px solid #a5bfe1;
+	padding:0 0 0 16px;
+	font-size:14px;
+	line-height:29px;
+	height:29px;
+	color: #06c;
+}
+
+.RadScheduler_Office2007 .rsAdvMoreDetails
+{
+	margin:1em 0 0.6em;
+}
+.RadScheduler_Office2007 .rsAdvRecurrence
+{
+	margin:1em 0 0;
+}
+
+
+.RadScheduler_Office2007 .rsAdvancedSubmitArea
+{
+	padding-top:2px;
+	line-height:3em;
+	border-top:1px solid #dadada;
+	background:#fff;
+}
+
+.RadScheduler_Office2007 .rsAdvEditSave,
+.RadScheduler_Office2007 .rsAdvEditCancel
+{
+	margin-left:16px;
+	text-decoration:none;
+	font-weight:bold
+}
+
+.RadScheduler_Office2007 .rsAdvEditSave
+{
+	padding-left:15px;
+	background:url(Scheduler/AppointmentEditOK.gif) 0 0.4em no-repeat;
+	color:#588f02;
+	font-size:1.6em
+}
+
+.RadScheduler_Office2007 .rsAdvEditCancel
+{
+	padding-left:13px;
+	background:url(Scheduler/AppointmentEditCancel.gif) 0 0.36em no-repeat;
+	color:#e46100;
+	font-size:1.2em;
+}
+
+.RadScheduler_Office2007 .rsAdvBasicControls:after,
+.RadScheduler_Office2007 .rsAdvMoreControls ul:after,
+.RadScheduler_Office2007 .rsAdvRecurrenceFreq:after,
+.RadScheduler_Office2007 .rsAdvRecurrencePatterns:after
+{
+	content:".";
+	display:block;
+	clear:both;
+	height:0;
+	visibility:hidden;
+}
+
+.RadScheduler_Office2007 .rsAdvBasicControls label,
+.RadScheduler_Office2007 .rsAdvBasicControls textarea
+{   
+    display:block;
+    margin:0.8em 0 0 15px;
+}
+
+.RadScheduler_Office2007 .rsAdvBasicControls ul
+{
+    list-style:none;
+    margin:0.8em 0 0 15px;
+    padding:0;
+}
+
+.RadScheduler_Office2007 .rsAdvBasicControls li
+{
+    float:left;
+    margin-right:10px;
+}
+
+.RadScheduler_Office2007 .rsAdvBasicControls li label
+{
+    display:inline;
+    margin-left:0;
+    vertical-align:middle;
+    padding-right:5px;
+}
+
+.RadScheduler_Office2007 .rsAdvBasicControls li .rsAdvInput
+{
+	margin-right:5px;
+}
+
+.RadScheduler_Office2007 .rsAdvMoreControls ul,
+.RadScheduler_Office2007 .rsAdvRecurrenceRangePanel ul
+{
+    list-style:none;
+    margin:0.8em 0 0 15px;
+    padding:0;
+}
+
+.RadScheduler_Office2007 .rsAdvRecurrenceRangePanel label
+{
+	padding-right: 4px;
+}
+
+.RadScheduler_Office2007 .rsAdvMoreControls li
+{
+    float:left;
+    clear:left;
+    width:100%;
+}
+
+.RadScheduler_Office2007 .rsAdvMoreControls li label
+{
+    float:left;
+    width:60px;
+}
+
+.RadScheduler_Office2007 .rsAdvancedEdit .rsAdvCheckboxWrapper input
+{
+	vertical-align: middle;
+}
+
+.RadScheduler_Office2007 .rsAdvancedEdit .rsAdvCheckboxWrapper label
+{
+	width: auto;
+}
+
+.RadScheduler_Office2007 .rsAdvMoreControls li input
+{
+    float:left;
+}
+
+.RadScheduler_Office2007 .rsAdvRecurrenceRange
+{
+    margin:1em 0 0;
+    padding:0.8em 0 0 15px;
+    color: #06c;
+}
+
+.RadScheduler_Office2007 .rsAdvRecurrenceFreq
+{
+    float:left;
+    width:150px;
+    margin:0.8em 0 0 0;
+    border-right:1px solid #a5bfe1;
+}
+
+.RadScheduler_Office2007 .rsAdvRecurrenceFreq ul
+{
+    list-style:none;
+    margin:0 0 0 15px;
+    padding:0;
+}
+
+
+.RadScheduler_Office2007 .rsAdvResetExceptions
+{
+	clear: both;
+	text-align: right;
+}
+
+.RadScheduler_Office2007 .rsAdvHourly,
+.RadScheduler_Office2007 .rsAdvDaily,
+.RadScheduler_Office2007 .rsAdvWeekly,
+.RadScheduler_Office2007 .rsAdvMonthly,
+.RadScheduler_Office2007 .rsAdvYearly
+{
+    float:left;
+    margin:1em 0 0 0;
+    padding-left:2em;
+    position:relative;
+    left:-2px;
+}
+
+.RadScheduler_Office2007 .rsAdvHourly ul,
+.RadScheduler_Office2007 .rsAdvDaily ul,
+.RadScheduler_Office2007 .rsAdvWeekly ul,
+.RadScheduler_Office2007 .rsAdvMonthly ul,
+.RadScheduler_Office2007 .rsAdvYearly ul
+{
+    list-style:none;
+    margin:0 0 0 15px;
+    padding:0;
+    width: 390px;
+}
+
+.RadScheduler_Office2007 .rsAdvHourly li,
+.RadScheduler_Office2007 .rsAdvDaily li,
+.RadScheduler_Office2007 .rsAdvWeekly li,
+.RadScheduler_Office2007 .rsAdvMonthly li,
+.RadScheduler_Office2007 .rsAdvYearly li,
+.RadScheduler_Office2007 .rsAdvRecurrenceRangePanel li,
+.RadScheduler_Office2007 .rsAdvMoreControls li
+{
+    margin:0 0 0.3em 0;
+}
+
+.RadScheduler_Office2007 .rsAdvHourly input,
+.RadScheduler_Office2007 .rsAdvDaily input,
+.RadScheduler_Office2007 .rsAdvWeekly input,
+.RadScheduler_Office2007 .rsAdvMonthly input,
+.RadScheduler_Office2007 .rsAdvYearly input,
+.RadScheduler_Office2007 .rsAdvHourly select,
+.RadScheduler_Office2007 .rsAdvDaily select,
+.RadScheduler_Office2007 .rsAdvWeekly select,
+.RadScheduler_Office2007 .rsAdvMonthly select,
+.RadScheduler_Office2007 .rsAdvYearly select
+{
+    margin:0 2px;
+}
+
+.RadScheduler_Office2007 .rsAdvRecurrencePatterns .rsAdvInput,
+.RadScheduler_Office2007 .rsAdvRecurrenceRangePanel .rsAdvInput
+{
+	width: 30px;
+	padding-left: 1px;
+	padding-right: 1px;
+}
+
+.RadScheduler_Office2007 .rsAdvRecurrencePatterns .rsAdvWeekly_Weekday
+{
+	float: left;
+	width: 100px;
+}
+
+.RadScheduler_Office2007 .rsConfirmation
+{
+    position:absolute;
+    z-index:10001;
+    width:284px;
+    height:185px;
+    border:1px solid #8bbde8;
+    padding-left:96px;
+    background:#f4fcff url(Scheduler/rsConfirmation.gif) repeat-y;
+}
+
+.RadScheduler_Office2007 .rsConfirmation h1,
+.RadScheduler_Office2007 .rsConfirmation h2
+{
+    margin:22px 0;
+    font:normal 14px/1.2 arial,sans-serif;
+    color:#333;
+}
+
+.RadScheduler_Office2007 .rsConfirmation div
+{
+    font:normal 14px/1.2 arial, sans-serif;
+    color:#085ba1;
+}
+
+.RadScheduler_Office2007 .rsConfirmation input
+{
+    position:relative;
+    top:1px;
+}
+
+.RadScheduler_Office2007 .rsConfirmation .rsButtonContainer
+{
+    margin:20px 0 0;
+}
+
+.RadScheduler_Office2007 .rsConfirmation .rsButtonContainer a
+{
+    background:#085ba1;
+    margin: 5px;
+    padding:1px 3px 3px;
+    color:#fff;
+    text-decoration:none;
+}
+
+.RadScheduler_Office2007 .rsAdvancedEdit .radInput_Office2007,
+.RadScheduler_Office2007 .rsAdvancedEdit .pickerWrapper_Office2007
+{
+	vertical-align: top;
+}
+
+.RadScheduler_Office2007 .rsScrollingContent
+{
+	scrollbar-face-color: #e9e9e9;
+	scrollbar-highlight-color: #ffffff;
+	scrollbar-shadow-color: #e9e9e9;
+	scrollbar-3dlight-color: #dbdbdb;
+	scrollbar-arrow-color: #787878;
+	scrollbar-track-color: #f5f5f5;
+	scrollbar-darkshadow-color: #aeaeae;
+}
+
+.RadScheduler_Office2007 .rsTimelineView .rsHoursTable th  
+{  
+	padding-top: 1px;  
+}
+
+.RadScheduler_Office2007 .rsHeader .rsPrevDay,
+.RadScheduler_Office2007 .rsHeader .rsNextDay,
+.RadScheduler_Office2007 .rsHeader .rsToday
+{
+	float: left;
+	position: static;
+}
+
+.RadScheduler_Office2007 .rsToday
+{
+	padding: 0 4px;
+}
+
+.RadScheduler_Office2007 .rsHeader p em
+{
+	margin-left: 0;
+}

@@ -1,0 +1,288 @@
+﻿body 
+{
+	color: #090909;
+	font-family: Arial;
+	font-size: 12px;
+	margin: 0;
+}
+
+h1
+{
+	float: left;
+	margin: 0;
+	padding-top: 30px;
+	padding-bottom: 25px;
+	font-family:  'Bradley Hand ITC TT', 'Bradley Hand ITC', 'Arial Unicode MS', 'Helvetica';
+	font-size: 48px;
+	line-height: 20px;
+}
+
+h2
+{
+	float: left;
+	margin: 0;
+	padding-top: 25px;
+	padding-bottom: 37px;
+	font-family:  'Bradley Hand ITC', 'Bradley Hand ITC TT', 'Arial Unicode MS', 'Helvetica';
+	font-size: 30px;
+}
+
+h1.Title
+{
+	margin: 0;
+	padding: 0;
+	font-family:  'Bradley Hand ITC', 'Bradley Hand ITC TT', 'Arial Unicode MS', 'Helvetica';
+	font-size: 30px;
+	padding-bottom: 10px;
+}
+
+h2.Article
+{
+	margin: 0;
+	padding: 0;
+	font-family:  'Bradley Hand ITC TT', 'Bradley Hand ITC', 'Arial Unicode MS', 'Helvetica';
+	font-size: 30px;
+	padding-bottom: 30px;
+	float: none;
+	color: #a0a7ab;
+	text-align: center;
+}
+
+h1.FeaturedTitle
+{
+	margin: 0;
+	padding: 0;
+	font-family:  'Bradley Hand ITC', 'Bradley Hand ITC TT', 'Arial Unicode MS', 'Helvetica';
+	font-size: 30px;
+	padding-bottom: 10px;
+}
+
+h3
+{
+	margin: 0;
+	padding: 0;
+	font-family:  Arial;
+	font-size: 18px;
+	padding-top: 30px;
+	padding-bottom: 20px;
+}
+
+a
+{
+	color: 	#f13129;
+	text-decoration: underline;
+}
+
+a.MailTo
+{
+	color: 	#f13129;
+	text-decoration: underline;
+}
+
+a.Title
+{
+	color: 	#f13129;
+	text-decoration: underline;
+}
+
+a.FeaturedLink
+{
+	color: 	#f13129;
+	text-decoration: underline;
+}
+
+.about
+{
+	width: 370px;
+	padding-left: 10px;
+	line-height: 16px;
+}
+
+td.LeftColumn
+{
+	padding-right: 10px;
+	padding: 10px;
+	border-left: solid 1px #090909;
+	border-top: solid 1px #090909;
+	border-bottom: solid 1px #090909;
+	background-color: #dfdfc7;
+}
+
+td.RightColumn
+{
+	width: 430px;
+	border-right: solid 1px #090909;
+	border-top: solid 1px #090909;
+	border-bottom: solid 1px #090909;
+	padding-top: 10px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+	background-color: #dfdfc7;
+}
+
+td.MainContent
+{
+	padding-left: 20px;
+	padding-bottom: 20px;
+}
+
+td.TitleContent
+{
+	padding-left: 56px;
+}
+
+.HippoHappenings
+{
+	float: right;
+	padding-right: 125px;
+}
+
+.HippoBlog
+{
+	float: left;
+	padding-left: 125px;
+	padding-top: 10px;
+}
+
+.HippoBlog a
+{
+	color: #090909;
+	padding: 0;
+	font-size: 14px;
+	font-style: italic;
+	text-decoration: none;
+}
+
+.HippoLink
+{
+	border: 0;
+	padding-top: 6px;
+}
+
+.ContentLeft
+{
+	padding-right: 10px;
+}
+
+.Content
+{
+	padding-bottom: 20px;
+	font-size: 12px;
+}
+
+.FeaturedContent
+{
+	padding-bottom: 20px;
+	font-size: 12px;
+}
+
+.RestOfArticles
+{
+	padding-top: 50px;
+}
+
+.OneArticle
+{
+	padding-bottom: 20px;
+}
+
+.ArticleContent
+{
+	width: 700px;
+}
+
+.ArticleMainContent
+{
+	line-height: 18px;
+	width: 600px;
+	text-align: left;
+	padding: 20px;
+	border: solid 1px #090909;
+	background-color: #dfdfc7;
+	position: relative;
+}
+
+.ArticleMainContent h2
+{
+	font-size: 14px;
+	font-family: Arial;
+	padding: 0;
+	float: none;
+}
+
+.ArticleImageLeft
+{
+	float: left;
+	padding-right: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.ArticleImageRight
+{
+	padding-top: 10px;
+	float: right;
+	padding-left: 10px;
+	padding-bottom: 10px;
+}
+
+.LeftAds
+{
+	padding-right: 20px;
+}
+
+.RightAds
+{
+	padding-left: 20px;
+}
+
+.BlueGradient
+{
+	background: url("../NewImages/BlueMidGradient.png") repeat-x scroll center top transparent;
+}
+
+.GreenGradient
+{
+	background: url("../NewImages/GreenBottomPixel.png") repeat-x scroll center bottom transparent;
+	padding: 10px;
+	border: solid 1px #090909;
+}
+
+.BlogBack
+{
+	background-image: url("Images/BlogBack.png");
+	background-repeat: repeat-x repeat-y;
+}
+
+.BlogAdInsideLeft
+{
+	float: left;
+}
+
+.BlogAdInsideRight
+{
+	float: right;
+}
+
+.FloatRight
+{
+	float: right;
+}
+
+.FloatLeft
+{
+	float: left;
+}
+
+.ByHippoHappenings
+{
+	position: absolute;
+	bottom: 10px;
+	right: 20px;
+}
+
+.GooglyLinks
+{
+	padding-top: 10px;
+}
+

@@ -1,0 +1,141 @@
+using System;
+using System.Data;
+using System.Configuration;
+using System.Collections;
+using System.Web;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Web.UI.HtmlControls;
+using System.Data.SqlClient;
+
+public partial class Login : Telerik.Web.UI.RadAjaxPage
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+
+    }
+
+    private SqlConnection conn;
+
+    protected void cmdSubmit_Click(object sender, System.EventArgs e)
+    {
+        if (Page.IsValid)
+        {
+
+            if (DBConnection(LoginTextBox.Text.Trim(), PasswordTextBox.Text.Trim()))
+            {
+                string groups = "";
+                SqlConnection myConn = new SqlConnection(ConfigurationManager.ConnectionStrings["Connection"].ToString());
+                SqlCommand myCmd = new SqlCommand("SELECT Password FROM AdminLogin WHERE [User]=@UserName", myConn);
+                myCmd.CommandType = CommandType.Text;
+                myCmd.Parameters.Add("@UserName", SqlDbType.NVarChar).Value = LoginTextBox.Text.Trim();
+                DataSet ds = new DataSet();
+                SqlDataAdapter da = new SqlDataAdapter(myCmd);
+                da.Fill(ds);
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    groups = "Admin";
+                    //FormsAuthentication.RedirectFromLoginPage(txtUserName.Text, false);
+                    FormsAuthenticationTicket authTicket =
+                        new FormsAuthenticationTicket(1, LoginTextBox.Text.Trim(),
+                                      DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")),
+                                      DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")).AddMinutes(60),
+                                      false, groups);
+
+                    // Now encrypt the ticket.
+                    string encryptedTicket =
+                      FormsAuthentication.Encrypt(authTicket);
+                    // Create a cookie and add the encrypted ticket to the
+                    // cookie as data.
+                    HttpCookie authCookie =
+                                 new HttpCookie(FormsAuthentication.FormsCookieName,
+                                                encryptedTicket);
+                    // Add the cookie to the outgoing cookies collection.
+                    Response.Cookies.Add(authCookie);
+
+                    //Load the products.
+                    //conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DapperFrogConnection"].ToString());
+                    //if (conn.State == ConnectionState.Closed) conn.Open();
+
+                    //SqlCommand cmd = new SqlCommand("SELECT * FROM Products P, Shipping_By_Product S WHERE P.POSNumber=S.POSNumber ", conn);
+                    //DataSet DS = new DataSet();
+                    //SqlDataAdapter da1 = new SqlDataAdapter(cmd);
+                    //da1.Fill(DS, "table");
+
+                    //System.AppDomain.CurrentDomain.SetData("products", DS);
+
+                    //conn.Close();
+                    // Redirect the user to the originally requested page
+                    Response.Redirect(
+                              FormsAuthentication.GetRedirectUrl(LoginTextBox.Text.Trim(),
+                                                                 false));
+                }
+                else
+                {
+
+                    StatusLabel.Text = "Invalid Login, please try again!";
+                }
+            }
+            else
+            {
+                StatusLabel.Text = "Invalid Login, please try again!";
+            }
+        }
+
+    }
+    private bool DBConnection(string txtUser, string txtPass)
+    {
+        SqlConnection myConn = new SqlConnection(ConfigurationManager.ConnectionStrings["Connection"].ToString());
+        SqlCommand myCmd = new SqlCommand("SELECT Password FROM AdminLogin WHERE [User]=@UserName", myConn);
+        myCmd.CommandType = CommandType.Text;
+        myCmd.Parameters.Add("@UserName", SqlDbType.NVarChar).Value = txtUser;
+
+        try
+        {
+
+            myConn.Open();
+            SqlDataAdapter da = new SqlDataAdapter(myCmd);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+
+            if (ds.Tables.Count > 0)
+            {
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    if (ds.Tables[0].Rows[0]["Password"].ToString() != txtPass)
+                    {
+                        StatusLabel.Text = "Invalid Login, please try again!";
+                        return false;
+                    }
+                    else
+                    {
+                        myConn.Close();
+                        return true;
+                    }
+                }
+                else
+                {
+                    StatusLabel.Text = "Invalid Login, please try again!";
+                    return false;
+                }
+            }
+            else
+            {
+                StatusLabel.Text = "Invalid Login, please try again!";
+                return false;
+            }
+
+
+
+        }
+        catch (Exception ex)
+        {
+            StatusLabel.Text = ex + "Error Connecting to the database";
+            return false;
+        }
+
+    }
+
+}

@@ -1,0 +1,80 @@
+﻿.RadScheduler_Black .rsApt .rsAptOut
+{
+	background: none !important;
+}
+
+
+.RadScheduler_Black .rsAptOut, 
+.RadScheduler_Black .rsAptMid
+{
+	border: none !important;
+}
+
+.RadScheduler .rsApt
+{
+	padding-top: 5px;
+	font-size: 12px !important;
+	line-height: 15px !important;
+}
+
+.RadScheduler_Black .rsAptContent
+{
+	color: #ffed36 !important;
+	font-weight: bold !important;
+	text-decoration: underline !important;
+}
+.RadScheduler .rsAptContent
+{
+	padding: none !important;
+	padding: 0 !important;
+	text-decoration: underline !important;
+}
+
+.RadScheduler .rsMonthView .rsShowMore
+{
+	clear: both;
+	padding-top: 3px !important;
+	position: static !important;
+	line-height: 20px !important;
+}
+
+.RadScheduler .rsAptMid
+{
+	margin-top: 0 !important;
+}
+.RadScheduler .rsMonthView .rsApt
+{
+	height: 25px !important;
+}
+
+.RadScheduler .rsMonthView .rsWrap
+{
+	height: 10px !important;
+}
+
+.RadScheduler .rsContent
+{
+	background: none !important;
+}
+
+.RadTreeView_WebBlue .rtHover .rtIn 
+{
+	color:#1FB6E7 !important;
+	font-size:12px;
+	font-weight:bold;
+	background-color: Transparent !important;
+}
+
+.RadTreeView_WebBlue .rtSelected .rtIn 
+{
+	color:#1FB6E7 !important;
+	font-size:12px;
+	font-weight:bold;
+	background-color: Transparent !important;
+}
+
+.RadTreeView_WebBlue, .RadTreeView_WebBlue a.rtIn, .RadTreeView_WebBlue .rtEdit .rtIn input
+{
+	color: #cccccc !important;
+	font-size: 12px;
+}

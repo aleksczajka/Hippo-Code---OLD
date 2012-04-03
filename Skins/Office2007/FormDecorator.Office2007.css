@@ -1,0 +1,249 @@
+/* FORM DECORATOR "OFFICE2007 SKIN */
+
+.radfd_Office2007.radfd_ScrollBars
+{
+	scrollbar-3dlight-color: #606f94; 
+	scrollbar-arrow-color: #4d5874;
+	scrollbar-base-color: #f5f5f5; 
+	scrollbar-darkshadow-color: #5f6e93; 
+	scrollbar-face-color: #d8dfe8;
+	scrollbar-highlight-color: #fff; 
+	scrollbar-shadow-color: #a3a3a3;
+	scrollbar-track-color: #efefef;
+}
+
+/* label settings */
+.radfd_Office2007 label.Office2007
+{
+    color: #626262;
+}
+
+/* checkbox settings */
+.radfd_Office2007 .radfdCheckboxUnchecked,
+.radfd_Office2007 .radfdCheckboxUnchecked.radfdInputDisabled:hover
+{
+	background: transparent url(FormDecorator/CheckBoxSprites.gif) no-repeat 0 0;
+}
+
+.radfd_Office2007 .radfdInputDisabled.radfdCheckboxUnchecked:hover
+{
+	background: transparent url(FormDecorator/CheckBoxSprites.gif) no-repeat 0 0 !important;
+}
+
+.radfd_Office2007 .radfdCheckboxUnchecked:hover
+{
+	background: transparent url(FormDecorator/CheckBoxSprites.gif) no-repeat 0 -200px !important;
+}
+
+.radfd_Office2007 .radfdCheckboxChecked,
+.radfd_Office2007 .radfdInputDisabled.radfdCheckboxChecked:hover
+{
+	background: transparent url(FormDecorator/CheckBoxSprites.gif) no-repeat 0 -420px;
+}
+
+.radfd_Office2007 .radfdCheckboxChecked:hover
+{
+	background: transparent url(FormDecorator/CheckBoxSprites.gif) no-repeat 0 -640px;
+}
+/* end of checkbox settings */
+
+/* radiobutton settings */
+.radfd_Office2007 .radfdRadioUnchecked,
+.radfd_Office2007 .radfdInputDisabled.radfdRadioUnchecked:hover
+{
+	background: transparent url(FormDecorator/RadioButtonSprites.gif) no-repeat 1px 0;
+}
+
+.radfd_Office2007 .radfdRadioUnchecked:hover
+{
+	background: transparent url(FormDecorator/RadioButtonSprites.gif) no-repeat 1px -220px;
+}
+
+.radfd_Office2007 .radfdRadioChecked,
+.radfd_Office2007 .radfdInputDisabled.radfdRadioChecked:hover 
+{
+	background: transparent url(FormDecorator/RadioButtonSprites.gif) no-repeat 1px -440px;
+}
+
+.radfd_Office2007 .radfdRadioChecked:hover
+{
+	background: transparent url(FormDecorator/RadioButtonSprites.gif) no-repeat 1px -640px;
+}
+/* end of radiobutton settings */
+
+/* button settings */
+a.radfd_Office2007, a.radfd_Office2007 span
+{
+	background-image: url(FormDecorator/ButtonSprites.gif);
+	/* font: normal 12px Arial, Verdana, Sans-serif; */
+	color: black;
+}
+
+a.radfd_Office2007.radfdInputDisabled:hover
+{
+    background-position: 0 0;
+}
+
+a.radfd_Office2007
+{
+	padding-left: 4px;
+}
+
+a.radfd_Office2007 span
+{
+	line-height: 21px;
+}
+
+a.radfd_Office2007 .radfdInnerSpan,
+a.radfd_Office2007.radfdInputDisabled:hover .radfdInnerSpan
+{
+	margin-right: 4px;
+	background-position: 0 -21px;
+}
+
+a.radfd_Office2007.radfdInputDisabled:hover .radfdOuterSpan
+{
+	background-position: right 0;
+}
+
+a.radfd_Office2007:hover
+{
+	background-position: 0 -42px;
+}
+
+a.radfd_Office2007:hover .radfdInnerSpan
+{
+	background-position: 0 -63px;
+}
+
+a.radfd_Office2007:hover .radfdOuterSpan
+{
+	background-position: right -42px;
+}
+/* button settings */
+
+/* clicked button styles */
+a.radfd_Office2007.radfd_Clicked
+{
+    background-image: url(FormDecorator/ButtonSprites.gif);
+    background-position: 0 -84px;
+    background-repeat: no-repeat;
+}
+
+a.radfd_Office2007.radfd_Clicked span
+{
+    background-image: url(FormDecorator/ButtonSprites.gif);
+    color: #000;
+}
+
+a.radfd_Office2007.radfd_Clicked .radfdInnerSpan
+{
+    background-position: 0 -105px;
+    background-repeat: repeat-x;
+}
+
+a.radfd_Office2007.radfd_Clicked .radfdOuterSpan
+{
+    background-position: right -84px;
+    background-repeat: no-repeat;
+}
+/* end of clicked button styles */
+
+/* do NOT change these settings, otherwise the skinned buttons will be broken when used within a decoration zone */
+a.radfdSkinnedFormButton.radfd_Office2007
+{
+    -moz-user-select: none !important;
+	outline: none !important;
+	text-decoration: none !important;
+	cursor: default !important;
+	text-align: center !important;
+	background-color: transparent !important;
+    position: absolute !important;
+    display: inline !important;
+}
+
+/* Headings 4-6 */
+.radfd_Office2007 h4.radfd_h4
+{
+	color: #567db0;	
+	border-bottom: solid 1px #a0a0a0;	
+}
+
+.radfd_Office2007 h5.radfd_h5
+{
+	color: #000000;	
+	border-bottom: solid 1px #a0a0a0;	
+}
+
+.radfd_Office2007 h6.radfd_h6
+{
+	color: #000000;	
+}
+
+/* LABEL */
+.radfd_Office2007 label.radfd_label
+{	
+	color: #000000;
+}
+
+/* FIELDSET & LEGEND */
+.radfd_Office2007 table.radfd_roundedWrapper_fieldset legend,
+.radfd_Office2007 fieldset.radfd_fieldset legend
+{
+	/*Mandatory to set the height of the legend, so as to be able to calculate the rounded corners in IE properly*/
+	font-size: 12px;
+	height:30px;
+	line-height:30px;
+	color: #000000;
+}
+
+.radfd_Office2007 table.radfd_roundedWrapper_fieldset fieldset,
+.radfd_Office2007 fieldset.radfd_fieldset
+{	
+	border: solid 1px #d5dfe5;
+	background-image: url(FormDecorator/FieldsetBgr.png); /* 
+having a background image on a fieldset is not okay with IE */
+	background-repeat: no-repeat;/*Mandatory to use because of incorrect IE positioning of the image*/		
+}
+
+
+/* Due to a glitch in IE the following 2 classes must be declared separately for correct parsing of the textarea class in IE6*/
+.radfd_Office2007 table.radfd_roundedWrapper input,
+.radfd_Office2007 table.radfd_roundedWrapper textarea,
+.radfd_Office2007 input.radfd_input, 
+.radfd_Office2007 textarea.radfd_textarea
+{
+	border: solid 1px #7f9db9;
+	background: #ffffff;	
+	color: #000000;
+	overflow: hidden;
+}
+
+
+.radfd_Office2007  table.radfd_roundedWrapper input[disabled="disabled"]:hover,
+.radfd_Office2007  table.radfd_roundedWrapper textarea[disabled="disabled"]:hover
+{
+	border: solid 1px #8e8e8e;
+	background: #ffffff;	
+	color: #171717;
+	overflow: hidden;
+	filter: alpha(opacity=30);
+	-moz-opacity: .3;
+	opacity: .3;
+}
+
+/* add classes for HOVER effect */
+.radfd_Office2007  table.radfd_roundedWrapper input:hover,
+.radfd_Office2007  table.radfd_roundedWrapper textarea:hover,
+.radfd_Office2007 table.radfd_roundedWrapper:hover .radfd_roundedInnerSpan,
+.radfd_Office2007 input.radfd_input:hover, 
+.radfd_Office2007 textarea.radfd_textarea:hover
+{
+	border-color: #38577e !important;
+	background: #ffffff;
+}
+
+.radfd_Office2007 table.radfd_roundedWrapper:hover .radfd_roundedOuterSpan
+{	
+	background-color: #38577e !important;
+}

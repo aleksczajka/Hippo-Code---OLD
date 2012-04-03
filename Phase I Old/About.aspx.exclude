@@ -1,0 +1,654 @@
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" 
+CodeFile="About.aspx.cs" Inherits="About" Title="About local neighborhood community events, venues, and ads on HippoHappenings" %>
+<%@ OutputCache Duration="86400" VaryByParam="*" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+  <div class="EventDiv" style="line-height: 20px; padding-left: 50px; padding-right: 50px;">
+  <h1 class="searches">Who We Are and Our Mission</h1><br />
+    <label><span style="font-size: 12px; line-height: 16px;">
+    <div style="float: left;"><asp:Timer ID="MissionTimer" OnTick="ChangeMission" runat="server" Interval="15000">
+                        </asp:Timer>
+                            <asp:UpdatePanel runat="server" UpdateMode="conditional">
+                                <Triggers>
+                                    <asp:AsyncPostBackTrigger ControlID="MissionTimer" EventName="Tick" />
+                                </Triggers>
+                                <ContentTemplate>
+                                    <div style="margin-top: -6px; background-image: url(images/MissionBack.png); width: 358px; height: 294px;">
+                                        <asp:Literal runat="server" ID="MissionLiteral"></asp:Literal>
+                                    </div>
+                                </ContentTemplate>
+                            </asp:UpdatePanel></div>
+                            HippoHappenings' mission is to empower us in numbers.<br />
+        <br />
+        Imagine a community brought closer together because of a website.
+What you can do for your community on the Hippo is what the community can do for you. By posting advertisments in your neighborhood
+you are letting your community know what is in need and calling out to those who can help. Through creating groups on the hippo, you are letting interest groups in your community gather with common curiosities strengthening the bonds that bind us. You can post events and see who's going to them as well as make new contacts with future friends who are going to the same events.
+<br /><br />
+Throwing away all obstacles standing in the way of building our community, we made most everything 
+free! All event, venue, non-featured ad, group, and group event posting are free. Furthermore, 
+we feel that allowing big corporations to post would destroy the tight-knit bonds that we can 
+develop between communities. Most big corporations do not have our best interests in mind. And 
+so, we only allow local businesses, groups and people like yourself to post ads around the site 
+for everyone in your community to see. In addition, to make it easier for you to reach your 
+target audience, you can specify your ads to appear only in your city, state or a specific zip code and nowhere else. So... if you have that garage sale coming up....post away, 
+let them know!
+<br /><br />
+To build our dream we need you - the commuinity - to create beautiful content and invite your fellow neighbors and friends. Together we can become closer. Together we can build a commuinity. So, let’s get closer together.
+    
+    <br /><br />
+    Read more details about our site below.</span><br /><br />
+    </label>
+    <br />
+        <h1 class="searches">About</h1><br />
+  <div class="topDiv">     
+<div style="float: left; width: 250px;">
+<a href="#tag1" class="AddLink" >Introduction</a><br />
+<a href="#tag34" class="AddLink" >Home Page</a><br />
+<a href="#tag2" class="AddLink" >Events</a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#tag3" class="AddLink" >Event Recommendations</a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#tag4" class="AddLink" >Posting an Event</a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#tag5" class="AddLink" >Editing an Event</a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#tag6" class="AddLink" >Event Ownership</a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#tag7" class="AddLink" >User Login</a><br />
+<a href="#tag38" class="AddLink" >Groups</a><br />
+</div>
+<div style="float: left; width: 220px;">
+<a href="#tag8" class="AddLink" >Venues</a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#tag9" class="AddLink" >General</a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#tag10" class="AddLink" >Posting a Venue</a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#tag11" class="AddLink" >Editing a Venue</a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#tag12" class="AddLink" >Venue Ownership</a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#tag13" class="AddLink" >Calendar</a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#tag14" class="AddLink" >User Login</a><br />
+<a href="#tag15" class="AddLink" >Comments</a><br />
+<a href="#tag26" class="AddLink" >User Account</a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#tag27" class="AddLink" >Calendar</a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#tag32" class="AddLink" >User Preferences</a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#tag37" class="AddLink" >Friend Communication Preferences</a><br />
+</div>
+<div style="float: left; width: 300px;">
+
+
+<a href="#tag16" class="AddLink" >Ads & Classifieds</a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#tag17" class="AddLink" >General</a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#tag18" class="AddLink" >Free Ad </a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#tag19" class="AddLink" >Featured Ad </a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#tag20" class="AddLink" >Placement and Dimensions of Featured Ads</a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#tag21" class="AddLink" >Payment Structure of Featured Ads</a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#tag36" class="AddLink" >In-Kind Contributions</a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#tag22" class="AddLink" >Algorithm</a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#tag23" class="AddLink" >Filtering the Featured Ads</a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#tag24" class="AddLink" >Mid-Cycle Preferences Change Algorithm </a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#tag25" class="AddLink" >Ad Statistics Page</a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#tag35" class="AddLink" >Your Saved Ad Searches</a><br />
+</div>
+</div> 
+<div>
+<h2><a id="tag1"></a>INTRODUCTION </h2>
+<label>
+HippoHappenings is an online extension (and expansion) of existing communities and provides as close a neighborhood feel as possible for the users. Here, the definition of community, beyond geography, is as loose as possible. Your communities can be anything from a home owners association in Northeast Portland to a drum circle that gathers in the park to raise awareness for macrobiotics. It can be two people who read poetry at randomly selected street corners or manga fans suggesting local bands to one another. HippoHappenings gives users an awareness of events and venues in their neighborhood, or wherever they choose to know what’s going on at the street level. 
+<br/><br/>
+Oh, yeah, and it’s free. No fees to post events or venues. No membership dues. <br/><br/>
+In addition to posting venues and shows, a crucial part of this sharing is the users’ ability to 
+post ads in their neighborhood. Ads can be for a lost puppy, a garage sale, a band seeking a vocalist, 
+professional service exchanges, open mic night at the corner juice bar; pretty much anything the users 
+can think to post. All ads displayed to the user viewing the site are local, posted by their peers and 
+pertaining to their favorite categories. This means no ads from big corporations unless they are neighborhood 
+specific (contact us at <a class="AddLink" href="mailto:corporate@HippoHappenings.com">corporate@HippoHappenings.com</a> if you want to post and have questions). 
+<br/><br/>
+This is a site of local happenings, posted by happening locals. For all the rules on how to 
+play nice, see <a class="AddLink" href="termsAndConditions.aspx">Terms of Use</a>.
+<br/>
+</label>
+<br/><a id="tag2"></a><h2>EVENTS</h2>
+<label>
+Content on the site is generated by users with the desire to share information about events in their neck of the woods. Users can post events or venues and upload related sounds, photos and videos at no cost what so ever. Other users search for events based on venue, location, date, groups, rating, categories, as well as keywords of the event name. 
+<br/><br/>
+When viewing the event’s page, you can: 
+</label>
+<div style="color: rgb(204, 204, 204); font-family: Arial; font-size: 14px;">
+<ul>
+<li>
+See all information, details, images, Mp3s, and videos the event poster posted
+</li><li>Leave comments (just like a blog)
+</li><li>Rate the event (zero to five hippo heads) 
+</li><li>Add the event to your calendar (the user account details are explained below)
+</li><li>Share the event with a friend
+</li><li>Send a text message of the details (minus the description) to people as an alert
+</li><li>Email event details to other people (They do not have to be HippoHappenings users)
+</li><li>Flag the item if you feel the content is indecent, corporate or intentionally erroneous (ex: They are posting sexually graphic images of people in McDonald’s and they state that it is a nonprofit!) 
+</li><li>Suggest corrections to the event’s owner (ex: you list the wrong venue for this event. It should be…)
+</li><li>See who is going to the event and communicate with them (ex: I need a ride!) 
+</li>
+</ul>
+</div>
+<label><br/>
+The event page also includes links to the venue and a tag cloud of categories the event fits. The links of the category names take the user to a search results page showing all events in this category.
+<br/></label><br/><h3>Filter and Preferences</h3>
+<label>
+On the events page you can filter the comments based on whether they were made by your friends. 
+If you have added the event into your calendar, you will be included in the list of people going 
+to the event. This list is visible to everyone that is logged into the site and viewing the event.
+ However, if you turn communication preferences ‘off’ for an event you will not be listed and no one
+  will be able to contact you about this event. See <a class="AddLink" href="#tag33">Communication Preferences</a> for the choices.
+</label><br/><br/>
+<a id="tag3"></a><h3>Event Recommendations</h3>
+<label>Events that have been recommended to you based on your favorite location, favorite categories, and events similar to events in your calendar are shown on the User page. These recommendations have icons next to them explain why they are recommended. The event page will also have these icons signifying it as one of your recommended events (if you go to the event page while you are logged in). 
+</label>
+<br/><br/>
+<label>
+<img src="image/VenueIcon.png"/>: This event was recommended to you because you have marked this particular venue as one of you favorites. 
+<br/>
+<img src="image/CategoryIcon.png"/>: This event was recommended to you because it matched some of your favorite categories. The number inside represents how many of your preferred categories this event matched. 
+<br/><img src="image/SimilarIcon.png"/>: This event was recommended to you because four or more people with similar tastes have marked it in their calendars. Whenever you put an event in your calendar, HippoHappenings looks at the calendars of other people who have marked the event as well. If HippoHappenings finds four (or more) people who have the event you added in their calendars are all going to another event not in your calendar, this events is recommended to you.  
+<br/></label><label>
+<br/><br/>Event recommendations are shown all throughout the site in the footer. The footer events are only based on the location you list on your preference page. On any given page, the footer only has nine events showing, however, these are not static per page. If you have 50 upcoming events in your location, the first nine show up on the home page. The next nine show up on the next page you go to, and so on until all 50 are shown. When the end of the list is reached, the events are cycled all over again from the beginning. 
+<br/></label><br/><h3>Home Page</h3>
+ <label>The home page has the top 10 events listed based on your specified location. You can modify this list by clicking on the home page calendar and filtering the top events by day. See <a class="AddLink" href="#tag34">Home</a> Page below for more information.
+<br/></label><br/><a id="tag4"></a><h3>Posting Events</h3>
+ <label>The event can be anything you consider an event: sewing circle, political rally, stakeholder review of civil improvement plans, a live music show, comic book convention, poetry reading, seminar, PTA meeting, etc. 
+<br/>
+<br/>There are five steps to posting an event. For the most part, the steps are pretty self-explanatory, but here are a couple of points of clarification:
+<br/>
+<br/><b>Step One:</b> Details. An event must be associated with a venue. On the first page of posting an event, you have the option of choosing from an existing venue, or creating a new venue if it does not already exist in our list. Creating a venue from the post event page only requires you to provide the simplest information to identify the venue. It will not, however, fill in any juicy details about the venue, like a description or any photos. If you want the venue to have a description, images, videos, sounds, and categories and so on, you should stop here and create a new venue on the 'Submit Venue' page (linkable from the top nav menu), which is explained below, and then return to posting your event. When you return to posting the event, you will be able to see the new venue you’ve created in our pop-up down list of existing venues.
+<br/>
+<br/><b>Step Two:</b> Description. Here’s where you fill in your event’s description and short description. The short description will appear in the search results when a user is searching for an event and the description is what the user will see when they go to the event page.
+<br/>
+<br/><b>Step Three:</b> Media. Sounds must be in MP3 format. Picture formats can only be JPG, JPEG or GIF. If you want to add a YouTube link, all you need to post is the information that follows the “v=” identifier in the video’s url. There is an example on the media page.
+<br/>
+<br/><b>Step Four:</b> Categories. You can suggest a category, if you do not see one that best fits your events. Remember to include a parent category, if needed. At this time, you will have to return and edit your event to add the new category, once it has been approved.
+<br/>
+<br/><b>Step Five:</b> Preview and Post. Here you have the option of becoming the event’s owner. Keep in mind that you will be responsible for keeping the information current and correct. When a user believes there is an error with the event posting, you will receive whatever corrections they suggest. See <a class="AddLink" href="#tag6">Event Ownership </a> below for more information.     
+<br/>
+</label>
+<br/><a id="tag5"></a><h3>Editing an Event</h3><label>
+Editing an event requires going through each of the steps of posting an event. If there is no owner of the event, the edits are instantly posted. If you are editing an event that has no owner, you will be offered the opportunity to become the owner. <a class="AddLink" href="#tag6">See Event Ownership</a> below for more information.  If there is an owner and it is not you, your edits become suggestions that are sent to the owner, who has four days to either accept or reject the suggestions. 
+
+<br/><br/>The owner receives a user message in her message box alerting her to the suggested changes. The owner is provided with a list that they can simply scroll through, accepting and rejecting, as she sees fit. Once she has accepted and/or rejected the edits, she is free to delete the message. The owner should be careful, because if she misses one of the listed edits (neither accept nor reject) before she deletes the message, she will be penalized as if she had been nonresponsive to the whole user message.
+<br/></label><br/><a id="tag6"></a><h3>Event Ownership</h3><label>
+ Ownership is something of a responsibility. As the owner of an event, you must respond to each and every change or edit other users make to the event, and any user can suggest changes. When another user suggests changes to your event (maybe they believe you listed the wrong venue or time), you receive notification. You must either accept or reject these changes within four days, or lose ownership. Once you lose ownership, it is up for grabs by anyone who wants to take it, including you, if you want it back.
+
+<br/><br/>Now, we would like to think people will play nice, but it is possible that a person could decide to be a mischief maker and harass an event owner with several erroneous change suggestions. That behavior is not allowed on HippoHappenings. If you feel you are being harassed, report the offending user (their user name will appear along with their suggestions). If we find them to be behaving poorly, they will have their access to HippoHappenings disabled, all their events and venue ownerships made up for grabs, and have all ads deleted. Any deleted featured ad will not be refunded, as stated in the Terms of Use.
+<br/></label><br/><a id="tag7"></a><h3>User Login </h3><label>
+You have to be logged in to HippoHappenings to post, rate or comment on events. You do not have to be logged in to search and view events. You do need to be logged in to ad events to your calendar.
+</label>
+<br/><br/><a id="tag8"></a><h2>VENUES</h2>
+
+<a id="tag9"></a><h3>General</h3>
+<label>Just like events, users post venues on the site. In fact, venues must be posted before an event can be posted, but a simple venue can be created while posting the event, if it does not already exist in our list. 
+<br/>
+<br/>When creating a venue you can upload a photo, or a video or a slider of 20 photos. You can search for venues based on location, rating, categories, or the keywords of the venue’s name. 
+<br/><br/>When viewing the venue’s page, you can…
+</label>
+<div style="color: rgb(204, 204, 204); font-family: Arial; font-size: 14px;">
+<ul><li>Leave comments
+</li><li>Rate the venue
+</li><li>Add it to your favorites
+</li><li>Send a text message of the details (minus the description) of the venue to your text
+</li><li>Send the same details plus the description to your email
+</li><li>Or flag it if you know it is violates the Terms of Use
+</li></ul>
+</div>
+<label>
+<br/>The other things included on the venue page are the calendar for today’s events, a link to the venue’s entire calendar, comments and a tag cloud for the categories this venue is placed in.
+<br/><br/></label><a id="tag10"></a><h3>Posting a Venue</h3><label>
+Just like posting an event, there are five steps to posting a venue. For the most part, the steps are pretty self-explanatory, but here are a couple of points of clarification:<br/>
+ 
+<br/><b>Step One:</b> Details. The basics of the venue (address, phone number, etc.).
+<br/>
+<br/><b>Step Two:</b> Description. Here’s where you fill in your venue’s description and short description.
+<br/>
+<br/><b>Step Three:</b> Media. Sounds must be in MP3 format. Picture formats can only be JPG, JPEG or GIF. If you want to add a YouTube link, all you need to post is the information that follows the “v=” identifier in the video’s url. There is an example on the media page.
+<br/>
+<br/><b>Step Four:</b> Categories. You can suggest a category, if you see none that best fit your venue. Remember to include a parent category, if needed. At this time, you will have to return and edit your venue to add the new category, once it has been approved.
+<br/>
+<br/><b>Step Five:</b> Preview and Post. Here you have the option of becoming the venue’s owner. Keep in mind that you will be responsible for keeping the information current and correct. When a user believes there is an error with the venue posting, you will receive whatever corrections they suggest. See <a class="AddLink" href="#tag12">Venue Ownership</a> below for more information.  <br/></label>   
+<br/><a id="tag11"></a><h3>Editing a Venue</h3><label>
+Editing a venue requires going through each of the steps of posting a venue. If there is no owner of the venue, the edits are instantly posted. If you are editing a venue that has no owner, you will be offered the opportunity to become the owner. See <a class="AddLink" href="#tag12">Venue Ownership </a> below for more information.  If there is an owner and it is not you, your edits become suggestions that are sent to the owner, who has seven days to either accept or reject the suggestions.
+<br/>
+<br/>The owner receives a user message in her message box alerting her to the suggested changes. The owner is provided with a list that she can simply scroll through, accepting and rejecting, as she sees fit. Once she has accepted and/or rejected the edits, she is free to delete the message. The owner should be careful, because if she misses one of the listed edits (neither accept nor reject) before she deletes the message, she will be penalized as if she had been nonresponsive to the whole user message.</label>
+<br/><br/><a id="tag12"></a><h3>Venue Ownership</h3><label>
+Just like event ownership, venue ownership is something of a responsibility. In fact, the rules are exactly the same (including how we handle mischief makers) except that you have seven days to respond to suggestions before losing ownership. 
+
+<br/><br/>If you are the genuine (in the real world) owner of the venue and some other user refuses to surrender ownership to you, contact us at <a href="mailto:ownership@HippoHappenings.com" class="AddLink">Ownership@HippoHappenings.com</a> and we will make it a priority to set the claim right.  </label>
+<br/><br/><a id="tag13"></a><h3>Venue Calendar</h3>
+<label>Each venue page has a link to the full event calendar for that venue. From this Calendar page the user can add the event to their calendar and send the information to their friends (who are specified on the site) by clicking on each event.</label><br/>
+<br/><a id="tag14"></a><h3>User Login </h3>
+<label>You have to be logged in to HippoHappenings to post, rate or comment on venues. You do not have to be logged in to search and view venues. On your account page, there is a tab for favorite venues. The venues listed under the tab are added by going to the venue’s page and clicking ‘add to favorites.’
+</label>
+<br/><br/><a id="tag15"></a><h2>COMMENTS</h2>
+<label>
+Comments can be posted on the event and venue pages. Through settings on the User page (My Preferences page) you can choose to see only comments that have been made by your friends, or choose to see everyone’s comments. Each comment has a link to a pop up box where you can contact the person that commented. This option is included for people who don’t want to break the chain of comments and have a more specific question just for the user who posted. This option will only be available if the user’s profile is public or set to on only for friends and you are one of their friends.  Each comment also has a link to the user’s profile page.
+</label> <br/><br/>
+<a id="tag16"></a><h2>ADS & CLASSIFIEDS</h2> <label>
+At the risk of beating a dead horse, HippoHappenings is comprised of user-generated content that targets neighborhoods and aims to build communities, not a place for big corporations to post ads. We strongly suggest you read Section 7 Conduct, Paragraph 28 in the <a class="AddLink" href="termsandconditions.aspx">Terms of Use</a> for the hard and fast rules. A franchise owner may post an ad, but it will be for one specific branch, and for one specific neighborhood. And if it isn’t? Well, HippoHappenings is a site that empowers its users to create a community, and they can flag ads for removal, if those ads are in violation of the terms. If you represent a corporation and wish to post an ad, contact us at <a class="AddLink" href="mailto:corporate@hippohappenings.com">Corporate@HippoHappenings.com</a>. We will review your ad and give you a Go/No-go on posting an ad with us.</label>
+
+<br/><br/><a id="tag17"></a><h3>General</h3>
+<label>Users post ads & classifieds on the site. They can upload a photo, or a video, or a slider of 20 photos. Other users search for the ad based on location, categories, as well as keywords of the ad name. When viewing the ad’s main page, users can send email with this info to their email account, contact the person who posted the ad or flag the ad if they feel it is in violation of the <a class="AddLink" href="termsandconditions.aspx">HippoHappenings Terms of Use</a>.</label>
+<br/><br/><a id="tag18"></a><h3>Free Ad</h3><label>
+Users can either post a free ad or a featured ad (and the big featured ad which resides on the User and Calendar pages). A free ad could be found using a search on the site and is, well, free. With a free ad, the poster posts the description, categories, location and any associated media. Users will have to actively seek out this ad; meaning there will be no emails sent to users, as there is with featured ads, and there will be no showing of the ad throughout the site along with the featured banner ads.<br/>
+
+<br/>You have the option to select the number of days — between one and 30 — the ad remains searchable from your chosen start date. A free ad cannot remain searchable for longer than 30 days, however the ad is not deleted after those 30 days, allowing you to reactivate it whenever you wish without the hassle of re-filling all the information. You can also pull the ad down early by modifying the number of days you wish to post. For example: if the ad has run for 14 days, you can change the number of days to 12 and the ad will no longer be searchable. </label>
+<br/><br/><a id="tag19"></a><h3>Featured Ad</h3>
+<label>You’ve already seen them, those little groups of four ads with images and headers. The algorithm on the site tries to determine what featured ads are pertinent to which users based on their location and the categories they have chosen as their favorites. So, ideally, the featured ad reaches the person the poster of the ad wanted to reach, which is a form of active advertising.<br/>
+
+<br/>A featured ad can also be found through a search, just like the Free Ads, but they are, more importantly, posted as banner ads throughout the site. Featured Ads are a form of active advertising posting because they are shown to their target audience. The Free Ads, on the other hand, are passive advertising. A user has to initiate the search in order to find the Free Ad. Active advertising with Featured Ads is achieved by displaying the ads to the user that coincide with the user’s location and chosen ad categories. 
+<br/>
+<br/>Another display of active advertising with Featured Ads is the benefit of emailing the Featured Ads to interested users. Users have the ability to save their ad searches (the criteria for which can be any location and any category and does not have to be within the user’s filter location and category preferences.) When a Featured Ad is posted that matches that criteria, they receive an email with that ad. When the user receives the email depends upon the number of ads they chose to receive per email. See <a class="AddLink" href="#tag35">Your Saved Searches</a>. <br/>
+
+<br/>And lastly, Featured Ads have the great benefit of Ads Statistics. If you have posted a Featured ad, you can see how your ad is doing; how many people have seen the ad up to date, the categories of users who’ve see the ads, etc.<br/>
+
+</label>
+<br/><a id="tag20"></a><h3>Placement and Dimensions of Featured Ads</h3><label>
+The featured ads appear on the home, event search, venue search, ad 
+search, contact us, and other pages that are not event/venue/ad pages. 
+The big featured ads appear on the User, Group and Calendar pages. No ads 
+appear on pages that are content specific, like venue, event and individual
+ ad pages. We want these pages to be fully devoted to the venue/event/ad content. 
+<br /><br />
+Regular featured ads have a three banner layouts to choose from, but the overall size is always 214 x 268 pixels (1. 100 x 100 pixels and the body of the ad can be up to 250 characters longs; 2. 200 x 140 pixels and the body of the ad can be up to 100 characters longs; and 3. which is just an image that is 200 x 200 pixels). The regular ad’s header can be up to 70 characters long. 
+<br /><br />
+The banner size of the big featured ad is roughly 419 x 206 pixels and has two layouts to choose 
+(1. 200 x 190 pixels and the body of the ad can be up to 250 characters; or 2. Just an image that is 415 x 190). 
+The big ad’s header can be up to 70 characters long. 
+<br/></label>
+<br/><a id="tag21"></a><h3>Payment Structure of Featured Ads</h3><label>
+The cost for posting an ad is $0.01 per user view. While posting the ad, the user gets to choose how many people to show the ad to. Choosing 20 user views costs $0.20, choosing 100 user views costs $1.00 choosing 1,013 user views costs $10.13, and so on.<br/>
+
+<br/>The cost for posting a big ad is $0.04 per user view. This space is more expensive because it is twice as big as the others, does not appear simultaneously with any other ad, and appears on pages that users stay on for a longer period of time, like the User page. <br/></label>
+<br/><a id="tag36"></a><h3>In-Kind Contributions</h3><label>
+HippoHappenings offers in-kind contributions of featured ads to nonprofit 
+or not-for-profit corporations on a case-by-case basis at our own discretion. To determine whether you're eligible contact us at Corporate@HippoHappenings.com.
+However, if you represent an entity that discriminates against an individual or group of individuals on the basis of religion, 
+gender, sexual orientation, race, ethnicity, age, or disability do not even bother contacting us.
+</label>
+<br/><a id="tag22"></a><h3>Algorithm</h3><label>
+<b>Here is how it works:</b> <br/>Your ad is shown multiple times in the rotation of four ads. 
+Normally, 119 other ads show along with yours in the rotation. The rotation repeats every 
+10 minutes in a 24-hour cycle. Meaning, a user only sees 120 ads a day because all the ads 
+are repeated every 10 minutes for the entire day. For your ad, shown to the user every 10 
+minutes for 24hrs, this will count as only ONE user view.
+<br/>
+<br />
+
+<br/><b>More specifically:</b>
+<br/> There are four regular featured ad spots shown on most pages except the user’s preference User and Calendar pages, which have one big ad spot per page. For the four normal ad spots, each ad shows for 20 seconds and repeats showing every 10 minutes. The same array of ads is shown on every page and rotates though the entire cycle in order, even if the user is flying though the site from page to page. If the first four ads show on the first page a user is viewing, the next four show on the next page. This cycle repeats when the end of the list is reached. Based on this algorithm, an array of 120 ads can be show to each user per day. <br/>
+
+<br/><b>Formula:</b> Four ad spaces * (repeat every 10 mins * 60sec in min)/(each ad shown for 20 sec) = 120 Ads in a day
+<br/>
+<br/>One big featured ad shows at a time on the User and Calendar pages. Like the regular featured ads, these rotate every 20 seconds and complete a full cycle every 10 minutes. Based on this algorithm, an array of 30 ads can be show to each user per day. <br/>
+
+<br/><b>Formula:</b> One ad space * (repeat every 10 mins * 60sec in min)/(each ad shown for 20 sec) = 30 Ads in a day 
+
+
+<br/>
+<br/>Furthermore, whenever there is low ad volume in a specific combination of category and location, your ad will show more than once in 10 minutes with no additional cost or usage of your allotted views. 
+<br/>
+<br/>Featured ads are currently free! During normal site operation, featured ads cost $0.01 — that's one cent! — per user on normal pages. The big featured ads seen on the user account and Calendar pages are $0.04 — four pennies — per user. Every user that is assigned your ad sees your ad because they are interested in the category and location your ad falls under. 
+<br/>
+<br/><b>Here is a simple, short example:</b>
+<br/>Jenny wants to have more traffic at her lemonade stand. She posts a featured ad in her zip code under the food category. She spends one dollar and gets 100 user views. The ads remain until the users who have seen them reach one hundred (keep in mind that a user view is a 24-hour period every 10 minutes, not a single peek). If Jenny finds her target demographic for lemonade in her neighborhood is booming, she can always buy more ads. <br/></label>
+
+
+
+<br/><a id="tag23"></a><h3>Filtering the Featured Ads </h3><label>
+Each user, coming into the site, is assigned an array of 120 ads for the four normal ads and 30 ads for the one big ad. These ads are grabbed based on the user’s preferred categories and location. For example, if the user has ‘Music’ specified as a favorite category, they will get ads like “looking for a guitarist” or “who wants to start a band, man?” If they don’t have the category ‘School’ as a favorite, they will not get ads like “Looking for a tutor” or “Who wants to do some chemistry together?”<br/> 
+
+<br/>When posting a featured ad, the poster can specify to post the event to users not in the specific categories, however, they do have to be in the same location. In other words, users will get your ad if they do not have enough ads in their own favorite categories to fill up their array of 120 ads. If the user has all 120 spots filled for the ads, they do not see any other ads but the ones that fall under their favorite categories. Regardless of categories, your ad will never be shown to users outside your location.   <br/>
+</label>
+<br/><a id="tag24"></a><h3>If a user changes their preferences mid-cycle</h3><label>
+There is no way to know when a user will change their preferences or how they will change them. When a user changes their preferences mid-cycle (meaning the user has seen some of the ads that were from their previous filter categories and location) any of the ads they have already seen will be tacked on to the set of new ads for the remaining 24-hour cycle.<br/>
+
+<br/><b>Example: </b>
+<br/> A user logs in at eight in the morning with their filter location set for Portland, Oregon with ‘art’ and ‘music’ selected as their ad categories. They stay on the home page for two minutes, seeing 24 ads. They log off and return at noon. They go straight to their User page and change their preferences to Seattle, Washington and change their categories to ‘education’ and ‘sports.’ The ad set that is now shown to them for the remainder of the 24-hour cycle is composed of the first 24 ads from their old preferences and 96 ads for their new preferences.  <br/></label>
+<br/><a id="tag25"></a><h3>Ad Statistics Page</h3><label>
+This little nifty feature helps you understand how your ad is doing (only for featured ads). The ad statistics for each of your posted ads can be found by going to your User page and clicking on the ad statistics button, or by going to <a class="AddLink" href="adstatistics.aspx">http://HippoHappenings/adstatistics.aspx</a>. You will then need to select which of your posted ads you wish to review from the drop down menu.
+<br/>
+<br/>Here you can see…
+</label>
+<div style="color: rgb(204, 204, 204); font-family: Arial; font-size: 14px;">
+<ul><li>The name of the ad
+</li><li>The type of ad it is  
+</li><li>Whether or not the ad is still running
+</li><li>The number of views you purchased
+</li><li>The number of views to date. These are broken down by email views and site views. Email views are when person created a saved search and your ad matched their search criteria.
+</li><li>How your ad was viewed (was it by location? Category? If it was listed under multiple categories, this will tell you which ones earned the view). There is a disclaimer for this particular feature. Since one user can be viewing your ad for multiple reasons, the numbers above the bars on the right are not a direct correlation to the number of users who have seen your ad. For example: one user can be viewing your ad because it falls beneath two of their favorite categories (well say “music” and “art”). So this one user would be counted once in the “music” bar and once in the “art” bar. This might look as though it counted as two views for one user, but it does not. This would only count as a single user view.  
+</li>
+</ul>
+</div><br/>
+<a id="tag34"></a><h2>HOME PAGE </h2>
+<label>
+The home page has the top 10 events listed based on your specified location. You can modify this list by clicking on a small calendar and filtering the top events by day. If you are signed in, your location is grabbed from your profile. If you have an account, but are not logged in, your IP address is mapped with your account. If finding this IP in the database is a success, then the location is grabbed from the corresponding profile. However, if there is no user account associated, there is another way that HippoHappenings looks for a match: every time you make a search for an event/venue/ad, the location from this search is mapped with your IP address. So, the last resort to getting a location for filtering the home page is to map the IP address with previous searches and grab the location. If none of these methods work, the top 10 events for United States are shown.<br/>
+
+<br/>In short, you should be logged in and a location specified in your profile for HippoHappenings to make the best recommendations for you.
+</label><br/><br/>
+<a id="tag26"></a><h2>USER ACCOUNT</h2>
+<label>
+In the User Account page you can view a glace of your calendar for the entire week, view/reply to/send messages, view/add/find friends, modify your preferences, see your recommended events and your list of favorite venues. There are also links to ad statistics, your saved searches and pages you created on HippoHappenings and your full calendar. 
+<br/></label>
+<a id="tag27"></a>
+<h3>Calendar</h3><label>  pages:<br />there are two calendars on the Calendar page. One is for the events that you have added to your calendar and the other one is for the ads you have posted on the site (both featured and free). <br/>
+<br/><b>Events Calendar</b>
+You can send the event’s information to your friends, set communication on/off for the event (other users will not be able to contact you about this event if it’s set to off), and delete an event from the calendar. <br/>
+<br/><b>Ads Calendar</b>
+On this page, you can send your ad to friends, go to the ad page or delete the ad from the entire site. If you delete a featured ad you created and the ad did not finish being shown to the allotted number of users, the money will not be refunded. This is only because it is nearly impossible to automate the refund feature and users should not expect this to be a fall back plan for buying ad space for too many users.</label><br/> 
+</label><br/><h3>Posting/Event/Commenting Action Panel</h3><label>
+Along the top of your account page are three columns highlighted with a 
+different color (posting in orange, event in blue and commenting in green). 
+The activity shown here is the latest hustling and bustling of your friends. 
+It is not comprehensive and might not change that much if you have few or fairly 
+inactive friends. You can click on these to be taken to the activity.</label><br/>
+<br/><h3>User Login </h3><label>
+You have to be logged in order to post events/venues/ads, 
+rate events and comment on events. You do not have to be 
+logged in to search and view events/venues/ads.</label><br/>
+
+<br/><a id="tag35"></a><h3>Your Saved Searches</h3><label>
+Here a user can manage her saved searches. (On the Ad Search Page) After a user has entered all the elements of her search, she can click on the “Save Your Search” button. A pop-up will ask if the user wants to disable this feature, agree to the current settings, or go to her saved search page. (On the Saved Searches page)She can click on the search to go straight to search results, change the criteria of the saved search, make it active or inactive, change the number of ads it takes for notification to be sent out to her, or just delete the saved search altogether.<br/>
+
+<br/>The “Ad Number to Send” selection tells HippoHappenings how many ads should be bundles together before sending notice to the user (1, 5, 10 or 20). If you select a large number like 20, you will possibly be waiting for a long time to get any notifications about ads on the site since we will have to wait until there are exactly 20 ads matching your search criteria before we send you a notification.<br/>
+
+<br/><b>Example:</b>
+<br/>Razor Lynn wants a new bassist for her band, but does not want an email sent each and every time a bassist posts an ad. She decides that living in Portland means no shortage of musicians seeking bands, so she has her notice set to 20. She will now be sent an email notice only when there are enough ads to meet her minimum of 20. <br/>
+<br/><b>Another example:</b>
+<br/>Razor Lynn wants to find an upholsterer who specializes in cheetah print midcentury modern furniture. There will be very few ads meeting this criteria, so she opts to have an email sent to her each and every time an ad is posted. Otherwise, she might be waiting years for 20 such ads to compile and a notice sent.  
+</label><br/>
+<br/><a id="tag32"></a><h2>USER’S PREFERENCES</h2>
+<label>
+You can access your preferences page from your account page. Here is what and how you can filter your content:
+</label><br/><br/><h3>Profile Information</h3><label>
+<b>Gender/Location</b>
+<br/>Gender and location information is not mandatory. The location information here is not the 
+same as your account location. The information here can be as factual or whimsical as you wish.<br/>
+
+<br/><b>Events Posted / Events Attended</b>
+<br/>This is an all-time count of events you have posted and events you added to your calendar.<br/>
+
+<br/><b>Upload Photo</b>
+<br/>This is where you upload your profile image. This is what other people see next to your name.<br/>
+<br/><b>Name</b>
+<br/>This is only used when people are trying to search for you on the site. You need to provide both first and last name for the search to find you, but this is not mandatory. People will be unable to find you by your given name, if you do not include it, but they could still find you if they know your user name. <br/>
+<br/><b>Filter Location</b>
+<br/>Events and ads are filtered based on this preference. What you enter here will dictate what the site shows you. If you only enter a city with no zip code, you will receive ads and events for the entire city you list (however, you can still receive ads not specific to your specified zip code if there are not enough ads to populate your selected location and categories).<br/>
+<br/><b>Profile Preferences </b>
+<br/>Choices:
+</label>
+<div style="color: rgb(204, 204, 204); font-family: Arial; font-size: 14px;">
+<ul><li><b>Make Public:</b> everyone will be able to see your full profile and what events you are attending.
+</li><li><b>Show Only to Friends:</b> Only those people you have accepted as friends can see your whole profile and what events you are attending. All other viewers will see only the information you list on your profile.
+</li><li><b>Make Private:</b> everyone, including your accepted friends, will only be able to see basic information for your profile (age, gender, location, number of events posted and number of events attended—keep in mind that age, gender and location can be left blank by you). No one will be able to see what events you plan to attend.
+</li>
+</ul>
+</div><br/>
+<label>
+<a id="tag33"></a><b>Communication Preferences </b><br/>
+Choices:</label>
+<div style="color: rgb(204, 204, 204); font-family: Arial; font-size: 14px;">
+<ul><li>On for Everyone: everyone can contact the you to discuss an event, organize a carpool, etc. when you have added an event to your calendar. Good choice to make new friends, if that’s what you want. 
+</li><li>I Will Set per Event: you choose the communication preference for each particular event every time you add one to your calendar.
+</li><li>On Only for Friends: only friends can contact you about events that you have added to your calendar.
+</li>
+</ul>
+</div><br/>
+<label><b>Ad Category Interests:</b>
+<br/>This is a list of categories that you check off what interests you. Ads shown to you will be filtered based on what you have specified.<br/>
+<br/><b>Event Category Interests:</b>
+<br/>Similar to the ad category list, event recommendations (shown on your account page and on the footer) will be based on the categories you select.<br/>
+<br/><b>Favorite Venues:</b>
+<br/>This is the list of venues you have selected as favorites. You can remove venues from this list, but must revisit the venue’s page to add them again.<br/>
+<br/><b>Event Recommendation Preferences:</b>
+<br/>Show recommended events in your account page and footers when they are…</label>
+<div style="color: rgb(204, 204, 204); font-family: Arial; font-size: 14px;">
+<ul><li><b>In a Favorite Venue:</b> Events are shown in your event recommendations on the User page when an event is added at one of your favorite venues.
+</li><li><b>In a Favorite Category:</b> Events are shown in your event recommendations on the User page when an event is added at one of your favorite categories. These recommendations can be for any venue, but only in the location you specified above.
+</li><li><b>Similar to Events in Your Calendar:</b> These are recommended to you based on past events you have attended. If four or more people who attended an event in your calendar are all attending another event, it gets recommended to you.
+</li>
+</ul>
+</div><label><br/>
+<b>Billing Address:</b>
+<br/>This is only used when purchasing ad space on the site to make ordering faster for you.<br/>
+<br/><b>Phone Number & Provider:</b>
+<br/>This is only necessary for when you want texts about events or venues sent to your phone. You need to provide both your phone number and your service provider. This option is only if you want us to pre-populate the fields with your information. You are able to do both of these every time you send a text message.<br/>
+<br/><b>Texting Preferences: </b>
+<br/>You will be sent a text when…</label>
+<div style="color: rgb(204, 204, 204); font-family: Arial; font-size: 14px;">
+<ul><li>Events in any of your checked categories are added to the site
+</li><li>A friend adds an event to their calendar
+</li><li>An event is added at a favorite venue
+</li>
+</ul>
+</div><label><br/>
+<b>Email Preferences</b>
+<br/>This is where you can change your email address, if you have to.<br/>
+<br/><b>Automatic Emails: </b>
+<br/>You will be sent an email when…</label>
+<div style="color: rgb(204, 204, 204); font-family: Arial; font-size: 14px;">
+<ul><li>An event in your calendar has been update or modified
+</li><li>Events in any of your checked categories are added to the site
+</li><li>A friend adds an event to their calendar
+</li><li>An event is added at a favorite venue 
+</li>
+</ul>
+</div><label><br/>
+<b>User-Generated Emails:</b> <br/>
+You will be sent an email when…</label>
+<div style="color: rgb(204, 204, 204); font-family: Arial; font-size: 14px;">
+<ul><li>Someone replies to your Hippo mail
+</li><li>Someone sends you a friend request
+</li><li>Someone accepts a friend request made by you
+</li><li>Someone contacts you about an event
+</li><li>Someone send you a Hippo mail through your profile
+</li><li>A friend shares an event/venue/ad with you
+</li>
+</ul>
+</div><label><br/>
+<b>Comments Preferences</b>
+<br/>The comment list for event, venues and ads can get long. You can decrease its size by selecting to only view comments made by friends. The options are:</label>
+<div style="color: rgb(204, 204, 204); font-family: Arial; font-size: 14px;">
+<ul><li>See Everyone’s 
+</li><li>See Only Friends’
+</li>
+</ul>
+</div>
+<a id="tag37"></a><h2>Friend Communication Preferences </h2>
+<label>You can change the communication settings for each of your friends on the 
+"My Friends" tab on your account page. To make the setting different for 
+each friend, you should first make sure that the corresponding box is 
+unchecked in your email and text preferences. For example, you will need 
+to uncheck the box if you click on the preferences under your friends icon 
+and see "This preference is on for everyone". If you want to set it just for 
+this user, turn it off for everyone in "Email Prefs".
+<br />
+The options are:
+</label>
+<div style="color: rgb(204, 204, 204); font-family: Arial; font-size: 14px;">
+<ul><li><b>Adds an event to calendar:</b> Check this if you want to receive 
+an email or text every time this friend adds an event to their calendar.
+</li><li><b>Posts an event:</b> Check this if you want to receive an email 
+or text every time this friend posts an event.
+</li><li><b>Posts an ad:</b> Check this if you want to receive an 
+email or text every time this friend posts an ad.
+</li><li><b>Sends a Hippo Mail to you:</b> Check this if you want to receive an email 
+or text every time this friend send you a message through HippoHappenings.
+</li><li><b>Shares event/venue/ad with you:</b> Check this if you want to receive 
+an email or text every time this friend sends a message through HippoHappenings 
+alerting you to an event, venue or ad.
+</li></ul>
+</div>
+<br />
+<a id="tag38"></a><h2>GROUPS</h2>
+<label>
+Users can also create groups on HippoHappenings. A group can be created 
+for any purpose and need not be local. A group can a bowling league, 
+book club, PTA subcommittee, political activists, singles meeting, 
+flash mob, etc. Once you have created a group, you can:
+</label>
+<div style="color: rgb(204, 204, 204); font-family: Arial; font-size: 14px;">
+<ul><li>Give a general description of the group and its purpose
+</li><li>Create group events and post them on a group calendar
+</li><li>Show potential meeting location via Google maps 
+</li><li>Post group images and videos
+</li><li>Share it with others through Facebook, Twitter, MySpace, Digg, Delicious and StumbleUpon
+</li><li>Have a group message board and discussion threads
+</li></ul>
+</div>
+<a id="tag39"></a><h3>Creating a Group</h3>
+<label>
+<b>Step One:</b> Click on the Make a Group link 
+(<a class="AddLink" href="http://www.hippohappenings.com/EnterGroup.aspx">Make A Group</a>) and 
+begin to complete the group 
+creation information. Step one is the group details page. Here you will give the 
+group a name, description, and supply any group-related image you choose to use to represent the group. 
+<br /><br />
+You can also set up the group’s color scheme, if you wish. The group page will always have the dark gray background, but you can change the color of the boxes and the text. When you first set up the group page, the color scheme will be set to the standard colors of HippoHappenings. To change the color of the boxes, check the background button and one (or both) of the scheme to the right, then just choose a color from the palette. To change the color of the text, just click on the text box and make your new color selections the same way you did for the boxes.
+</label>
+<br /><br />
+<label>
+<b>Step Two:</b> Location. Supply the city and state (at the least) of where the 
+group is headquartered. Many groups will not have a set meeting location, so just 
+supplying the city and state will suffice. The host can supply as little or as much 
+contact and location information they wish, in addition to the mandatory city and state 
+information. Keep in mind that the creator of the group will later have the option of 
+making it a public or private group before posting information. 
+</label>
+<br /><br />
+<label>
+<b>Step Three:</b> Invite Members. Here is where you will invite other 
+HippoHappenings users (group members do need to be a registered HippoHappenings 
+user before they can do anything other than look at the group page. You can invite 
+people who you have already befriended or search for them on HippoHappenings and send an invitation. 
+<br /><br />
+If you wish, you may assign the invitees titles (co-chair, elder, lackey, whatever 
+you wish) and a description of their role within the group up (so-and-so is in 
+charge of X,Y and Z). You can also give them co-hosting privileges by checking 
+the "share hosting" box. This will give them all the power you have, which is 
+often a good idea if you do not want to be the one solely responsible for 
+monitoring the site and updating it with every event. 
+
+</label>
+<br /><br />
+<label>
+<b>Step Four:</b> Media. You can add any images and videos you wish 
+to be on the page. Picture formats can only be JPG, JPEG or GIF. If you 
+want to add a YouTube link, all you need to post is the information that 
+follows the "v=" identifier in the video’s url. There is an example on the 
+media page when you select to add a video.
+</label>
+<br /><br />
+<label>
+<b>Step Five:</b> Categories. Click the ones that best cover your group, 
+or suggest we add a better classification if you do not find one that 
+works as the best label. Try not to select too many as this is one of 
+the criteria that people will be using when looking for a group (do not 
+select sports when your group’s main focus is publishing zines). The
+Ads shown on the group page cater to the location of the group and 
+the categories that are selected here.
+</label>
+<br /><br />
+<label>
+<b>Step Six:</b>Post it. Before you can finialize the group creation, 
+you will need to agree to the standard HippoHappenings terms of use and 
+decide if you want your group to be public or private.
+<br /><br />
+If you decide to make your group private, people will not be able to 
+find it in a search and will have to be invited by a member with hosting 
+rights. If that is what you want, then you will want to check the private
+ box. Otherwise, anybody will be able to find your group and request to 
+ join as well as seeing what events you post in public calendars.
+
+</label>
+<a id="tag40"></a><h3>Hosting A Group</h3>
+<label>
+As a host or co-host, you will have the following options/powers:
+</label>
+<div style="color: rgb(204, 204, 204); font-family: Arial; font-size: 14px;">
+<ul><li>Invite members: Same as three above
+</li><li>Edit members' preferences: Here you can change member 
+titles and descriptions or remove them from the group altogether
+</li><li>Send message to members: This will be a simple message 
+that all members will receive through HippoHappenings. You can 
+choose to send the message to registered members, potential members 
+who have received an invitation to the group, but have yet to actually join, or both
+</li><li>Edit group: This is the master option that walks you through 
+all the steps of creating the group. This is what you will use if you 
+want to add images, change the group name or location, or any other major
+ facet of the group. It takes you through all six steps of the group 
+ creation; look at it as a group re-creation option 
+</li><li>Add an event
+</li><li>Start a discussion thread (as well as delete, hide or make the thread visible, but inactive)
+</li><li>Edit your email preferences: in regards to this group
+</li></ul>
+</div>
+<a id="tag41"></a><h3>Being A Group Member</h3>
+<label>
+As a member of a group, you will have the following abilities:
+</label>
+<div style="color: rgb(204, 204, 204); font-family: Arial; font-size: 14px;">
+<ul><li>View group calendar and add events from it to your calendar
+</li><li>Start discussion thread and respond to discussion threads
+</li><li>Edit your email preferences: in regards to this group
+</li></ul>
+</div>
+<a id="tag42"></a><h3>Creating Group Events</h3>
+<label>
+Using the create event you can: 
+</label>
+<div style="color: rgb(204, 204, 204); font-family: Arial; font-size: 14px;">
+<ul><li>Create events for your group that are open to the public, for group members only or for just a few members
+</li><li>Create agendas for the event, if that is your thing
+</li><li>Assign members to different subgroups for the event 
+</li><li>Make things-to-bring/do lists that acts as a registry people use to check what they will be responsible for
+</li><li>Manage attendance numbers with registration limits and deadlines
+</li><li>Keep track of who is participating in the event
+</li></ul>
+</div>
+<label>
+The hosts and co-hosts of a group can create an event for the group. To start, you click on the “Add an event” link in the row of host options of your group’s page. 
+<br /><br />
+<b>Step One:</b> Time, location and details. Here you will give the group event a name, description, date and time and location. If the event is at a venue, you will complete the location the same way you would for a regular, non-group event. Otherwise, just put in the location (you will have the option later of making this a hidden event that the general public will not see). Once the date, time and location have been entered, click the “add” button, the click “onwards” for the next step.
+<br /><br />
+<b>Step Two:</b> Media. You can add any images and videos you wish to be on the page. Picture formats can only be JPG, JPEG or GIF. If you want to add a YouTube link, all you need to post is the information that follows the "v=" identifier in the video’s url. There is an example on the media page when you select to add a video. 
+<br /><br />
+<b>Step Three:</b> Internals. If you wish, you may include an agenda and a list of stuff needed for your event.
+<br /><br />
+Agenda:
+<br />
+To add an agenda, simply check the box and populate the fields. You can supply the name of the item and a short description then click “add item.” The description of the item is optional. You may click the “remove last item” button if you made a mistake or change your mind. 
+<br /><br />
+Stuff we need:
+<br />
+This is a great little tool for keeping track of who is bringing what and to prove they said they would bring it. Simply check the “stuff we need” box and enter each item by populating the field and clicking the “add item” button. When people see the group event, they will be able to check off what they will bring or be responsible for, and then all participants will see who is bringing what and what is still needed. If you change your mind about an item, just click on it and then click the “remove item” button.
+<br /><br />
+<b>Step Four:</b> Participants. Your event can be listed as one of three categories, and each serves a different function. This is also where you will determine how public or private your event will be. 
+<br /><br />
+Registration:<br />
+Each of the three event categories has the option to control the number of attendees; unlimited registration and limited registration. Unlimited registration means that you are not putting a limit on how many people will choose to add the event to their calendar. Limited registration allows you to set a limit on the attendees and a deadline for them to add the event to their calendar. 
+<br /><br />
+Public:<br />
+Choosing this option means that your group event will be searchable by non-group members and will open to the public. Keep this in mind if you are having the event someone’s home or just want to exert some control over who might show up.
+<br /><br />
+Private:<br />
+Your event will be not be searchable and only members of your group will be able to add it to their calendars and attend.  You will also have the option of grouping attendees. Check the box next to “create groupings” and you will be shown more options. You will be able to name a group and give it a description before adding it to the groups column. You will then be able to assign members of you regular group to these new, event-related subgroups. Select a grouping, click on a member’s HippoHappenings name, then click the “assign” button. You can remove and reassign if you make a mistake.
+<br /><br />
+Exclusive:<br />
+Exclusive has the same options as the private event, but allows the host to be even more selective with the potential attendees. If you choose to make an event exclusive, only the members of your group that you invite will know about it. An exclusive event does not show up in a groups calendar, only on the calendar of those who accept an invitation. 
+<br /><br />
+<b>Step Five:</b> Categories. Click the ones that best cover your group, or suggest we add a better classification if you do not find one that works as the best label. Try not to select too many as this is one of the criteria that people will be using when looking for a group (do not select sports when your group’s main focus is publishing zines). This really only applies to public group events. If you are making a private or exclusive event, choose whatever you wish.
+<br /><br />
+<b>Step Six:</b> Post it. Before you can finalize the group creation, you will need to agree to the standard HippoHappenings terms of use and decide if you want your group to be public or private.
+
+</label>
+<a id="A1"></a><h3>Using Group Events</h3>
+<label>
+As a host or co-host, you will have the following options/powers:
+</label>
+<div style="color: rgb(204, 204, 204); font-family: Arial; font-size: 14px;">
+<ul><li>Edit the event details
+</li><li>Copy the event for the ease of posting reoccurring events
+</li><li>Keep track of who is participating in the event
+</li><li>Send a message to participants: This will be a simple message that all members or invited people will receive through HippoHappenings. You can choose to send the message to people who have accepted the event’s invite, people who were invited but haven’t responded, or both
+</li></ul>
+</div>
+</div>
+    </div>
+</asp:Content>
+

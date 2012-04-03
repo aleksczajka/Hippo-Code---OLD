@@ -1,0 +1,26 @@
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Login.aspx.cs" Inherits="Login" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <title>Log in to Hippo Happenings</title>
+    <link type="text/css" href="StyleSheet.css" rel="stylesheet" />
+</head>
+<body style="padding: 0; margin: 0;">
+    <form id="form1" runat="server" style="padding: 0; margin: 0;   ">
+    <div align="center" style="background-color: #1b1b1b; height: 1000px; padding: 0; margin: 0; vertical-align: middle;">
+            <img src="image/Logo.gif" />
+        <div align="left" style="padding-left: 20px;background-image: url('image/AdBackgroundWithShadow.png'); width: 200px; height: 269px; vertical-align: middle;">
+            <br />
+            <asp:Label runat="server" CssClass="AddLink" Text="User Name"></asp:Label>
+            <asp:TextBox runat="server" ID="LoginTextBox"></asp:TextBox><br />
+            <asp:Label runat="server" CssClass="AddLink" Text="Password"></asp:Label>
+            <asp:TextBox runat="server" ID="PasswordTextBox"></asp:TextBox><br />
+            <asp:Label runat="server" ID="StatusLabel" CssClass="AddLink"></asp:Label><br />
+            <asp:Button runat="server" ID="LoginButton" Text="Login" OnClick="cmdSubmit_Click" />
+        </div>
+    </div>
+    </form>
+</body>
+</html>

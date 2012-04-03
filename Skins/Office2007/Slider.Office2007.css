@@ -1,0 +1,169 @@
+/* r.a.d.slider Office 2007 skin */
+
+/* -------------------------------------------------------- GLOBAL SLIDER CLASSES -------------------------------------------------------- */
+.RadSlider_Office2007 a
+{
+	cursor: default;
+}
+
+.RadSlider_Office2007 a.handle
+{
+	width: 18px; height: 18px; line-height: 18px;
+	background-repeat: no-repeat;
+}
+/* -------------------------------------------------------- GLOBAL SLIDER CLASSES END ----------------------------------------------------- */
+
+/* -------------------------------------------------------- HORIZONTAL SLIDER CLASSES -------------------------------------------------------- */
+.RadSlider_Office2007.horizontal
+{
+	height: 18px;
+	background: #7698c5 url(Slider/SliderBgr.gif) repeat-x;
+}
+
+.RadSlider_Office2007.horizontal a.handle
+{
+	background-image: url(Slider/Handles.gif);
+}
+
+.RadSlider_Office2007.horizontal .decrease
+{
+	background-position: 0 0;
+}
+
+.RadSlider_Office2007.horizontal .decrease:hover
+{
+	background-position: 0 -18px;
+}
+
+.RadSlider_Office2007.horizontal .decrease:active,
+.RadSlider_Office2007.horizontal .decrease:focus
+{
+	background-position: 0 -36px;
+}
+
+.RadSlider_Office2007.horizontal .increase
+{
+	background-position: -18px 0;
+}
+
+.RadSlider_Office2007.horizontal .increase:hover
+{
+	background-position: -18px -18px;
+}
+
+.RadSlider_Office2007.horizontal .increase:active,
+.RadSlider_Office2007.horizontal .increase:focus
+{
+	background-position: -18px -36px;
+}
+
+.RadSlider_Office2007.horizontal a.draghandle
+{
+	top: 0;
+	margin-top: -6px;
+	width: 9px; height: 14px;
+	background-image: url(Slider/DragHandle.gif);
+	background-repeat: no-repeat;
+}
+
+.RadSlider_Office2007.horizontal a.draghandle:hover
+{
+	background-position: -9px 0;
+}
+
+.RadSlider_Office2007.horizontal a.draghandle:focus,
+.RadSlider_Office2007.horizontal a.draghandle:active
+{
+	background-position: -18px 0;
+}
+
+.RadSlider_Office2007.horizontal .track
+{
+	left: 18px; top: 0;
+	margin-top: 9px;
+	height: 1px;
+	background: #dee2ec;
+	border-top: solid 1px #7496c2;
+}
+
+/* -------------------------------------------------------- HORIZONTAL SLIDER CLASSES END ---------------------------------------------------- */
+
+/* -------------------------------------------------------- VERTICAL SLIDER CLASSES -------------------------------------------------------- */
+.RadSlider_Office2007.vertical
+{
+	width: 18px;
+	background: #e6e8e9 url(Slider/SliderVerticalBgr.gif) repeat-y;
+}
+
+.RadSlider_Office2007.vertical .handle
+{
+	background-image: url(Slider/HandlesVertical.gif);
+}
+
+.RadSlider_Office2007.vertical .decrease
+{
+	background-position: 0 0;
+}
+
+.RadSlider_Office2007.vertical .decrease:hover
+{
+	background-position: -18px 0;
+}
+
+.RadSlider_Office2007.vertical .decrease:active,
+.RadSlider_Office2007.vertical .decrease:focus
+{
+	background-position: -36px 0;
+}
+
+.RadSlider_Office2007.vertical .increase
+{
+	background-position: 0 -18px;
+}
+
+.RadSlider_Office2007.vertical .increase:hover
+{
+	background-position: -18px -18px;
+}
+
+.RadSlider_Office2007.vertical .increase:active,
+.RadSlider_Office2007.vertical .increase:focus
+{
+	background-position: -36px -18px;
+}
+
+.RadSlider_Office2007.vertical a.draghandle
+{
+	left: 0px;
+}
+
+.RadSlider_Office2007.vertical .track
+{
+	top: 18px; left: 0px;
+	width: 1px;
+	margin-left: 9px;
+	background: #dee2ec;
+	border-left: solid 1px #7496c2;
+}
+
+.RadSlider_Office2007.vertical a.draghandle
+{
+	border: 0;
+	top: 0;
+	margin-left: -6px;
+	width: 14px; height: 9px;
+	background-image: url(Slider/DragVerticalHandle.gif);
+	background-repeat: no-repeat;
+}
+
+.RadSlider_Office2007.vertical a.draghandle:hover
+{
+	background-position: 0 -9px;
+}
+
+.RadSlider_Office2007.vertical a.draghandle:focus,
+.RadSlider_Office2007.vertical a.draghandle:active
+{
+	background-position: 0 -18px;
+}
+/* -------------------------------------------------------- VERTICAL SLIDER CLASSES END ----------------------------------------------------- */

@@ -1,0 +1,126 @@
+.RadPanelbar_HippoHappenings
+{
+	white-space:nowrap;
+	line-height:35px;
+	color: Red;
+}
+
+/*.RadPanelbar_HippoHappenings .rootGroup
+{
+	border:1px solid buttonface;
+}*/
+
+.RadPanelbar_HippoHappenings .text
+{
+	text-decoration: none;
+	text-transform: none;
+	color: Red;
+	padding:0px;
+	font-size: 10pt;
+	font-family: Arial;
+	text-align: left;
+	
+}
+.RadPanelbar_HippoHappenings .text:hover
+{
+	text-decoration: none;
+	text-transform: none;
+	color: #4f606d;
+	padding:0px;
+	font-size: 10pt;
+	font-family: Arial;
+	text-align: left;
+	
+}
+
+.RadPanelbar_HippoHappenings .image
+{
+	margin:4px 0px;
+}
+
+
+.RadPanelbar_HippoHappenings .rootGroup .text
+{
+	border-top:1px solid #efeeed;
+	border-left:1px solid white;
+	border-bottom:1px solid #efeeed;	
+	background:white url(Img/Menu_Image.png) right center no-repeat;
+
+}
+.RadPanelbar_HippoHappenings .rootGroup .text:hover
+{
+	border-top:1px solid #efeeed;
+	border-left:1px solid white;
+	border-bottom:1px solid #efeeed;	
+	background:white url(Img/Menu_ImageRollOver.png) right center no-repeat;
+
+}
+
+.RadPanelbar_HippoHappenings .rootGroup .expanded .text
+{
+	background-image:url(Img/expanded.gif);
+}
+
+.RadPanelbar_HippoHappenings_rtl .rootGroup .text
+{
+	background-position:left center;
+}
+
+.RadPanelbar_HippoHappenings .group 
+{
+	background-color:White;
+}
+
+.RadPanelbar_HippoHappenings .level1 
+{
+	
+}
+
+.RadPanelbar_HippoHappenings .level1 .link
+{
+	border-bottom:1px solid buttonface;
+}
+
+.RadPanelbar_HippoHappenings .level1 .text,
+.RadPanelbar_HippoHappenings .level1 .expanded .text
+{
+	border:0;
+	background:transparent;
+	font-weight:normal;
+	padding: 0px;
+}
+
+.RadPanelbar_HippoHappenings .level1 .selected .text
+{
+	background:Highlight;
+	color:HighlightText;
+
+}
+
+.RadPanelbar_HippoHappenings .focused .text
+{
+	text-decoration:underline;
+}
+
+
+.RadPanelbar_HippoHappenings .rootGroup .disabled:hover,
+.RadPanelbar_HippoHappenings .rootGroup .disabled .text
+{
+	background:buttonface url(Img/Menu_Image.png) right center no-repeat;
+	color: #ccc;
+	cursor: default;
+}
+
+.RadPanelbar_HippoHappenings .rootGroup .group .disabled:hover,
+.RadPanelbar_HippoHappenings .rootGroup .group .disabled .text
+{
+	text-decoration: none;
+	background: none;
+	color: #ccc;
+	cursor: default;
+}
+
+.RadPanelbar_HippoHappenings .rootGroup .expanded.disabled .text
+{
+	background-image:url(Img/expanded.gif);
+}

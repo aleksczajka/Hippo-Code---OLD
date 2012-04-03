@@ -1,0 +1,3511 @@
+
+Firebug is disabled
+
+Enable Firebug
+Enable Firebug for this web site
+function()
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+</head>
+<body style="margin: 0px; padding: 0px; background: transparent url(image/MiddleBackground2.png) repeat-y scroll 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;">
+<form id="aspnetForm" action="UserCalendar.aspx?ID=2" method="post" name="aspnetForm">
+<div>
+</div>
+<script type="text/javascript">
+</script>
+<script type="text/javascript" src="/HippoHappenings/WebResource.axd?d=gm0WPsNVZRtMJoq8hkv3mw2&t=633332099498376000">
+</script>
+<script src="/HippoHappenings/ajax/common.ashx" type="text/javascript">
+</script>
+<script src="/HippoHappenings/ajax/UserCalendar,App_Web_usercalendar.aspx.cdcab7d2.v2enbymt.ashx" type="text/javascript">
+</script>
+<script type="text/javascript" src="/HippoHappenings/ScriptResource.axd?d=_eCvpca1C3LgfKNpwfoBApKrQxrB1xeQ1wX9LLSJH4QN-rasC9u_MJmiNbGJ3FWRb2sQciRVApr1l86y80OVmFZu_n7h237ourVjCuBj8N81&t=633564794936380000">
+</script>
+<script type="text/javascript" src="/HippoHappenings/ScriptResource.axd?d=_eCvpca1C3LgfKNpwfoBApKrQxrB1xeQ1wX9LLSJH4QN-rasC9u_MJmiNbGJ3FWRb2sQciRVApr1l86y80OVmHVo360slNG4Kd480tokiVCTGy4TJPTQ1X8dd_lwEn_v0&t=633564794936380000">
+</script>
+<script type="text/javascript" src="/HippoHappenings/ScriptResource.axd?d=KBfptVdNinkUzK59ADpkgldFYRgVRx6nx0cbb8VrvT5mlwvTm1gvy4yiTJqXQDUK0&t=633552745820000000">
+</script>
+<script type="text/javascript" src="/HippoHappenings/ScriptResource.axd?d=KBfptVdNinkUzK59ADpkgkN6RdaQjsyAIKIX779Q1rgX2BK6vPp-F4pjWSifBMNy0&t=633552745820000000">
+</script>
+<script type="text/javascript" src="/HippoHappenings/ScriptResource.axd?d=KBfptVdNinkUzK59ADpkgldFYRgVRx6nx0cbb8VrvT6iE54x5oZ6pfpGKKQuosu9XzjSsV0agdm0aXBXpYb8WQ2&t=633552745820000000">
+</script>
+<script type="text/javascript" src="/HippoHappenings/ScriptResource.axd?d=KBfptVdNinkUzK59ADpkgv7mm9G3uEfzVrgVSg9qpo82E3NldC_tocn4lCshgzySlQRqkBt67KNq_cirLLQqwg2&t=633552745820000000">
+</script>
+<script type="text/javascript" src="/HippoHappenings/ScriptResource.axd?d=KBfptVdNinkUzK59ADpkgv7mm9G3uEfzVrgVSg9qpo_shBdp29jsljCW3teHzelchqvUjoShQXwO3y-2IEIUJg2&t=633552745820000000">
+</script>
+<script type="text/javascript" src="/HippoHappenings/ScriptResource.axd?d=KBfptVdNinkUzK59ADpkgjNOIhUHg_oWFt5OsB1yuKon7I33Ua4fMOu7OOEdiRpsBhssoMIr2rhlmbf-u3CkcA2&t=633552745820000000">
+</script>
+<script type="text/javascript" src="/HippoHappenings/ScriptResource.axd?d=KBfptVdNinkUzK59ADpkgldFYRgVRx6nx0cbb8VrvT7KzPQfs8yOyGpZvTiEfvtqiVjTeJfdEZaTD6U_iqeVnbTwWYNqVYLl6jjrj8mOnVY1&t=633552745820000000">
+</script>
+<script type="text/javascript" src="/HippoHappenings/ScriptResource.axd?d=KBfptVdNinkUzK59ADpkgldFYRgVRx6nx0cbb8VrvT5sAAJKgrA1S3pp_Vtr5GAgG-nr6D1nSObtcsVMvx_ikCcEaFv0B6gmbomDS8bOrEU1&t=633552745820000000">
+</script>
+<script type="text/javascript" src="/HippoHappenings/ScriptResource.axd?d=KBfptVdNinkUzK59ADpkgqc2YFe8WtAE0gQb84s7pWq05NU05O6VoLT6d5xwgbcbDpCsTAz6-xWFrR69tsXiXKsztxn5dX846rnawPV9azw1&t=633552745820000000">
+</script>
+<script type="text/javascript" src="/HippoHappenings/ScriptResource.axd?d=KBfptVdNinkUzK59ADpkgqc2YFe8WtAE0gQb84s7pWpLazs180MQ8YH8nO445JZiOy4xDDNLltAr-izuOk--Rg2&t=633552745820000000">
+</script>
+<script type="text/javascript" src="/HippoHappenings/ScriptResource.axd?d=KBfptVdNinkUzK59ADpkgldFYRgVRx6nx0cbb8VrvT7KlT__FHSScfChA6mzaqRh7nGVik_VqsfR_JXt6SN24A2&t=633552745820000000">
+</script>
+<script type="text/javascript" src="/HippoHappenings/ScriptResource.axd?d=KBfptVdNinkUzK59ADpkggoGpOXOqRScxvRRRr45u3QKigsgZWEZNHswWkg-aDYoB71TOg3xDlvBlKVMzcDNuw2&t=633552745820000000">
+</script>
+<script type="text/javascript" src="/HippoHappenings/ScriptResource.axd?d=KBfptVdNinkUzK59ADpkggoGpOXOqRScxvRRRr45u3SeBLcaPJTRoCTUXfnI0nT0OlvCt24JGQxRWGuRUBY2-Q1JGJqmHMpig8DUghTitQM1&t=633552745820000000">
+</script>
+<script type="text/javascript" src="/HippoHappenings/ScriptResource.axd?d=KBfptVdNinkUzK59ADpkgldFYRgVRx6nx0cbb8VrvT7zf-BRYJrN-QayOYo7-gmF2g1Wjnmk94itIoxGmGfrwg2&t=633552745820000000">
+</script>
+<script type="text/javascript" src="/HippoHappenings/ScriptResource.axd?d=KBfptVdNinkUzK59ADpkgldFYRgVRx6nx0cbb8VrvT7zf-BRYJrN-QayOYo7-gmFdYQ5YWpPRcTGgRoNYU3vuiQ8xP41qGI_CRHhDvRU2Mk1&t=633552745820000000">
+</script>
+<script type="text/javascript">
+</script>
+<div id="ctl00_ctl00_ctl04Panel">
+<div id="ctl00_ctl04">
+<div align="center">
+<div style="background: transparent url(image/TopBackground2.png) no-repeat scroll center top; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;">
+<div style="background: transparent url(image/BottomBackground2.png) no-repeat scroll center bottom; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;">
+<div style="display: block; height: 100%; bottom: 0px; width: 1400px;">
+<div align="center" style="width: 912px; background-image: url(image/TransparentBackground.png); background-repeat: repeat-y; z-index: 1000;">
+<div style="background-color: rgb(27, 27, 27); width: 900px;">
+<div style="z-index: 1600;">
+<div style="width: 900px; font-family: Arial;">
+</div>
+<div id="topDiv" style="width: 880px; padding-left: 20px; z-index: 1600;">
+<div align="left" style="background: transparent url(image/BackgroundVectors.png) no-repeat scroll center bottom; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;">
+<script type="text/javascript">
+</script>
+<div id="ctl00_ContentPlaceHolder1_RadWindowManager" style="display: none;">
+</div>
+<div style="width: 900px; margin-left: -20px;">
+<div id="ctl00_ContentPlaceHolder1_ToolTipPanel">
+</div>
+<div style="margin-left: 20px; padding-bottom: 30px;">
+</div>
+<div align="center" style="background-image: url(image/CalendarBackground2.png); width: 900px; background-repeat: no-repeat; padding-bottom: 20px;">
+<div id="ctl00_ContentPlaceHolder1_RadScheduler1" class="RadScheduler RadScheduler_Black" style="height: 564px; width: 90%;">
+<div class="rsHeader">
+</div>
+<div class="rsColumnHeader rsMonthView">
+</div>
+<div class="rsContent rsScrollingContent rsMonthView" style="height: 506px;">
+<table cellspacing="0" cellpadding="0" border="0" style="width: 100%;">
+<tbody>
+<tr>
+<td valign="top" style="width: 100%;">
+<table class="rsContentTable" cellspacing="0" cellpadding="0" border="0" style="table-layout: fixed;">
+<tbody>
+<tr class="rsRow rsFirstRow">
+</tr>
+<tr class="rsRow">
+</tr>
+<tr class="rsRow">
+<td class="rsCell rsFirstCell rsSunCol">
+</td>
+<td class="rsCell">
+</td>
+<td class="rsCell rsTodayCell">
+</td>
+<td class="rsCell">
+</td>
+<td class="rsCell">
+</td>
+<td class="rsCell">
+<div class="rsWrap rsDateWrap" style="z-index: 6;"> 20 </div>
+<div class="rsWrap" style="z-index: 1;">
+<div id="ctl00_ContentPlaceHolder1_RadScheduler1_0_0" class="rsApt">
+<div class="rsAptWrap">
+<div class="rsAptInner">
+<div class="rsAptContent"> The event name </div>
+</div>
+<a class="rsAptDelete" href="#" style="visibility: hidden;">delete</a>
+<div class="rsAptBottom"/>
+</div>
+</div>
+</div>
+<div class="rsWrap" style="z-index: 1;"/>
+<div class="rsWrap rsLastWrap" style="z-index: 1;"/>
+</td>
+<td class="rsCell rsLastCell rsSatCol rsAptCreate">
+</td>
+</tr>
+<tr class="rsRow">
+</tr>
+<tr class="rsRow rsLastRow">
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<script type="text/javascript">
+</script>
+<input id="ctl00_ContentPlaceHolder1_RadScheduler1_ClientState" type="hidden" name="ctl00_ContentPlaceHolder1_RadScheduler1_ClientState" autocomplete="off" value="{"scrollTop":0}"/>
+</div>
+</div>
+<div style="margin-left: 20px; padding-bottom: 30px;">
+</div>
+<div align="center" style="background-image: url(image/CalendarBackground2.png); width: 900px; background-repeat: no-repeat; padding-bottom: 200px;">
+</div>
+<div id="userID">2</div>
+<input id="button2" visible="false"/>
+</div>
+</div>
+</div>
+<div align="left" style="height: 360px; background-image: url(image/FooterBackground.png); background-repeat: repeat-x;">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div>
+</div>
+<script type="text/javascript">
+</script>
+<div id="RadToolTipWrapper_ctl00_ContentPlaceHolder1_ctl06" class="radtooltip_Default visiblecallout" unselectable="on" style="position: absolute; left: 852px; top: 535px; visibility: hidden; z-index: 8000; height: 186px; opacity: 0; display: none;">
+<div class="ToolTipCallout TopCenter"/>
+<table class="ToolTipWrapper">
+<tbody>
+<tr>
+</tr>
+<tr>
+<td class="ToolTipLeftMiddle"/>
+<td class="ToolTipContent" valign="top">
+<div>
+<div id="div48">
+<a class="AddLink" href="Event.aspx?EventID=48">The event name</a>
+<br/>
+<br/>
+the n
+<br/>
+6:00 AM
+<br/>
+the location
+<br/>
+<br/>
+<br/>
+<a href="javascript:OpenRad('div48', '48');">
+</a>
+<img onclick="HandleDelete('48');" src="image/DeleteCircle.png" alt="Delete event from your calendar"/>
+</div>
+</div>
+</td>
+<td class="ToolTipRightMiddle"/>
+</tr>
+<tr>
+</tr>
+</tbody>
+</table>
+</div>
+</form>
+</body>
+</html>
+1
+2<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+3
+4<html xmlns="http://www.w3.org/1999/xhtml" >
+5<head><title>
+6 Hipp Happ User Calendar
+7</title><link type="text/css" href="StyleSheet.css" rel="stylesheet" /><link id="ctl00_Link1" href="../Skins/HippoHappenings/Tabstrip.HippoHappenings.css" rel="stylesheet" type="text/css" /><link href="/HippoHappenings/WebResource.axd?d=7IryVnRhN9ghhT20xHu6n3ccjrnazNdqOipem3N5wQ2fgpVCUUiivvAyvzlpzCZ20&amp;t=633552745820000000" type="text/css" rel="stylesheet" class="Telerik_stylesheet" /><link href="/HippoHappenings/WebResource.axd?d=7IryVnRhN9ghhT20xHu6n3ccjrnazNdqOipem3N5wQ38dB5Jjq_ahBX1F0UlF0WWLxILEM-Box50hZemidBmZA2&amp;t=633552745820000000" type="text/css" rel="stylesheet" class="Telerik_stylesheet" /><link href="/HippoHappenings/WebResource.axd?d=7IryVnRhN9ghhT20xHu6n3ccjrnazNdqOipem3N5wQ3z0nc26_jXwggU2PwOKl9IWDKCSRCFKE2KKTKJQgx2zIzyBHbBvEsPtOj2ws55OdM1&amp;t=633552745820000000" type="text/css" rel="stylesheet" class="Telerik_stylesheet" /><link href="/HippoHappenings/WebResource.axd?d=7IryVnRhN9ghhT20xHu6n3ccjrnazNdqOipem3N5wQ2YFHtiZ8owggAv4sHIK6mlcXrdz5-DB8xvf6TWStfO5A2&amp;t=633552745820000000" type="text/css" rel="stylesheet" class="Telerik_stylesheet" /><link href="/HippoHappenings/WebResource.axd?d=7IryVnRhN9ghhT20xHu6n3ccjrnazNdqOipem3N5wQ1Y0unKGPyCmmkLHEmapsQ8Z763SQ76n4UO5X1EJZdjCQ2&amp;t=633552745820000000" type="text/css" rel="stylesheet" class="Telerik_stylesheet" /><link href="/HippoHappenings/WebResource.axd?d=7IryVnRhN9ghhT20xHu6n3ccjrnazNdqOipem3N5wQ3dvg0A3AmX30wBj8v28FRz87i3TBP2y4f25KeTiNRnug2&amp;t=633552745820000000" type="text/css" rel="stylesheet" class="Telerik_stylesheet" /><link href="/HippoHappenings/WebResource.axd?d=7IryVnRhN9ghhT20xHu6n3ccjrnazNdqOipem3N5wQ3dY_ALdN2TMb8gyom6ReH8OitMrVSwRczlR-oS1kaYrA2&amp;t=633552745820000000" type="text/css" rel="stylesheet" class="Telerik_stylesheet" /></head>
+8<body style="padding: 0px; margin: 0px; background: url('image/MiddleBackground2.png'); background-repeat: repeat-y;">
+9 <form name="aspnetForm" method="post" action="UserCalendar.aspx?ID=2" id="aspnetForm">
+10<div>
+11<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+12<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+13<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTEwNjU3MDM3NzUPZBYCZg9kFgICAw9kFgICAw9kFgYCAQ9kFg4CAQ8PFgIeB1Zpc2libGVnZGQCAw8PFgIfAGhkZAIFDw8WAh4RVXNlU3VibWl0QmVoYXZpb3JoZGQCBw8PFgIfAWhkZAIJDw8WBh4IQ3NzQ2xhc3MFG05hdkJhckltYWdlQ2FsZW5kYXJTZWxlY3RlZB8BaB4EXyFTQgICZGQCCw8PFgIfAWhkZAINDw8WAh8BaGRkAgMPZBYKZg8PFgIeF0VuYWJsZUFqYXhTa2luUmVuZGVyaW5naGQWBGYPDxYCHwRoZGQCAQ8PFgIfBGhkZAIBD2QWBGYPDxYCHwRoZGQCAQ8PFgIfBGhkZAIDDxQrAAUPFgYfBGgeC18hRGF0YUJvdW5kZx4MU2VsZWN0ZWREYXRlBpC41zWxdMuIZA8UKwABPCsABAEAFg4eAklEAjAeCVN0YXJ0RGF0ZQYAMPE8OHfLSB4HRW5kRGF0ZQYAWB/JCXjLSB4HU3ViamVjdAUOVGhlIGV2ZW50IG5hbWUeDlJlY3VycmVuY2VSdWxlZR4PUmVjdXJyZW5jZVN0YXRlCyl3VGVsZXJpay5XZWIuVUkuUmVjdXJyZW5jZVN0YXRlLCBUZWxlcmlrLldlYi5VSSwgVmVyc2lvbj0yMDA4LjIuODI2LjIwLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPTEyMWZhZTc4MTY1YmEzZDQAHgdUb29sVGlwZWRkZBQrAAYLKXlUZWxlcmlrLldlYi5VSS5TY2hlZHVsZXJGb3JtTW9kZSwgVGVsZXJpay5XZWIuVUksIFZlcnNpb249MjAwOC4yLjgyNi4yMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj0xMjFmYWU3ODE2NWJhM2Q0AGQGkLjXNbF0y4gLKXlUZWxlcmlrLldlYi5VSS5TY2hlZHVsZXJWaWV3VHlwZSwgVGVsZXJpay5XZWIuVUksIFZlcnNpb249MjAwOC4yLjgyNi4yMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj0xMjFmYWU3ODE2NWJhM2Q0AmhkFgJmD2QWBGYPZBYCAgEPZBYCZg9kFgRmDxQrAAgPFggeDU9yaWdpbmFsVmFsdWUFFTMvMTYvMjAwOSAxMjowMDowMCBBTR4EVGV4dAUTMjAwOS0wMy0xNi0wMC0wMC0wMB8EaB4NTGFiZWxDc3NDbGFzcwURcmFkTGFiZWxDc3NfQmxhY2tkFgYeBVdpZHRoGwAAAAAAAFlABwAAAB8CBRFyYWRIb3ZlckNzc19CbGFjax8DAoICFgYfERsAAAAAAABZQAcAAAAfAgUTcmFkSW52YWxpZENzc19CbGFjax8DAoICFgYfERsAAAAAAABZQAcAAAAfAgUTcmFkRm9jdXNlZENzc19CbGFjax8DAoICFgYfERsAAAAAAABZQAcAAAAfAgUTcmFkRW5hYmxlZENzc19CbGFjax8DAoICFgYfERsAAAAAAABZQAcAAAAfAgUUcmFkRGlzYWJsZWRDc3NfQmxhY2sfAwKCAhYGHxEbAAAAAAAAWUAHAAAAHwIFGHJhZEVtcHR5TWVzc2FnZUNzc19CbGFjax8DAoICFgYfERsAAAAAAABZQAcAAAAfAgUUcmFkUmVhZE9ubHlDc3NfQmxhY2sfAwKCAmQCAg8UKwANDxYOBQ1TZWxlY3RlZERhdGVzDwWPAVRlbGVyaWsuV2ViLlVJLkNhbGVuZGFyLkNvbGxlY3Rpb25zLkRhdGVUaW1lQ29sbGVjdGlvbiwgVGVsZXJpay5XZWIuVUksIFZlcnNpb249MjAwOC4yLjgyNi4yMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj0xMjFmYWU3ODE2NWJhM2Q0FCsAAAUPUmVuZGVySW52aXNpYmxlZwURRW5hYmxlTXVsdGlTZWxlY3RoBQ1DdWx0dXJlTmFtZUlEBQVlbi1VUwULU3BlY2lhbERheXMPBZIBVGVsZXJpay5XZWIuVUkuQ2FsZW5kYXIuQ29sbGVjdGlvbnMuQ2FsZW5kYXJEYXlDb2xsZWN0aW9uLCBUZWxlcmlrLldlYi5VSSwgVmVyc2lvbj0yMDA4LjIuODI2LjIwLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPTEyMWZhZTc4MTY1YmEzZDQUKwAABQlDdWx0dXJlSUQCiQgFDUN1bHR1cmVJbmZvSUQoKW1TeXN0ZW0uR2xvYmFsaXphdGlvbi5DdWx0dXJlSW5mbywgbXNjb3JsaWIsIFZlcnNpb249Mi4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5F0VuZ2xpc2ggKFVuaXRlZCBTdGF0ZXMpDxYCHwRoZBYEHwIFE3JhZENhbERlZmF1bHRfQmxhY2sfAwICFgQfAgURVGFibGVMYXlvdXRfQmxhY2sfAwICFgQfAgUQb3RoZXJNb250aF9CbGFjax8DAgIWBB8CBQ50aXRsZWJhcl9CbGFjax8DAgIWBB8CBRJyYWRDYWxTZWxlY3RfQmxhY2sfAwICFgQfAgUQRGF5c09mV2Vla19CbGFjax8DAgIWBB8CBRNyYWRDYWxEaXNhYmxlX0JsYWNrHwMCAhYEHwIFEG91dE9mUmFuZ2VfQmxhY2sfAwICFgQfAgUacmFkQ2FsV2Vla2VuZERlZmF1bHRfQmxhY2sfAwICFgQfAgURcmFkQ2FsSG92ZXJfQmxhY2sfAwICFgQfAgUWTW9udGhZZWFyRmFzdE5hdl9CbGFjax8DAgIWBB8CBRJWaWV3U2VsZWN0b3JfQmxhY2sfAwICZAICD2QWAmYPZBYCZg9kFgJmD2QWAmYPZBYGZg8PFgQfAgUQcnNSb3cgcnNGaXJzdFJvdx8DAgJkZAICD2QWBAIFD2QWAgIBD2QWAmYPDxYGHwIFBnJzQXB0IB8NZR8DAgJkFgJmDw8WCh4JRm9yZUNvbG9yDB4JQmFja0NvbG9yDB4LQm9yZGVyQ29sb3IMHgtCb3JkZXJTdHlsZQsqJVN5c3RlbS5XZWIuVUkuV2ViQ29udHJvbHMuQm9yZGVyU3R5bGUAHwMCXGQWAmYPZBYCZg9kFgJmD2QWBGYPDxYCHwBoZGQCAQ8WAh8PBQ5UaGUgZXZlbnQgbmFtZWQCBg9kFgICAQ9kFgJmDw8WBh8CBQZyc0FwdCAfDWUfAwICZBYCZg8PFgofEgwfEwwfFAwfFQsrCAAfAwJcZBYCZg9kFgJmD2QWAmYPZBYEZg8PFgIfAGhkZAIBDxYCHw8FDlRoZSBldmVudCBuYW1lZAIEDw8WBB8CBQ9yc1JvdyByc0xhc3RSb3cfAwICZGQCBQ8UKwAFDxYGHwRoHwVnHwYGkLjXNbF0y4hkDxQrAAE8KwAEAQAWDB8HAgIfCAYAgFuFFjzLSB8JBgAAL9qoPctIHwoFEFNlY29uZCBBZCBIZWFkZXIfC2UfDAsrBABkZGQUKwAGCysFAGQGkLjXNbF0y4gLKwYCaGQWAmYPZBYEZg9kFgICAQ9kFgJmD2QWBGYPFCsACA8WCB8OBRUzLzE2LzIwMDkgMTI6MDA6MDAgQU0fDwUTMjAwOS0wMy0xNi0wMC0wMC0wMB8EaB8QBRFyYWRMYWJlbENzc19CbGFja2QWBh8RGwAAAAAAAFlABwAAAB8CBRFyYWRIb3ZlckNzc19CbGFjax8DAoICFgYfERsAAAAAAABZQAcAAAAfAgUTcmFkSW52YWxpZENzc19CbGFjax8DAoICFgYfERsAAAAAAABZQAcAAAAfAgUTcmFkRm9jdXNlZENzc19CbGFjax8DAoICFgYfERsAAAAAAABZQAcAAAAfAgUTcmFkRW5hYmxlZENzc19CbGFjax8DAoICFgYfERsAAAAAAABZQAcAAAAfAgUUcmFkRGlzYWJsZWRDc3NfQmxhY2sfAwKCAhYGHxEbAAAAAAAAWUAHAAAAHwIFGHJhZEVtcHR5TWVzc2FnZUNzc19CbGFjax8DAoICFgYfERsAAAAAAABZQAcAAAAfAgUUcmFkUmVhZE9ubHlDc3NfQmxhY2sfAwKCAmQCAg8UKwANDxYOBQ1TZWxlY3RlZERhdGVzDwWPAVRlbGVyaWsuV2ViLlVJLkNhbGVuZGFyLkNvbGxlY3Rpb25zLkRhdGVUaW1lQ29sbGVjdGlvbiwgVGVsZXJpay5XZWIuVUksIFZlcnNpb249MjAwOC4yLjgyNi4yMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj0xMjFmYWU3ODE2NWJhM2Q0FCsAAAUPUmVuZGVySW52aXNpYmxlZwURRW5hYmxlTXVsdGlTZWxlY3RoBQ1DdWx0dXJlTmFtZUlEBQVlbi1VUwULU3BlY2lhbERheXMPBZIBVGVsZXJpay5XZWIuVUkuQ2FsZW5kYXIuQ29sbGVjdGlvbnMuQ2FsZW5kYXJEYXlDb2xsZWN0aW9uLCBUZWxlcmlrLldlYi5VSSwgVmVyc2lvbj0yMDA4LjIuODI2LjIwLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPTEyMWZhZTc4MTY1YmEzZDQUKwAABQlDdWx0dXJlSUQCiQgFDUN1bHR1cmVJbmZvSUQoKwcXRW5nbGlzaCAoVW5pdGVkIFN0YXRlcykPFgIfBGhkFgQfAgUTcmFkQ2FsRGVmYXVsdF9CbGFjax8DAgIWBB8CBRFUYWJsZUxheW91dF9CbGFjax8DAgIWBB8CBRBvdGhlck1vbnRoX0JsYWNrHwMCAhYEHwIFDnRpdGxlYmFyX0JsYWNrHwMCAhYEHwIFEnJhZENhbFNlbGVjdF9CbGFjax8DAgIWBB8CBRBEYXlzT2ZXZWVrX0JsYWNrHwMCAhYEHwIFE3JhZENhbERpc2FibGVfQmxhY2sfAwICFgQfAgUQb3V0T2ZSYW5nZV9CbGFjax8DAgIWBB8CBRpyYWRDYWxXZWVrZW5kRGVmYXVsdF9CbGFjax8DAgIWBB8CBRFyYWRDYWxIb3Zlcl9CbGFjax8DAgIWBB8CBRZNb250aFllYXJGYXN0TmF2X0JsYWNrHwMCAhYEHwIFElZpZXdTZWxlY3Rvcl9CbGFjax8DAgJkAgIPZBYCZg9kFgJmD2QWAmYPZBYCZg9kFgRmDw8WBB8CBRByc1JvdyByc0ZpcnN0Um93HwMCAmRkAgQPDxYEHwIFD3JzUm93IHJzTGFzdFJvdx8DAgJkZAIGDxYCHw8FGDxkaXYgaWQ9InVzZXJJRCI+MjwvZGl2PmQCBQ9kFgICAw9kFhBmD2QWBgIBDw8WBB8PBQ5UaGUgZXZlbnQgbmFtZR4LTmF2aWdhdGVVcmwFGC4uL0V2ZW50LmFzcHg/RXZlbnRJRD00OGRkAgMPDxYCHw8FDXByZXNlbnRlZCBieSBkZAIFDw8WAh8PBUlMb3JlbSBpcHN1bSBkb2xvciBzaXQgYW1ldCwgY29uc2VjdGV0dXIgYWRpcGlzY2luZyBlbGl0LiBQcm9pbiBpcHN1bSBuLi4uZGQCAQ9kFgYCAQ8PFgQfDwUOVGhlIGV2ZW50IG5hbWUfFgUYLi4vRXZlbnQuYXNweD9FdmVudElEPTQ4ZGQCAw8PFgIfDwUNcHJlc2VudGVkIGJ5IGRkAgUPDxYCHw8FSUxvcmVtIGlwc3VtIGRvbG9yIHNpdCBhbWV0LCBjb25zZWN0ZXR1ciBhZGlwaXNjaW5nIGVsaXQuIFByb2luIGlwc3VtIG4uLi5kZAICD2QWBgIBDw8WBB8PBQ5UaGUgZXZlbnQgbmFtZR8WBRguLi9FdmVudC5hc3B4P0V2ZW50SUQ9NDhkZAIDDw8WAh8PBQ1wcmVzZW50ZWQgYnkgZGQCBQ8PFgIfDwVJTG9yZW0gaXBzdW0gZG9sb3Igc2l0IGFtZXQsIGNvbnNlY3RldHVyIGFkaXBpc2NpbmcgZWxpdC4gUHJvaW4gaXBzdW0gbi4uLmRkAgMPZBYGAgEPDxYEHw8FDlRoZSBldmVudCBuYW1lHxYFGC4uL0V2ZW50LmFzcHg/RXZlbnRJRD00OGRkAgMPDxYCHw8FDXByZXNlbnRlZCBieSBkZAIFDw8WAh8PBUlMb3JlbSBpcHN1bSBkb2xvciBzaXQgYW1ldCwgY29uc2VjdGV0dXIgYWRpcGlzY2luZyBlbGl0LiBQcm9pbiBpcHN1bSBuLi4uZGQCBA9kFgYCAQ8PFgQfDwUOVGhlIGV2ZW50IG5hbWUfFgUYLi4vRXZlbnQuYXNweD9FdmVudElEPTQ4ZGQCAw8PFgIfDwUNcHJlc2VudGVkIGJ5IGRkAgUPDxYCHw8FSUxvcmVtIGlwc3VtIGRvbG9yIHNpdCBhbWV0LCBjb25zZWN0ZXR1ciBhZGlwaXNjaW5nIGVsaXQuIFByb2luIGlwc3VtIG4uLi5kZAIFD2QWBgIBDw8WBB8PBQ5UaGUgZXZlbnQgbmFtZR8WBRguLi9FdmVudC5hc3B4P0V2ZW50SUQ9NDhkZAIDDw8WAh8PBQ1wcmVzZW50ZWQgYnkgZGQCBQ8PFgIfDwVJTG9yZW0gaXBzdW0gZG9sb3Igc2l0IGFtZXQsIGNvbnNlY3RldHVyIGFkaXBpc2NpbmcgZWxpdC4gUHJvaW4gaXBzdW0gbi4uLmRkAgYPZBYGAgEPDxYEHw8FDlRoZSBldmVudCBuYW1lHxYFGC4uL0V2ZW50LmFzcHg/RXZlbnRJRD00OGRkAgMPDxYCHw8FDXByZXNlbnRlZCBieSBkZAIFDw8WAh8PBUlMb3JlbSBpcHN1bSBkb2xvciBzaXQgYW1ldCwgY29uc2VjdGV0dXIgYWRpcGlzY2luZyBlbGl0LiBQcm9pbiBpcHN1bSBuLi4uZGQCBw9kFgYCAQ8PFgQfDwUOVGhlIGV2ZW50IG5hbWUfFgUYLi4vRXZlbnQuYXNweD9FdmVudElEPTQ4ZGQCAw8PFgIfDwUNcHJlc2VudGVkIGJ5IGRkAgUPDxYCHw8FSUxvcmVtIGlwc3VtIGRvbG9yIHNpdCBhbWV0LCBjb25zZWN0ZXR1ciBhZGlwaXNjaW5nIGVsaXQuIFByb2luIGlwc3VtIG4uLi5kZBgBBR5fX0NvbnRyb2xzUmVxdWlyZVBvc3RCYWNrS2V5X18WGAUbY3RsMDAkY3RsMDUkTXlBY2NvdW50QnV0dG9uBRhjdGwwMCRjdGwwNSRMb2dPdXRCdXR0b24FFGN0bDAwJGN0bDA1JEdvQnV0dG9uBRZjdGwwMCRjdGwwNSRQb3N0QnV0dG9uBRVjdGwwMCRjdGwwNSRSU1NCdXR0b24FKmN0bDAwJENvbnRlbnRQbGFjZUhvbGRlcjEkUmFkV2luZG93TWFuYWdlcgUkY3RsMDAkQ29udGVudFBsYWNlSG9sZGVyMSRSYWRXaW5kb3cxBSRjdGwwMCRDb250ZW50UGxhY2VIb2xkZXIxJFJhZFdpbmRvdzIFH2N0bDAwJENvbnRlbnRQbGFjZUhvbGRlcjEkY3RsMDEFH2N0bDAwJENvbnRlbnRQbGFjZUhvbGRlcjEkY3RsMDMFH2N0bDAwJENvbnRlbnRQbGFjZUhvbGRlcjEkY3RsMDQFH2N0bDAwJENvbnRlbnRQbGFjZUhvbGRlcjEkY3RsMDUFH2N0bDAwJENvbnRlbnRQbGFjZUhvbGRlcjEkY3RsMDYFH2N0bDAwJENvbnRlbnRQbGFjZUhvbGRlcjEkY3RsMDgFH2N0bDAwJENvbnRlbnRQbGFjZUhvbGRlcjEkY3RsMDkFH2N0bDAwJENvbnRlbnRQbGFjZUhvbGRlcjEkY3RsMTAFJ2N0bDAwJENvbnRlbnRQbGFjZUhvbGRlcjEkUmFkU2NoZWR1bGVyMQU6Y3RsMDAkQ29udGVudFBsYWNlSG9sZGVyMSRSYWRTY2hlZHVsZXIxJFNlbGVjdGVkRGF0ZVBpY2tlcgVDY3RsMDAkQ29udGVudFBsYWNlSG9sZGVyMSRSYWRTY2hlZHVsZXIxJFNlbGVjdGVkRGF0ZVBpY2tlciRjYWxlbmRhcgVDY3RsMDAkQ29udGVudFBsYWNlSG9sZGVyMSRSYWRTY2hlZHVsZXIxJFNlbGVjdGVkRGF0ZVBpY2tlciRjYWxlbmRhcgUnY3RsMDAkQ29udGVudFBsYWNlSG9sZGVyMSRSYWRTY2hlZHVsZXIyBTpjdGwwMCRDb250ZW50UGxhY2VIb2xkZXIxJFJhZFNjaGVkdWxlcjIkU2VsZWN0ZWREYXRlUGlja2VyBUNjdGwwMCRDb250ZW50UGxhY2VIb2xkZXIxJFJhZFNjaGVkdWxlcjIkU2VsZWN0ZWREYXRlUGlja2VyJGNhbGVuZGFyBUNjdGwwMCRDb250ZW50UGxhY2VIb2xkZXIxJFJhZFNjaGVkdWxlcjIkU2VsZWN0ZWREYXRlUGlja2VyJGNhbGVuZGFyKEbZpCX/gPW6DZGivo6L2Tzx6yU=" />
+14</div>
+15
+16<script type="text/javascript">
+17<!--
+18var theForm = document.forms['aspnetForm'];
+19if (!theForm) {
+20 theForm = document.aspnetForm;
+21}
+22function __doPostBack(eventTarget, eventArgument) {
+23 if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+24 theForm.__EVENTTARGET.value = eventTarget;
+25 theForm.__EVENTARGUMENT.value = eventArgument;
+26 theForm.submit();
+27 }
+28}
+29// -->
+30</script>
+31
+32
+33<script src="/HippoHappenings/WebResource.axd?d=gm0WPsNVZRtMJoq8hkv3mw2&amp;t=633332099498376000" type="text/javascript"></script>
+34
+35<script type="text/javascript" src="/HippoHappenings/ajax/common.ashx"></script><script type="text/javascript" src="/HippoHappenings/ajax/UserCalendar,App_Web_usercalendar.aspx.cdcab7d2.v2enbymt.ashx"></script>
+36<script src="/HippoHappenings/ScriptResource.axd?d=_eCvpca1C3LgfKNpwfoBApKrQxrB1xeQ1wX9LLSJH4QN-rasC9u_MJmiNbGJ3FWRb2sQciRVApr1l86y80OVmFZu_n7h237ourVjCuBj8N81&amp;t=633564794936380000" type="text/javascript"></script>
+37<script src="/HippoHappenings/ScriptResource.axd?d=_eCvpca1C3LgfKNpwfoBApKrQxrB1xeQ1wX9LLSJH4QN-rasC9u_MJmiNbGJ3FWRb2sQciRVApr1l86y80OVmHVo360slNG4Kd480tokiVCTGy4TJPTQ1X8dd_lwEn_v0&amp;t=633564794936380000" type="text/javascript"></script>
+38<script src="/HippoHappenings/ScriptResource.axd?d=KBfptVdNinkUzK59ADpkgldFYRgVRx6nx0cbb8VrvT5mlwvTm1gvy4yiTJqXQDUK0&amp;t=633552745820000000" type="text/javascript"></script>
+39<script src="/HippoHappenings/ScriptResource.axd?d=KBfptVdNinkUzK59ADpkgkN6RdaQjsyAIKIX779Q1rgX2BK6vPp-F4pjWSifBMNy0&amp;t=633552745820000000" type="text/javascript"></script>
+40<script src="/HippoHappenings/ScriptResource.axd?d=KBfptVdNinkUzK59ADpkgldFYRgVRx6nx0cbb8VrvT6iE54x5oZ6pfpGKKQuosu9XzjSsV0agdm0aXBXpYb8WQ2&amp;t=633552745820000000" type="text/javascript"></script>
+41<script src="/HippoHappenings/ScriptResource.axd?d=KBfptVdNinkUzK59ADpkgv7mm9G3uEfzVrgVSg9qpo82E3NldC_tocn4lCshgzySlQRqkBt67KNq_cirLLQqwg2&amp;t=633552745820000000" type="text/javascript"></script>
+42<script src="/HippoHappenings/ScriptResource.axd?d=KBfptVdNinkUzK59ADpkgv7mm9G3uEfzVrgVSg9qpo_shBdp29jsljCW3teHzelchqvUjoShQXwO3y-2IEIUJg2&amp;t=633552745820000000" type="text/javascript"></script>
+43<script src="/HippoHappenings/ScriptResource.axd?d=KBfptVdNinkUzK59ADpkgjNOIhUHg_oWFt5OsB1yuKon7I33Ua4fMOu7OOEdiRpsBhssoMIr2rhlmbf-u3CkcA2&amp;t=633552745820000000" type="text/javascript"></script>
+44<script src="/HippoHappenings/ScriptResource.axd?d=KBfptVdNinkUzK59ADpkgldFYRgVRx6nx0cbb8VrvT7KzPQfs8yOyGpZvTiEfvtqiVjTeJfdEZaTD6U_iqeVnbTwWYNqVYLl6jjrj8mOnVY1&amp;t=633552745820000000" type="text/javascript"></script>
+45<script src="/HippoHappenings/ScriptResource.axd?d=KBfptVdNinkUzK59ADpkgldFYRgVRx6nx0cbb8VrvT5sAAJKgrA1S3pp_Vtr5GAgG-nr6D1nSObtcsVMvx_ikCcEaFv0B6gmbomDS8bOrEU1&amp;t=633552745820000000" type="text/javascript"></script>
+46<script src="/HippoHappenings/ScriptResource.axd?d=KBfptVdNinkUzK59ADpkgqc2YFe8WtAE0gQb84s7pWq05NU05O6VoLT6d5xwgbcbDpCsTAz6-xWFrR69tsXiXKsztxn5dX846rnawPV9azw1&amp;t=633552745820000000" type="text/javascript"></script>
+47<script src="/HippoHappenings/ScriptResource.axd?d=KBfptVdNinkUzK59ADpkgqc2YFe8WtAE0gQb84s7pWpLazs180MQ8YH8nO445JZiOy4xDDNLltAr-izuOk--Rg2&amp;t=633552745820000000" type="text/javascript"></script>
+48<script src="/HippoHappenings/ScriptResource.axd?d=KBfptVdNinkUzK59ADpkgldFYRgVRx6nx0cbb8VrvT7KlT__FHSScfChA6mzaqRh7nGVik_VqsfR_JXt6SN24A2&amp;t=633552745820000000" type="text/javascript"></script>
+49<script src="/HippoHappenings/ScriptResource.axd?d=KBfptVdNinkUzK59ADpkggoGpOXOqRScxvRRRr45u3QKigsgZWEZNHswWkg-aDYoB71TOg3xDlvBlKVMzcDNuw2&amp;t=633552745820000000" type="text/javascript"></script>
+50<script src="/HippoHappenings/ScriptResource.axd?d=KBfptVdNinkUzK59ADpkggoGpOXOqRScxvRRRr45u3SeBLcaPJTRoCTUXfnI0nT0OlvCt24JGQxRWGuRUBY2-Q1JGJqmHMpig8DUghTitQM1&amp;t=633552745820000000" type="text/javascript"></script>
+51<script src="/HippoHappenings/ScriptResource.axd?d=KBfptVdNinkUzK59ADpkgldFYRgVRx6nx0cbb8VrvT7zf-BRYJrN-QayOYo7-gmF2g1Wjnmk94itIoxGmGfrwg2&amp;t=633552745820000000" type="text/javascript"></script>
+52<script src="/HippoHappenings/ScriptResource.axd?d=KBfptVdNinkUzK59ADpkgldFYRgVRx6nx0cbb8VrvT7zf-BRYJrN-QayOYo7-gmFdYQ5YWpPRcTGgRoNYU3vuiQ8xP41qGI_CRHhDvRU2Mk1&amp;t=633552745820000000" type="text/javascript"></script>
+53 <script type="text/javascript">
+54//<![CDATA[
+55Sys.WebForms.PageRequestManager._initialize('ctl00$ctl03', document.getElementById('aspnetForm'));
+56Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tctl00$ctl00$ctl04Panel'], [], [], 90);
+57//]]>
+58</script>
+59
+60 <div id="ctl00_ctl00_ctl04Panel">
+61 <div id="ctl00_ctl04">
+62 <!-- 2008.2.826.20 -->
+63 <div align="center">
+64
+65
+66
+67
+68
+69 <div style="background: url('image/TopBackground2.png'); background-repeat: no-repeat; background-position: top;">
+70 <div style="background: url('image/BottomBackground2.png'); background-position: bottom; background-repeat: no-repeat;">
+71 <div style=" display: block;height: 100%; bottom: 0px; width: 1400px;">
+72 <div align="center" style=" width: 912px; background-image: url('image/TransparentBackground.png'); background-repeat: repeat-y; z-index: 1000;">
+73 <div style="background-color: #1b1b1b; width: 900px;">
+74 <div style="z-index: 1600;">
+75
+76
+77<div style=" width: 900px; font-family: Arial;">
+78 <div style="border-top: solid 6px black; padding-bottom: 0px; margin-bottom: 0px;">
+79 <div align="left" style="height: 88px; background-image: url('image/HeaderBackground.gif'); background-repeat: repeat-x; padding-bottom: 0px; margin-bottom: 0px;">
+80 <div style="float: left;"><img src="image/Logo.gif"/></div>
+81 <div style="float: right; padding: 0px; margin: 0px;">
+82 <div id="ctl00_ctl05_LoginPanel" style="background-color:Black;height:15px;">
+83
+84 <div align="right">
+85 <input type="image" name="ctl00$ctl05$MyAccountButton" id="ctl00_ctl05_MyAccountButton" class="TopButton" src="image/MyAccountImage.gif" style="height:12px;width:69px;border-width:0px;" />
+86 <input type="image" name="ctl00$ctl05$LogOutButton" id="ctl00_ctl05_LogOutButton" class="TopButton" src="image/LogOut.gif" style="height:12px;width:48px;border-width:0px;" />
+87 </div>
+88
+89 </div>
+90 <div style="padding-top: 12px;">
+91
+92 </div>
+93 </div>
+94
+95 </div>
+96 <div align="left" style="color: White;padding-top: 0px; margin-top: 0px; height: 29px; background-image: url('image/NavBackgroundDouble.gif'); background-repeat: repeat-x;">
+97
+98 <div style="float: left; padding-top: 1px; padding-bottom: 0px; margin-bottom: 0px; height: 27px;">
+99 <div style="padding: 0px; margin: 0px; float: left;">
+100 <input type="button" name="ctl00$ctl05$HomeLink" value="" onclick="javascript:__doPostBack('ctl00$ctl05$HomeLink','')" id="ctl00_ctl05_HomeLink" class="NavBarImageHome" />
+101 </div>
+102 <div style="padding: 0px; margin: 0px; float: left;">
+103 <input type="button" name="ctl00$ctl05$BlogAnEventLink" value="" onclick="javascript:__doPostBack('ctl00$ctl05$BlogAnEventLink','')" id="ctl00_ctl05_BlogAnEventLink" class="NavBarImageBlog" />
+104 </div>
+105 <div style="padding: 0px; margin: 0px; float: left;">
+106 <input type="button" name="ctl00$ctl05$CalendarLink" value="" onclick="javascript:__doPostBack('ctl00$ctl05$CalendarLink','')" id="ctl00_ctl05_CalendarLink" class="NavBarImageCalendarSelected" />
+107 </div>
+108 <div style="padding: 0px; margin: 0px; float: left;">
+109 <input type="button" name="ctl00$ctl05$VenuesLink" value="" onclick="javascript:__doPostBack('ctl00$ctl05$VenuesLink','')" id="ctl00_ctl05_VenuesLink" class="NavBarImageVenue" />
+110 </div>
+111 <div style="padding: 0px; margin: 0px; float: left;">
+112 <input type="button" name="ctl00$ctl05$AdsLink" value="" onclick="javascript:__doPostBack('ctl00$ctl05$AdsLink','')" id="ctl00_ctl05_AdsLink" class="NavBarImageAd" AlternateText="Ads And Clasifieds" />
+113 </div>
+114 </div>
+115
+116 <div onkeypress="javascript:return WebForm_FireDefaultButton(event, 'ctl00_ctl05_GoButton')">
+117
+118 <div style="float: right; width: 250px; clear: none; padding: 0px; margin: 0px;">
+119 <div style="height: 29px; clear: none; float: left; padding:0px; margin: 0px;">
+120
+121 <div style="clear: none; height: 29px; padding: 0px; margin: 0px; padding-top: 6px;">
+122 <div style="float: left; padding: 0px; margin: 0px ;padding-right: 3px; margin-top: 5px;"><img style="padding: 0px; margin: 0px;" src="image/SearchText.gif" /> </div>
+123 <div style=" border: solid 0px black; float: left; background: url('image/SearchTextBoxLeftSide.gif'); background-repeat: no-repeat ; background-position: left; height: 19px; clear: none; padding: 0px; padding-left: 5px; margin: 0px; _margin-top: 1px;">
+124 <input name="ctl00$ctl05$SearchTextBox" type="text" id="ctl00_ctl05_SearchTextBox" class="TextBox" /></div>
+125 </div>
+126
+127
+128 </div>
+129 <div style="float: right; padding-top: 1px;">
+130 <input type="image" name="ctl00$ctl05$GoButton" id="ctl00_ctl05_GoButton" onmouseout="this.src='image/GoButton.png'" onmouseover="this.src='image/GoButtonSelected.png'" src="image/GoButton.png" style="border-width:0px;" />
+131 </div>
+132 </div>
+133
+134 </div>
+135 </div>
+136 </div>
+137 <div style="background-color: #1b1b1b; height: 32px; padding:0px; margin: 0px;">
+138 <div style="float: right; background-color: #363636; width: 380px; color: White; font-size: 10px; height: 32px;">
+139 <img src="image/PostsLeftBack.gif" style="float: left;" />
+140 <div style=" padding-top: 8px; font-weight: bold ; float: left; font-family: Arial; color: White; font-size: 12px;">
+141 Only <span id="ctl00_ctl05_PostsNumberLabel">20</span> Posts left until your free gift!!
+142 </div>
+143
+144 <input type="image" name="ctl00$ctl05$PostButton" id="ctl00_ctl05_PostButton" onmouseout="this.src='image/PostAndWinButton.png'" onmouseover="this.src='image/PostAndWinButtonSelected.png'" src="image/PostAndWinButton.png" style="border-width:0px;" />
+145 <input type="image" name="ctl00$ctl05$RSSButton" id="ctl00_ctl05_RSSButton" onmouseout="this.src='image/RSSButton.png'" onmouseover="this.src='image/RSSButtonSelected.png'" src="image/RssButton.png" style="border-width:0px;" />
+146 </div>
+147 </div>
+148</div>
+149
+150 <div id="topDiv" style="width: 880px; padding-left: 20px; z-index: 1600;">
+151 <div align="left" style=" background: url('image/BackgroundVectors.png'); background-position: bottom; background-repeat: no-repeat;">
+152
+153 <script type="text/javascript">
+154
+155 //<![CDATA[
+156 function onAppointmentClick(sender, eventArgs)
+157 {
+158 window.location = "Ad.aspx?AdID=" + eventArgs.get_appointment().get_id();
+159 }
+160 function onEventAppointmentClick(sender, eventArgs)
+161 {
+162 window.location = "Event.aspx?EventID=" + eventArgs.get_appointment().get_id();
+163 }
+164 function OpenWindow()
+165 {
+166 UserCalendar.ShowMessage();
+167 }
+168
+169 function OpenRad(theDiv, theID)
+170 {
+171 CloseDiv(theDiv);
+172 var win = $find("ctl00_ContentPlaceHolder1_RadWindow1");
+173 win.setUrl('MessageAlert.aspx?ID='+theID);
+174 win.show();
+175 win.center();
+176
+177 }
+178
+179 function CloseDiv(theDiv)
+180 {
+181 var div = document.getElementById(theDiv);
+182 div.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.style.visibility = 'hidden';
+183 }
+184
+185 function DeleteEvent(theID)
+186 {
+187 var userID = document.getElementById('userID');
+188 UserCalendar.DeleteUserEvent(theID, userID.innerHTML, Delete_Callback);
+189 }
+190
+191 function Delete_Callback(response)
+192 {
+193 var theID = response.value;
+194 scheduler = $find('ctl00_ContentPlaceHolder1_RadScheduler1');
+195 var result = scheduler.get_appointments();
+196 var eventToRemove = result.findByID(theID);
+197 eventToRemove._allowDelete = true;
+198 eventToRemove._allowEdit = true;
+199 result.remove(eventToRemove);
+200// result.deleteAppointment(evetnToRemove);
+201 }
+202
+203 function HandleDelete(theID)
+204 {
+205 var a = confirm('Are you sure you want to remove this event from your calendar?');
+206 if(a == true)
+207 {
+208 DeleteEvent(theID);
+209
+210 }else
+211 {
+212 CloseDiv('div'+theID);
+213 }
+214 }
+215
+216 function DoPostBack()
+217 {
+218 __doPostBack('Button2','My Argument');
+219 }
+220
+221
+222 function __doPostBack(eventTarget, eventArgument)
+223 {
+224// if (!theForm.onsubmit || (theForm.onsubmit() != false))
+225// {
+226 theForm.__EVENTTARGET.value = eventTarget;
+227 theForm.__EVENTARGUMENT.value = eventArgument;
+228 theForm.submit();
+229// }
+230 }
+231 //]]>
+232 </script>
+233 <div id="ctl00_ContentPlaceHolder1_RadWindowManager" style="display:none;">
+234 <div id="ctl00_ContentPlaceHolder1_RadWindow1" style="display:none;">
+235
+236 <input id="ctl00_ContentPlaceHolder1_RadWindow1_ClientState" name="ctl00_ContentPlaceHolder1_RadWindow1_ClientState" type="hidden" />
+237 </div><div id="ctl00_ContentPlaceHolder1_RadWindow2" style="display:none;">
+238
+239 <input id="ctl00_ContentPlaceHolder1_RadWindow2_ClientState" name="ctl00_ContentPlaceHolder1_RadWindow2_ClientState" type="hidden" />
+240 </div><div id="ctl00_ContentPlaceHolder1_RadWindowManager_alerttemplate" style="display:none;">
+241 <div class="windowpopup radalert">
+242 <div class="dialogtext">
+243 {1}
+244 </div>
+245
+246 <div>
+247 <a onclick="$find('{0}').close();"
+248 class="radwindowbutton" href="javascript:void(0);">
+249 <span class="outerspan">
+250 <span class="innerspan">##LOC[OK]##</span>
+251 </span>
+252 </a>
+253 </div>
+254 </div>
+255 </div><div id="ctl00_ContentPlaceHolder1_RadWindowManager_prompttemplate" style="display:none;">
+256 <div class="windowpopup radprompt">
+257 <div class="dialogtext">
+258 {1}
+259 </div>
+260 <div>
+261 <script>
+262 function radwindowprompt_detectenter(id, ev)
+263 {
+264 if (!ev) ev = window.event;
+265 if (ev.keyCode == 13)
+266 {
+267 var but = document.getElementById("OKbtn_"+id);
+268 if (but)
+269 {
+270 if (but.click) but.click();
+271 else if (but.onclick)
+272 {
+273 but.focus(); var click = but.onclick; but.onclick = null; if (click) click.call(but);
+274 }
+275 }
+276 return false;
+277 }
+278 else return true;
+279 }
+280 </script>
+281 <input onkeydown="return radwindowprompt_detectenter('{0}', event);" type="text" class="dialoginput" value="{2}" />
+282 </div>
+283 <div>
+284 <a id="OKbtn_{0}" onclick="$find('{0}').callBack(this.parentNode.parentNode.getElementsByTagName('input')[0].value);"
+285 class="radwindowbutton" href="javascript:void(0);" ><span class="outerspan"><span class="innerspan">##LOC[OK]##</span></span></a>
+286 <a onclick="$find('{0}').callBack(null);" class="radwindowbutton" href="javascript:void(0);"><span class="outerspan"><span class="innerspan">##LOC[Cancel]##</span></span></a>
+287 </div>
+288 </div>
+289 </div><div id="ctl00_ContentPlaceHolder1_RadWindowManager_confirmtemplate" style="display:none;">
+290 <div class="windowpopup radconfirm">
+291 <div class="dialogtext">
+292 {1}
+293 </div>
+294 <div>
+295 <a onclick="$find('{0}').callBack(true);" class="radwindowbutton" href="javascript:void(0);" ><span class="outerspan"><span class="innerspan">##LOC[OK]##</span></span></a>
+296 <a onclick="$find('{0}').callBack(false);" class="radwindowbutton" href="javascript:void(0);"><span class="outerspan"><span class="innerspan">##LOC[Cancel]##</span></span></a>
+297 </div>
+298 </div>
+299 </div><input id="ctl00_ContentPlaceHolder1_RadWindowManager_ClientState" name="ctl00_ContentPlaceHolder1_RadWindowManager_ClientState" type="hidden" />
+300 </div>
+301 <div style="width: 900px; margin-left: -20px;">
+302 <div id="ctl00_ContentPlaceHolder1_ToolTipPanel">
+303 <div id="ctl00_ContentPlaceHolder1_ctl01" style="display:none;">
+304 <input type="submit" name="ctl00$ContentPlaceHolder1$ctl02" value="" /><input type="image" name="ctl00$ContentPlaceHolder1$ctl03" src="image/Envelope.png" style="border-width:0px;" /><input type="image" name="ctl00$ContentPlaceHolder1$ctl04" src="image/EventComment.png" style="border-width:0px;" /><input type="image" name="ctl00$ContentPlaceHolder1$ctl05" src="image/DeleteCircle.png" style="border-width:0px;" /><input id="ctl00_ContentPlaceHolder1_ctl01_ClientState" name="ctl00_ContentPlaceHolder1_ctl01_ClientState" type="hidden" />
+305 </div><div id="ctl00_ContentPlaceHolder1_ctl06" style="display:none;">
+306 <input type="submit" name="ctl00$ContentPlaceHolder1$ctl07" value="" /><input type="image" name="ctl00$ContentPlaceHolder1$ctl08" src="image/Envelope.png" style="border-width:0px;" /><input type="image" name="ctl00$ContentPlaceHolder1$ctl09" src="image/EventComment.png" style="border-width:0px;" /><input type="image" name="ctl00$ContentPlaceHolder1$ctl10" src="image/DeleteCircle.png" style="border-width:0px;" /><input id="ctl00_ContentPlaceHolder1_ctl06_ClientState" name="ctl00_ContentPlaceHolder1_ctl06_ClientState" type="hidden" />
+307 </div>
+308 </div>
+309 <div style="margin-left: 20px; padding-bottom: 30px;">
+310 <span class="EventHeader">My Events Calendar</span>
+311 </div>
+312 <div align="center" style="background-image: url('image/CalendarBackground2.png'); width: 900px; background-repeat: no-repeat; padding-bottom: 20px;">
+313 <div id="ctl00_ContentPlaceHolder1_RadScheduler1" class="RadScheduler RadScheduler_Black " style="height:564px;width:90%;">
+314 <div class="rsHeader">
+315 <p><a class="rsPrevDay" href="#">previous day</a><a class="rsNextDay" href="#">next day</a><em><a class="rsToday" href="#">today</a></em></p><div class="rsDatePickerWrapper">
+316 <div id="ctl00_ContentPlaceHolder1_RadScheduler1_SelectedDatePicker_wrapper" class="pickerWrapper_Black rsPickerWrapper " style="display:-moz-inline-stack;height:20px;width:20px;">
+317 <input style="visibility: hidden;display:block; float:right;margin:0;width:1px;height:1px;overflow:hidden;border:0;padding:0;" id="ctl00_ContentPlaceHolder1_RadScheduler1_SelectedDatePicker" name="ctl00$ContentPlaceHolder1$RadScheduler1$SelectedDatePicker" type="text" value="2009-03-16" /><table cellpadding="0" cellspacing="0" style="border-width:0;border-collapse:collapse;width:20px;">
+318 <tr>
+319 <td class="inputCell" style="width:100%;"><span id="ctl00_ContentPlaceHolder1_RadScheduler1_SelectedDatePicker_dateInput_wrapper" class="radInput_Black" style="display:block;"><input value="3/16/2009" id="ctl00_ContentPlaceHolder1_RadScheduler1_SelectedDatePicker_dateInput_text" name="ctl00_ContentPlaceHolder1_RadScheduler1_SelectedDatePicker_dateInput_text" class="radEnabledCss_Black" style="width:100%;" /><input style="visibility:hidden;float:right;margin:-18px 0 0 0;width:1px;height:1px;overflow:hidden;border:0;padding:0;" id="ctl00_ContentPlaceHolder1_RadScheduler1_SelectedDatePicker_dateInput" name="ctl00$ContentPlaceHolder1$RadScheduler1$SelectedDatePicker$dateInput" type="text" value="2009-03-16-00-00-00" /><input id="ctl00_ContentPlaceHolder1_RadScheduler1_SelectedDatePicker_dateInput_ClientState" name="ctl00_ContentPlaceHolder1_RadScheduler1_SelectedDatePicker_dateInput_ClientState" type="hidden" /></span></td><td><a title="Open the calendar popup." href="#" id="ctl00_ContentPlaceHolder1_RadScheduler1_SelectedDatePicker_popupButton" class="rsDatePickerPopupButton"><img id="ctl00_ContentPlaceHolder1_RadScheduler1_SelectedDatePicker_CalendarPopupButton" src="/HippoHappenings/WebResource.axd?d=7IryVnRhN9ghhT20xHu6n3ccjrnazNdqOipem3N5wQ3dY_ALdN2TMb8gyom6ReH8gqnWGBIao_zSEj4rgcSEOPVLkxaf0FAdYgGlQ7BdLYk1&amp;amp;t=633552745820000000" alt="Open the calendar popup." style="border-width:0px;" /></a><div id="ctl00_ContentPlaceHolder1_RadScheduler1_SelectedDatePicker_calendar_wrapper" style="display: none" ><table id="ctl00_ContentPlaceHolder1_RadScheduler1_SelectedDatePicker_calendar" cellspacing="0" cellpadding="0" summary="Telerik RadCalendar instance" class="calendarWrapper_Black" border="0" style="border-width:0px;border-collapse:collapse;">
+320 <tbody><tr>
+321 <td colspan="3" style="vertical-align:top;white-space:nowrap;"><table class="titlebar_Black" cellspacing="0" cellpadding="3" summary="Telerik RadCalendar title and navigation controls" border="0" style="border-collapse:collapse;">
+322 <tbody><tr>
+323 <td><a id="ctl00_ContentPlaceHolder1_RadScheduler1_SelectedDatePicker_calendar_FNP" onclick="return false;" title="&lt;&lt;" href="#"><img src="/HippoHappenings/WebResource.axd?d=7IryVnRhN9ghhT20xHu6n3ccjrnazNdqOipem3N5wQ3dY_ALdN2TMb8gyom6ReH8SoYL7ecRRZ8X9zuqbV_Jz7W2f2eVyAuPWXgoEI2umXo1&amp;t=633552745820000000" alt="&lt;&lt;" style="border:0px;" /></a></td><td><a id="ctl00_ContentPlaceHolder1_RadScheduler1_SelectedDatePicker_calendar_NP" onclick="return false;" title="&lt;" href="#"><img src="/HippoHappenings/WebResource.axd?d=7IryVnRhN9ghhT20xHu6n3ccjrnazNdqOipem3N5wQ3dY_ALdN2TMb8gyom6ReH8mmG2yLs6b7ikb4lmCnueBI0q8WLZ0ElHCTZ51uGtQmc1&amp;t=633552745820000000" alt="&lt;" style="border:0px;" /></a></td><td id="ctl00_ContentPlaceHolder1_RadScheduler1_SelectedDatePicker_calendar_Title" style="width:100%;text-align:center;white-space:nowrap;cursor:pointer;">March 2009</td><td><a id="ctl00_ContentPlaceHolder1_RadScheduler1_SelectedDatePicker_calendar_NN" onclick="return false;" title=">" href="#"><img src="/HippoHappenings/WebResource.axd?d=7IryVnRhN9ghhT20xHu6n3ccjrnazNdqOipem3N5wQ3dY_ALdN2TMb8gyom6ReH89irFtOfQii22d7m3tSngHSdfpotDY9en7OFtiSdfrOs1&amp;t=633552745820000000" alt=">" style="border:0px;" /></a></td><td><a id="ctl00_ContentPlaceHolder1_RadScheduler1_SelectedDatePicker_calendar_FNN" onclick="return false;" title=">>" href="#"><img src="/HippoHappenings/WebResource.axd?d=7IryVnRhN9ghhT20xHu6n3ccjrnazNdqOipem3N5wQ3dY_ALdN2TMb8gyom6ReH8kD7GZYVEUVnknIlY7VYlEbrviC91Tpdd7MRUOuuCO3U1&amp;t=633552745820000000" alt=">>" style="border:0px;" /></a></td>
+324 </tr></tbody>
+325 </table></td>
+326 </tr><tr>
+327 <td colspan="3" style="height:100%;"><table id="ctl00_ContentPlaceHolder1_RadScheduler1_SelectedDatePicker_calendar_Top" class="TableLayout_Black" cellspacing="0" cellpadding="0" summary="March 2009" border="0" style="border-collapse:collapse;">
+328 <tbody><tr>
+329 <th class="DaysOfWeek_Black">&nbsp;</th><th id="ctl00_ContentPlaceHolder1_RadScheduler1_SelectedDatePicker_calendar_Top_cs_1" title="Sunday" class="DaysOfWeek_Black" abbr="abbrText" scope="col">S</th><th id="ctl00_ContentPlaceHolder1_RadScheduler1_SelectedDatePicker_calendar_Top_cs_2" title="Monday" class="DaysOfWeek_Black" abbr="abbrText" scope="col">M</th><th id="ctl00_ContentPlaceHolder1_RadScheduler1_SelectedDatePicker_calendar_Top_cs_3" title="Tuesday" class="DaysOfWeek_Black" abbr="abbrText" scope="col">T</th><th id="ctl00_ContentPlaceHolder1_RadScheduler1_SelectedDatePicker_calendar_Top_cs_4" title="Wednesday" class="DaysOfWeek_Black" abbr="abbrText" scope="col">W</th><th id="ctl00_ContentPlaceHolder1_RadScheduler1_SelectedDatePicker_calendar_Top_cs_5" title="Thursday" class="DaysOfWeek_Black" abbr="abbrText" scope="col">T</th><th id="ctl00_ContentPlaceHolder1_RadScheduler1_SelectedDatePicker_calendar_Top_cs_6" title="Friday" class="DaysOfWeek_Black" abbr="abbrText" scope="col">F</th><th id="ctl00_ContentPlaceHolder1_RadScheduler1_SelectedDatePicker_calendar_Top_cs_7" title="Saturday" class="DaysOfWeek_Black" abbr="abbrText" scope="col">S</th>
+330 </tr><tr>
+331 <td id="ctl00_ContentPlaceHolder1_RadScheduler1_SelectedDatePicker_calendar_Top_rs_1" class="DaysOfWeek_Black">9</td><td class="otherMonth_Black" title="Sunday, February 22, 2009"><a href="#" onclick="return false;" >22</a></td><td class="otherMonth_Black" title="Monday, February 23, 2009"><a href="#" onclick="return false;" >23</a></td><td class="otherMonth_Black" title="Tuesday, February 24, 2009"><a href="#" onclick="return false;" >24</a></td><td class="otherMonth_Black" title="Wednesday, February 25, 2009"><a href="#" onclick="return false;" >25</a></td><td class="otherMonth_Black" title="Thursday, February 26, 2009"><a href="#" onclick="return false;" >26</a></td><td class="otherMonth_Black" title="Friday, February 27, 2009"><a href="#" onclick="return false;" >27</a></td><td class="otherMonth_Black" title="Saturday, February 28, 2009"><a href="#" onclick="return false;" >28</a></td>
+332 </tr><tr>
+333 <td id="ctl00_ContentPlaceHolder1_RadScheduler1_SelectedDatePicker_calendar_Top_rs_2" class="DaysOfWeek_Black">10</td><td class="radCalWeekendDefault_Black" title="Sunday, March 01, 2009"><a href="#" onclick="return false;" >1</a></td><td class="radCalDefault_Black" title="Monday, March 02, 2009"><a href="#" onclick="return false;" >2</a></td><td class="radCalDefault_Black" title="Tuesday, March 03, 2009"><a href="#" onclick="return false;" >3</a></td><td class="radCalDefault_Black" title="Wednesday, March 04, 2009"><a href="#" onclick="return false;" >4</a></td><td class="radCalDefault_Black" title="Thursday, March 05, 2009"><a href="#" onclick="return false;" >5</a></td><td class="radCalDefault_Black" title="Friday, March 06, 2009"><a href="#" onclick="return false;" >6</a></td><td class="radCalWeekendDefault_Black" title="Saturday, March 07, 2009"><a href="#" onclick="return false;" >7</a></td>
+334 </tr><tr>
+335 <td id="ctl00_ContentPlaceHolder1_RadScheduler1_SelectedDatePicker_calendar_Top_rs_3" class="DaysOfWeek_Black">11</td><td class="radCalWeekendDefault_Black" title="Sunday, March 08, 2009"><a href="#" onclick="return false;" >8</a></td><td class="radCalDefault_Black" title="Monday, March 09, 2009"><a href="#" onclick="return false;" >9</a></td><td class="radCalDefault_Black" title="Tuesday, March 10, 2009"><a href="#" onclick="return false;" >10</a></td><td class="radCalDefault_Black" title="Wednesday, March 11, 2009"><a href="#" onclick="return false;" >11</a></td><td class="radCalDefault_Black" title="Thursday, March 12, 2009"><a href="#" onclick="return false;" >12</a></td><td class="radCalDefault_Black" title="Friday, March 13, 2009"><a href="#" onclick="return false;" >13</a></td><td class="radCalWeekendDefault_Black" title="Saturday, March 14, 2009"><a href="#" onclick="return false;" >14</a></td>
+336 </tr><tr>
+337 <td id="ctl00_ContentPlaceHolder1_RadScheduler1_SelectedDatePicker_calendar_Top_rs_4" class="DaysOfWeek_Black">12</td><td class="radCalWeekendDefault_Black" title="Sunday, March 15, 2009"><a href="#" onclick="return false;" >15</a></td><td class="radCalDefault_Black" title="Monday, March 16, 2009"><a href="#" onclick="return false;" >16</a></td><td class="radCalDefault_Black" title="Tuesday, March 17, 2009"><a href="#" onclick="return false;" >17</a></td><td class="radCalDefault_Black" title="Wednesday, March 18, 2009"><a href="#" onclick="return false;" >18</a></td><td class="radCalDefault_Black" title="Thursday, March 19, 2009"><a href="#" onclick="return false;" >19</a></td><td class="radCalDefault_Black" title="Friday, March 20, 2009"><a href="#" onclick="return false;" >20</a></td><td class="radCalWeekendDefault_Black" title="Saturday, March 21, 2009"><a href="#" onclick="return false;" >21</a></td>
+338 </tr><tr>
+339 <td id="ctl00_ContentPlaceHolder1_RadScheduler1_SelectedDatePicker_calendar_Top_rs_5" class="DaysOfWeek_Black">13</td><td class="radCalWeekendDefault_Black" title="Sunday, March 22, 2009"><a href="#" onclick="return false;" >22</a></td><td class="radCalDefault_Black" title="Monday, March 23, 2009"><a href="#" onclick="return false;" >23</a></td><td class="radCalDefault_Black" title="Tuesday, March 24, 2009"><a href="#" onclick="return false;" >24</a></td><td class="radCalDefault_Black" title="Wednesday, March 25, 2009"><a href="#" onclick="return false;" >25</a></td><td class="radCalDefault_Black" title="Thursday, March 26, 2009"><a href="#" onclick="return false;" >26</a></td><td class="radCalDefault_Black" title="Friday, March 27, 2009"><a href="#" onclick="return false;" >27</a></td><td class="radCalWeekendDefault_Black" title="Saturday, March 28, 2009"><a href="#" onclick="return false;" >28</a></td>
+340 </tr><tr>
+341 <td id="ctl00_ContentPlaceHolder1_RadScheduler1_SelectedDatePicker_calendar_Top_rs_6" class="DaysOfWeek_Black">14</td><td class="radCalWeekendDefault_Black" title="Sunday, March 29, 2009"><a href="#" onclick="return false;" >29</a></td><td class="radCalDefault_Black" title="Monday, March 30, 2009"><a href="#" onclick="return false;" >30</a></td><td class="radCalDefault_Black" title="Tuesday, March 31, 2009"><a href="#" onclick="return false;" >31</a></td><td class="otherMonth_Black" title="Wednesday, April 01, 2009"><a href="#" onclick="return false;" >1</a></td><td class="otherMonth_Black" title="Thursday, April 02, 2009"><a href="#" onclick="return false;" >2</a></td><td class="otherMonth_Black" title="Friday, April 03, 2009"><a href="#" onclick="return false;" >3</a></td><td class="otherMonth_Black" title="Saturday, April 04, 2009"><a href="#" onclick="return false;" >4</a></td>
+342 </tr></tbody>
+343</table></td>
+344 </tr></tbody>
+345 </table><input type="hidden" name="ctl00_ContentPlaceHolder1_RadScheduler1_SelectedDatePicker_calendar_SD" id="ctl00_ContentPlaceHolder1_RadScheduler1_SelectedDatePicker_calendar_SD" value="[]" /><input type="hidden" name="ctl00_ContentPlaceHolder1_RadScheduler1_SelectedDatePicker_calendar_AD" id="ctl00_ContentPlaceHolder1_RadScheduler1_SelectedDatePicker_calendar_AD" value="[[1980,1,1],[2099,12,30],[2009,3,16]]" /></div></td>
+346 </tr>
+347 </table><input id="ctl00_ContentPlaceHolder1_RadScheduler1_SelectedDatePicker_ClientState" name="ctl00_ContentPlaceHolder1_RadScheduler1_SelectedDatePicker_ClientState" type="hidden" />
+348 </div>
+349 </div><ul>
+350 <li class=" rsFirst"><a class="rsHeaderDay" href="#">Day</a></li><li><a class="rsHeaderWeek" href="#">Week</a></li><li class="rsSelected rsLast"><em>Month</em></li>
+351 </ul><h2>
+352 Mar, 2009
+353 </h2>
+354 </div><div class="rsColumnHeader rsMonthView">
+355 <table cellpadding="0" cellspacing="0" border="0" style="width:100%;">
+356 <tr>
+357 <td class="rsColumnHeaderCell" style="width:100%;"><table class="rsColumnHeaderTable" cellpadding="0" cellspacing="0" border="0">
+358 <tr class="rsColumnHeaderRow">
+359 <th>Sun</th><th class="rsTodayCol">Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th class=" rsLastCell">Sat</th>
+360 </tr>
+361 </table></td><td class="rsColumnHeaderLastCell"><div>
+362
+363 </div></td>
+364 </tr>
+365 </table>
+366 </div><div class="rsContent rsScrollingContent rsMonthView">
+367 <table cellpadding="0" cellspacing="0" border="0" style="width:100%;">
+368 <tr>
+369 <td valign="top" style="width:100%;"><table class="rsContentTable" cellpadding="0" cellspacing="0" border="0" style="table-layout:fixed;">
+370 <tr class="rsRow rsFirstRow">
+371 <td class="rsCell rsFirstCell rsSunCol"><div class="rsWrap rsDateWrap" style="z-index:35;">
+372 1
+373 </div><div class="rsWrap" style="z-index:1;">
+374
+375 </div><div class="rsWrap" style="z-index:1;">
+376
+377 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+378
+379 </div></td><td class="rsCell"><div class="rsWrap rsDateWrap" style="z-index:30;">
+380 2
+381 </div><div class="rsWrap" style="z-index:1;">
+382
+383 </div><div class="rsWrap" style="z-index:1;">
+384
+385 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+386
+387 </div></td><td class="rsCell"><div class="rsWrap rsDateWrap" style="z-index:25;">
+388 3
+389 </div><div class="rsWrap" style="z-index:1;">
+390
+391 </div><div class="rsWrap" style="z-index:1;">
+392
+393 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+394
+395 </div></td><td class="rsCell"><div class="rsWrap rsDateWrap" style="z-index:20;">
+396 4
+397 </div><div class="rsWrap" style="z-index:1;">
+398
+399 </div><div class="rsWrap" style="z-index:1;">
+400
+401 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+402
+403 </div></td><td class="rsCell"><div class="rsWrap rsDateWrap" style="z-index:15;">
+404 5
+405 </div><div class="rsWrap" style="z-index:1;">
+406
+407 </div><div class="rsWrap" style="z-index:1;">
+408
+409 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+410
+411 </div></td><td class="rsCell"><div class="rsWrap rsDateWrap" style="z-index:10;">
+412 6
+413 </div><div class="rsWrap" style="z-index:1;">
+414
+415 </div><div class="rsWrap" style="z-index:1;">
+416
+417 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+418
+419 </div></td><td class="rsCell rsLastCell rsSatCol"><div class="rsWrap rsDateWrap" style="z-index:5;">
+420 7
+421 </div><div class="rsWrap" style="z-index:1;">
+422
+423 </div><div class="rsWrap" style="z-index:1;">
+424
+425 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+426
+427 </div></td>
+428 </tr><tr class="rsRow">
+429 <td class="rsCell rsFirstCell rsSunCol"><div class="rsWrap rsDateWrap" style="z-index:28;">
+430 8
+431 </div><div class="rsWrap" style="z-index:1;">
+432
+433 </div><div class="rsWrap" style="z-index:1;">
+434
+435 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+436
+437 </div></td><td class="rsCell"><div class="rsWrap rsDateWrap" style="z-index:24;">
+438 9
+439 </div><div class="rsWrap" style="z-index:1;">
+440
+441 </div><div class="rsWrap" style="z-index:1;">
+442
+443 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+444
+445 </div></td><td class="rsCell"><div class="rsWrap rsDateWrap" style="z-index:20;">
+446 10
+447 </div><div class="rsWrap" style="z-index:1;">
+448
+449 </div><div class="rsWrap" style="z-index:1;">
+450
+451 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+452
+453 </div></td><td class="rsCell"><div class="rsWrap rsDateWrap" style="z-index:16;">
+454 11
+455 </div><div class="rsWrap" style="z-index:1;">
+456
+457 </div><div class="rsWrap" style="z-index:1;">
+458
+459 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+460
+461 </div></td><td class="rsCell"><div class="rsWrap rsDateWrap" style="z-index:12;">
+462 12
+463 </div><div class="rsWrap" style="z-index:1;">
+464
+465 </div><div class="rsWrap" style="z-index:1;">
+466
+467 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+468
+469 </div></td><td class="rsCell"><div class="rsWrap rsDateWrap" style="z-index:8;">
+470 13
+471 </div><div class="rsWrap" style="z-index:1;">
+472
+473 </div><div class="rsWrap" style="z-index:1;">
+474
+475 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+476
+477 </div></td><td class="rsCell rsLastCell rsSatCol"><div class="rsWrap rsDateWrap" style="z-index:4;">
+478 14
+479 </div><div class="rsWrap" style="z-index:1;">
+480
+481 </div><div class="rsWrap" style="z-index:1;">
+482
+483 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+484
+485 </div></td>
+486 </tr><tr class="rsRow">
+487 <td class="rsCell rsFirstCell rsSunCol"><div class="rsWrap rsDateWrap" style="z-index:21;">
+488 15
+489 </div><div class="rsWrap" style="z-index:1;">
+490
+491 </div><div class="rsWrap" style="z-index:1;">
+492
+493 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+494
+495 </div></td><td class="rsCell"><div class="rsWrap rsDateWrap" style="z-index:18;">
+496 16
+497 </div><div class="rsWrap" style="z-index:1;">
+498
+499 </div><div class="rsWrap" style="z-index:1;">
+500
+501 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+502
+503 </div></td><td class="rsCell rsTodayCell"><div class="rsWrap rsDateWrap" style="z-index:15;">
+504 17
+505 </div><div class="rsWrap" style="z-index:1;">
+506
+507 </div><div class="rsWrap" style="z-index:1;">
+508
+509 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+510
+511 </div></td><td class="rsCell"><div class="rsWrap rsDateWrap" style="z-index:12;">
+512 18
+513 </div><div class="rsWrap" style="z-index:1;">
+514
+515 </div><div class="rsWrap" style="z-index:1;">
+516
+517 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+518
+519 </div></td><td class="rsCell"><div class="rsWrap rsDateWrap" style="z-index:9;">
+520 19
+521 </div><div class="rsWrap" style="z-index:1;">
+522
+523 </div><div class="rsWrap" style="z-index:1;">
+524
+525 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+526
+527 </div></td><td class="rsCell"><div class="rsWrap rsDateWrap" style="z-index:6;">
+528 20
+529 </div><div class="rsWrap" style="z-index:1;">
+530 <div id="ctl00_ContentPlaceHolder1_RadScheduler1_0_0" class="rsApt ">
+531 <div class="rsAptWrap">
+532 <div class="rsAptInner">
+533 <div class="rsAptContent">
+534 The event name
+535 </div>
+536 </div><a class="rsAptDelete" href="#">delete</a><div class="rsAptBottom">
+537
+538 </div>
+539 </div>
+540 </div>
+541 </div><div class="rsWrap" style="z-index:1;">
+542
+543 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+544
+545 </div></td><td class="rsCell rsLastCell rsSatCol"><div class="rsWrap rsDateWrap" style="z-index:3;">
+546 21
+547 </div><div class="rsWrap" style="z-index:1;">
+548 <div id="ctl00_ContentPlaceHolder1_RadScheduler1_0_1" class="rsApt ">
+549 <div class="rsAptWrap">
+550 <div class="rsAptInner">
+551 <div class="rsAptContent">
+552 The event name
+553 </div>
+554 </div><a class="rsAptDelete" href="#">delete</a><div class="rsAptBottom">
+555
+556 </div>
+557 </div>
+558 </div>
+559 </div><div class="rsWrap" style="z-index:1;">
+560
+561 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+562
+563 </div></td>
+564 </tr><tr class="rsRow">
+565 <td class="rsCell rsFirstCell rsSunCol"><div class="rsWrap rsDateWrap" style="z-index:14;">
+566 22
+567 </div><div class="rsWrap" style="z-index:1;">
+568
+569 </div><div class="rsWrap" style="z-index:1;">
+570
+571 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+572
+573 </div></td><td class="rsCell"><div class="rsWrap rsDateWrap" style="z-index:12;">
+574 23
+575 </div><div class="rsWrap" style="z-index:1;">
+576
+577 </div><div class="rsWrap" style="z-index:1;">
+578
+579 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+580
+581 </div></td><td class="rsCell"><div class="rsWrap rsDateWrap" style="z-index:10;">
+582 24
+583 </div><div class="rsWrap" style="z-index:1;">
+584
+585 </div><div class="rsWrap" style="z-index:1;">
+586
+587 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+588
+589 </div></td><td class="rsCell"><div class="rsWrap rsDateWrap" style="z-index:8;">
+590 25
+591 </div><div class="rsWrap" style="z-index:1;">
+592
+593 </div><div class="rsWrap" style="z-index:1;">
+594
+595 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+596
+597 </div></td><td class="rsCell"><div class="rsWrap rsDateWrap" style="z-index:6;">
+598 26
+599 </div><div class="rsWrap" style="z-index:1;">
+600
+601 </div><div class="rsWrap" style="z-index:1;">
+602
+603 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+604
+605 </div></td><td class="rsCell"><div class="rsWrap rsDateWrap" style="z-index:4;">
+606 27
+607 </div><div class="rsWrap" style="z-index:1;">
+608
+609 </div><div class="rsWrap" style="z-index:1;">
+610
+611 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+612
+613 </div></td><td class="rsCell rsLastCell rsSatCol"><div class="rsWrap rsDateWrap" style="z-index:2;">
+614 28
+615 </div><div class="rsWrap" style="z-index:1;">
+616
+617 </div><div class="rsWrap" style="z-index:1;">
+618
+619 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+620
+621 </div></td>
+622 </tr><tr class="rsRow rsLastRow">
+623 <td class="rsCell rsFirstCell rsSunCol"><div class="rsWrap rsDateWrap" style="z-index:7;">
+624 29
+625 </div><div class="rsWrap" style="z-index:1;">
+626
+627 </div><div class="rsWrap" style="z-index:1;">
+628
+629 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+630
+631 </div></td><td class="rsCell"><div class="rsWrap rsDateWrap" style="z-index:6;">
+632 30
+633 </div><div class="rsWrap" style="z-index:1;">
+634
+635 </div><div class="rsWrap" style="z-index:1;">
+636
+637 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+638
+639 </div></td><td class="rsCell"><div class="rsWrap rsDateWrap" style="z-index:5;">
+640 31
+641 </div><div class="rsWrap" style="z-index:1;">
+642
+643 </div><div class="rsWrap" style="z-index:1;">
+644
+645 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+646
+647 </div></td><td class="rsCell rsOtherMonth"><div class="rsWrap rsDateWrap" style="z-index:4;">
+648 1
+649 </div><div class="rsWrap" style="z-index:1;">
+650
+651 </div><div class="rsWrap" style="z-index:1;">
+652
+653 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+654
+655 </div></td><td class="rsCell rsOtherMonth"><div class="rsWrap rsDateWrap" style="z-index:3;">
+656 2
+657 </div><div class="rsWrap" style="z-index:1;">
+658
+659 </div><div class="rsWrap" style="z-index:1;">
+660
+661 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+662
+663 </div></td><td class="rsCell rsOtherMonth"><div class="rsWrap rsDateWrap" style="z-index:2;">
+664 3
+665 </div><div class="rsWrap" style="z-index:1;">
+666
+667 </div><div class="rsWrap" style="z-index:1;">
+668
+669 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+670
+671 </div></td><td class="rsCell rsLastCell rsSatCol rsOtherMonth"><div class="rsWrap rsDateWrap" style="z-index:1;">
+672 4
+673 </div><div class="rsWrap" style="z-index:1;">
+674
+675 </div><div class="rsWrap" style="z-index:1;">
+676
+677 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+678
+679 </div></td>
+680 </tr>
+681 </table></td>
+682 </tr>
+683 </table>
+684 </div><script type="text/javascript">
+685 Telerik.Web.UI.RadScheduler._adjustHeight("ctl00_ContentPlaceHolder1_RadScheduler1");Telerik.Web.UI.RadScheduler._preInitialize("ctl00_ContentPlaceHolder1_RadScheduler1",0);
+686 </script><input id="ctl00_ContentPlaceHolder1_RadScheduler1_ClientState" name="ctl00_ContentPlaceHolder1_RadScheduler1_ClientState" type="hidden" />
+687 </div>
+688
+689 </div>
+690 <div style="margin-left: 20px; padding-bottom: 30px;">
+691 <span id="ctl00_ContentPlaceHolder1_Label1" class="EventHeader">My Ads Calendar</span>
+692 </div>
+693 <div align="center" style="background-image: url('image/CalendarBackground2.png'); width: 900px; background-repeat: no-repeat; padding-bottom: 200px;">
+694 <div id="ctl00_ContentPlaceHolder1_RadScheduler2" class="RadScheduler RadScheduler_Black " style="height:564px;width:90%;">
+695 <div class="rsHeader">
+696 <p><a class="rsPrevDay" href="#">previous day</a><a class="rsNextDay" href="#">next day</a><em><a class="rsToday" href="#">today</a></em></p><div class="rsDatePickerWrapper">
+697 <div id="ctl00_ContentPlaceHolder1_RadScheduler2_SelectedDatePicker_wrapper" class="pickerWrapper_Black rsPickerWrapper " style="display:-moz-inline-stack;height:20px;width:20px;">
+698 <input style="visibility: hidden;display:block; float:right;margin:0;width:1px;height:1px;overflow:hidden;border:0;padding:0;" id="ctl00_ContentPlaceHolder1_RadScheduler2_SelectedDatePicker" name="ctl00$ContentPlaceHolder1$RadScheduler2$SelectedDatePicker" type="text" value="2009-03-16" /><table cellpadding="0" cellspacing="0" style="border-width:0;border-collapse:collapse;width:20px;">
+699 <tr>
+700 <td class="inputCell" style="width:100%;"><span id="ctl00_ContentPlaceHolder1_RadScheduler2_SelectedDatePicker_dateInput_wrapper" class="radInput_Black" style="display:block;"><input value="3/16/2009" id="ctl00_ContentPlaceHolder1_RadScheduler2_SelectedDatePicker_dateInput_text" name="ctl00_ContentPlaceHolder1_RadScheduler2_SelectedDatePicker_dateInput_text" class="radEnabledCss_Black" style="width:100%;" /><input style="visibility:hidden;float:right;margin:-18px 0 0 0;width:1px;height:1px;overflow:hidden;border:0;padding:0;" id="ctl00_ContentPlaceHolder1_RadScheduler2_SelectedDatePicker_dateInput" name="ctl00$ContentPlaceHolder1$RadScheduler2$SelectedDatePicker$dateInput" type="text" value="2009-03-16-00-00-00" /><input id="ctl00_ContentPlaceHolder1_RadScheduler2_SelectedDatePicker_dateInput_ClientState" name="ctl00_ContentPlaceHolder1_RadScheduler2_SelectedDatePicker_dateInput_ClientState" type="hidden" /></span></td><td><a title="Open the calendar popup." href="#" id="ctl00_ContentPlaceHolder1_RadScheduler2_SelectedDatePicker_popupButton" class="rsDatePickerPopupButton"><img id="ctl00_ContentPlaceHolder1_RadScheduler2_SelectedDatePicker_CalendarPopupButton" src="/HippoHappenings/WebResource.axd?d=7IryVnRhN9ghhT20xHu6n3ccjrnazNdqOipem3N5wQ3dY_ALdN2TMb8gyom6ReH8gqnWGBIao_zSEj4rgcSEOPVLkxaf0FAdYgGlQ7BdLYk1&amp;amp;t=633552745820000000" alt="Open the calendar popup." style="border-width:0px;" /></a><div id="ctl00_ContentPlaceHolder1_RadScheduler2_SelectedDatePicker_calendar_wrapper" style="display: none" ><table id="ctl00_ContentPlaceHolder1_RadScheduler2_SelectedDatePicker_calendar" cellspacing="0" cellpadding="0" summary="Telerik RadCalendar instance" class="calendarWrapper_Black" border="0" style="border-width:0px;border-collapse:collapse;">
+701 <tbody><tr>
+702 <td colspan="3" style="vertical-align:top;white-space:nowrap;"><table class="titlebar_Black" cellspacing="0" cellpadding="3" summary="Telerik RadCalendar title and navigation controls" border="0" style="border-collapse:collapse;">
+703 <tbody><tr>
+704 <td><a id="ctl00_ContentPlaceHolder1_RadScheduler2_SelectedDatePicker_calendar_FNP" onclick="return false;" title="&lt;&lt;" href="#"><img src="/HippoHappenings/WebResource.axd?d=7IryVnRhN9ghhT20xHu6n3ccjrnazNdqOipem3N5wQ3dY_ALdN2TMb8gyom6ReH8SoYL7ecRRZ8X9zuqbV_Jz7W2f2eVyAuPWXgoEI2umXo1&amp;t=633552745820000000" alt="&lt;&lt;" style="border:0px;" /></a></td><td><a id="ctl00_ContentPlaceHolder1_RadScheduler2_SelectedDatePicker_calendar_NP" onclick="return false;" title="&lt;" href="#"><img src="/HippoHappenings/WebResource.axd?d=7IryVnRhN9ghhT20xHu6n3ccjrnazNdqOipem3N5wQ3dY_ALdN2TMb8gyom6ReH8mmG2yLs6b7ikb4lmCnueBI0q8WLZ0ElHCTZ51uGtQmc1&amp;t=633552745820000000" alt="&lt;" style="border:0px;" /></a></td><td id="ctl00_ContentPlaceHolder1_RadScheduler2_SelectedDatePicker_calendar_Title" style="width:100%;text-align:center;white-space:nowrap;cursor:pointer;">March 2009</td><td><a id="ctl00_ContentPlaceHolder1_RadScheduler2_SelectedDatePicker_calendar_NN" onclick="return false;" title=">" href="#"><img src="/HippoHappenings/WebResource.axd?d=7IryVnRhN9ghhT20xHu6n3ccjrnazNdqOipem3N5wQ3dY_ALdN2TMb8gyom6ReH89irFtOfQii22d7m3tSngHSdfpotDY9en7OFtiSdfrOs1&amp;t=633552745820000000" alt=">" style="border:0px;" /></a></td><td><a id="ctl00_ContentPlaceHolder1_RadScheduler2_SelectedDatePicker_calendar_FNN" onclick="return false;" title=">>" href="#"><img src="/HippoHappenings/WebResource.axd?d=7IryVnRhN9ghhT20xHu6n3ccjrnazNdqOipem3N5wQ3dY_ALdN2TMb8gyom6ReH8kD7GZYVEUVnknIlY7VYlEbrviC91Tpdd7MRUOuuCO3U1&amp;t=633552745820000000" alt=">>" style="border:0px;" /></a></td>
+705 </tr></tbody>
+706 </table></td>
+707 </tr><tr>
+708 <td colspan="3" style="height:100%;"><table id="ctl00_ContentPlaceHolder1_RadScheduler2_SelectedDatePicker_calendar_Top" class="TableLayout_Black" cellspacing="0" cellpadding="0" summary="March 2009" border="0" style="border-collapse:collapse;">
+709 <tbody><tr>
+710 <th class="DaysOfWeek_Black">&nbsp;</th><th id="ctl00_ContentPlaceHolder1_RadScheduler2_SelectedDatePicker_calendar_Top_cs_1" title="Sunday" class="DaysOfWeek_Black" abbr="abbrText" scope="col">S</th><th id="ctl00_ContentPlaceHolder1_RadScheduler2_SelectedDatePicker_calendar_Top_cs_2" title="Monday" class="DaysOfWeek_Black" abbr="abbrText" scope="col">M</th><th id="ctl00_ContentPlaceHolder1_RadScheduler2_SelectedDatePicker_calendar_Top_cs_3" title="Tuesday" class="DaysOfWeek_Black" abbr="abbrText" scope="col">T</th><th id="ctl00_ContentPlaceHolder1_RadScheduler2_SelectedDatePicker_calendar_Top_cs_4" title="Wednesday" class="DaysOfWeek_Black" abbr="abbrText" scope="col">W</th><th id="ctl00_ContentPlaceHolder1_RadScheduler2_SelectedDatePicker_calendar_Top_cs_5" title="Thursday" class="DaysOfWeek_Black" abbr="abbrText" scope="col">T</th><th id="ctl00_ContentPlaceHolder1_RadScheduler2_SelectedDatePicker_calendar_Top_cs_6" title="Friday" class="DaysOfWeek_Black" abbr="abbrText" scope="col">F</th><th id="ctl00_ContentPlaceHolder1_RadScheduler2_SelectedDatePicker_calendar_Top_cs_7" title="Saturday" class="DaysOfWeek_Black" abbr="abbrText" scope="col">S</th>
+711 </tr><tr>
+712 <td id="ctl00_ContentPlaceHolder1_RadScheduler2_SelectedDatePicker_calendar_Top_rs_1" class="DaysOfWeek_Black">9</td><td class="otherMonth_Black" title="Sunday, February 22, 2009"><a href="#" onclick="return false;" >22</a></td><td class="otherMonth_Black" title="Monday, February 23, 2009"><a href="#" onclick="return false;" >23</a></td><td class="otherMonth_Black" title="Tuesday, February 24, 2009"><a href="#" onclick="return false;" >24</a></td><td class="otherMonth_Black" title="Wednesday, February 25, 2009"><a href="#" onclick="return false;" >25</a></td><td class="otherMonth_Black" title="Thursday, February 26, 2009"><a href="#" onclick="return false;" >26</a></td><td class="otherMonth_Black" title="Friday, February 27, 2009"><a href="#" onclick="return false;" >27</a></td><td class="otherMonth_Black" title="Saturday, February 28, 2009"><a href="#" onclick="return false;" >28</a></td>
+713 </tr><tr>
+714 <td id="ctl00_ContentPlaceHolder1_RadScheduler2_SelectedDatePicker_calendar_Top_rs_2" class="DaysOfWeek_Black">10</td><td class="radCalWeekendDefault_Black" title="Sunday, March 01, 2009"><a href="#" onclick="return false;" >1</a></td><td class="radCalDefault_Black" title="Monday, March 02, 2009"><a href="#" onclick="return false;" >2</a></td><td class="radCalDefault_Black" title="Tuesday, March 03, 2009"><a href="#" onclick="return false;" >3</a></td><td class="radCalDefault_Black" title="Wednesday, March 04, 2009"><a href="#" onclick="return false;" >4</a></td><td class="radCalDefault_Black" title="Thursday, March 05, 2009"><a href="#" onclick="return false;" >5</a></td><td class="radCalDefault_Black" title="Friday, March 06, 2009"><a href="#" onclick="return false;" >6</a></td><td class="radCalWeekendDefault_Black" title="Saturday, March 07, 2009"><a href="#" onclick="return false;" >7</a></td>
+715 </tr><tr>
+716 <td id="ctl00_ContentPlaceHolder1_RadScheduler2_SelectedDatePicker_calendar_Top_rs_3" class="DaysOfWeek_Black">11</td><td class="radCalWeekendDefault_Black" title="Sunday, March 08, 2009"><a href="#" onclick="return false;" >8</a></td><td class="radCalDefault_Black" title="Monday, March 09, 2009"><a href="#" onclick="return false;" >9</a></td><td class="radCalDefault_Black" title="Tuesday, March 10, 2009"><a href="#" onclick="return false;" >10</a></td><td class="radCalDefault_Black" title="Wednesday, March 11, 2009"><a href="#" onclick="return false;" >11</a></td><td class="radCalDefault_Black" title="Thursday, March 12, 2009"><a href="#" onclick="return false;" >12</a></td><td class="radCalDefault_Black" title="Friday, March 13, 2009"><a href="#" onclick="return false;" >13</a></td><td class="radCalWeekendDefault_Black" title="Saturday, March 14, 2009"><a href="#" onclick="return false;" >14</a></td>
+717 </tr><tr>
+718 <td id="ctl00_ContentPlaceHolder1_RadScheduler2_SelectedDatePicker_calendar_Top_rs_4" class="DaysOfWeek_Black">12</td><td class="radCalWeekendDefault_Black" title="Sunday, March 15, 2009"><a href="#" onclick="return false;" >15</a></td><td class="radCalDefault_Black" title="Monday, March 16, 2009"><a href="#" onclick="return false;" >16</a></td><td class="radCalDefault_Black" title="Tuesday, March 17, 2009"><a href="#" onclick="return false;" >17</a></td><td class="radCalDefault_Black" title="Wednesday, March 18, 2009"><a href="#" onclick="return false;" >18</a></td><td class="radCalDefault_Black" title="Thursday, March 19, 2009"><a href="#" onclick="return false;" >19</a></td><td class="radCalDefault_Black" title="Friday, March 20, 2009"><a href="#" onclick="return false;" >20</a></td><td class="radCalWeekendDefault_Black" title="Saturday, March 21, 2009"><a href="#" onclick="return false;" >21</a></td>
+719 </tr><tr>
+720 <td id="ctl00_ContentPlaceHolder1_RadScheduler2_SelectedDatePicker_calendar_Top_rs_5" class="DaysOfWeek_Black">13</td><td class="radCalWeekendDefault_Black" title="Sunday, March 22, 2009"><a href="#" onclick="return false;" >22</a></td><td class="radCalDefault_Black" title="Monday, March 23, 2009"><a href="#" onclick="return false;" >23</a></td><td class="radCalDefault_Black" title="Tuesday, March 24, 2009"><a href="#" onclick="return false;" >24</a></td><td class="radCalDefault_Black" title="Wednesday, March 25, 2009"><a href="#" onclick="return false;" >25</a></td><td class="radCalDefault_Black" title="Thursday, March 26, 2009"><a href="#" onclick="return false;" >26</a></td><td class="radCalDefault_Black" title="Friday, March 27, 2009"><a href="#" onclick="return false;" >27</a></td><td class="radCalWeekendDefault_Black" title="Saturday, March 28, 2009"><a href="#" onclick="return false;" >28</a></td>
+721 </tr><tr>
+722 <td id="ctl00_ContentPlaceHolder1_RadScheduler2_SelectedDatePicker_calendar_Top_rs_6" class="DaysOfWeek_Black">14</td><td class="radCalWeekendDefault_Black" title="Sunday, March 29, 2009"><a href="#" onclick="return false;" >29</a></td><td class="radCalDefault_Black" title="Monday, March 30, 2009"><a href="#" onclick="return false;" >30</a></td><td class="radCalDefault_Black" title="Tuesday, March 31, 2009"><a href="#" onclick="return false;" >31</a></td><td class="otherMonth_Black" title="Wednesday, April 01, 2009"><a href="#" onclick="return false;" >1</a></td><td class="otherMonth_Black" title="Thursday, April 02, 2009"><a href="#" onclick="return false;" >2</a></td><td class="otherMonth_Black" title="Friday, April 03, 2009"><a href="#" onclick="return false;" >3</a></td><td class="otherMonth_Black" title="Saturday, April 04, 2009"><a href="#" onclick="return false;" >4</a></td>
+723 </tr></tbody>
+724</table></td>
+725 </tr></tbody>
+726 </table><input type="hidden" name="ctl00_ContentPlaceHolder1_RadScheduler2_SelectedDatePicker_calendar_SD" id="ctl00_ContentPlaceHolder1_RadScheduler2_SelectedDatePicker_calendar_SD" value="[]" /><input type="hidden" name="ctl00_ContentPlaceHolder1_RadScheduler2_SelectedDatePicker_calendar_AD" id="ctl00_ContentPlaceHolder1_RadScheduler2_SelectedDatePicker_calendar_AD" value="[[1980,1,1],[2099,12,30],[2009,3,16]]" /></div></td>
+727 </tr>
+728 </table><input id="ctl00_ContentPlaceHolder1_RadScheduler2_SelectedDatePicker_ClientState" name="ctl00_ContentPlaceHolder1_RadScheduler2_SelectedDatePicker_ClientState" type="hidden" />
+729 </div>
+730 </div><ul>
+731 <li class=" rsFirst"><a class="rsHeaderDay" href="#">Day</a></li><li><a class="rsHeaderWeek" href="#">Week</a></li><li class="rsSelected rsLast"><em>Month</em></li>
+732 </ul><h2>
+733 Mar, 2009
+734 </h2>
+735 </div><div class="rsColumnHeader rsMonthView">
+736 <table cellpadding="0" cellspacing="0" border="0" style="width:100%;">
+737 <tr>
+738 <td class="rsColumnHeaderCell" style="width:100%;"><table class="rsColumnHeaderTable" cellpadding="0" cellspacing="0" border="0">
+739 <tr class="rsColumnHeaderRow">
+740 <th>Sun</th><th class="rsTodayCol">Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th class=" rsLastCell">Sat</th>
+741 </tr>
+742 </table></td><td class="rsColumnHeaderLastCell"><div>
+743
+744 </div></td>
+745 </tr>
+746 </table>
+747 </div><div class="rsContent rsScrollingContent rsMonthView">
+748 <table cellpadding="0" cellspacing="0" border="0" style="width:100%;">
+749 <tr>
+750 <td valign="top" style="width:100%;"><table class="rsContentTable" cellpadding="0" cellspacing="0" border="0" style="table-layout:fixed;">
+751 <tr class="rsRow rsFirstRow">
+752 <td class="rsCell rsFirstCell rsSunCol"><div class="rsWrap rsDateWrap" style="z-index:35;">
+753 1
+754 </div><div class="rsWrap" style="z-index:1;">
+755
+756 </div><div class="rsWrap" style="z-index:1;">
+757
+758 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+759
+760 </div></td><td class="rsCell"><div class="rsWrap rsDateWrap" style="z-index:30;">
+761 2
+762 </div><div class="rsWrap" style="z-index:1;">
+763
+764 </div><div class="rsWrap" style="z-index:1;">
+765
+766 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+767
+768 </div></td><td class="rsCell"><div class="rsWrap rsDateWrap" style="z-index:25;">
+769 3
+770 </div><div class="rsWrap" style="z-index:1;">
+771
+772 </div><div class="rsWrap" style="z-index:1;">
+773
+774 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+775
+776 </div></td><td class="rsCell"><div class="rsWrap rsDateWrap" style="z-index:20;">
+777 4
+778 </div><div class="rsWrap" style="z-index:1;">
+779
+780 </div><div class="rsWrap" style="z-index:1;">
+781
+782 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+783
+784 </div></td><td class="rsCell"><div class="rsWrap rsDateWrap" style="z-index:15;">
+785 5
+786 </div><div class="rsWrap" style="z-index:1;">
+787
+788 </div><div class="rsWrap" style="z-index:1;">
+789
+790 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+791
+792 </div></td><td class="rsCell"><div class="rsWrap rsDateWrap" style="z-index:10;">
+793 6
+794 </div><div class="rsWrap" style="z-index:1;">
+795
+796 </div><div class="rsWrap" style="z-index:1;">
+797
+798 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+799
+800 </div></td><td class="rsCell rsLastCell rsSatCol"><div class="rsWrap rsDateWrap" style="z-index:5;">
+801 7
+802 </div><div class="rsWrap" style="z-index:1;">
+803
+804 </div><div class="rsWrap" style="z-index:1;">
+805
+806 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+807
+808 </div></td>
+809 </tr><tr class="rsRow">
+810 <td class="rsCell rsFirstCell rsSunCol"><div class="rsWrap rsDateWrap" style="z-index:28;">
+811 8
+812 </div><div class="rsWrap" style="z-index:1;">
+813
+814 </div><div class="rsWrap" style="z-index:1;">
+815
+816 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+817
+818 </div></td><td class="rsCell"><div class="rsWrap rsDateWrap" style="z-index:24;">
+819 9
+820 </div><div class="rsWrap" style="z-index:1;">
+821
+822 </div><div class="rsWrap" style="z-index:1;">
+823
+824 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+825
+826 </div></td><td class="rsCell"><div class="rsWrap rsDateWrap" style="z-index:20;">
+827 10
+828 </div><div class="rsWrap" style="z-index:1;">
+829
+830 </div><div class="rsWrap" style="z-index:1;">
+831
+832 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+833
+834 </div></td><td class="rsCell"><div class="rsWrap rsDateWrap" style="z-index:16;">
+835 11
+836 </div><div class="rsWrap" style="z-index:1;">
+837
+838 </div><div class="rsWrap" style="z-index:1;">
+839
+840 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+841
+842 </div></td><td class="rsCell"><div class="rsWrap rsDateWrap" style="z-index:12;">
+843 12
+844 </div><div class="rsWrap" style="z-index:1;">
+845
+846 </div><div class="rsWrap" style="z-index:1;">
+847
+848 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+849
+850 </div></td><td class="rsCell"><div class="rsWrap rsDateWrap" style="z-index:8;">
+851 13
+852 </div><div class="rsWrap" style="z-index:1;">
+853
+854 </div><div class="rsWrap" style="z-index:1;">
+855
+856 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+857
+858 </div></td><td class="rsCell rsLastCell rsSatCol"><div class="rsWrap rsDateWrap" style="z-index:4;">
+859 14
+860 </div><div class="rsWrap" style="z-index:1;">
+861
+862 </div><div class="rsWrap" style="z-index:1;">
+863
+864 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+865
+866 </div></td>
+867 </tr><tr class="rsRow">
+868 <td class="rsCell rsFirstCell rsSunCol"><div class="rsWrap rsDateWrap" style="z-index:21;">
+869 15
+870 </div><div class="rsWrap" style="z-index:1;">
+871
+872 </div><div class="rsWrap" style="z-index:1;">
+873
+874 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+875
+876 </div></td><td class="rsCell"><div class="rsWrap rsDateWrap" style="z-index:18;">
+877 16
+878 </div><div class="rsWrap" style="z-index:1;">
+879
+880 </div><div class="rsWrap" style="z-index:1;">
+881
+882 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+883
+884 </div></td><td class="rsCell rsTodayCell"><div class="rsWrap rsDateWrap" style="z-index:15;">
+885 17
+886 </div><div class="rsWrap" style="z-index:1;">
+887
+888 </div><div class="rsWrap" style="z-index:1;">
+889
+890 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+891
+892 </div></td><td class="rsCell"><div class="rsWrap rsDateWrap" style="z-index:12;">
+893 18
+894 </div><div class="rsWrap" style="z-index:1;">
+895
+896 </div><div class="rsWrap" style="z-index:1;">
+897
+898 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+899
+900 </div></td><td class="rsCell"><div class="rsWrap rsDateWrap" style="z-index:9;">
+901 19
+902 </div><div class="rsWrap" style="z-index:1;">
+903
+904 </div><div class="rsWrap" style="z-index:1;">
+905
+906 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+907
+908 </div></td><td class="rsCell"><div class="rsWrap rsDateWrap" style="z-index:6;">
+909 20
+910 </div><div class="rsWrap" style="z-index:1;">
+911
+912 </div><div class="rsWrap" style="z-index:1;">
+913
+914 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+915
+916 </div></td><td class="rsCell rsLastCell rsSatCol"><div class="rsWrap rsDateWrap" style="z-index:3;">
+917 21
+918 </div><div class="rsWrap" style="z-index:1;">
+919
+920 </div><div class="rsWrap" style="z-index:1;">
+921
+922 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+923
+924 </div></td>
+925 </tr><tr class="rsRow">
+926 <td class="rsCell rsFirstCell rsSunCol"><div class="rsWrap rsDateWrap" style="z-index:14;">
+927 22
+928 </div><div class="rsWrap" style="z-index:1;">
+929
+930 </div><div class="rsWrap" style="z-index:1;">
+931
+932 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+933
+934 </div></td><td class="rsCell"><div class="rsWrap rsDateWrap" style="z-index:12;">
+935 23
+936 </div><div class="rsWrap" style="z-index:1;">
+937
+938 </div><div class="rsWrap" style="z-index:1;">
+939
+940 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+941
+942 </div></td><td class="rsCell"><div class="rsWrap rsDateWrap" style="z-index:10;">
+943 24
+944 </div><div class="rsWrap" style="z-index:1;">
+945
+946 </div><div class="rsWrap" style="z-index:1;">
+947
+948 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+949
+950 </div></td><td class="rsCell"><div class="rsWrap rsDateWrap" style="z-index:8;">
+951 25
+952 </div><div class="rsWrap" style="z-index:1;">
+953
+954 </div><div class="rsWrap" style="z-index:1;">
+955
+956 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+957
+958 </div></td><td class="rsCell"><div class="rsWrap rsDateWrap" style="z-index:6;">
+959 26
+960 </div><div class="rsWrap" style="z-index:1;">
+961
+962 </div><div class="rsWrap" style="z-index:1;">
+963
+964 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+965
+966 </div></td><td class="rsCell"><div class="rsWrap rsDateWrap" style="z-index:4;">
+967 27
+968 </div><div class="rsWrap" style="z-index:1;">
+969
+970 </div><div class="rsWrap" style="z-index:1;">
+971
+972 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+973
+974 </div></td><td class="rsCell rsLastCell rsSatCol"><div class="rsWrap rsDateWrap" style="z-index:2;">
+975 28
+976 </div><div class="rsWrap" style="z-index:1;">
+977
+978 </div><div class="rsWrap" style="z-index:1;">
+979
+980 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+981
+982 </div></td>
+983 </tr><tr class="rsRow rsLastRow">
+984 <td class="rsCell rsFirstCell rsSunCol"><div class="rsWrap rsDateWrap" style="z-index:7;">
+985 29
+986 </div><div class="rsWrap" style="z-index:1;">
+987
+988 </div><div class="rsWrap" style="z-index:1;">
+989
+990 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+991
+992 </div></td><td class="rsCell"><div class="rsWrap rsDateWrap" style="z-index:6;">
+993 30
+994 </div><div class="rsWrap" style="z-index:1;">
+995
+996 </div><div class="rsWrap" style="z-index:1;">
+997
+998 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+999
+1000 </div></td><td class="rsCell"><div class="rsWrap rsDateWrap" style="z-index:5;">
+1001 31
+1002 </div><div class="rsWrap" style="z-index:1;">
+1003
+1004 </div><div class="rsWrap" style="z-index:1;">
+1005
+1006 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+1007
+1008 </div></td><td class="rsCell rsOtherMonth"><div class="rsWrap rsDateWrap" style="z-index:4;">
+1009 1
+1010 </div><div class="rsWrap" style="z-index:1;">
+1011
+1012 </div><div class="rsWrap" style="z-index:1;">
+1013
+1014 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+1015
+1016 </div></td><td class="rsCell rsOtherMonth"><div class="rsWrap rsDateWrap" style="z-index:3;">
+1017 2
+1018 </div><div class="rsWrap" style="z-index:1;">
+1019
+1020 </div><div class="rsWrap" style="z-index:1;">
+1021
+1022 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+1023
+1024 </div></td><td class="rsCell rsOtherMonth"><div class="rsWrap rsDateWrap" style="z-index:2;">
+1025 3
+1026 </div><div class="rsWrap" style="z-index:1;">
+1027
+1028 </div><div class="rsWrap" style="z-index:1;">
+1029
+1030 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+1031
+1032 </div></td><td class="rsCell rsLastCell rsSatCol rsOtherMonth"><div class="rsWrap rsDateWrap" style="z-index:1;">
+1033 4
+1034 </div><div class="rsWrap" style="z-index:1;">
+1035
+1036 </div><div class="rsWrap" style="z-index:1;">
+1037
+1038 </div><div class="rsWrap rsLastWrap" style="z-index:1;">
+1039
+1040 </div></td>
+1041 </tr>
+1042 </table></td>
+1043 </tr>
+1044 </table>
+1045 </div><script type="text/javascript">
+1046 Telerik.Web.UI.RadScheduler._adjustHeight("ctl00_ContentPlaceHolder1_RadScheduler2");Telerik.Web.UI.RadScheduler._preInitialize("ctl00_ContentPlaceHolder1_RadScheduler2",0);
+1047 </script><input id="ctl00_ContentPlaceHolder1_RadScheduler2_ClientState" name="ctl00_ContentPlaceHolder1_RadScheduler2_ClientState" type="hidden" />
+1048 </div>
+1049
+1050 </div>
+1051 <div id="userID">2</div>
+1052 <input id="button2" visible="false" />
+1053 </div>
+1054
+1055
+1056 </div>
+1057
+1058 </div>
+1059
+1060
+1061
+1062<div align="left" style="height: 360px; background-image: url('image/FooterBackground.png'); background-repeat: repeat-x;">
+1063 <div style="padding-left: 20px; padding-top: 18px;">
+1064 <div style="padding-bottom: 10px;">
+1065 <span id="ctl00_TheFooter_TitleLabel" class="FooterTitle">Other Events</span>
+1066 </div>
+1067 <div id="ctl00_TheFooter_EventsPanel">
+1068
+1069<div style=" float: left;width: 284px; height: 80px; padding-top: 5px;">
+1070 <div style="width: 30px; float: left;">
+1071 <img src="image/CommentBlurb.png" />
+1072 </div>
+1073 <div style="width: 254px;">
+1074 <a id="ctl00_TheFooter_ctl00_TitleLabel" class="OtherEventTitle" href="Event.aspx?EventID=48">The event name</a><br />
+1075 <span id="ctl00_TheFooter_ctl00_PresentedByLabel" class="PresentedByTitle">presented by </span><br />
+1076 <div style="padding-left: 13px;">
+1077 <span id="ctl00_TheFooter_ctl00_OtherEventSummaryLabel" class="OtherEventSummary">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ipsum n...</span>
+1078 </div>
+1079 </div>
+1080
+1081</div>
+1082<div style=" float: left;width: 284px; height: 80px; padding-top: 5px;">
+1083 <div style="width: 30px; float: left;">
+1084 <img src="image/CommentBlurb.png" />
+1085 </div>
+1086 <div style="width: 254px;">
+1087 <a id="ctl00_TheFooter_ctl01_TitleLabel" class="OtherEventTitle" href="Event.aspx?EventID=48">The event name</a><br />
+1088 <span id="ctl00_TheFooter_ctl01_PresentedByLabel" class="PresentedByTitle">presented by </span><br />
+1089 <div style="padding-left: 13px;">
+1090 <span id="ctl00_TheFooter_ctl01_OtherEventSummaryLabel" class="OtherEventSummary">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ipsum n...</span>
+1091 </div>
+1092 </div>
+1093
+1094</div>
+1095<div style=" float: left;width: 284px; height: 80px; padding-top: 5px;">
+1096 <div style="width: 30px; float: left;">
+1097 <img src="image/CommentBlurb.png" />
+1098 </div>
+1099 <div style="width: 254px;">
+1100 <a id="ctl00_TheFooter_ctl02_TitleLabel" class="OtherEventTitle" href="Event.aspx?EventID=48">The event name</a><br />
+1101 <span id="ctl00_TheFooter_ctl02_PresentedByLabel" class="PresentedByTitle">presented by </span><br />
+1102 <div style="padding-left: 13px;">
+1103 <span id="ctl00_TheFooter_ctl02_OtherEventSummaryLabel" class="OtherEventSummary">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ipsum n...</span>
+1104 </div>
+1105 </div>
+1106
+1107</div>
+1108<div style=" float: left;width: 284px; height: 80px; padding-top: 5px;">
+1109 <div style="width: 30px; float: left;">
+1110 <img src="image/CommentBlurb.png" />
+1111 </div>
+1112 <div style="width: 254px;">
+1113 <a id="ctl00_TheFooter_ctl03_TitleLabel" class="OtherEventTitle" href="Event.aspx?EventID=48">The event name</a><br />
+1114 <span id="ctl00_TheFooter_ctl03_PresentedByLabel" class="PresentedByTitle">presented by </span><br />
+1115 <div style="padding-left: 13px;">
+1116 <span id="ctl00_TheFooter_ctl03_OtherEventSummaryLabel" class="OtherEventSummary">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ipsum n...</span>
+1117 </div>
+1118 </div>
+1119
+1120</div>
+1121<div style=" float: left;width: 284px; height: 80px; padding-top: 5px;">
+1122 <div style="width: 30px; float: left;">
+1123 <img src="image/CommentBlurb.png" />
+1124 </div>
+1125 <div style="width: 254px;">
+1126 <a id="ctl00_TheFooter_ctl04_TitleLabel" class="OtherEventTitle" href="Event.aspx?EventID=48">The event name</a><br />
+1127 <span id="ctl00_TheFooter_ctl04_PresentedByLabel" class="PresentedByTitle">presented by </span><br />
+1128 <div style="padding-left: 13px;">
+1129 <span id="ctl00_TheFooter_ctl04_OtherEventSummaryLabel" class="OtherEventSummary">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ipsum n...</span>
+1130 </div>
+1131 </div>
+1132
+1133</div>
+1134<div style=" float: left;width: 284px; height: 80px; padding-top: 5px;">
+1135 <div style="width: 30px; float: left;">
+1136 <img src="image/CommentBlurb.png" />
+1137 </div>
+1138 <div style="width: 254px;">
+1139 <a id="ctl00_TheFooter_ctl05_TitleLabel" class="OtherEventTitle" href="Event.aspx?EventID=48">The event name</a><br />
+1140 <span id="ctl00_TheFooter_ctl05_PresentedByLabel" class="PresentedByTitle">presented by </span><br />
+1141 <div style="padding-left: 13px;">
+1142 <span id="ctl00_TheFooter_ctl05_OtherEventSummaryLabel" class="OtherEventSummary">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ipsum n...</span>
+1143 </div>
+1144 </div>
+1145
+1146</div>
+1147<div style=" float: left;width: 284px; height: 80px; padding-top: 5px;">
+1148 <div style="width: 30px; float: left;">
+1149 <img src="image/CommentBlurb.png" />
+1150 </div>
+1151 <div style="width: 254px;">
+1152 <a id="ctl00_TheFooter_ctl06_TitleLabel" class="OtherEventTitle" href="Event.aspx?EventID=48">The event name</a><br />
+1153 <span id="ctl00_TheFooter_ctl06_PresentedByLabel" class="PresentedByTitle">presented by </span><br />
+1154 <div style="padding-left: 13px;">
+1155 <span id="ctl00_TheFooter_ctl06_OtherEventSummaryLabel" class="OtherEventSummary">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ipsum n...</span>
+1156 </div>
+1157 </div>
+1158
+1159</div>
+1160<div style=" float: left;width: 284px; height: 80px; padding-top: 5px;">
+1161 <div style="width: 30px; float: left;">
+1162 <img src="image/CommentBlurb.png" />
+1163 </div>
+1164 <div style="width: 254px;">
+1165 <a id="ctl00_TheFooter_ctl07_TitleLabel" class="OtherEventTitle" href="Event.aspx?EventID=48">The event name</a><br />
+1166 <span id="ctl00_TheFooter_ctl07_PresentedByLabel" class="PresentedByTitle">presented by </span><br />
+1167 <div style="padding-left: 13px;">
+1168 <span id="ctl00_TheFooter_ctl07_OtherEventSummaryLabel" class="OtherEventSummary">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ipsum n...</span>
+1169 </div>
+1170 </div>
+1171
+1172</div>
+1173 </div>
+1174 </div>
+1175</div>
+1176 </div>
+1177
+1178 </div>
+1179
+1180 </div>
+1181
+1182 </div>
+1183 </div>
+1184 </div>
+1185
+1186 </div>
+1187
+1188 </div>
+1189</div>
+1190
+1191<div>
+1192
+1193 <input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWFALx/JeqAgLs8pX/DQKwsZrGBwKsq6fmDwKe2o+/BQKC27fYCALVt/JmAuWc6dEDAtf8sfAKAqOK4LkBAoak9OoMArP3vEMCssm51gkCl+CbwQ8CkNKG1wwC9ejowQICq7uk7AYCpK2PggQCicTx7AkC/PaBrAV9GVpdc5zul+zKuiW3pdHY07TGkA==" />
+1194</div>
+1195
+1196<script type="text/javascript">
+1197<!--
+1198Telerik.Web.UI.RadScheduler._adjustHeight("ctl00_ContentPlaceHolder1_RadScheduler1");Telerik.Web.UI.RadScheduler._preInitialize("ctl00_ContentPlaceHolder1_RadScheduler1",0);Sys.Application.initialize();
+1199Sys.Application.add_init(function() {
+1200 $create(Telerik.Web.UI.RadWindow, {"behaviors":53,"clientStateFieldID":"ctl00_ContentPlaceHolder1_RadWindow1_ClientState","formID":"aspnetForm","height":"500px","iconUrl":"","left":"","minimizeIconUrl":"","modal":true,"name":"RadWindow1","navigateUrl":"","skin":"Default","title":"Send event information to your friends","top":"","visibleStatusbar":false,"visibleTitlebar":false,"width":"400px"}, null, null, $get("ctl00_ContentPlaceHolder1_RadWindow1"));
+1201});
+1202Sys.Application.add_init(function() {
+1203 $create(Telerik.Web.UI.RadWindow, {"behaviors":53,"clientStateFieldID":"ctl00_ContentPlaceHolder1_RadWindow2_ClientState","formID":"aspnetForm","iconUrl":"http://www.facebook.com/favicon.ico","left":"","minimizeIconUrl":"http://www.facebook.com/favicon.ico","modal":true,"name":"RadWindow2","navigateUrl":"http://www.facebook.com","skin":"Default","title":"Facebook","top":""}, null, null, $get("ctl00_ContentPlaceHolder1_RadWindow2"));
+1204});
+1205Sys.Application.add_init(function() {
+1206 $create(Telerik.Web.UI.RadWindowManager, {"behaviors":53,"clientStateFieldID":"ctl00_ContentPlaceHolder1_RadWindowManager_ClientState","formID":"aspnetForm","iconUrl":"","left":"","minimizeIconUrl":"","modal":true,"name":"RadWindowManager","skin":"Default","top":"","windowControls":"['ctl00_ContentPlaceHolder1_RadWindow1','ctl00_ContentPlaceHolder1_RadWindow2']"}, null, null, $get("ctl00_ContentPlaceHolder1_RadWindowManager"));
+1207});
+1208Sys.Application.add_init(function() {
+1209 $create(Telerik.Web.UI.RadToolTip, {"animation":4,"autoCloseDelay":1000000000,"clientStateFieldID":"ctl00_ContentPlaceHolder1_ctl01_ClientState","formID":"aspnetForm","hideDelay":10000,"skin":"Default","targetControlID":"ctl00_ContentPlaceHolder1_RadScheduler1_0_0","text":"\u003cdiv id=\"div48\"\u003e\u003ca href=\"Event.aspx?EventID=48\" class=\"AddLink\"\u003eThe event name\u003c/a\u003e\u003cbr/\u003e\u003cbr/\u003ethe n\u003cbr/\u003e6:00 AM\u003cbr/\u003ethe location\u003cbr/\u003e\u003cbr/\u003e\u003cbr/\u003e\u003ca href=\"javascript:OpenRad(\u0027div48\u0027, \u002748\u0027);\"\u003e\u003cimg alt=\"Send info to friends\" style=\"border: none;\" src=\"image/Envelope.png\" /\u003e\u003c/a\u003e\u003cimg alt=\"Delete event from your calendar\" src=\"image/DeleteCircle.png\" onclick=\"HandleDelete(\u002748\u0027);\" /\u003e\u003c/div\u003e"}, null, null, $get("ctl00_ContentPlaceHolder1_ctl01"));
+1210});
+1211Sys.Application.add_init(function() {
+1212 $create(Telerik.Web.UI.RadToolTip, {"animation":4,"autoCloseDelay":1000000000,"clientStateFieldID":"ctl00_ContentPlaceHolder1_ctl06_ClientState","formID":"aspnetForm","hideDelay":10000,"skin":"Default","targetControlID":"ctl00_ContentPlaceHolder1_RadScheduler1_0_0","text":"\u003cdiv id=\"div48\"\u003e\u003ca href=\"Event.aspx?EventID=48\" class=\"AddLink\"\u003eThe event name\u003c/a\u003e\u003cbr/\u003e\u003cbr/\u003ethe n\u003cbr/\u003e6:00 AM\u003cbr/\u003ethe location\u003cbr/\u003e\u003cbr/\u003e\u003cbr/\u003e\u003ca href=\"javascript:OpenRad(\u0027div48\u0027, \u002748\u0027);\"\u003e\u003cimg alt=\"Send info to friends\" style=\"border: none;\" src=\"image/Envelope.png\" /\u003e\u003c/a\u003e\u003cimg alt=\"Delete event from your calendar\" src=\"image/DeleteCircle.png\" onclick=\"HandleDelete(\u002748\u0027);\" /\u003e\u003c/div\u003e"}, null, null, $get("ctl00_ContentPlaceHolder1_ctl06"));
+1213});
+1214Sys.Application.add_init(function() {
+1215 $create(Telerik.Web.UI.RadDateInput, {"_originalValue":"3/16/2009 12:00:00 AM","_postBackEventReferenceScript":"__doPostBack(\u0027ctl00$ContentPlaceHolder1$RadScheduler1$SelectedDatePicker\u0027,\u0027\u0027)","autoPostBack":true,"clientStateFieldID":"ctl00_ContentPlaceHolder1_RadScheduler1_SelectedDatePicker_dateInput_ClientState","dateFormat":"M/d/yyyy","dateFormatInfo":{"DayNames":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"MonthNames":["January","February","March","April","May","June","July","August","September","October","November","December",""],"AbbreviatedDayNames":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"AbbreviatedMonthNames":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec",""],"AMDesignator":"AM","PMDesignator":"PM","DateSeparator":"/","TimeSeparator":":","FirstDayOfWeek":0,"DateSlots":{"Month":0,"Year":2,"Day":1},"ShortYearCenturyEnd":2029,"TimeInputOnly":false},"displayDateFormat":"M/d/yyyy","enabled":true,"incrementSettings":{InterceptArrowKeys:true,InterceptMouseWheel:true,Step:1},"styles":{HoveredStyle: ["width:100%;", "radHoverCss_Black"],InvalidStyle: ["width:100%;", "radInvalidCss_Black"],DisabledStyle: ["width:100%;", "radDisabledCss_Black"],FocusedStyle: ["width:100%;", "radFocusedCss_Black"],EmptyMessageStyle: ["width:100%;", "radEmptyMessageCss_Black"],ReadOnlyStyle: ["width:100%;", "radReadOnlyCss_Black"],EnabledStyle: ["width:100%;", "radEnabledCss_Black"]}}, null, null, $get("ctl00_ContentPlaceHolder1_RadScheduler1_SelectedDatePicker_dateInput"));
+1216});
+1217Sys.Application.add_init(function() {
+1218 $create(Telerik.Web.UI.RadCalendar, {"_DayRenderChangedDays":{},"_FormatInfoArray":[["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],["January","February","March","April","May","June","July","August","September","October","November","December",],["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec",],"dddd, MMMM dd, yyyy h:mm:ss tt","dddd, MMMM dd, yyyy","h:mm:ss tt","MMMM dd","ddd, dd MMM yyyy HH\':\'mm\':\'ss \'GMT\'","M/d/yyyy","h:mm tt","yyyy\'-\'MM\'-\'dd\'T\'HH\':\'mm\':\'ss","yyyy\'-\'MM\'-\'dd HH\':\'mm\':\'ss\'Z\'","MMMM, yyyy","AM","PM","/",":",0],"_ViewRepeatableDays":{},"_ViewsHash":{ctl00_ContentPlaceHolder1_RadScheduler1_SelectedDatePicker_calendar_Top : [[2009,3,1], 1]},"_calendarWeekRule":0,"_firstDayOfWeek":7,"_postBackCall":"__doPostBack(\u0027ctl00$ContentPlaceHolder1$RadScheduler1$SelectedDatePicker$calendar\u0027,\u0027@@\u0027)","clientStateFieldID":"ctl00_ContentPlaceHolder1_RadScheduler1_SelectedDatePicker_calendar_ClientState","enabled":true,"monthYearNavigationSettings":["Today","OK","Cancel","Date is out of range.","False"],"skin":"Black","specialDaysArray":[],"stylesHash":{DayStyle: ["", "radCalDefault_Black"],CalendarTableStyle: ["", "TableLayout_Black"],OtherMonthDayStyle: ["", "otherMonth_Black"],TitleStyle: ["", "titlebar_Black"],SelectedDayStyle: ["", "radCalSelect_Black"],SelectorStyle: ["", "DaysOfWeek_Black"],DisabledDayStyle: ["", "radCalDisable_Black"],OutOfRangeDayStyle: ["", "outOfRange_Black"],WeekendDayStyle: ["", "radCalWeekendDefault_Black"],DayOverStyle: ["", "radCalHover_Black"],FastNavigationStyle: ["", "MonthYearFastNav_Black"],ViewSelectorStyle: ["", "ViewSelector_Black"]},"useColumnHeadersAsSelectors":false,"useRowHeadersAsSelectors":false}, null, null, $get("ctl00_ContentPlaceHolder1_RadScheduler1_SelectedDatePicker_calendar"));
+1219});
+1220Sys.Application.add_init(function() {
+1221 $create(Telerik.Web.UI.RadDatePicker, {"_PopupButtonSettings":{ ResolvedImageUrl : "/HippoHappenings/WebResource.axd?d=7IryVnRhN9ghhT20xHu6n3ccjrnazNdqOipem3N5wQ3dY_ALdN2TMb8gyom6ReH8gqnWGBIao_zSEj4rgcSEOPVLkxaf0FAdYgGlQ7BdLYk1&amp;t=633552745820000000", ResolvedHoverImageUrl : "/HippoHappenings/WebResource.axd?d=7IryVnRhN9ghhT20xHu6n3ccjrnazNdqOipem3N5wQ3dY_ALdN2TMb8gyom6ReH8gqnWGBIao_zSEj4rgcSEOP2ywlUYKyI121rywsG-3S41&amp;t=633552745820000000"},"_popupControlID":"ctl00_ContentPlaceHolder1_RadScheduler1_SelectedDatePicker_popupButton","clientStateFieldID":"ctl00_ContentPlaceHolder1_RadScheduler1_SelectedDatePicker_ClientState","focusedDate":"2009-03-16-00-00-00"}, null, {"calendar":"ctl00_ContentPlaceHolder1_RadScheduler1_SelectedDatePicker_calendar","dateInput":"ctl00_ContentPlaceHolder1_RadScheduler1_SelectedDatePicker_dateInput"}, $get("ctl00_ContentPlaceHolder1_RadScheduler1_SelectedDatePicker"));
+1222});
+1223Sys.Application.add_init(function() {
+1224 $create(Telerik.Web.UI.RadScheduler, {"_modelClassName":"Telerik.Web.UI.Scheduler.Views.Month.Model","_modelData":"{\"start\":\"2009/03/01 00:00\",\"weekLength\":7}","allowEdit":false,"allowInsert":false,"appointments":"[{\"domElements\":[\"ctl00_ContentPlaceHolder1_RadScheduler1_0_0\",\"ctl00_ContentPlaceHolder1_RadScheduler1_0_1\"],\"id\":48,\"visible\":true,\"subject\":\"The event name\",\"toolTip\":\"\",\"recurrenceState\":0,\"internalID\":\"/wECMA==\",\"start\":\"2009/03/20 09:00\",\"end\":\"2009/03/21 10:00\"}]","clientStateFieldID":"ctl00_ContentPlaceHolder1_RadScheduler1_ClientState","firstDayStart":"2009/03/01 00:00","localization":"{\"AdvancedCalendarOK\":\"OK\",\"AdvancedCalendarCancel\":\"Cancel\",\"AdvancedCalendarToday\":\"Today\",\"ConfirmRecurrenceEditTitle\":\"Editing a recurring appointment\",\"ConfirmRecurrenceEditOccurrence\":\"Edit only this occurrence.\",\"ConfirmRecurrenceEditSeries\":\"Edit the series.\",\"ConfirmRecurrenceResizeTitle\":\"Resizing a recurring appointment\",\"ConfirmRecurrenceResizeOccurrence\":\"Resize only this occurrence.\",\"ConfirmRecurrenceResizeSeries\":\"Resize the series.\",\"ConfirmRecurrenceDeleteTitle\":\"Deleting a recurring appointment\",\"ConfirmRecurrenceDeleteOccurrence\":\"Delete only this occurrence.\",\"ConfirmRecurrenceDeleteSeries\":\"Delete the series.\",\"ConfirmDeleteTitle\":\"Confirm delete\",\"ConfirmDeleteText\":\"Are you sure you want to delete this appointment?\",\"ConfirmRecurrenceMoveTitle\":\"Moving a recurring appointment\",\"ConfirmRecurrenceMoveOccurrence\":\"Move only this occurrence.\",\"ConfirmRecurrenceMoveSeries\":\"Move the series.\",\"ConfirmOK\":\"OK\",\"ConfirmCancel\":\"Cancel\"}","postBackReference":"__doPostBack(\u0027ctl00$ContentPlaceHolder1$RadScheduler1\u0027,\u0027arguments\u0027)","selectedView":2,"shouldPostbackOnClick":false}, {"appointmentClick":onEventAppointmentClick}, null, $get("ctl00_ContentPlaceHolder1_RadScheduler1"));
+1225});
+1226Sys.Application.add_init(function() {
+1227 $create(Telerik.Web.UI.RadDateInput, {"_originalValue":"3/16/2009 12:00:00 AM","_postBackEventReferenceScript":"__doPostBack(\u0027ctl00$ContentPlaceHolder1$RadScheduler2$SelectedDatePicker\u0027,\u0027\u0027)","autoPostBack":true,"clientStateFieldID":"ctl00_ContentPlaceHolder1_RadScheduler2_SelectedDatePicker_dateInput_ClientState","dateFormat":"M/d/yyyy","dateFormatInfo":{"DayNames":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"MonthNames":["January","February","March","April","May","June","July","August","September","October","November","December",""],"AbbreviatedDayNames":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"AbbreviatedMonthNames":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec",""],"AMDesignator":"AM","PMDesignator":"PM","DateSeparator":"/","TimeSeparator":":","FirstDayOfWeek":0,"DateSlots":{"Month":0,"Year":2,"Day":1},"ShortYearCenturyEnd":2029,"TimeInputOnly":false},"displayDateFormat":"M/d/yyyy","enabled":true,"incrementSettings":{InterceptArrowKeys:true,InterceptMouseWheel:true,Step:1},"styles":{HoveredStyle: ["width:100%;", "radHoverCss_Black"],InvalidStyle: ["width:100%;", "radInvalidCss_Black"],DisabledStyle: ["width:100%;", "radDisabledCss_Black"],FocusedStyle: ["width:100%;", "radFocusedCss_Black"],EmptyMessageStyle: ["width:100%;", "radEmptyMessageCss_Black"],ReadOnlyStyle: ["width:100%;", "radReadOnlyCss_Black"],EnabledStyle: ["width:100%;", "radEnabledCss_Black"]}}, null, null, $get("ctl00_ContentPlaceHolder1_RadScheduler2_SelectedDatePicker_dateInput"));
+1228});
+1229Sys.Application.add_init(function() {
+1230 $create(Telerik.Web.UI.RadCalendar, {"_DayRenderChangedDays":{},"_FormatInfoArray":[["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],["January","February","March","April","May","June","July","August","September","October","November","December",],["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec",],"dddd, MMMM dd, yyyy h:mm:ss tt","dddd, MMMM dd, yyyy","h:mm:ss tt","MMMM dd","ddd, dd MMM yyyy HH\':\'mm\':\'ss \'GMT\'","M/d/yyyy","h:mm tt","yyyy\'-\'MM\'-\'dd\'T\'HH\':\'mm\':\'ss","yyyy\'-\'MM\'-\'dd HH\':\'mm\':\'ss\'Z\'","MMMM, yyyy","AM","PM","/",":",0],"_ViewRepeatableDays":{},"_ViewsHash":{ctl00_ContentPlaceHolder1_RadScheduler2_SelectedDatePicker_calendar_Top : [[2009,3,1], 1]},"_calendarWeekRule":0,"_firstDayOfWeek":7,"_postBackCall":"__doPostBack(\u0027ctl00$ContentPlaceHolder1$RadScheduler2$SelectedDatePicker$calendar\u0027,\u0027@@\u0027)","clientStateFieldID":"ctl00_ContentPlaceHolder1_RadScheduler2_SelectedDatePicker_calendar_ClientState","enabled":true,"monthYearNavigationSettings":["Today","OK","Cancel","Date is out of range.","False"],"skin":"Black","specialDaysArray":[],"stylesHash":{DayStyle: ["", "radCalDefault_Black"],CalendarTableStyle: ["", "TableLayout_Black"],OtherMonthDayStyle: ["", "otherMonth_Black"],TitleStyle: ["", "titlebar_Black"],SelectedDayStyle: ["", "radCalSelect_Black"],SelectorStyle: ["", "DaysOfWeek_Black"],DisabledDayStyle: ["", "radCalDisable_Black"],OutOfRangeDayStyle: ["", "outOfRange_Black"],WeekendDayStyle: ["", "radCalWeekendDefault_Black"],DayOverStyle: ["", "radCalHover_Black"],FastNavigationStyle: ["", "MonthYearFastNav_Black"],ViewSelectorStyle: ["", "ViewSelector_Black"]},"useColumnHeadersAsSelectors":false,"useRowHeadersAsSelectors":false}, null, null, $get("ctl00_ContentPlaceHolder1_RadScheduler2_SelectedDatePicker_calendar"));
+1231});
+1232Sys.Application.add_init(function() {
+1233 $create(Telerik.Web.UI.RadDatePicker, {"_PopupButtonSettings":{ ResolvedImageUrl : "/HippoHappenings/WebResource.axd?d=7IryVnRhN9ghhT20xHu6n3ccjrnazNdqOipem3N5wQ3dY_ALdN2TMb8gyom6ReH8gqnWGBIao_zSEj4rgcSEOPVLkxaf0FAdYgGlQ7BdLYk1&amp;t=633552745820000000", ResolvedHoverImageUrl : "/HippoHappenings/WebResource.axd?d=7IryVnRhN9ghhT20xHu6n3ccjrnazNdqOipem3N5wQ3dY_ALdN2TMb8gyom6ReH8gqnWGBIao_zSEj4rgcSEOP2ywlUYKyI121rywsG-3S41&amp;t=633552745820000000"},"_popupControlID":"ctl00_ContentPlaceHolder1_RadScheduler2_SelectedDatePicker_popupButton","clientStateFieldID":"ctl00_ContentPlaceHolder1_RadScheduler2_SelectedDatePicker_ClientState","focusedDate":"2009-03-16-00-00-00"}, null, {"calendar":"ctl00_ContentPlaceHolder1_RadScheduler2_SelectedDatePicker_calendar","dateInput":"ctl00_ContentPlaceHolder1_RadScheduler2_SelectedDatePicker_dateInput"}, $get("ctl00_ContentPlaceHolder1_RadScheduler2_SelectedDatePicker"));
+1234});
+1235Sys.Application.add_init(function() {
+1236 $create(Telerik.Web.UI.RadScheduler, {"_modelClassName":"Telerik.Web.UI.Scheduler.Views.Month.Model","_modelData":"{\"start\":\"2009/03/01 00:00\",\"weekLength\":7}","allowDelete":false,"allowEdit":false,"allowInsert":false,"appointments":"[]","clientStateFieldID":"ctl00_ContentPlaceHolder1_RadScheduler2_ClientState","firstDayStart":"2009/03/01 00:00","localization":"{\"AdvancedCalendarOK\":\"OK\",\"AdvancedCalendarCancel\":\"Cancel\",\"AdvancedCalendarToday\":\"Today\",\"ConfirmRecurrenceEditTitle\":\"Editing a recurring appointment\",\"ConfirmRecurrenceEditOccurrence\":\"Edit only this occurrence.\",\"ConfirmRecurrenceEditSeries\":\"Edit the series.\",\"ConfirmRecurrenceResizeTitle\":\"Resizing a recurring appointment\",\"ConfirmRecurrenceResizeOccurrence\":\"Resize only this occurrence.\",\"ConfirmRecurrenceResizeSeries\":\"Resize the series.\",\"ConfirmRecurrenceDeleteTitle\":\"Deleting a recurring appointment\",\"ConfirmRecurrenceDeleteOccurrence\":\"Delete only this occurrence.\",\"ConfirmRecurrenceDeleteSeries\":\"Delete the series.\",\"ConfirmDeleteTitle\":\"Confirm delete\",\"ConfirmDeleteText\":\"Are you sure you want to delete this appointment?\",\"ConfirmRecurrenceMoveTitle\":\"Moving a recurring appointment\",\"ConfirmRecurrenceMoveOccurrence\":\"Move only this occurrence.\",\"ConfirmRecurrenceMoveSeries\":\"Move the series.\",\"ConfirmOK\":\"OK\",\"ConfirmCancel\":\"Cancel\"}","postBackReference":"__doPostBack(\u0027ctl00$ContentPlaceHolder1$RadScheduler2\u0027,\u0027arguments\u0027)","selectedView":2,"shouldPostbackOnClick":false}, {"appointmentClick":onAppointmentClick}, null, $get("ctl00_ContentPlaceHolder1_RadScheduler2"));
+1237});
+1238Sys.Application.add_init(function() {
+1239 $create(Telerik.Web.UI.RadAjaxPanel, {"clientEvents":{OnRequestStart:"",OnResponseEnd:""},"enableAJAX":true,"enableHistory":false,"links":[],"loadingPanelID":"","styles":[],"uniqueID":"ctl00$ctl04"}, null, null, $get("ctl00_ctl04"));
+1240});
+1241// -->
+1242</script>
+1243</form>
+1244</body>
+1245</html>
+1246
+1Type.registerNamespace("Telerik.Web.UI");
+2Telerik.Web.UI.RecurrenceState=function(){
+3};
+4Telerik.Web.UI.RecurrenceState.prototype={NotRecurring:0,Master:1,Occurrence:2,Exception:3};
+5Telerik.Web.UI.RecurrenceState.registerEnum("Telerik.Web.UI.RecurrenceState");
+6Telerik.Web.UI.SchedulerAppointment=function(_1,_2,_3){
+7this._attributes=new Telerik.Web.UI.SchedulerAttributeCollection(this);
+8if(!_1){
+9return;
+10}
+11this._id=_1.id;
+12this._subject=_1.subject;
+13this._start=new Date(Date.parse(_1.start));
+14this._end=new Date(Date.parse(_1.end));
+15this._toolTip=_1.toolTip;
+16this._internalID=_1.internalID;
+17this._visible=_1.visible;
+18this._recurrenceState=_1.recurrenceState;
+19this._recurrenceParentID=_1.recurrenceParentID;
+20this._serializedResources=_1.resources;
+21this._resources=null;
+22this._domElements=_1.domElements;
+23this._domElement=null;
+24this._allowEdit=null;
+25if(typeof (_1.allowEdit)!="undefined"){
+26this._allowEdit=_1.allowEdit;
+27}
+28this._allowDelete=null;
+29if(typeof (_1.allowDelete)!="undefined"){
+30this._allowDelete=_1.allowDelete;
+31}
+32this._radScheduler=_2;
+33this._oldZIndex=null;
+34this._originalParent=null;
+35this._selected=false;
+36if(typeof (_1.attributes)!="undefined"){
+37this._attributes._load(_1.attributes);
+38}
+39};
+40Telerik.Web.UI.SchedulerAppointment._incrementMilliseconds=function(_4,_5){
+41_4.setTime(_4.getTime()+_5);
+42};
+43Telerik.Web.UI.SchedulerAppointment.prototype={get_id:function(){
+44return this._id;
+45},get_subject:function(){
+46return this._subject;
+47},set_subject:function(_6){
+48this._subject=_6;
+49},get_start:function(){
+50return this._start;
+51},set_start:function(_7){
+52this._start=_7;
+53},get_end:function(){
+54return this._end;
+55},set_end:function(_8){
+56this._end=_8;
+57},get_toolTip:function(){
+58return this._toolTip;
+59},set_toolTip:function(_9){
+60this._toolTip=_9;
+61},get_radScheduler:function(){
+62return this._radScheduler;
+63},get_allowEdit:function(){
+64return this._allowEdit;
+65},set_allowEdit:function(_a){
+66this._allowEdit=_a;
+67},get_allowDelete:function(){
+68return this._allowDelete;
+69},set_allowDelete:function(_b){
+70this._allowDelete=_b;
+71},get_element:function(){
+72if(!this._domElement&&this._domElements.length>0){
+73this._domElement=$get(this._domElements[0]);
+74}
+75return this._domElement;
+76},get_attributes:function(){
+77return this._attributes;
+78},get_recurrenceState:function(){
+79return this._recurrenceState;
+80},get_recurrenceParentID:function(){
+81return this._recurrenceParentID;
+82},get_resources:function(){
+83if(!this._resources){
+84this._resources=new Telerik.Web.UI.SchedulerResourceCollection();
+85for(var _c in this._serializedResources){
+86var _d=this._serializedResources[_c];
+87if(_d.text){
+88this._resources.add(new Telerik.Web.UI.SchedulerResource(_d));
+89}else{
+90var _e=this.get_radScheduler().get_resources().getResourcesByType(_d.type);
+91var _f=this._resources;
+92_e.forEach(function(_10){
+93if(_10.get_key()==_d.key){
+94_f.add(_10);
+95}
+96});
+97}
+98}
+99}
+100return this._resources;
+101},edit:function(){
+102var _11=this.get_radScheduler();
+103if(_11){
+104_11.editAppointment(this);
+105}
+106},remove:function(){
+107var _12=this.get_radScheduler();
+108if(_12){
+109_12.deleteAppointment(this);
+110}
+111},_getDuration:function(){
+112return this._end-this._start;
+113},_setDuration:function(_13){
+114var _14=this.get_element();
+115var _15=_13/60000;
+116var _16=_14.parentNode.parentNode.offsetHeight;
+117var _17=$telerik.getBorderWidth(_14.parentNode.parentNode,Telerik.Web.BoxSide.Bottom);
+118var _18=((_15/this.get_radScheduler().get_minutesPerRow())*_16)-_17;
+119var _19=parseInt(_14.style.paddingBottom);
+120if(isNaN(_19)){
+121_19=0;
+122}
+123_14.style.height=_18-_19+"px";
+124if($telerik.isIE&&$telerik.quirksMode){
+125var _1a=_14.firstChild;
+126_1a.style.height="";
+127Telerik.Web.UI.RadScheduler._adjustSingleAppointmentHeight(_14,_14._initialHeightInRows,1);
+128}
+129Telerik.Web.UI.RadScheduler._fixIEBottom(_14);
+130this._end.setTime(this._start.getTime());
+131Telerik.Web.UI.SchedulerAppointment._incrementMilliseconds(this._end,_13);
+132},_startDrag:function(){
+133var _1b=this.get_element();
+134var _1c=$telerik.getElementByClassName(_1b,"rsAptWrap","div");
+135var _1d=this.get_radScheduler().get_element();
+136this._dragTimeout=window.setTimeout(function(){
+137$telerik.setOpacity(_1c,0.6);
+138_1d.style.cursor="move";
+139},100);
+140this._oldZIndex=_1b.style.zIndex;
+141_1b.style.zIndex=999;
+142this._originalParent=_1b.parentNode;
+143Sys.UI.DomElement.removeCssClass(_1b,"rsWAppointmentDelete");
+144},_endDrag:function(_1e){
+145this._finishDrag(_1e,false);
+146},_abortDrag:function(){
+147this._finishDrag(null,true);
+148},_finishDrag:function(_1f,_20){
+149var _21=this.get_radScheduler();
+150window.clearTimeout(this._dragTimeout);
+151var _1f=this.get_element();
+152var _22=$telerik.getElementByClassName(_1f,"rsAptWrap","div");
+153$telerik.setOpacity(_22,1);
+154_1f.style.zindex=this._oldZIndex;
+155var _23=this.get_radScheduler().get_element();
+156if(_23&&_23.style){
+157this.get_radScheduler().get_element().style.cursor="";
+158}
+159var _24;
+160var _25=this._getDuration();
+161var _26="Move";
+162if(this._originalParent.parentNode==_1f||_20){
+163if(_1f.parentNode!=this._originalParent){
+164this._originalParent.appendChild(_1f);
+165}
+166return;
+167}
+168var _27=_21._activeModel.getTimeSlotFromDomElement(this._originalParent.parentNode);
+169var _28=_21._activeModel.getTimeSlotFromDomElement(_1f);
+170_24={Command:_26,AppointmentID:this._internalID,EditSeries:false,SourceSlotIndex:_27.get_index(),TargetSlotIndex:_28.get_index()};
+171var _29={OnConfirm:this._onAppointmentMoveCallback,OnAbort:this._onAppointmentMoveAbortCallback,Scheduler:this.get_radScheduler(),Appointment:this,TargetSlot:_28,PostbackEvent:_24,CallbackIsCalledFromDialog:true};
+172if(_21.get_displayRecurrenceActionDialogOnMove()&&(this._recurrenceState==1||this._recurrenceState==2)){
+173var _2a=new Telerik.Web.UI.SchedulerRecurrenceActionDialogShowingEventArgs(_29.Appointment,Telerik.Web.UI.RecurrenceAction.Move);
+174_21.raise_recurrenceActionDialogShowing(_2a);
+175if(_2a.get_cancel()){
+176var _2b=_2a.get_editSeries();
+177if(_2b!==null){
+178_29.CallbackIsCalledFromDialog=false;
+179this._onAppointmentMoveCallback(_2b,_29);
+180}else{
+181this._onAppointmentMoveAbortCallback(_29);
+182}
+183}else{
+184_21._recurrenceActionDialog.ConfirmRecurrenceAction(Telerik.Web.UI.RecurrenceAction.Move,_29);
+185}
+186}else{
+187_29.CallbackIsCalledFromDialog=false;
+188this._onAppointmentMoveCallback(false,_29);
+189}
+190},_onAppointmentMoveCallback:function(_2c,_2d){
+191if(_2d.CallbackIsCalledFromDialog){
+192var _2e=new Telerik.Web.UI.SchedulerRecurrenceActionDialogClosedEventArgs(_2d.Appointment,Telerik.Web.UI.RecurrenceAction.Move,_2c);
+193_2d.Scheduler.raise_recurrenceActionDialogClosed(_2e);
+194}
+195var _2f=new Telerik.Web.UI.SchedulerAppointmentMoveEndEventArgs(_2d.Appointment,_2d.TargetSlot.get_startTime(),_2c,_2d.TargetSlot);
+196_2d.Scheduler.raiseEvent("appointmentMoveEnd",_2f);
+197if(_2f.get_cancel()==false){
+198_2d.PostbackEvent.EditSeries=_2c;
+199_2d.Scheduler.postback(_2d.PostbackEvent);
+200}else{
+201_2d.Appointment._abortDrag();
+202}
+203},_onAppointmentMoveAbortCallback:function(_30){
+204_30.Appointment._abortDrag();
+205},_select:function(){
+206this._selected=true;
+207},_unselect:function(){
+208this._selected=false;
+209}};
+210Telerik.Web.UI.SchedulerAppointment.registerClass("Telerik.Web.UI.SchedulerAppointment");
+211Type.registerNamespace("Telerik.Web.UI");
+212Telerik.Web.UI.SchedulerAppointmentCollection=function(){
+213this._array=new Array();
+214};
+215Telerik.Web.UI.SchedulerAppointmentCollection.prototype={add:function(_31){
+216var _32=this._array.length;
+217this.insert(_32,_31);
+218},insert:function(_33,_34){
+219Array.insert(this._array,_33,_34);
+220},remove:function(_35){
+221Array.remove(this._array,_35);
+222},removeAt:function(_36){
+223var _37=this.getAppointment(_36);
+224if(_37){
+225this.remove(_37);
+226}
+227},clear:function(){
+228this._array=new Array();
+229},get_count:function(){
+230return this._array.length;
+231},getAppointment:function(_38){
+232return this._array[_38];
+233},indexOf:function(_39){
+234return Array.indexOf(this._array,_39);
+235},forEach:function(_3a){
+236for(var i=0,_3c=this.get_count();i<_3c;i++){
+237_3a(this.getAppointment(i));
+238}
+239},getAppointmentsInRange:function(_3d,end){
+240var _3f=new Telerik.Web.UI.SchedulerAppointmentCollection();
+241this.forEach(function(_40){
+242var _41=_40.get_start();
+243var _42=_40.get_end();
+244if(_41<end&&_42>_3d){
+245_3f.add(_40);
+246}
+247});
+248return _3f;
+249},getAppointmentsStartingInRange:function(_43,end){
+250var _45=new Telerik.Web.UI.SchedulerAppointmentCollection();
+251this.forEach(function(_46){
+252var _47=_46.get_start();
+253if(_47>=_43&&_47<end){
+254_45.add(_46);
+255}
+256});
+257return _45;
+258},findByID:function(id){
+259var _49;
+260this.forEach(function(_4a){
+261if(_4a.get_id()==id){
+262_49=_4a;
+263}
+264});
+265return _49;
+266}};
+267Telerik.Web.UI.SchedulerAppointmentCollection.registerClass("Telerik.Web.UI.SchedulerAppointmentCollection");
+268Type.registerNamespace("Telerik.Web.UI");
+269Telerik.Web.UI.SchedulerAppointmentEventArgs=function(_4b){
+270Telerik.Web.UI.SchedulerAppointmentEventArgs.initializeBase(this);
+271this._appointment=_4b;
+272};
+273Telerik.Web.UI.SchedulerAppointmentEventArgs.prototype={get_appointment:function(){
+274return this._appointment;
+275}};
+276Telerik.Web.UI.SchedulerAppointmentEventArgs.registerClass("Telerik.Web.UI.SchedulerAppointmentEventArgs",Sys.EventArgs);
+277Telerik.Web.UI.SchedulerAppointmentCancelEventArgs=function(_4c){
+278Telerik.Web.UI.SchedulerAppointmentCancelEventArgs.initializeBase(this);
+279this._appointment=_4c;
+280};
+281Telerik.Web.UI.SchedulerAppointmentCancelEventArgs.prototype={get_appointment:function(){
+282return this._appointment;
+283}};
+284Telerik.Web.UI.SchedulerAppointmentCancelEventArgs.registerClass("Telerik.Web.UI.SchedulerAppointmentCancelEventArgs",Sys.CancelEventArgs);
+285Telerik.Web.UI.SchedulerAppointmentClickEventArgs=function(_4d){
+286Telerik.Web.UI.SchedulerAppointmentClickEventArgs.initializeBase(this,[_4d]);
+287};
+288Telerik.Web.UI.SchedulerAppointmentClickEventArgs.registerClass("Telerik.Web.UI.SchedulerAppointmentClickEventArgs",Telerik.Web.UI.SchedulerAppointmentEventArgs);
+289Telerik.Web.UI.SchedulerAppointmentInsertingEventArgs=function(_4e,_4f,_50){
+290Telerik.Web.UI.SchedulerAppointmentInsertingEventArgs.initializeBase(this);
+291this._startTime=_4e;
+292this._isAllDay=_4f;
+293this._targetSlot=_50;
+294};
+295Telerik.Web.UI.SchedulerAppointmentInsertingEventArgs.prototype={get_startTime:function(){
+296return this._startTime;
+297},get_isAllDay:function(){
+298return this._isAllDay;
+299},get_targetSlot:function(){
+300return this._targetSlot;
+301}};
+302Telerik.Web.UI.SchedulerAppointmentInsertingEventArgs.registerClass("Telerik.Web.UI.SchedulerAppointmentInsertingEventArgs",Sys.CancelEventArgs);
+303Telerik.Web.UI.SchedulerAppointmentResizeStartEventArgs=function(_51){
+304Telerik.Web.UI.SchedulerAppointmentResizeStartEventArgs.initializeBase(this,[_51]);
+305};
+306Telerik.Web.UI.SchedulerAppointmentResizeStartEventArgs.registerClass("Telerik.Web.UI.SchedulerAppointmentResizeStartEventArgs",Telerik.Web.UI.SchedulerAppointmentCancelEventArgs);
+307Telerik.Web.UI.SchedulerAppointmentResizeEndEventArgs=function(_52,_53,_54){
+308Telerik.Web.UI.SchedulerAppointmentResizeEndEventArgs.initializeBase(this,[_52]);
+309this._newTime=_53;
+310this._editingRecurringSeries=_54;
+311};
+312Telerik.Web.UI.SchedulerAppointmentResizeEndEventArgs.prototype={get_newTime:function(){
+313return this._newTime;
+314},get_editingRecurringSeries:function(){
+315return this._editingRecurringSeries;
+316}};
+317Telerik.Web.UI.SchedulerAppointmentResizeEndEventArgs.registerClass("Telerik.Web.UI.SchedulerAppointmentResizeEndEventArgs",Telerik.Web.UI.SchedulerAppointmentCancelEventArgs);
+318Telerik.Web.UI.SchedulerAppointmentResizingEventArgs=function(_55,_56){
+319Telerik.Web.UI.SchedulerAppointmentResizingEventArgs.initializeBase(this,[_55]);
+320this._targetSlot=_56;
+321};
+322Telerik.Web.UI.SchedulerAppointmentResizingEventArgs.prototype={get_targetSlot:function(){
+323return this._targetSlot;
+324}};
+325Telerik.Web.UI.SchedulerAppointmentResizingEventArgs.registerClass("Telerik.Web.UI.SchedulerAppointmentResizingEventArgs",Telerik.Web.UI.SchedulerAppointmentCancelEventArgs);
+326Telerik.Web.UI.SchedulerAppointmentDeletingEventArgs=function(_57,_58){
+327Telerik.Web.UI.SchedulerAppointmentDeletingEventArgs.initializeBase(this,[_57]);
+328this._editingRecurringSeries=_58;
+329};
+330Telerik.Web.UI.SchedulerAppointmentDeletingEventArgs.prototype={get_editingRecurringSeries:function(){
+331return this._editingRecurringSeries;
+332}};
+333Telerik.Web.UI.SchedulerAppointmentDeletingEventArgs.registerClass("Telerik.Web.UI.SchedulerAppointmentDeletingEventArgs",Telerik.Web.UI.SchedulerAppointmentCancelEventArgs);
+334Telerik.Web.UI.SchedulerAppointmentDeletedEventArgs=function(_59){
+335Telerik.Web.UI.SchedulerAppointmentDeletedEventArgs.initializeBase(this,[_59]);
+336};
+337Telerik.Web.UI.SchedulerAppointmentDeletedEventArgs.registerClass("Telerik.Web.UI.SchedulerAppointmentDeletedEventArgs",Telerik.Web.UI.SchedulerAppointmentEventArgs);
+338Telerik.Web.UI.SchedulerAppointmentEditingEventArgs=function(_5a,_5b){
+339Telerik.Web.UI.SchedulerAppointmentEditingEventArgs.initializeBase(this,[_5a]);
+340this._editingRecurringSeries=_5b;
+341};
+342Telerik.Web.UI.SchedulerAppointmentEditingEventArgs.prototype={get_editingRecurringSeries:function(){
+343return this._editingRecurringSeries;
+344}};
+345Telerik.Web.UI.SchedulerAppointmentEditingEventArgs.registerClass("Telerik.Web.UI.SchedulerAppointmentEditingEventArgs",Telerik.Web.UI.SchedulerAppointmentCancelEventArgs);
+346Telerik.Web.UI.SchedulerAppointmentMoveStartEventArgs=function(_5c){
+347Telerik.Web.UI.SchedulerAppointmentMoveStartEventArgs.initializeBase(this,[_5c]);
+348};
+349Telerik.Web.UI.SchedulerAppointmentMoveStartEventArgs.registerClass("Telerik.Web.UI.SchedulerAppointmentMoveStartEventArgs",Telerik.Web.UI.SchedulerAppointmentCancelEventArgs);
+350Telerik.Web.UI.SchedulerAppointmentMovingEventArgs=function(_5d,_5e){
+351Telerik.Web.UI.SchedulerAppointmentMovingEventArgs.initializeBase(this,[_5d]);
+352this._targetSlot=_5e;
+353};
+354Telerik.Web.UI.SchedulerAppointmentMovingEventArgs.prototype={get_targetSlot:function(){
+355return this._targetSlot;
+356}};
+357Telerik.Web.UI.SchedulerAppointmentMovingEventArgs.registerClass("Telerik.Web.UI.SchedulerAppointmentMovingEventArgs",Telerik.Web.UI.SchedulerAppointmentCancelEventArgs);
+358Telerik.Web.UI.SchedulerAppointmentMoveEndEventArgs=function(_5f,_60,_61,_62){
+359Telerik.Web.UI.SchedulerAppointmentMoveEndEventArgs.initializeBase(this,[_5f]);
+360this._targetSlot=_62;
+361this._newStartTime=_60;
+362this._editingRecurringSeries=_61;
+363};
+364Telerik.Web.UI.SchedulerAppointmentMoveEndEventArgs.prototype={get_newStartTime:function(){
+365return this._newStartTime;
+366},get_editingRecurringSeries:function(){
+367return this._editingRecurringSeries;
+368},get_targetSlot:function(){
+369return this._targetSlot;
+370}};
+371Telerik.Web.UI.SchedulerAppointmentMoveEndEventArgs.registerClass("Telerik.Web.UI.SchedulerAppointmentMoveEndEventArgs",Telerik.Web.UI.SchedulerAppointmentCancelEventArgs);
+372Telerik.Web.UI.SchedulerTimeSlotClickEventArgs=function(_63,_64){
+373Telerik.Web.UI.SchedulerTimeSlotClickEventArgs.initializeBase(this);
+374this._time=_63;
+375this._targetSlot=_64;
+376};
+377Telerik.Web.UI.SchedulerTimeSlotClickEventArgs.prototype={get_time:function(){
+378return this._time;
+379},get_targetSlot:function(){
+380return this._targetSlot;
+381}};
+382Telerik.Web.UI.SchedulerTimeSlotClickEventArgs.registerClass("Telerik.Web.UI.SchedulerTimeSlotClickEventArgs",Sys.EventArgs);
+383Telerik.Web.UI.SchedulerAppointmentDoubleClickEventArgs=function(_65){
+384Telerik.Web.UI.SchedulerAppointmentDoubleClickEventArgs.initializeBase(this,[_65]);
+385};
+386Telerik.Web.UI.SchedulerAppointmentDoubleClickEventArgs.registerClass("Telerik.Web.UI.SchedulerAppointmentDoubleClickEventArgs",Telerik.Web.UI.SchedulerAppointmentEventArgs);
+387Telerik.Web.UI.SchedulerRecurrenceActionDialogShowingEventArgs=function(_66,_67){
+388Telerik.Web.UI.SchedulerRecurrenceActionDialogShowingEventArgs.initializeBase(this,[_66]);
+389this._recurrenceAction=_67;
+390this._editSeries=null;
+391};
+392Telerik.Web.UI.SchedulerRecurrenceActionDialogShowingEventArgs.prototype={get_recurrenceAction:function(){
+393return this._recurrenceAction;
+394},get_editSeries:function(){
+395return this._editSeries;
+396},set_editSeries:function(_68){
+397this._editSeries=_68;
+398}};
+399Telerik.Web.UI.SchedulerRecurrenceActionDialogShowingEventArgs.registerClass("Telerik.Web.UI.SchedulerRecurrenceActionDialogShowingEventArgs",Telerik.Web.UI.SchedulerAppointmentCancelEventArgs);
+400Telerik.Web.UI.SchedulerRecurrenceActionDialogClosedEventArgs=function(_69,_6a,_6b){
+401Telerik.Web.UI.SchedulerRecurrenceActionDialogClosedEventArgs.initializeBase(this,[_69]);
+402this._recurrenceAction=_6a;
+403this._editSeries=_6b;
+404};
+405Telerik.Web.UI.SchedulerRecurrenceActionDialogClosedEventArgs.prototype={get_recurrenceAction:function(){
+406return this._recurrenceAction;
+407},get_editSeries:function(){
+408return this._editSeries;
+409}};
+410Telerik.Web.UI.SchedulerRecurrenceActionDialogClosedEventArgs.registerClass("Telerik.Web.UI.SchedulerRecurrenceActionDialogClosedEventArgs",Telerik.Web.UI.SchedulerAppointmentEventArgs);
+411Telerik.Web.UI.SchedulerFormCreatedEventArgs=function(_6c,_6d){
+412Telerik.Web.UI.SchedulerFormCreatedEventArgs.initializeBase(this,[_6c]);
+413this._formElement=_6d;
+414};
+415Telerik.Web.UI.SchedulerFormCreatedEventArgs.prototype={get_formElement:function(){
+416return this._formElement;
+417}};
+418Telerik.Web.UI.SchedulerFormCreatedEventArgs.registerClass("Telerik.Web.UI.SchedulerFormCreatedEventArgs",Telerik.Web.UI.SchedulerAppointmentCancelEventArgs);
+419Telerik.Web.UI.SchedulerAppointmentContextMenuEventArgs=function(_6e,_6f){
+420Telerik.Web.UI.SchedulerAppointmentContextMenuEventArgs.initializeBase(this,[_6e]);
+421this._domEvent=_6f;
+422};
+423Telerik.Web.UI.SchedulerAppointmentContextMenuEventArgs.prototype={get_domEvent:function(){
+424return this._domEvent;
+425}};
+426Telerik.Web.UI.SchedulerAppointmentContextMenuEventArgs.registerClass("Telerik.Web.UI.SchedulerAppointmentContextMenuEventArgs",Telerik.Web.UI.SchedulerAppointmentEventArgs);
+427Telerik.Web.UI.SchedulerTimeSlotContextMenuEventArgs=function(_70,_71,_72,_73){
+428Telerik.Web.UI.SchedulerTimeSlotContextMenuEventArgs.initializeBase(this);
+429this._time=_70;
+430this._isAllDay=_71;
+431this._domEvent=_72;
+432this._targetSlot=_73;
+433};
+434Telerik.Web.UI.SchedulerTimeSlotContextMenuEventArgs.prototype={get_time:function(){
+435return this._time;
+436},get_isAllDay:function(){
+437return this._isAllDay;
+438},get_domEvent:function(){
+439return this._domEvent;
+440},get_targetSlot:function(){
+441return this._targetSlot;
+442}};
+443Telerik.Web.UI.SchedulerTimeSlotContextMenuEventArgs.registerClass("Telerik.Web.UI.SchedulerTimeSlotContextMenuEventArgs",Sys.EventArgs);
+444Type.registerNamespace("Telerik.Web.UI");
+445Telerik.Web.UI.SchedulerViewType=function(){
+446};
+447Telerik.Web.UI.SchedulerViewType.prototype={DayView:0,WeekView:1,MonthView:2,ResourceView:3,TimelineView:4};
+448Telerik.Web.UI.SchedulerViewType.registerEnum("Telerik.Web.UI.SchedulerViewType");
+449Telerik.Web.UI.RadScheduler=function(_74){
+450Telerik.Web.UI.RadScheduler.initializeBase(this,[_74]);
+451this._styles={dragTarget:"rsDragTarget"};
+452this._postBackReference=null;
+453this._minutesPerRow=30;
+454this._numberOfHoveredRows=2;
+455this._selectedView=0;
+456this._readOnly=false;
+457this._overflowBehavior=1;
+458this._shouldPostbackOnClick=true;
+459this._displayDeleteConfirmation=true;
+460this._displayRecurrenceActionDialogOnMove=false;
+461this._firstDayStart=null;
+462this._appointments=null;
+463this._currentAppointment=null;
+464this._resources=null;
+465this._scrollTop=0;
+466this._localization=null;
+467this._shouldFireFormCreated=false;
+468this._inlineFormDiv=null;
+469this._advancedFormDiv=null;
+470this._advancedTemplate=null;
+471this._attributes=new Telerik.Web.UI.SchedulerAttributeCollection();
+472this._allowEdit=true;
+473this._allowDelete=true;
+474this._allowInsert=true;
+475this._enableAdvancedTemplateScript=false;
+476this._dragging=false;
+477this._editing=false;
+478this._draggingAppointment=null;
+479this._selectedAppointment=null;
+480this._onKeyboardEventDelegate=null;
+481this._updateScrollTopDelegate=null;
+482this._modelClassName=null;
+483this._modelData={};
+484this._activeModel=null;
+485this._modelTables=null;
+486this._resizingState={};
+487this._eventMap=new Telerik.Web.UI.EventMap();
+488this._recurrenceActionDialog=new Telerik.Web.UI.RecurrenceActionDialog(this);
+489};
+490Telerik.Web.UI.RadScheduler._adjustHeight=function(_75){
+491var _76=$get(_75);
+492var _77=_76.offsetHeight;
+493var _78=_77;
+494var _79=null;
+495var _7a=_76.childNodes;
+496var _7b=_7a.length;
+497for(var i=0;i<_7b;i++){
+498var _7d=_7a[i];
+499if(_7d.tagName&&_7d.tagName.toLowerCase()=="div"){
+500if(Sys.UI.DomElement.containsCssClass(_7d,"rsContent")){
+501_79=_7d;
+502}else{
+503_78-=_7d.offsetHeight;
+504}
+505}
+506}
+507if(_79!=null){
+508var _7e=$telerik.getPaddingBox(_79).vertical;
+509var _7f=$telerik.getBorderBox(_79).vertical;
+510_78-=_7e+_7f;
+511_78=Math.max(_78,50);
+512if(_78!=_79.offsetHeight){
+513_79.style.height=_78+"px";
+514}
+515}
+516var _80=$telerik.getElementByClassName(_76,"rsAllDayLastCell","td");
+517if(_80){
+518_80.firstChild.style.width=(Telerik.Web.UI.RadScheduler._getScrollBarWidth()-1)+"px";
+519}
+520var _81=$telerik.getElementByClassName(_76,"rsColumnHeaderLastCell","td");
+521if(_81){
+522_81.firstChild.style.width=(Telerik.Web.UI.RadScheduler._getScrollBarWidth()-1)+"px";
+523}
+524};
+525Telerik.Web.UI.RadScheduler._incrementTime=function(_82,_83,_84){
+526if(isNaN(_84)){
+527_84=0;
+528}
+529_82.setTime(_82.getTime()+(_83*3600000)+(_84*60000));
+530};
+531Telerik.Web.UI.RadScheduler._getScrollBarWidth=function(){
+532if(Telerik.Web.UI.RadScheduler._scrollbarWidth){
+533return Telerik.Web.UI.RadScheduler._scrollbarWidth;
+534}
+535var _85,_86=0;
+536var _87=document.createElement("div");
+537_87.style.position="absolute";
+538_87.style.top="-1000px";
+539_87.style.left="-1000px";
+540_87.style.width="100px";
+541_87.style.height="50px";
+542_87.style.overflow="hidden";
+543var _88=document.createElement("div");
+544_88.style.width="100%";
+545_88.style.height="200px";
+546_87.appendChild(_88);
+547document.body.appendChild(_87);
+548var _89=_88.offsetWidth;
+549_87.style.overflow="auto";
+550var _8a=_88.offsetWidth;
+551Telerik.Web.UI.RadScheduler._scrollbarWidth=_89-_8a;
+552if(Telerik.Web.UI.RadScheduler._scrollbarWidth<=0){
+553_88.style.width="300px";
+554_85=_87.offsetWidth;
+555_86=_87.clientWidth;
+556Telerik.Web.UI.RadScheduler._scrollbarWidth=_85-_86;
+557}
+558if(Telerik.Web.UI.RadScheduler._scrollbarWidth<=0){
+559Telerik.Web.UI.RadScheduler._scrollbarWidth=16;
+560}
+561document.body.removeChild(document.body.lastChild);
+562return Telerik.Web.UI.RadScheduler._scrollbarWidth;
+563};
+564Telerik.Web.UI.RadScheduler._preInitialize=function(_8b,_8c){
+565var _8d=$get(_8b);
+566var _8e=$telerik.getElementByClassName(_8d,"rsContent","div");
+567if(_8e){
+568_8e.scrollTop=_8c;
+569}
+570Telerik.Web.UI.RadScheduler._adjustAppointmentsHeight(_8b);
+571};
+572Telerik.Web.UI.RadScheduler._adjustAppointmentsHeight=function(_8f){
+573if(!($telerik.isIE&&$telerik.quirksMode)){
+574return;
+575}
+576var _90=$get(_8f);
+577var _91=_90.getElementsByTagName("div");
+578for(var i=0;i<_91.length;i++){
+579var _93=_91[i];
+580if(!Sys.UI.DomElement.containsCssClass(_93,"rsApt")){
+581continue;
+582}
+583var _94=parseInt(_93.offsetHeight);
+584if(_94==0){
+585return;
+586}
+587if(!_93.style.height.endsWith("%")){
+588return;
+589}
+590var _95=parseInt(_93.style.height)/100;
+591Telerik.Web.UI.RadScheduler._adjustSingleAppointmentHeight(_93,_95);
+592_93._initialHeightInRows=_95;
+593}
+594};
+595Telerik.Web.UI.RadScheduler._adjustSingleAppointmentHeight=function(_96,_97){
+596var _98=_96.parentNode.parentNode;
+597var _99=$telerik.getBorderBox(_98).vertical;
+598var _9a=_99*2;
+599var _9b=parseInt(_96.offsetHeight);
+600var _9c=_9b+(_97*_9a)+_99;
+601var _9d=$telerik.getPaddingBox(_96).vertical;
+602_9c=_9c-_9d;
+603_96.style.height=_9c+"px";
+604var _9e=_96.firstChild;
+605_9e.style.height=_9c+"px";
+606Telerik.Web.UI.RadScheduler._fixIEBottom(_96);
+607};
+608Telerik.Web.UI.RadScheduler._fixIEBottom=function(_9f){
+609if($telerik.isIE6||($telerik.isIE&&$telerik.quirksMode)){
+610var _a0=$telerik.getElementByClassName(_9f,"rsAptBottom","div");
+611if(_9f.offsetHeight%2!=0){
+612_a0.style.bottom="-1px";
+613}else{
+614_a0.style.bottom="0px";
+615}
+616}
+617};
+618Telerik.Web.UI.RadScheduler.prototype={initialize:function(){
+619var _a1=this.get_element();
+620Telerik.Web.UI.RadScheduler.callBaseMethod(this,"initialize");
+621this._activeModel=new (Type.parse(this._modelClassName))(this,this._modelData);
+622this._activeModel.initialize();
+623this._eventMap.initialize(this);
+624var _a2=this.get_contentElement();
+625if(_a2){
+626_a2.scrollTop=this.get_scrollTop();
+627}
+628this.updateClientState();
+629this.repaint();
+630var _a3=$telerik.getFirstChildByTagName(_a1,"div",0);
+631if(_a3&&Sys.UI.DomElement.containsCssClass(_a3,"rsAdvancedEdit")){
+632this._advancedFormDiv=_a3;
+633if(typeof (Telerik.Web.UI.Scheduling)!="undefined"&&typeof (Telerik.Web.UI.Scheduling.AdvancedTemplate)!="undefined"&&this._enableAdvancedTemplateScript){
+634this._advancedTemplate=new Telerik.Web.UI.Scheduling.AdvancedTemplate(this._advancedFormDiv);
+635this._advancedTemplate.initialize();
+636}
+637}else{
+638this._eventMap.addHandlerForClassName("scroll","rsContent",this._updateScrollTop);
+639this._eventMap.addHandlerForClassName("dblclick","rsAptEdit",this._stopEventPropagation);
+640this._eventMap.addHandlerForClassName("dblclick","rsApt",this._onAppointmentDoubleClick);
+641this._eventMap.addHandlerForClassName("dblclick","rsAllDayCell",this._onCellDoubleClick);
+642this._eventMap.addHandlerForClassName("dblclick","rsCell",this._onCellDoubleClick);
+643this._eventMap.addHandlerForClassName("click","rsAptResize",this._onResizeGripMouseClick);
+644this._eventMap.addHandlerForClassName("click","rsApt",this._onAppointmentClick);
+645this._eventMap.addHandlerForClassName("click","rsAptDelete",this._onAppointmentDeleteClick);
+646this._eventMap.addHandlerForClassName("click","rsArrowTop",this._onPreviousDayClick);
+647this._eventMap.addHandlerForClassName("click","rsArrowBottom",this._onNextDayClick);
+648this._eventMap.addHandlerForClassName("click","rsArrowLeft",this._onPreviousDayClick);
+649this._eventMap.addHandlerForClassName("click","rsArrowRight",this._onNextDayClick);
+650this._eventMap.addHandlerForClassName("click","rsNextDay",this._onNextSchedulerDayClick);
+651this._eventMap.addHandlerForClassName("click","rsPrevDay",this._onPreviousSchedulerDayClick);
+652this._eventMap.addHandlerForClassName("click","rsToday",this._onTodayClick);
+653this._eventMap.addHandlerForClassName("click","rsFullTime",this._onFullTimeLinkClick);
+654this._eventMap.addHandlerForClassName("click","rsAptEdit",this._onEditFormClick);
+655this._eventMap.addHandlerForClassName("click","rsShowMore",this._onShowMoreClick);
+656this._eventMap.addHandlerForClassName("click","rsHeaderDay",this._onDayViewTabClick);
+657this._eventMap.addHandlerForClassName("click","rsHeaderWeek",this._onWeekViewTabClick);
+658this._eventMap.addHandlerForClassName("click","rsHeaderMonth",this._onMonthViewTabClick);
+659this._eventMap.addHandlerForClassName("click","rsHeaderTimeline",this._onTimelineViewTabClick);
+660this._eventMap.addHandlerForClassName("click","rsHeaderMultiDay",this._onMultiDayViewTabClick);
+661this._eventMap.addHandlerForClassName("click","rsCell",this._onCellClick);
+662this._eventMap.addHandlerForClassName("click","rsAllDayCell",this._onCellClick);
+663this._eventMap.addHandlerForClassName("mouseover","rsCell",this._onRowMouseOver);
+664this._eventMap.addHandlerForClassName("mouseover","rsAllDayCell",this._onAllDayCellMouseOver);
+665this._eventMap.addHandlerForClassName("mouseover","rsApt",this._onAppointmentMouseOver);
+666this._eventMap.addHandlerForClassName("mouseover","rsAptResize",this._onResizeGripMouseOver);
+667this._eventMap.addHandlerForClassName("mouseout","rsCell",this._onRowMouseOut);
+668this._eventMap.addHandlerForClassName("mouseout","rsAllDayCell",this._onRowMouseOut);
+669this._eventMap.addHandlerForClassName("mouseout","rsApt",this._onAppointmentMouseOut);
+670this._eventMap.addHandlerForClassName("mousedown","rsAptDelete",this._stopEventPropagation);
+671this._eventMap.addHandlerForClassName("mousedown","rsApt",this._onAppointmentMouseDown);
+672this._eventMap.addHandlerForClassName("mousedown","rsAptResize",this._onResizeGripMouseDown);
+673this._eventMap.addHandlerForClassName("mouseup","rsCell",this._endDrag);
+674this._eventMap.addHandlerForClassName("contextmenu","rsApt",this._onAppointmentContextMenu);
+675this._eventMap.addHandlerForClassName("contextmenu","rsCell",this._onCellContextMenu);
+676this._eventMap.addHandlerForClassName("contextmenu","rsAllDayCell",this._onCellContextMenu);
+677var _a4=this.get_contentElement();
+678if(_a4){
+679this._updateScrollTopDelegate=Function.createDelegate(this,this._updateScrollTop);
+680$addHandler(this.get_contentElement(),"scroll",this._updateScrollTopDelegate);
+681}
+682this._onKeyboardEventDelegate=Function.createDelegate(this,this._onKeyboardEvent);
+683$addHandler(document.documentElement,"keydown",this._onKeyboardEventDelegate);
+684}
+685this._onResizeGripMouseMoveDelegate=Function.createDelegate(this,this._onResizeGripMouseMove);
+686this._onResizeGripMouseUpDelegate=Function.createDelegate(this,this._onResizeGripMouseUp);
+687this._onSelectStartDelegate=Function.createDelegate(this,this._onSelectStart);
+688this._onDocMouseUpDelegate=Function.createDelegate(this,this._onDocMouseUp);
+689this._onDocumentMouseMoveDelegate=Function.createDelegate(this,this._onDocumentMouseMove);
+690this._fireFormCreated();
+691},dispose:function(){
+692var _a5=this.get_element();
+693if(this._onKeyboardEventDelegate){
+694$removeHandler(document.documentElement,"keydown",this._onKeyboardEventDelegate);
+695}
+696if(this._updateScrollTopDelegate){
+697$removeHandler(this.get_contentElement(),"scroll",this._updateScrollTopDelegate);
+698}
+699this._eventMap.dispose();
+700this._recurrenceActionDialog.dispose();
+701if(this._advancedTemplate){
+702this._advancedTemplate.dispose();
+703}
+704this._modelTables=null;
+705this._resizingState=null;
+706Telerik.Web.UI.RadScheduler.callBaseMethod(this,"dispose");
+707},repaint:function(){
+708if(this.get_overflowBehavior()==1){
+709Telerik.Web.UI.RadScheduler._adjustHeight(this.get_id());
+710if(typeof (Telerik.Web.UI.Scheduling)!="undefined"&&typeof (Telerik.Web.UI.Scheduling.AdvancedTemplate)!="undefined"){
+711Telerik.Web.UI.Scheduling.AdvancedTemplate._adjustHeight(this.get_id());
+712}
+713}
+714Telerik.Web.UI.RadScheduler._adjustAppointmentsHeight(this.get_id());
+715this._initializeModelTables();
+716},get_appointments:function(){
+717return this._appointments;
+718},set_appointments:function(_a6){
+719this._appointments=new Telerik.Web.UI.SchedulerAppointmentCollection();
+720var _a7=eval("("+_a6+")");
+721for(var i=0;i<_a7.length;i++){
+722var _a9=new Telerik.Web.UI.SchedulerAppointment(_a7[i],this);
+723this._appointments.add(_a9);
+724}
+725},get_resources:function(){
+726return this._resources;
+727},set_resources:function(_aa){
+728this._resources=new Telerik.Web.UI.SchedulerResourceCollection();
+729var _ab=Sys.Serialization.JavaScriptSerializer.deserialize(_aa);
+730for(var i=0;i<_ab.length;i++){
+731var _ad=new Telerik.Web.UI.SchedulerResource(_ab[i]);
+732this._resources.add(_ad);
+733}
+734},get_firstDayStart:function(){
+735return this._firstDayStart;
+736},set_firstDayStart:function(_ae){
+737this._firstDayStart=new Date(Date.parse(_ae));
+738},get_currentAppointment:function(){
+739return this._currentAppointment;
+740},set_currentAppointment:function(_af){
+741var _b0=Sys.Serialization.JavaScriptSerializer.deserialize(_af);
+742this._currentAppointment=new Telerik.Web.UI.SchedulerAppointment(_b0,this,null);
+743},get_localization:function(){
+744return this._localization;
+745},set_localization:function(_b1){
+746this._localization=Sys.Serialization.JavaScriptSerializer.deserialize(_b1);
+747},get_scrollTop:function(){
+748return this._scrollTop;
+749},set_scrollTop:function(_b2){
+750this._scrollTop=_b2;
+751},get_displayDeleteConfirmation:function(){
+752return this._displayDeleteConfirmation;
+753},set_displayDeleteConfirmation:function(_b3){
+754this._displayDeleteConfirmation=_b3;
+755},get_displayRecurrenceActionDialogOnMove:function(){
+756return this._displayRecurrenceActionDialogOnMove;
+757},set_displayRecurrenceActionDialogOnMove:function(_b4){
+758this._displayRecurrenceActionDialogOnMove=_b4;
+759},get_shouldPostbackOnClick:function(){
+760return this._shouldPostbackOnClick;
+761},set_shouldPostbackOnClick:function(_b5){
+762this._shouldPostbackOnClick=_b5;
+763},get_overflowBehavior:function(){
+764return this._overflowBehavior;
+765},set_overflowBehavior:function(_b6){
+766this._overflowBehavior=_b6;
+767},get_readOnly:function(){
+768return this._readOnly;
+769},set_readOnly:function(_b7){
+770this._readOnly=_b7;
+771},get_selectedView:function(){
+772return this._selectedView;
+773},set_selectedView:function(_b8){
+774this._selectedView=_b8;
+775},get_minutesPerRow:function(){
+776return this._minutesPerRow;
+777},set_minutesPerRow:function(_b9){
+778this._minutesPerRow=_b9;
+779},get_postBackReference:function(){
+780return this._postBackReference;
+781},set_postBackReference:function(_ba){
+782this._postBackReference=_ba;
+783},get_allowEdit:function(){
+784return this._allowEdit;
+785},set_allowEdit:function(_bb){
+786this._allowEdit=_bb;
+787},get_allowDelete:function(){
+788return this._allowDelete;
+789},set_allowDelete:function(_bc){
+790this._allowDelete=_bc;
+791},get_allowInsert:function(){
+792return this._allowInsert;
+793},set_allowInsert:function(_bd){
+794this._allowInsert=_bd;
+795},get_attributes:function(){
+796return this._attributes;
+797},set_attributes:function(_be){
+798this._attributes._load(_be);
+799},get_activeModel:function(){
+800return this._activeModel;
+801},set_numberOfHoveredRows:function(_bf){
+802this._numberOfHoveredRows=_bf;
+803},get_numberOfHoveredRows:function(){
+804return this._numberOfHoveredRows;
+805},set_groupBy:function(_c0){
+806this._groupBy=_c0;
+807},get_groupBy:function(){
+808return this._groupBy;
+809},get_contentElement:function(){
+810return $telerik.getElementByClassName(this.get_element(),"rsContent","div");
+811},showInsertFormAt:function(_c1){
+812var _c2={command:"Insert",appointmentID:-1,targetSlotIndex:_c1.get_index()};
+813this.postback(_c2);
+814},insertAppointment:function(_c3){
+815var _c4={command:"InsertAppointment",appointment:this._getSerializableAppointment(_c3),startDate:_c3.get_start().format("yyyyMMddHHmm"),endDate:_c3.get_end().format("yyyyMMddHHmm")};
+816this.postback(_c4);
+817},updateAppointment:function(_c5,_c6){
+818var _c7={command:"UpdateAppointment",appointmentID:_c5._internalID,appointment:this._getSerializableAppointment(_c5),startDate:_c5.get_start().format("yyyyMMddHHmm"),endDate:_c5.get_end().format("yyyyMMddHHmm"),editSeries:_c6};
+819this.postback(_c7);
+820},editAppointment:function(_c8,_c9){
+821var _ca={command:"Edit",appointmentID:_c8._internalID,editSeries:_c9};
+822this.postback(_ca);
+823},deleteAppointment:function(_cb,_cc){
+824var _cd={command:"Delete",appointmentID:_cb._internalID,editSeries:_cc};
+825this.postback(_cd);
+826},getAppointmentDomElement:function(_ce){
+827while(_ce&&!Sys.UI.DomElement.containsCssClass(_ce,"rsApt")){
+828_ce=_ce.parentNode;
+829}
+830return _ce;
+831},getAppointmentFromDomElement:function(_cf){
+832if(!_cf){
+833return null;
+834}
+835var _d0=this.getAppointmentDomElement(_cf);
+836var _d1=this.get_appointments();
+837for(var i=0;i<_d1.get_count();i++){
+838var _d3=_d1.getAppointment(i);
+839if(!_d3.get_element()){
+840continue;
+841}
+842for(var _d4=0;_d4<_d3._domElements.length;_d4++){
+843if(_d0.id==_d3._domElements[_d4]){
+844return _d3;
+845}
+846}
+847}
+848return null;
+849},saveClientState:function(){
+850return "{\"scrollTop\":"+this._scrollTop+"}";
+851},_getSerializableAppointment:function(_d5){
+852return {ID:_d5._internalID,Subject:_d5.get_subject(),RecurrenceState:_d5.get_recurrenceState(),RecurrenceParentID:_d5.get_recurrenceParentID()};
+853},_fireFormCreated:function(){
+854if(this._shouldFireFormCreated){
+855var _d6=this.get_element();
+856if(this._inlineFormDiv){
+857_d6=this._inlineFormDiv;
+858}else{
+859if(this._advancedFormDiv){
+860_d6=this._advancedFormDiv;
+861}
+862}
+863var _d7=new Telerik.Web.UI.SchedulerFormCreatedEventArgs(this.get_currentAppointment(),_d6);
+864this.raise_formCreated(_d7);
+865}
+866},_onKeyboardEvent:function(e){
+867if(e.keyCode==27){
+868if(this._dragging){
+869this._abortDrag(e);
+870}
+871if(this._resizingState.resizing){
+872this._resizingState.resizingAppointment._setDuration(this._resizingState.resizingAppointmentDuration);
+873this._cleanupResize();
+874}
+875}
+876},_updateScrollTop:function(e){
+877this._scrollTop=this.get_contentElement().scrollTop;
+878this.updateClientState();
+879},_onAppointmentClick:function(e){
+880var _db=this.getAppointmentFromDomElement(e.eventMapTarget);
+881if(_db._selected){
+882this._editAppointmentInline(_db);
+883return;
+884}
+885var _dc=new Telerik.Web.UI.SchedulerAppointmentClickEventArgs(_db);
+886this.raise_appointmentClick(_dc);
+887if(this.get_readOnly()&&this.get_shouldPostbackOnClick()){
+888var _dd={Command:"Click",AppointmentID:_db._internalID,EditSeries:false};
+889this.postback(_dd);
+890return;
+891}
+892if(this._selectedAppointment){
+893this._selectedAppointment._unselect();
+894}
+895_db._select();
+896this._selectedAppointment=_db;
+897},_onAppointmentContextMenu:function(e){
+898var _df=this.getAppointmentFromDomElement(e.eventMapTarget);
+899var _e0=new Telerik.Web.UI.SchedulerAppointmentContextMenuEventArgs(_df,e);
+900this.raise_appointmentContextMenu(_e0);
+901},_onEditFormClick:function(e){
+902e.stopPropagation();
+903},_removeMonthCellHover:function(){
+904if(this._currentHoverCell){
+905Sys.UI.DomElement.removeCssClass(this._currentHoverCell,"rsAptCreate");
+906}
+907},_onMonthCellMouseOver:function(e){
+908if(Sys.UI.DomElement.containsCssClass(e.eventMapTarget,"rsWrap")){
+909this._currentHoverDiv=e.eventMapTarget;
+910this._currentHoverCell=e.eventMapTarget.parentNode;
+911Sys.UI.DomElement.addCssClass(this._currentHoverCell,"rsAptCreate");
+912}
+913},_getHourCellFromDomElement:function(_e3){
+914var _e4=_e3;
+915while(_e4.tagName.toLowerCase()!="th"){
+916_e4=_e4.parentNode;
+917}
+918return _e4;
+919},_onAllDayCellMouseOver:function(e){
+920if(this._dragging&&this._draggingAppointment){
+921e.eventMapTarget.lastChild.appendChild(this._draggingAppointment.get_element());
+922}
+923this._onRowMouseOver(e);
+924},_onRowMouseOver:function(e){
+925if(this._dragging){
+926return;
+927}
+928if(!this._resizingState.resizing){
+929this._removeRowHover();
+930this._currentHoverDiv=e.eventMapTarget;
+931this._currentHoverCell=e.eventMapTarget;
+932var _e7=this.get_numberOfHoveredRows();
+933hoveredCells=[];
+934hoveredCells[0]=this._currentHoverCell;
+935if(Sys.UI.DomElement.containsCssClass(this._currentHoverCell.parentNode,"rsAllDay")||this.get_selectedView()==Telerik.Web.UI.SchedulerViewType.MonthView){
+936_e7=1;
+937}
+938for(var i=1;i<_e7;i++){
+939var _e9=this._getNextRowCell(hoveredCells[i-1]);
+940if(_e9){
+941hoveredCells[i]=_e9;
+942}else{
+943break;
+944}
+945}
+946for(var i=0;i<hoveredCells.length;i++){
+947Sys.UI.DomElement.addCssClass(hoveredCells[i],"rsAptCreate");
+948}
+949this._hoveredCells=hoveredCells;
+950}
+951},_getNextRowCell:function(_ea){
+952var _eb=_ea.parentNode;
+953var _ec=_eb.parentNode;
+954while(_ec.tagName.toLowerCase()!="table"){
+955_ec=_ec.parentNode;
+956}
+957var _ed=_ec.rows[_eb.rowIndex+1];
+958var _ee=null;
+959if(_ed){
+960var _ef=_ed.cells.length;
+961var _f0=_eb.cells.length;
+962if(_ef==_f0){
+963_ee=_ed.cells[_ea.cellIndex];
+964}else{
+965if(_ef<_f0){
+966_ee=_ed.cells[_ea.cellIndex-1];
+967}else{
+968_ee=_ed.cells[_ea.cellIndex+1];
+969}
+970}
+971}
+972return _ee;
+973},_onRowMouseOut:function(e){
+974try{
+975var _f2=e.rawEvent.relatedTarget?e.rawEvent.relatedTarget:e.rawEvent.toElement;
+976if(!_f2||!this._currentHoverCell||$telerik.isDescendant(this._currentHoverDiv,_f2)){
+977return;
+978}
+979this._removeRowHover();
+980}
+981catch(ex){
+982return;
+983}
+984},_removeRowHover:function(){
+985if(!this._hoveredCells){
+986return;
+987}
+988this._currentHoverCell=null;
+989for(var i=0;i<this._hoveredCells.length;i++){
+990Sys.UI.DomElement.removeCssClass(this._hoveredCells[i],"rsAptCreate");
+991}
+992if(this._currentHoverCell){
+993Sys.UI.DomElement.removeCssClass(this._currentHoverCell,"rsAptCreate");
+994}
+995},_stopEventPropagation:function(e){
+996e.stopPropagation();
+997},_onResizeGripMouseDown:function(e){
+998if(this.get_readOnly()){
+999return;
+1000}
+1001this._resizingState.resizingElement=this.getAppointmentDomElement(e.eventMapTarget);
+1002var _f6=this.getAppointmentFromDomElement(this._resizingState.resizingElement);
+1003var _f7=(_f6.get_allowEdit()!=null)?_f6.get_allowEdit():this.get_allowEdit();
+1004if(!_f7){
+1005return;
+1006}
+1007var _f8=new Telerik.Web.UI.SchedulerAppointmentResizeStartEventArgs(_f6);
+1008this.raise_appointmentResizeStart(_f8);
+1009if(_f8.get_cancel()==false){
+1010this._resizingState.resizing=true;
+1011this._resizingState.resizingAppointment=_f6;
+1012this._resizingState.resizingAppointmentDuration=_f6._getDuration();
+1013$addHandler(document,"mousemove",this._onResizeGripMouseMoveDelegate);
+1014$addHandler(document,"mouseup",this._onResizeGripMouseUpDelegate);
+1015$addHandler(document,"selectstart",this._onSelectStartDelegate);
+1016}
+1017},_onResizeGripMouseMove:function(e){
+1018var _fa=this._resizingState.resizingElement;
+1019if(!_fa){
+1020return;
+1021}
+1022var _fb=_fa.parentNode.parentNode;
+1023var _fc=10;
+1024var _fd=this._getCellFromCoordinates(e.clientX,e.clientY-_fc);
+1025if(!_fd){
+1026return;
+1027}
+1028var _fe=this._activeModel.getTimeSlotFromDomElement(_fd);
+1029var _ff=new Telerik.Web.UI.SchedulerAppointmentResizingEventArgs(this._resizingState.resizingAppointment,_fe);
+1030this.raise_appointmentResizing(_ff);
+1031if(_ff.get_cancel()){
+1032return;
+1033}
+1034var _100=_fb.offsetHeight;
+1035var _101=_fd.parentNode.rowIndex-_fb.parentNode.rowIndex;
+1036var _102=Math.max(1,(_101+1))*_100;
+1037if($telerik.isIE&&$telerik.quirksMode){
+1038var _103=_fa.firstChild;
+1039_103.style.height="";
+1040}
+1041var _104=_fb.parentNode.parentNode.parentNode;
+1042var _105=_fd.parentNode.parentNode.parentNode;
+1043if(_104!=_105){
+1044return;
+1045}
+1046var _106=parseInt(_fa.style.paddingBottom);
+1047_106=isNaN(_106)?0:_106;
+1048var _102=_102-_106;
+1049if($telerik.isIE&&$telerik.quirksMode){
+1050_102-=$telerik.getBorderBox(_fb).vertical*2;
+1051}
+1052_fa.style.height=_102+"px";
+1053if($telerik.isIE&&$telerik.quirksMode&&_fa._initialHeightInRows){
+1054Telerik.Web.UI.RadScheduler._adjustSingleAppointmentHeight(_fa,_fa._initialHeightInRows);
+1055}
+1056Telerik.Web.UI.RadScheduler._fixIEBottom(this._resizingState.resizingElement);
+1057this._keepElementInView(this._resizingState.resizingElement,true);
+1058},_onSelectStart:function(e){
+1059return false;
+1060},_findResizeTargetSlot:function(_108){
+1061var _109=_108.parentNode.parentNode.offsetHeight;
+1062var _10a=Math.ceil(_108.offsetHeight/_109);
+1063var _10b=_108.parentNode.parentNode;
+1064var _10c=_10b.parentNode;
+1065var _10d=_10c.rowIndex+_10a-1;
+1066_10d=Math.min(_10d,_10c.parentNode.rows.length-1);
+1067var _10e=_10c.parentNode.rows[_10d];
+1068var _10f=_10e.cells[_10b.cellIndex];
+1069return this._activeModel.getTimeSlotFromDomElement(_10f);
+1070},_onResizeGripMouseUp:function(e){
+1071if(!this._resizingState.resizingElement){
+1072return;
+1073}
+1074var _111=this._findResizeTargetSlot(this._resizingState.resizingElement);
+1075var _112=this.getAppointmentFromDomElement(this._resizingState.resizingElement);
+1076var _113=this._activeModel.getTimeSlotFromDomElement(_112.get_element());
+1077var _114=_111.get_startTime();
+1078Telerik.Web.UI.RadScheduler._incrementTime(_114,0,this.get_minutesPerRow());
+1079if(_114.getTime()==_112.get_end().getTime()){
+1080this._cleanupResize();
+1081return;
+1082}
+1083var args={OnConfirm:this._onAppointmentResizeCallback,OnAbort:this._onAppointmentResizeAbortCallback,Scheduler:this,Appointment:_112,SourceSlotIndex:_113.get_index(),TargetSlotIndex:_111.get_index(),UpdatedEndDate:_114,ResizingAppointmentDuration:this._resizingState.resizingAppointmentDuration,CallbackIsCalledFromDialog:true};
+1084if(_112._recurrenceState==1||_112._recurrenceState==2){
+1085var _116=new Telerik.Web.UI.SchedulerRecurrenceActionDialogShowingEventArgs(args.Appointment,Telerik.Web.UI.RecurrenceAction.Resize);
+1086this.raise_recurrenceActionDialogShowing(_116);
+1087if(_116.get_cancel()){
+1088var _117=_116.get_editSeries();
+1089if(_117!==null){
+1090args.CallbackIsCalledFromDialog=false;
+1091this._onAppointmentResizeCallback(_117,args);
+1092}else{
+1093this._onAppointmentResizeAbortCallback(args);
+1094}
+1095}else{
+1096this._recurrenceActionDialog.ConfirmRecurrenceAction(Telerik.Web.UI.RecurrenceAction.Resize,args);
+1097}
+1098}else{
+1099args.CallbackIsCalledFromDialog=false;
+1100this._onAppointmentResizeCallback(false,args);
+1101}
+1102e.stopPropagation();
+1103this._cleanupResize();
+1104},_cleanupResize:function(){
+1105this._resizingState.resizing=false;
+1106this._resizingState.resizingElement=null;
+1107this._resizingState.resizingAppointment=null;
+1108this._resizingState.resizingAppointmentDuration=null;
+1109$removeHandler(document,"mousemove",this._onResizeGripMouseMoveDelegate);
+1110$removeHandler(document,"mouseup",this._onResizeGripMouseUpDelegate);
+1111$removeHandler(document,"selectstart",this._onSelectStartDelegate);
+1112},_onAppointmentResizeCallback:function(_118,args){
+1113if(args.CallbackIsCalledFromDialog){
+1114var _11a=new Telerik.Web.UI.SchedulerRecurrenceActionDialogClosedEventArgs(args.Appointment,Telerik.Web.UI.RecurrenceAction.Resize,_118);
+1115args.Scheduler.raise_recurrenceActionDialogClosed(_11a);
+1116}
+1117var _11b=new Telerik.Web.UI.SchedulerAppointmentResizeEndEventArgs(args.Appointment,args.UpdatedEndDate,_118);
+1118args.Scheduler.raise_appointmentResizeEnd(_11b);
+1119if(_11b.get_cancel()==false){
+1120var _11c={Command:"Resize",AppointmentID:args.Appointment._internalID,SourceSlotIndex:args.SourceSlotIndex,TargetSlotIndex:args.TargetSlotIndex,EditSeries:_118};
+1121args.Scheduler.postback(_11c);
+1122}else{
+1123args.Appointment._setDuration(args.ResizingAppointmentDuration);
+1124}
+1125},_onAppointmentResizeAbortCallback:function(args){
+1126args.Appointment._setDuration(args.ResizingAppointmentDuration);
+1127},_onResizeGripMouseClick:function(e){
+1128e.stopPropagation();
+1129},_onResizeGripMouseOver:function(e){
+1130e.target.style.cursor="s-resize";
+1131e.stopPropagation();
+1132},_initializeModelTables:function(){
+1133this._modelTables=new Array();
+1134var _120=this.get_element().getElementsByTagName("table");
+1135for(var i=0;i<_120.length;i++){
+1136var _122=_120[i];
+1137if(Sys.UI.DomElement.containsCssClass(_122,"rsContentTable")||Sys.UI.DomElement.containsCssClass(_122,"rsAllDayTable")||Sys.UI.DomElement.containsCssClass(_122,"rsTimelineTable")){
+1138_122.targetRect=$telerik.getBounds(_122);
+1139var _123=this.get_contentElement();
+1140if(_123&&$telerik.isDescendant(_123,_122)){
+1141this._compensateScrollOffset(_123,_122);
+1142}
+1143var _124=_122.rows[0].cells[0];
+1144_122.cellWidth=_124.offsetWidth;
+1145_122.cellHeight=_124.offsetHeight;
+1146Array.add(this._modelTables,_122);
+1147}
+1148}
+1149return this._modelTables;
+1150},_compensateScrollOffset:function(_125,_126){
+1151var _127=$telerik.getScrollOffset(_125,false);
+1152_126.targetRect.x+=_127.x;
+1153_126.targetRect.y+=_127.y;
+1154if($telerik.isSafari){
+1155_126.targetRect.x+=_127.x;
+1156_126.targetRect.y+=_127.y;
+1157}
+1158},_getCellFromCoordinates:function(_128,_129){
+1159if(!this.get_element()){
+1160return;
+1161}
+1162var _12a=this._modelTables;
+1163var _12b=$telerik.getElementByClassName(this.get_element(),"rsContent","div");
+1164var _12c=$telerik.getScrollOffset(_12b,true);
+1165for(var i=0,_12e=_12a.length;i<_12e;i++){
+1166var x=_128+_12c.x;
+1167var y=_129+_12c.y;
+1168var _131=_12a[i];
+1169var _132=_131.targetRect;
+1170var _133=_132.y+_132.height;
+1171var _134=_132.x+_132.width;
+1172if(x>=_132.x&&x<=_134&&y>=_132.y&&y<=_133){
+1173var _135=parseInt((y-_132.y)/_131.cellHeight);
+1174_135=Math.min(_131.rows.length-1,Math.max(0,_135));
+1175var _136=parseInt((x-_132.x)/_131.cellWidth);
+1176_136=Math.min(_131.rows[_135].cells.length-1,Math.max(0,_136));
+1177return _131.rows[_135].cells[_136];
+1178}
+1179}
+1180return null;
+1181},_shouldStartDrag:function(_137){
+1182if(!this._initialDragAppointment||!this._initialDragMousePos){
+1183return false;
+1184}
+1185if(Math.abs(this._initialDragMousePos.x-_137.x)>4||Math.abs(this._initialDragMousePos.y-_137.y)>4){
+1186return true;
+1187}
+1188},_onDocumentMouseMove:function(e){
+1189var _139=this._getMousePosition(e);
+1190if(!this._dragging&&this._shouldStartDrag(_139)){
+1191this._startDrag(e);
+1192}
+1193if(!this._dragging||!this._draggingAppointment){
+1194return;
+1195}
+1196this._clearSelection();
+1197var _13a=this._draggingAppointment.get_element();
+1198var _13b=this._getCellFromCoordinates(e.clientX,e.clientY-this._draggingOffset);
+1199if(!_13b||_13b.firstChild==_13a.parentNode){
+1200return;
+1201}
+1202Sys.UI.DomElement.removeCssClass(_13a.parentNode,this._styles.dragTarget);
+1203if(_13b.firstChild.nodeType==3){
+1204_13b.removeChild(_13b.firstChild);
+1205var wrap=_13a.parentNode.cloneNode(false);
+1206wrap.style.zIndex=_13b.parentNode.parentNode.rows.length-_13b.parentNode.rowIndex;
+1207if($telerik.isFirefox){
+1208wrap.style.height=_13b.clientHeight+"px";
+1209}
+1210_13b.appendChild(wrap);
+1211}
+1212if(this.get_selectedView()!=Telerik.Web.UI.SchedulerViewType.MonthView){
+1213_13b.firstChild.appendChild(_13a);
+1214}else{
+1215if(_13b.childNodes[1]){
+1216_13b.childNodes[1].appendChild(_13a);
+1217}
+1218}
+1219Sys.UI.DomElement.addCssClass(_13a.parentNode,this._styles.dragTarget);
+1220var _13d=this._activeModel.getTimeSlotFromDomElement(_13b);
+1221var args=new Telerik.Web.UI.SchedulerAppointmentMovingEventArgs(this._draggingAppointment,_13d);
+1222this.raiseEvent("appointmentMoving",args);
+1223if(args.get_cancel()){
+1224this._abortDrag(e);
+1225}else{
+1226if(!_13d.get_isAllDay()){
+1227this._keepElementInView(_13a);
+1228}
+1229}
+1230return;
+1231},_keepElementInView:function(_13f,_140){
+1232var _141=$telerik.getElementByClassName(this.get_element(),"rsContent","div");
+1233var _142=this._getRelativeOffsetTop(_13f,_141);
+1234var _143=_13f.offsetHeight;
+1235var _144=_142+_143;
+1236var _145=_141.clientHeight+_141.scrollTop;
+1237var _146=_13f.parentNode.parentNode.offsetHeight;
+1238if(!_140&&_142<_141.scrollTop){
+1239_141.scrollTop=_142;
+1240}
+1241if(_144>_145){
+1242var _147=_141.scrollTop+(_144-_145);
+1243if((_141.clientHeight+_147)>_141.scrollHeight){
+1244return;
+1245}
+1246if(!_140&&_147>_142){
+1247_147=_142;
+1248}
+1249_141.scrollTop=_147;
+1250}
+1251if(_140&&(_144-_146)<_141.scrollTop){
+1252_141.scrollTop=_144-_146;
+1253}
+1254},_getRelativeOffsetTop:function(_148,_149){
+1255var _14a=_148.offsetParent;
+1256var _14b=_148.offsetTop;
+1257while(_14a!=_149){
+1258_14b+=_14a.offsetTop;
+1259if(!_14a.offsetParent){
+1260break;
+1261}
+1262_14a=_14a.offsetParent;
+1263}
+1264return _14b;
+1265},_getMousePosition:function(e){
+1266var _14d=$telerik.getScrollOffset(document.body,true);
+1267var _14e=e.clientX;
+1268var _14f=e.clientY;
+1269_14e+=_14d.x;
+1270_14f+=_14d.y;
+1271return {x:_14e,y:_14f};
+1272},_onAppointmentMouseDown:function(e){
+1273if(this.get_readOnly()){
+1274return;
+1275}
+1276var _151=this.getAppointmentFromDomElement(e.eventMapTarget);
+1277var _152=(_151.get_allowEdit()!=null)?_151.get_allowEdit():this.get_allowEdit();
+1278if(!_152){
+1279return;
+1280}
+1281this._initialDragMousePos=this._getMousePosition(e);
+1282this._initialDragAppointment=_151;
+1283$addHandler(document,"selectstart",this._onSelectStartDelegate);
+1284$addHandler(document,"mouseup",this._onDocMouseUpDelegate);
+1285$addHandler(document,"mousemove",this._onDocumentMouseMoveDelegate);
+1286this._dragHandlersAttached=true;
+1287},_startDrag:function(e){
+1288var _154=this._initialDragAppointment;
+1289var _155=this._getCellFromCoordinates(e.clientX,e.clientY);
+1290if(!_155){
+1291return;
+1292}
+1293var _156=new Telerik.Web.UI.SchedulerAppointmentMoveStartEventArgs(_154);
+1294this.raiseEvent("appointmentMoveStart",_156);
+1295if(_156.get_cancel()){
+1296return;
+1297}
+1298this._draggingAppointment=_154;
+1299this._dragging=true;
+1300var _157=this._draggingAppointment.get_element();
+1301var _158=$telerik.getLocation(_157);
+1302if($telerik.isFirefox||$telerik.isSafari){
+1303var _159=$telerik.getScrollOffset(_157,true);
+1304_158.x-=_159.x;
+1305_158.y-=_159.y;
+1306if($telerik.isFirefox){
+1307_158.x+=document.body.parentNode.scrollLeft;
+1308_158.y+=document.body.parentNode.scrollTop;
+1309}else{
+1310_158.x+=document.body.scrollLeft;
+1311_158.y+=document.body.scrollTop;
+1312}
+1313}
+1314var _15a=$telerik.getLocation(_155);
+1315var _15b=e.clientY-_158.y;
+1316var _15c=e.clientY-_15a.y;
+1317this._draggingOffset=_15b-_15c;
+1318if($telerik.isFirefox&&document.compatMode=="BackCompat"){
+1319this._draggingOffset=0;
+1320}
+1321if(this.get_selectedView()==Telerik.Web.UI.SchedulerViewType.MonthView||this.get_selectedView()==Telerik.Web.UI.SchedulerViewType.TimelineView){
+1322this._draggingOffset=0;
+1323}
+1324_154._startDrag();
+1325},_endDrag:function(e){
+1326this._finishDrag(e,false);
+1327},_onDocMouseUp:function(e){
+1328this._finishDrag(e,false);
+1329},_abortDrag:function(e){
+1330this._finishDrag(e,true);
+1331},_finishDrag:function(e,_161){
+1332if(this._dragHandlersAttached){
+1333$removeHandler(document,"selectstart",this._onSelectStartDelegate);
+1334$removeHandler(document,"mouseup",this._onDocMouseUpDelegate);
+1335$removeHandler(document,"mousemove",this._onDocumentMouseMoveDelegate);
+1336this._dragHandlersAttached=false;
+1337}
+1338if(this._dragging){
+1339var _162=this._draggingAppointment.get_element();
+1340if(!_161&&_162.parentNode&&_162.parentNode.parentNode){
+1341var _163=_162.parentNode.parentNode;
+1342this._draggingAppointment._endDrag(_163);
+1343}else{
+1344this._draggingAppointment._abortDrag();
+1345}
+1346this._draggingAppointment=null;
+1347this._dragging=false;
+1348Sys.UI.DomElement.removeCssClass(_162.parentNode,this._styles.dragTarget);
+1349e.preventDefault();
+1350e.stopPropagation();
+1351}
+1352},_onAppointmentDoubleClick:function(e){
+1353if(this._resizingState.resizing){
+1354this._resizingState.resizing=false;
+1355e.stopPropagation();
+1356return;
+1357}
+1358this._clearSelection();
+1359var _165=this.getAppointmentFromDomElement(e.eventMapTarget);
+1360var _166=new Telerik.Web.UI.SchedulerAppointmentDoubleClickEventArgs(_165);
+1361this.raise_appointmentDoubleClick(_166);
+1362this._editAppointmentInline(_165);
+1363e.stopPropagation();
+1364},_editAppointmentInline:function(_167){
+1365if(this.get_readOnly()){
+1366return;
+1367}
+1368if(_167){
+1369var _168=(_167.get_allowEdit()!=null)?_167.get_allowEdit():this.get_allowEdit();
+1370if(!_168){
+1371return;
+1372}
+1373var args={OnConfirm:this._onAppointmentEditCallback,Scheduler:this,Appointment:_167,CallbackIsCalledFromDialog:true};
+1374if(_167._recurrenceState==1||_167._recurrenceState==2||_167._recurrenceState==3){
+1375var _16a=new Telerik.Web.UI.SchedulerRecurrenceActionDialogShowingEventArgs(args.Appointment,Telerik.Web.UI.RecurrenceAction.Edit);
+1376this.raise_recurrenceActionDialogShowing(_16a);
+1377if(_16a.get_cancel()){
+1378var _16b=_16a.get_editSeries();
+1379if(_16b!==null){
+1380args.CallbackIsCalledFromDialog=false;
+1381this._onAppointmentEditCallback(_16b,args);
+1382}
+1383}else{
+1384this._recurrenceActionDialog.ConfirmRecurrenceAction(Telerik.Web.UI.RecurrenceAction.Edit,args);
+1385}
+1386}else{
+1387args.CallbackIsCalledFromDialog=false;
+1388this._onAppointmentEditCallback(false,args);
+1389}
+1390}
+1391},_onAppointmentEditCallback:function(_16c,args){
+1392if(args.CallbackIsCalledFromDialog){
+1393var _16e=new Telerik.Web.UI.SchedulerRecurrenceActionDialogClosedEventArgs(args.Appointment,Telerik.Web.UI.RecurrenceAction.Edit,_16c);
+1394args.Scheduler.raise_recurrenceActionDialogClosed(_16e);
+1395}
+1396if(!this._editing){
+1397var _16f=new Telerik.Web.UI.SchedulerAppointmentEditingEventArgs(args.Appointment,_16c);
+1398args.Scheduler.raise_appointmentEditing(_16f);
+1399if(_16f.get_cancel()==false){
+1400this._editing=true;
+1401var _170={Command:"Edit",AppointmentID:args.Appointment._internalID,EditSeries:_16c};
+1402args.Scheduler.postback(_170);
+1403}
+1404}
+1405},_clearSelection:function(){
+1406if(document.selection&&document.selection.empty){
+1407document.selection.empty();
+1408}else{
+1409if(window.getSelection&&window.getSelection().removeAllRanges){
+1410window.getSelection().removeAllRanges();
+1411}
+1412}
+1413},_onShowMoreClick:function(e){
+1414var slot=this._activeModel.getTimeSlotFromDomElement(e.eventMapTarget);
+1415var _173={Command:"SwitchToSelectedDay",SourceSlotIndex:slot.get_index()};
+1416this.postback(_173);
+1417},_onAppointmentMouseOver:function(e){
+1418if(this._resizingState.resizing||this._dragging){
+1419e.stopPropagation();
+1420return;
+1421}
+1422var _175=this.getAppointmentDomElement(e.eventMapTarget);
+1423var _176=this.getAppointmentFromDomElement(_175);
+1424var _177=(_176.get_allowDelete()!=null)?_176.get_allowDelete():this.get_allowDelete();
+1425if(!_177){
+1426return;
+1427}
+1428this._hoveredAppointmentElement=_175;
+1429var _178=$telerik.getElementByClassName(_175,"rsAptDelete","a");
+1430if(_178){
+1431_178.style.visibility="visible";
+1432}
+1433},_onAppointmentMouseOut:function(e){
+1434var _17a=e.rawEvent.relatedTarget?e.rawEvent.relatedTarget:e.rawEvent.toElement;
+1435if(!_17a||$telerik.isDescendant(this._hoveredAppointmentElement,_17a)){
+1436return;
+1437}else{
+1438var _17b=this.getAppointmentDomElement(e.eventMapTarget);
+1439var _17c=$telerik.getElementByClassName(_17b,"rsAptDelete","a");
+1440if(_17c){
+1441_17c.style.visibility="hidden";
+1442}
+1443}
+1444},_getCellCoordinates:function(_17d){
+1445while(_17d&&(_17d.tagName.toLowerCase()!="td")){
+1446_17d=_17d.parentNode;
+1447}
+1448if(_17d){
+1449var _17e=_17d.cellIndex;
+1450var _17f=_17d.parentNode.rowIndex;
+1451return {cellIndex:_17e,rowIndex:_17f};
+1452}
+1453return -1;
+1454},_getCellTimeFromDomElement:function(_180){
+1455var _181=new Date(this.get_firstDayStart().getTime());
+1456var _182=this._getCellCoordinates(_180);
+1457if(this.get_selectedView()==Telerik.Web.UI.SchedulerViewType.MonthView){
+1458var _183=24*7*_182.rowIndex;
+1459var _184=24*_182.cellIndex;
+1460Telerik.Web.UI.RadScheduler._incrementTime(_181,_183+_184);
+1461}else{
+1462if(this.get_selectedView()==Telerik.Web.UI.SchedulerViewType.ResourceView){
+1463var _185=_182.rowIndex*this.get_minutesPerRow();
+1464Telerik.Web.UI.RadScheduler._incrementTime(_181,0,_185);
+1465}else{
+1466var _185=_182.rowIndex*this.get_minutesPerRow();
+1467Telerik.Web.UI.RadScheduler._incrementTime(_181,24*_182.cellIndex,_185);
+1468}
+1469}
+1470return _181;
+1471},_onCellClick:function(e){
+1472var slot=this._activeModel.getTimeSlotFromDomElement(e.eventMapTarget);
+1473var _188=new Telerik.Web.UI.SchedulerTimeSlotClickEventArgs(slot.get_startTime(),slot);
+1474this.raise_timeSlotClick(_188);
+1475},_onCellContextMenu:function(e){
+1476var slot=this._activeModel.getTimeSlotFromDomElement(e.eventMapTarget);
+1477var _18b=new Telerik.Web.UI.SchedulerTimeSlotContextMenuEventArgs(slot.get_startTime(),slot.get_isAllDay(),e,slot);
+1478this.raise_timeSlotContextMenu(_18b);
+1479},_onCellDoubleClick:function(e){
+1480if(!this.get_readOnly()&&this.get_allowInsert()){
+1481var slot=this._activeModel.getTimeSlotFromDomElement(e.eventMapTarget);
+1482var _18e=new Telerik.Web.UI.SchedulerAppointmentInsertingEventArgs(slot.get_startTime(),slot.get_isAllDay(),slot);
+1483this.raise_appointmentInserting(_18e);
+1484if(_18e.get_cancel()==false){
+1485var _18f={Command:"Insert",AppointmentID:-1,TargetSlotIndex:slot.get_index()};
+1486this.postback(_18f);
+1487}
+1488}
+1489e.stopPropagation();
+1490},_onAppointmentDeleteClick:function(e){
+1491if(!this.get_readOnly()){
+1492var _191=this.getAppointmentFromDomElement(e.eventMapTarget);
+1493if(_191){
+1494var args={OnConfirm:this._onAppointmentDeleteCallback,Scheduler:this,Appointment:_191,CallbackIsCalledFromDialog:true};
+1495if(_191._recurrenceState==1||_191._recurrenceState==2||_191._recurrenceState==3){
+1496var _193=new Telerik.Web.UI.SchedulerRecurrenceActionDialogShowingEventArgs(args.Appointment,Telerik.Web.UI.RecurrenceAction.Delete);
+1497this.raise_recurrenceActionDialogShowing(_193);
+1498if(_193.get_cancel()){
+1499var _194=_193.get_editSeries();
+1500if(_194!==null){
+1501args.CallbackIsCalledFromDialog=false;
+1502this._onAppointmentDeleteCallback(_194,args);
+1503}
+1504}else{
+1505this._recurrenceActionDialog.ConfirmRecurrenceAction(Telerik.Web.UI.RecurrenceAction.Delete,args);
+1506}
+1507}else{
+1508if(this.get_displayDeleteConfirmation()){
+1509this._recurrenceActionDialog.ConfirmDelete(args);
+1510}else{
+1511args.CallbackIsCalledFromDialog=false;
+1512this._onAppointmentDeleteCallback(false,args);
+1513}
+1514}
+1515}
+1516}
+1517e.stopPropagation();
+1518e.preventDefault();
+1519},_onAppointmentDeleteCallback:function(_195,args){
+1520if(args.CallbackIsCalledFromDialog){
+1521var _197=new Telerik.Web.UI.SchedulerRecurrenceActionDialogClosedEventArgs(args.Appointment,Telerik.Web.UI.RecurrenceAction.Delete,_195);
+1522args.Scheduler.raise_recurrenceActionDialogClosed(_197);
+1523}
+1524var _198=new Telerik.Web.UI.SchedulerAppointmentDeletingEventArgs(args.Appointment,_195);
+1525args.Scheduler.raise_appointmentDeleting(_198);
+1526if(_198.get_cancel()==false){
+1527var _199={Command:"Delete",AppointmentID:args.Appointment._internalID,EditSeries:_195};
+1528args.Scheduler.postback(_199);
+1529}
+1530},_onPreviousDayClick:function(e){
+1531var _19b=this.getAppointmentFromDomElement(e.eventMapTarget);
+1532if(_19b){
+1533var _19c={Command:"GoToPrevious",AppointmentID:_19b._internalID};
+1534this.postback(_19c);
+1535}
+1536e.stopPropagation();
+1537e.preventDefault();
+1538},_onNextDayClick:function(e){
+1539var _19e=this.getAppointmentFromDomElement(e.eventMapTarget);
+1540if(_19e){
+1541var _19f={Command:"GoToNext",AppointmentID:_19e._internalID};
+1542this.postback(_19f);
+1543}
+1544e.stopPropagation();
+1545e.preventDefault();
+1546},_onDayViewTabClick:function(e){
+1547var _1a1={Command:"SwitchToDayView"};
+1548this.postback(_1a1);
+1549e.stopPropagation();
+1550e.preventDefault();
+1551},_onWeekViewTabClick:function(e){
+1552var _1a3={Command:"SwitchToWeekView"};
+1553this.postback(_1a3);
+1554e.stopPropagation();
+1555e.preventDefault();
+1556},_onMonthViewTabClick:function(e){
+1557var _1a5={Command:"SwitchToMonthView"};
+1558this.postback(_1a5);
+1559e.stopPropagation();
+1560e.preventDefault();
+1561},_onTimelineViewTabClick:function(e){
+1562var _1a7={Command:"SwitchToTimelineView"};
+1563this.postback(_1a7);
+1564e.stopPropagation();
+1565e.preventDefault();
+1566},_onMultiDayViewTabClick:function(e){
+1567var _1a9={Command:"SwitchToMultiDayView"};
+1568this.postback(_1a9);
+1569e.stopPropagation();
+1570e.preventDefault();
+1571},_onPreviousSchedulerDayClick:function(e){
+1572var _1ab={Command:"NavigateToPreviousPeriod"};
+1573this.postback(_1ab);
+1574e.stopPropagation();
+1575e.preventDefault();
+1576},_onNextSchedulerDayClick:function(e){
+1577var _1ad={Command:"NavigateToNextPeriod"};
+1578this.postback(_1ad);
+1579e.stopPropagation();
+1580e.preventDefault();
+1581},_onTodayClick:function(e){
+1582var _1af={Command:"GoToToday"};
+1583this.postback(_1af);
+1584e.stopPropagation();
+1585e.preventDefault();
+1586},_onFullTimeLinkClick:function(e){
+1587var _1b1={Command:"SwitchFullTime"};
+1588this.postback(_1b1);
+1589e.stopPropagation();
+1590e.preventDefault();
+1591},postback:function(args){
+1592this._updateScrollTop();
+1593var _1b3=$telerik.getElementByClassName(this.get_element(),"rsContent","div");
+1594var _1b4=this.get_postBackReference().replace("arguments",Sys.Serialization.JavaScriptSerializer.serialize(args));
+1595eval(_1b4);
+1596},_getElementIndex:function(_1b5,_1b6){
+1597if(!_1b5){
+1598return;
+1599}
+1600for(var i=0;i<_1b5.length;i++){
+1601if(_1b5[i]===_1b6){
+1602return i;
+1603}
+1604}
+1605return -1;
+1606},add_appointmentClick:function(_1b8){
+1607this.get_events().addHandler("AppointmentClick",_1b8);
+1608},remove_appointmentClick:function(_1b9){
+1609this.get_events().removeHandler("AppointmentClick",_1b9);
+1610},raise_appointmentClick:function(args){
+1611this.raiseEvent("AppointmentClick",args);
+1612},add_appointmentInserting:function(_1bb){
+1613this.get_events().addHandler("AppointmentInserting",_1bb);
+1614},remove_appointmentInserting:function(_1bc){
+1615this.get_events().removeHandler("AppointmentInserting",_1bc);
+1616},raise_appointmentInserting:function(_1bd){
+1617this.raiseEvent("AppointmentInserting",_1bd);
+1618},add_appointmentDoubleClick:function(_1be){
+1619this.get_events().addHandler("AppointmentDoubleClick",_1be);
+1620},remove_appointmentDoubleClick:function(_1bf){
+1621this.get_events().removeHandler("AppointmentDoubleClick",_1bf);
+1622},raise_appointmentDoubleClick:function(_1c0){
+1623this.raiseEvent("AppointmentDoubleClick",_1c0);
+1624},add_appointmentResizeStart:function(_1c1){
+1625this.get_events().addHandler("AppointmentResizeStart",_1c1);
+1626},remove_appointmentResizeStart:function(_1c2){
+1627this.get_events().removeHandler("AppointmentResizeStart",_1c2);
+1628},raise_appointmentResizeStart:function(args){
+1629this.raiseEvent("AppointmentResizeStart",args);
+1630},add_appointmentResizeEnd:function(_1c4){
+1631this.get_events().addHandler("AppointmentResizeEnd",_1c4);
+1632},remove_appointmentResizeEnd:function(_1c5){
+1633this.get_events().removeHandler("AppointmentResizeEnd",_1c5);
+1634},raise_appointmentResizeEnd:function(args){
+1635this.raiseEvent("AppointmentResizeEnd",args);
+1636},add_appointmentResizing:function(_1c7){
+1637this.get_events().addHandler("AppointmentResizing",_1c7);
+1638},remove_appointmentResizing:function(_1c8){
+1639this.get_events().removeHandler("AppointmentResizing",_1c8);
+1640},raise_appointmentResizing:function(args){
+1641this.raiseEvent("AppointmentResizing",args);
+1642},add_appointmentDeleting:function(_1ca){
+1643this.get_events().addHandler("AppointmentDeleting",_1ca);
+1644},remove_appointmentDeleting:function(_1cb){
+1645this.get_events().removeHandler("AppointmentDeleting",_1cb);
+1646},raise_appointmentDeleting:function(args){
+1647this.raiseEvent("AppointmentDeleting",args);
+1648},add_timeSlotClick:function(_1cd){
+1649this.get_events().addHandler("TimeSlotClick",_1cd);
+1650},remove_timeSlotClick:function(_1ce){
+1651this.get_events().removeHandler("TimeSlotClick",_1ce);
+1652},raise_timeSlotClick:function(args){
+1653this.raiseEvent("TimeSlotClick",args);
+1654},add_appointmentEditing:function(_1d0){
+1655this.get_events().addHandler("AppointmentEditing",_1d0);
+1656},remove_appointmentEditing:function(_1d1){
+1657this.get_events().removeHandler("AppointmentEditing",_1d1);
+1658},raise_appointmentEditing:function(args){
+1659this.raiseEvent("AppointmentEditing",args);
+1660},add_appointmentMoveStart:function(_1d3){
+1661this.get_events().addHandler("appointmentMoveStart",_1d3);
+1662},remove_appointmentMoveStart:function(_1d4){
+1663this.get_events().removeHandler("appointmentMoveStart",_1d4);
+1664},add_appointmentMoving:function(_1d5){
+1665this.get_events().addHandler("appointmentMoving",_1d5);
+1666},remove_appointmentMoving:function(_1d6){
+1667this.get_events().removeHandler("appointmentMoving",_1d6);
+1668},add_appointmentMoveEnd:function(_1d7){
+1669this.get_events().addHandler("appointmentMoveEnd",_1d7);
+1670},remove_appointmentMoveEnd:function(_1d8){
+1671this.get_events().removeHandler("appointmentMoveEnd",_1d8);
+1672},add_recurrenceActionDialogShowing:function(_1d9){
+1673this.get_events().addHandler("RecurrenceActionDialogShowing",_1d9);
+1674},remove_recurrenceActionDialogShowing:function(_1da){
+1675this.get_events().removeHandler("RecurrenceActionDialogShowing",_1da);
+1676},raise_recurrenceActionDialogShowing:function(args){
+1677this.raiseEvent("RecurrenceActionDialogShowing",args);
+1678},add_recurrenceActionDialogClosed:function(_1dc){
+1679this.get_events().addHandler("RecurrenceActionDialogClosed",_1dc);
+1680},remove_recurrenceActionDialogClosed:function(_1dd){
+1681this.get_events().removeHandler("RecurrenceActionDialogClosed",_1dd);
+1682},raise_recurrenceActionDialogClosed:function(args){
+1683this.raiseEvent("RecurrenceActionDialogClosed",args);
+1684},add_formCreated:function(_1df){
+1685this.get_events().addHandler("FormCreated",_1df);
+1686},remove_formCreated:function(_1e0){
+1687this.get_events().removeHandler("FormCreated",_1e0);
+1688},raise_formCreated:function(args){
+1689this.raiseEvent("FormCreated",args);
+1690},add_appointmentContextMenu:function(_1e2){
+1691this.get_events().addHandler("AppointmentContextMenu",_1e2);
+1692},remove_appointmentContextMenu:function(_1e3){
+1693this.get_events().removeHandler("AppointmentContextMenu",_1e3);
+1694},raise_appointmentContextMenu:function(args){
+1695this.raiseEvent("AppointmentContextMenu",args);
+1696},add_timeSlotContextMenu:function(_1e5){
+1697this.get_events().addHandler("TimeSlotContextMenu",_1e5);
+1698},remove_timeSlotContextMenu:function(_1e6){
+1699this.get_events().removeHandler("TimeSlotContextMenu",_1e6);
+1700},raise_timeSlotContextMenu:function(args){
+1701this.raiseEvent("TimeSlotContextMenu",args);
+1702}};
+1703Telerik.Web.UI.RadScheduler.registerClass("Telerik.Web.UI.RadScheduler",Telerik.Web.UI.RadWebControl);
+1704Type.registerNamespace("Telerik.Web.UI");
+1705Telerik.Web.UI.RecurrenceAction=function(){
+1706};
+1707Telerik.Web.UI.RecurrenceAction.prototype={Edit:1,Delete:2,Resize:3,Move:4};
+1708Telerik.Web.UI.RecurrenceAction.registerEnum("Telerik.Web.UI.RecurrenceAction");
+1709Telerik.Web.UI.RecurrenceActionDialog=function(_1e8){
+1710this._schedulerDomElement=_1e8.get_element();
+1711this._scheduler=_1e8;
+1712this._recurrenceDialogWrapper=null;
+1713this._args=null;
+1714this._btnOk=null;
+1715this._btnCancel=null;
+1716};
+1717Telerik.Web.UI.RecurrenceActionDialog.CreateRadioButton=function(id,name,_1eb,_1ec){
+1718var _1ed;
+1719if($telerik.isIE){
+1720var html="<input type=\"radio\" ";
+1721html+="id=\""+id+"\" ";
+1722html+="name=\""+name+"\" ";
+1723html+="value=\""+_1eb+"\" ";
+1724if(_1ec){
+1725html+="checked ";
+1726}
+1727html+="/>";
+1728_1ed=document.createElement(html);
+1729}else{
+1730_1ed=document.createElement("input");
+1731_1ed.id=id;
+1732_1ed.type="radio";
+1733_1ed.name=name;
+1734_1ed.value=_1eb;
+1735_1ed.checked=_1ec;
+1736}
+1737return _1ed;
+1738};
+1739Telerik.Web.UI.RecurrenceActionDialog.prototype={ConfirmRecurrenceAction:function(_1ef,args){
+1740localization=this._scheduler.get_localization();
+1741var _1f1;
+1742var _1f2;
+1743var _1f3;
+1744switch(_1ef){
+1745case Telerik.Web.UI.RecurrenceAction.Edit:
+1746_1f1=localization.ConfirmRecurrenceEditTitle;
+1747_1f2=localization.ConfirmRecurrenceEditOccurrence;
+1748_1f3=localization.ConfirmRecurrenceEditSeries;
+1749break;
+1750case Telerik.Web.UI.RecurrenceAction.Resize:
+1751_1f1=localization.ConfirmRecurrenceResizeTitle;
+1752_1f2=localization.ConfirmRecurrenceResizeOccurrence;
+1753_1f3=localization.ConfirmRecurrenceResizeSeries;
+1754break;
+1755case Telerik.Web.UI.RecurrenceAction.Delete:
+1756_1f1=localization.ConfirmRecurrenceDeleteTitle;
+1757_1f2=localization.ConfirmRecurrenceDeleteOccurrence;
+1758_1f3=localization.ConfirmRecurrenceDeleteSeries;
+1759break;
+1760case Telerik.Web.UI.RecurrenceAction.Move:
+1761_1f1=localization.ConfirmRecurrenceMoveTitle;
+1762_1f2=localization.ConfirmRecurrenceMoveOccurrence;
+1763_1f3=localization.ConfirmRecurrenceMoveSeries;
+1764break;
+1765}
+1766var d=document;
+1767this._args=args;
+1768var _1f5=this._createDialog(_1f1);
+1769if(!_1f5){
+1770return;
+1771}
+1772var _1f6=_1f5.appendChild(d.createElement("div"));
+1773var _1f7=_1f6.appendChild(Telerik.Web.UI.RecurrenceActionDialog.CreateRadioButton("choiceOccurrenceSpan_0","choiceOccurrenceSpan","OpenOccurrence",true));
+1774var _1f8=_1f6.appendChild(d.createElement("label"));
+1775_1f8.htmlFor=_1f7.id;
+1776_1f8.appendChild(d.createTextNode(_1f2));
+1777var _1f9=_1f5.appendChild(d.createElement("div"));
+1778var _1fa=_1f9.appendChild(Telerik.Web.UI.RecurrenceActionDialog.CreateRadioButton("choiceOccurrenceSpan_1","choiceOccurrenceSpan","OpenSeries",false));
+1779this._editSeriesRadio=_1fa;
+1780var _1fb=_1f9.appendChild(d.createElement("label"));
+1781_1fb.htmlFor=_1fa.id;
+1782_1fb.appendChild(d.createTextNode(_1f3));
+1783this._createButtons(_1f5,this._confirmRecurrenceActionOkClick,this._removeConfirmAction);
+1784},_confirmRecurrenceActionOkClick:function(e){
+1785var _1fd=this._editSeriesRadio.checked;
+1786this._removeConfirmAction(e);
+1787this._args.OnConfirm(_1fd,this._args);
+1788e.preventDefault();
+1789e.stopPropagation();
+1790},ConfirmDelete:function(args){
+1791localization=this._scheduler.get_localization();
+1792var _1ff=localization.ConfirmDeleteTitle;
+1793var _200=localization.ConfirmDeleteText;
+1794var d=document;
+1795this._args=args;
+1796var _202=this._createDialog(_1ff);
+1797if(!_202){
+1798return;
+1799}
+1800var h2=_202.appendChild(d.createElement("h2"));
+1801h2.appendChild(d.createTextNode(_200));
+1802this._createButtons(_202,this._confirmDeleteOkClick,this._removeConfirmAction);
+1803},_confirmDeleteOkClick:function(e){
+1804var _205=false;
+1805this._removeConfirmAction(e);
+1806this._args.OnConfirm(_205,this._args);
+1807e.preventDefault();
+1808e.stopPropagation();
+1809},_removeConfirmAction:function(e){
+1810this.dispose();
+1811if(this._args.OnAbort){
+1812this._args.OnAbort(this._args);
+1813}
+1814e.preventDefault();
+1815e.stopPropagation();
+1816},_createDialog:function(_207){
+1817var d=document;
+1818if($telerik.getElementByClassName(this._schedulerDomElement,"rsModalContainer","div")){
+1819return;
+1820}
+1821this._recurrenceDialogWrapper=d.createElement("div");
+1822this._recurrenceDialogWrapper.style.position="relative";
+1823this._recurrenceDialogWrapper.style.width="100%";
+1824this._recurrenceDialogWrapper.style.zIndex=10000;
+1825this._schedulerDomElement.insertBefore(this._recurrenceDialogWrapper,this._schedulerDomElement.childNodes[0]);
+1826var _209=this._recurrenceDialogWrapper.appendChild(d.createElement("div"));
+1827_209.className="rsModalContainer";
+1828_209.onselectstart=function(){
+1829return false;
+1830};
+1831_209.style.height=this._schedulerDomElement.offsetHeight+"px";
+1832$telerik.setOpacity(_209,0.4);
+1833var _20a=this._recurrenceDialogWrapper.appendChild(d.createElement("div"));
+1834_20a.className="rsConfirmation";
+1835_20a.style.top=(this._schedulerDomElement.offsetHeight-_20a.offsetHeight)/2+"px";
+1836_20a.style.left=(this._schedulerDomElement.offsetWidth-_20a.offsetWidth)/2+"px";
+1837_20a.style.display="block";
+1838var h1=_20a.appendChild(d.createElement("h1"));
+1839h1.appendChild(d.createTextNode(_207));
+1840return _20a;
+1841},_createButtons:function(_20c,_20d,_20e){
+1842localization=this._scheduler.get_localization();
+1843var OK=localization.ConfirmOK;
+1844var _210=localization.ConfirmCancel;
+1845var d=document;
+1846var _212=_20c.appendChild(d.createElement("div"));
+1847_212.className="rsButtonContainer";
+1848this._btnOk=_212.appendChild(d.createElement("a"));
+1849this._btnOk.className="rsDialogButton";
+1850this._btnOk.appendChild(d.createTextNode(OK));
+1851this._btnOk.href="#";
+1852this._btnOk.focus();
+1853$addHandlers(this._btnOk,{"click":_20d},this);
+1854this._btnCancel=_212.appendChild(d.createElement("a"));
+1855this._btnCancel.className="rsDialogButton";
+1856this._btnCancel.appendChild(d.createTextNode(_210));
+1857this._btnCancel.href="#";
+1858$addHandlers(this._btnCancel,{"click":_20e},this);
+1859},dispose:function(){
+1860if(this._btnOk){
+1861$clearHandlers(this._btnOk);
+1862}
+1863if(this._btnCancel){
+1864$clearHandlers(this._btnCancel);
+1865}
+1866if(this._recurrenceDialogWrapper&&this._recurrenceDialogWrapper.parentNode){
+1867this._recurrenceDialogWrapper.parentNode.removeChild(this._recurrenceDialogWrapper);
+1868}
+1869}};
+1870Telerik.Web.UI.RecurrenceActionDialog.registerClass("Telerik.Web.UI.RecurrenceActionDialog",null,Sys.IDisposable);
+1871Type.registerNamespace("Telerik.Web.UI");
+1872Telerik.Web.UI.SchedulerResource=function(_213){
+1873this._key=_213.key;
+1874this._type=_213.type;
+1875this._text=_213.text;
+1876this._internalKey=_213.internalKey;
+1877this._available=_213.available;
+1878this._attributes=new Telerik.Web.UI.SchedulerAttributeCollection(this);
+1879if(typeof (_213.attributes)!="undefined"){
+1880this._attributes._load(_213.attributes);
+1881}
+1882};
+1883Telerik.Web.UI.SchedulerResource.prototype={get_key:function(){
+1884return this._key;
+1885},get_type:function(){
+1886return this._type;
+1887},get_text:function(){
+1888return this._text;
+1889},get_available:function(){
+1890return this._available;
+1891},_getInternalKey:function(){
+1892return this._internalKey;
+1893},get_attributes:function(){
+1894return this._attributes;
+1895}};
+1896Telerik.Web.UI.SchedulerResource.registerClass("Telerik.Web.UI.SchedulerResource");
+1897Type.registerNamespace("Telerik.Web.UI");
+1898Telerik.Web.UI.SchedulerResourceCollection=function(){
+1899this._array=new Array();
+1900};
+1901Telerik.Web.UI.SchedulerResourceCollection.prototype={add:function(item){
+1902var _215=this._array.length;
+1903this.insert(_215,item);
+1904},insert:function(_216,item){
+1905Array.insert(this._array,_216,item);
+1906},remove:function(item){
+1907Array.remove(this._array,item);
+1908},removeAt:function(_219){
+1909var item=this.getAppointment(_219);
+1910if(item){
+1911this.remove(item);
+1912}
+1913},clear:function(){
+1914this._array=new Array();
+1915},get_count:function(){
+1916return this._array.length;
+1917},forEach:function(_21b){
+1918for(var i=0,_21d=this.get_count();i<_21d;i++){
+1919_21b(this.getResource(i));
+1920}
+1921},getResource:function(_21e){
+1922return this._array[_21e];
+1923},getResourcesByType:function(type){
+1924var _220=new Telerik.Web.UI.SchedulerResourceCollection();
+1925this.forEach(function(_221){
+1926if(_221.get_type()==type){
+1927_220.add(_221);
+1928}
+1929});
+1930return _220;
+1931}};
+1932Telerik.Web.UI.SchedulerResourceCollection.registerClass("Telerik.Web.UI.SchedulerResourceCollection");
+1933Type.registerNamespace("Telerik.Web.UI");
+1934Telerik.Web.UI.SchedulerAttributeCollection=function(){
+1935this._data={};
+1936this._keys=[];
+1937};
+1938Telerik.Web.UI.SchedulerAttributeCollection.prototype={getAttribute:function(key){
+1939return this._data[key];
+1940},setAttribute:function(key,_224){
+1941this._add(key,_224);
+1942var _225={};
+1943_225[key]=_224;
+1944},_add:function(key,_227){
+1945if(Array.indexOf(this._keys,key)<0){
+1946Array.add(this._keys,key);
+1947}
+1948this._data[key]=_227;
+1949},removeAttribute:function(key){
+1950Array.remove(this._keys,key);
+1951delete this._data[key];
+1952},_load:function(json){
+1953for(var key in json){
+1954this._add(key,json[key]);
+1955}
+1956},get_count:function(){
+1957return this._keys.length;
+1958}};
+1959Telerik.Web.UI.SchedulerAttributeCollection.registerClass("Telerik.Web.UI.SchedulerAttributeCollection");
+1960Type.registerNamespace("Telerik.Web.UI");
+1961Telerik.Web.UI.ISchedulerModel=function(){
+1962};
+1963Telerik.Web.UI.ISchedulerModel.prototype={getTimeSlotFromDomElement:function(_22b){
+1964throw Error.notImplemented();
+1965}};
+1966Telerik.Web.UI.ISchedulerModel.registerInterface("Telerik.Web.UI.ISchedulerModel");
+1967Telerik.Web.UI.ISchedulerTimeSlot=function(){
+1968};
+1969Telerik.Web.UI.ISchedulerTimeSlot.prototype={get_index:function(){
+1970throw Error.notImplemented();
+1971},get_isAllDay:function(){
+1972throw Error.notImplemented();
+1973},get_startTime:function(){
+1974throw Error.notImplemented();
+1975}};
+1976Telerik.Web.UI.ISchedulerTimeSlot.registerInterface("Telerik.Web.UI.ISchedulerTimeSlot");
+1977
+1978
+1979if(typeof(Sys)!=='undefined')Sys.Application.notifyScriptLoaded();
+POST http://localhost:60859/HippoHappenings/ajax/UserCalendar,App_Web_usercalendar.aspx.cdcab7d2.v2enbymt.ashx?_method=DeleteUserEvent&_session=rw (1044ms)common.ashx (line 65)
+_176 has no properties
+[Break on this error] var _177=(_176.get_allowDelete()!=null)?_176.get_allowDelete():this.get_allowDel...
+ScriptResource.ax... (line 1424)
+_176 has no properties
+[Break on this error] var _177=(_176.get_allowDelete()!=null)?_176.get_allowDelete():this.get_allowDel...
+ScriptResource.ax... (line 1424)
+_176 has no properties
+[Break on this error] var _177=(_176.get_allowDelete()!=null)?_176.get_allowDelete():this.get_allowDel...
+ScriptResource.ax... (line 1424)
+_176 has no properties
+[Break on this error] var _177=(_176.get_allowDelete()!=null)?_176.get_allowDelete():this.get_allowDel...
+ScriptResource.ax... (line 1424)
+_176 has no properties
+[Break on this error] var _177=(_176.get_allowDelete()!=null)?_176.get_allowDelete():this.get_allowDel...
+ScriptResource.ax... (line 1424)
+_151 has no properties
+[Break on this error] var _152=(_151.get_allowEdit()!=null)?_151.get_allowEdit():this.get_allowEdit();
+ScriptResource.ax... (line 1277)
+_176 has no properties
+[Break on this error] var _177=(_176.get_allowDelete()!=null)?_176.get_allowDelete():this.get_allowDel...
+ScriptResource.ax... (line 1424)
+_176 has no properties
+[Break on this error] var _177=(_176.get_allowDelete()!=null)?_176.get_allowDelete():this.get_allowDel...
+ScriptResource.ax... (line 1424)
+_176 has no properties
+[Break on this error] var _177=(_176.get_allowDelete()!=null)?_176.get_allowDelete():this.get_allowDel...
+ScriptResource.ax... (line 1424)
+_176 has no properties
+[Break on this error] var _177=(_176.get_allowDelete()!=null)?_176.get_allowDelete():this.get_allowDel...
+ScriptResource.ax... (line 1424)
+_176 has no properties
+[Break on this error] var _177=(_176.get_allowDelete()!=null)?_176.get_allowDelete():this.get_allowDel...
+ScriptResource.ax... (line 1424)
+_176 has no properties
+[Break on this error] var _177=(_176.get_allowDelete()!=null)?_176.get_allowDelete():this.get_allowDel...
+ScriptResource.ax... (line 1424)
+_176 has no properties
+[Break on this error] var _177=(_176.get_allowDelete()!=null)?_176.get_allowDelete():this.get_allowDel...
+ScriptResource.ax... (line 1424)
+_176 has no properties
+[Break on this error] var _177=(_176.get_allowDelete()!=null)?_176.get_allowDelete():this.get_allowDel...
+ScriptResource.ax... (line 1424)
+_151 has no properties
+[Break on this error] var _152=(_151.get_allowEdit()!=null)?_151.get_allowEdit():this.get_allowEdit();
+ScriptResource.ax... (line 1277)
+_db has no properties
+[Break on this error] if(_db._selected){
+ScriptResource.ax... (line 881)
+_151 has no properties
+[Break on this error] var _152=(_151.get_allowEdit()!=null)?_151.get_allowEdit():this.get_allowEdit();
+ScriptResource.ax... (line 1277)
+_db has no properties
+[Break on this error] if(_db._selected){
+ScriptResource.ax... (line 881)
+_176 has no properties
+[Break on this error] var _177=(_176.get_allowDelete()!=null)?_176.get_allowDelete():this.get_allowDel...
+ScriptResource.ax... (line 1424)
+_176 has no properties
+[Break on this error] var _177=(_176.get_allowDelete()!=null)?_176.get_allowDelete():this.get_allowDel...
+ScriptResource.ax... (line 1424)
+_176 has no properties
+[Break on this error] var _177=(_176.get_allowDelete()!=null)?_176.get_allowDelete():this.get_allowDel...
+ScriptResource.ax... (line 1424)
+_176 has no properties
+[Break on this error] var _177=(_176.get_allowDelete()!=null)?_176.get_allowDelete():this.get_allowDel...
+ScriptResource.ax... (line 1424)
+_176 has no properties
+[Break on this error] var _177=(_176.get_allowDelete()!=null)?_176.get_allowDelete():this.get_allowDel...
+ScriptResource.ax... (line 1424)
+_176 has no properties
+[Break on this error] var _177=(_176.get_allowDelete()!=null)?_176.get_allowDelete():this.get_allowDel...
+ScriptResource.ax... (line 1424)
+_176 has no properties
+[Break on this error] var _177=(_176.get_allowDelete()!=null)?_176.get_allowDelete():this.get_allowDel...
+ScriptResource.ax... (line 1424)
+_176 has no properties
+[Break on this error] var _177=(_176.get_allowDelete()!=null)?_176.get_allowDelete():this.get_allowDel...
+ScriptResource.ax... (line 1424)
+_176 has no properties
+[Break on this error] var _177=(_176.get_allowDelete()!=null)?_176.get_allowDelete():this.get_allowDel...
+ScriptResource.ax... (line 1424)

@@ -1,0 +1,2913 @@
+using System;
+using System.Data;
+using System.Configuration;
+using System.Collections;
+using System.Web;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Web.UI.HtmlControls;
+using System.Data.SqlClient;
+using System.Collections.Generic;
+using System.Drawing.Imaging; 
+
+public partial class BlogEvent : Telerik.Web.UI.RadAjaxPage
+{
+    private string UserName;
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        HtmlLink lk = new HtmlLink();
+        HtmlHead head = (HtmlHead)Page.Header;
+        lk.Attributes.Add("rel", "canonical");
+        lk.Href = "http://hippohappenings.com/BlogEvent.aspx";
+        head.Controls.AddAt(0, lk);
+
+        HtmlMeta hm = new HtmlMeta();
+        HtmlMeta kw = new HtmlMeta();
+
+        kw.Name = "keywords";
+        kw.Content = "Blog local events happening in your area";
+
+        head.Controls.AddAt(0, kw);
+
+        hm.Name = "Description";
+        hm.Content = "Blog local events & happenings in your neighborhood and community";
+        head.Controls.AddAt(0, hm);
+
+        HttpCookie cookie = Request.Cookies["BrowserDate"];
+        if (cookie == null)
+        {
+            cookie = new HttpCookie("BrowserDate");
+            cookie.Value = DateTime.Now.ToString();
+            cookie.Expires = DateTime.Now.AddDays(22);
+            Response.Cookies.Add(cookie);
+        }
+        MessageRadWindowManager.VisibleOnPageLoad = false;
+        Data dat = new Data(DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")));
+        string cookieName = FormsAuthentication.FormsCookieName;
+        HttpCookie authCookie = Context.Request.Cookies[cookieName];
+
+        DataView dv = dat.GetDataDV("SELECT * FROM TermsAndConditions");
+        Literal lit1 = new Literal();
+        lit1.Text = dv[0]["Content"].ToString();
+        TACTextBox.Controls.Add(lit1);
+
+        FormsAuthenticationTicket authTicket = null;
+        if (!IsPostBack)
+        {
+
+
+            Session["NewVenue"] = null;
+            Session.Remove("NewVenue");
+            VenueCountry.SelectedValue = "223";
+            Session.Remove("EventCategoriesSet");
+            Session["EventCategoriesSet"] = null;
+
+            PostItButton.Click += new ImageClickEventHandler(PostIt);
+            PostItButton.Click -= new ImageClickEventHandler(ModifyIt);
+            DataSet ds = new DataSet();
+            //DataSet ds = dat.GetData("SELECT * FROM Categories");
+            //CategoriesCheckBoxes.DataSource = ds;
+            //CategoriesCheckBoxes.DataTextField = "CategoryName";
+            //CategoriesCheckBoxes.DataValueField = "ID";
+            //CategoriesCheckBoxes.DataBind();
+
+            DataSet dsCountries = dat.GetData("SELECT * FROM Countries");
+            VenueCountry.DataSource = dsCountries;
+            VenueCountry.DataTextField = "country_name";
+            VenueCountry.DataValueField = "country_id";
+            VenueCountry.DataBind();
+
+            //ds = dat.GetData("SELECT * FROM Venues WHERE Live='True'");
+            //VenueDropDown.DataSource = ds;
+            //VenueDropDown.DataTextField = "Name";
+            //VenueDropDown.DataValueField = "ID";
+            //VenueDropDown.DataBind();
+            //VenueDropDown.Items.Insert(0, new ListItem("", "-1"));
+
+            ShowVideoPictureLiteral.Text = "";
+
+            VenueCountry.SelectedValue = "223";
+            ChangeVenueState("223");
+            ExistingVenuePanel.Visible = true;
+            //VenueNameTextBox.Visible = false;
+
+
+            try
+            {
+                if (Session["User"] != null)
+                {
+                    Session["EffectiveUserName"] = Session["UserName"].ToString();
+
+                    if (Request.QueryString["edit"] != null)
+                    {
+                        if (bool.Parse(Request.QueryString["edit"].ToString()))
+                        {
+                            string IDi = Request.QueryString["ID"].ToString();
+
+                            isEdit.Text = "True";
+                            eventID.Text = IDi;
+                            if (dat.HasEventPassed(IDi))
+                            {
+                                DataView dvName = dat.GetDataDV("SELECT * FROM Events WHERE ID=" + IDi);
+                                Response.Redirect(dat.MakeNiceName(dvName[0]["Header"].ToString()) + "_" + IDi + "_Event");
+                            }
+                            fillEvent(IDi, true);
+                            //PostItButton.Click -= new ImageClickEventHandler(PostIt);
+                            //PostItButton.Click += new ImageClickEventHandler(ModifyIt);
+
+
+
+                        }
+                    }
+                    else if (Request.QueryString["copy"] != null)
+                    {
+                        if (bool.Parse(Request.QueryString["copy"].ToString()))
+                        {
+                            string IDi = Request.QueryString["ID"].ToString();
+                            fillEvent(IDi, false);
+                            DateSelectionsListBox.Items.Clear();
+                        }
+                    }
+
+                    UserName = Session["UserName"].ToString();
+                    UserNameLabel.Text = UserName;
+                }
+                else
+                {
+                    Session.Abandon();
+                    FormsAuthentication.SignOut();
+                    Response.Redirect("~/EnterEvent.aspx");
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessagePanel.Visible = true;
+                YourMessagesLabel.Text = ex.ToString();
+                //Session.Abandon();
+                //FormsAuthentication.SignOut();
+                //Response.Redirect("~/EnterEvent.aspx");
+            }
+            //YourMessagesLabel.Text = "";
+            //MessagePanel.Visible = false;
+
+        }
+        else
+        {
+            if (Session["LocationVenues"] != null)
+                fillVenues((DataSet)Session["LocationVenues"]);
+
+
+            if (Session["NewVenue"] != null)
+            {
+                TimeFrameDiv.InnerHtml = dat.GetDataDV("SELECT * FROM Venues WHERE ID=" + Session["NewVenue"].ToString())[0]["Name"].ToString();
+            }
+        }
+
+        if (Session["User"] == null)
+        {
+            Response.Redirect("Home.aspx");
+        }
+    }
+
+    protected bool EnableOwnerPanel(ref bool ownerUpForGrabs)
+    {
+        HttpCookie cookie = Request.Cookies["BrowserDate"];
+        bool isOwner = false;
+        ownerUpForGrabs = false;
+        Data dat = new Data(DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")));
+
+        if (Request.QueryString["ID"] != null)
+        {
+            DataSet dsVenue = dat.GetData("SELECT * FROM Events WHERE ID=" + Request.QueryString["ID"].ToString());
+            if (dsVenue.Tables[0].Rows[0]["Owner"] != null)
+            {
+                if (dsVenue.Tables[0].Rows[0]["Owner"].ToString().Trim() != "")
+                {
+                    if (dsVenue.Tables[0].Rows[0]["Owner"].ToString() == Session["User"].ToString())
+                        isOwner = true;
+                }
+                else
+                {
+                    ownerUpForGrabs = true;
+                }
+            }
+            else
+            {
+                ownerUpForGrabs = true;
+            }
+        }
+        else
+        {
+            ownerUpForGrabs = true;
+        }
+
+        if (ownerUpForGrabs)
+        {
+
+            OwnerPanel.Visible = true;
+        }
+        else
+        {
+            if (isOwner)
+            {
+                OwnerPanel.Visible = true;
+                OwnerCheckBox.Checked = true;
+            }
+            else
+            {
+                OwnerPanel.Visible = false;
+            }
+        }
+
+        return isOwner;
+    }
+
+    protected void GetNewVenue(object sender, EventArgs e)
+    {
+
+        if (Session["NewVenue"] != null)
+        {
+            try
+            {
+                HttpCookie cookie = Request.Cookies["BrowserDate"];
+                if (cookie == null)
+                {
+                    cookie = new HttpCookie("BrowserDate");
+                    cookie.Value = DateTime.Now.ToString();
+                    cookie.Expires = DateTime.Now.AddDays(22);
+                    Response.Cookies.Add(cookie);
+                }
+                Data dat = new Data(DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")));
+
+                DataView rowV = dat.GetDataDV("SELECT * FROM Venues WHERE ID=" + Session["NewVenue"].ToString());
+
+                string country = rowV[0]["Country"].ToString();
+                VenueCountry.SelectedValue = country;
+                ChangeVenueStateAction(VenueCountry, new EventArgs());
+                if (VenueState.Visible)
+                    VenueState.Items.FindByText(rowV[0]["State"].ToString()).Selected = true;
+                else
+                    VenueStateTextBox.Text = rowV[0]["State"].ToString();
+                GetThoseVenues();
+                TimeFrameDiv.InnerHtml = rowV[0]["Name"].ToString();
+            }
+            catch (Exception ex)
+            {
+                YourMessagesLabel.Text = ex.ToString();
+                MessagePanel.Visible = true;
+            }
+        }
+    }
+
+    protected void fillEvent(string ID, bool isedit)
+    {
+        try
+        {
+            HttpCookie cookie = Request.Cookies["BrowserDate"];
+            Data dat = new Data(DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")));
+            DataSet dsEvent = dat.GetData("SELECT E.Owner AS TheOwner, * FROM Events E, Venues V, Event_Occurance EO WHERE E.Venue=V.ID AND EO.EventID=E.ID AND E.ID=" + ID + " ORDER BY EO.DateTimeStart ASC ");
+            EventNameTextBox.THE_TEXT = dsEvent.Tables[0].Rows[0]["Header"].ToString();
+            if (isedit)
+            {
+                nameLabel.Text = "You are submitting changes for Event: " + dsEvent.Tables[0].Rows[0]["Header"].ToString(); ;
+            }
+            Session["EffectiveUserName"] = dsEvent.Tables[0].Rows[0]["UserName"].ToString();
+
+
+            VenueCountry.Items.FindByValue(dsEvent.Tables[0].Rows[0]["Country"].ToString()).Selected = true;
+
+            DataSet dsCountry = dat.GetData("SELECT * FROM State WHERE country_id=" + dsEvent.Tables[0].Rows[0]["Country"].ToString());
+            //ChangeVenueState(dsEvent.Tables[0].Rows[0]["Country"].ToString());
+            if (dsCountry.Tables.Count > 0)
+                if (dsCountry.Tables[0].Rows.Count > 0)
+                {
+                    VenueState.Items.Clear();
+                    VenueState.DataSource = dsCountry;
+                    VenueState.DataTextField = "state_2_code";
+                    VenueState.DataValueField = "state_id";
+                    VenueState.DataBind();
+
+                    VenueState.Items.FindByText(dsEvent.Tables[0].Rows[0]["State"].ToString()).Selected = true;
+                }
+                else
+                {
+                    VenueStateTextBox.Visible = true;
+                    VenueStateTextBox.Text = dsEvent.Tables[0].Rows[0]["State"].ToString();
+                }
+            else
+            {
+                VenueStateTextBox.Visible = true;
+                VenueStateTextBox.Text = dsEvent.Tables[0].Rows[0]["State"].ToString();
+            }
+
+            //check if there is already an owner of this venue
+            bool ownerUpForGrabs = false;
+            bool isOwner = EnableOwnerPanel(ref ownerUpForGrabs);
+
+            if (!ownerUpForGrabs && !isOwner)
+            {
+                AddButton.Enabled = false;
+                RemoveButton.Enabled = false;
+                //StartDateTimePicker.Enabled = false;
+                //EndDateTimePicker.Enabled = false;
+            }
+
+            GetThoseVenues();
+
+            string state = "";
+            if (VenueState.Visible)
+                state = VenueState.SelectedItem.Text;
+            else
+                state = VenueStateTextBox.Text;
+
+            SqlDbType[] types = { SqlDbType.NVarChar };
+            object[] data = { state };
+
+            DataView dvV = dat.GetDataDV("SELECT * FROM Venues WHERE ID=" + dsEvent.Tables[0].Rows[0]["Venue"].ToString());
+
+            //DataSet ds = dat.GetDataWithParemeters("SELECT * FROM Venues WHERE Country=" +
+            //    dvV[0]["Country"].ToString() + " AND State='" + dvV[0]["State"].ToString() +
+            //    "' ORDER BY Name ASC", types, data);
+
+
+            //Session["LocationVenues"] = ds;
+
+            //fillVenues(ds);
+
+            Session["NewVenue"] = dvV[0]["ID"].ToString();
+
+            TimeFrameDiv.InnerHtml = dvV[0]["Name"].ToString();
+
+
+
+            //StartDateTimePicker.DbSelectedDate = dsEvent.Tables[0].Rows[0]["DateTimeStart"].ToString();
+            //EndDateTimePicker.DbSelectedDate = dsEvent.Tables[0].Rows[0]["DateTimeEnd"].ToString();
+
+            bool isEdit = false;
+            if (Request.QueryString["edit"] != null)
+                isEdit = bool.Parse(Request.QueryString["edit"].ToString());
+
+            
+                DateSelectionsListBox.Items.Clear();
+                for (int i = 0; i < dsEvent.Tables[0].Rows.Count; i++)
+                {
+                    DateSelectionsListBox.Items.Add(dsEvent.Tables[0].Rows[i]["DateTimeStart"].ToString() + " -- " + dsEvent.Tables[0].Rows[i]["DateTimeEnd"].ToString());
+                }
+
+            
+            DescriptionTextBox.Content = dsEvent.Tables[0].Rows[0]["Content"].ToString();
+            ShortDescriptionTextBox.THE_TEXT = dsEvent.Tables[0].Rows[0]["ShortDescription"].ToString();
+
+            string mediaCategory = dsEvent.Tables[0].Rows[0]["mediaCategory"].ToString();
+            string youtube = dsEvent.Tables[0].Rows[0]["YouTubeVideo"].ToString();
+            switch (mediaCategory)
+            {
+                case "1":
+                    MainAttractionCheck.Checked = true;
+                    MainAttractionPanel.Enabled = true;
+                    MainAttractionPanel.Visible = true;
+
+                    char[] delim4 = { ';' };
+                    char[] delim = { '\\' };
+                    string[] youtokens = youtube.Split(delim4);
+                    if (youtokens.Length > 0)
+                    {
+                        if (isOwner || ownerUpForGrabs)
+                            PictureNixItButton.Visible = true;
+                        for (int i = 0; i < youtokens.Length; i++)
+                        {
+                            if (youtokens[i].Trim() != "")
+                            {
+                                ListItem newListItem = new ListItem("You Tube ID: " + youtokens[i], youtokens[i]);
+                                if (!isOwner)
+                                    newListItem.Enabled = false;
+                                PictureCheckList.Items.Add(newListItem);
+                            }
+                        }
+                    }
+                    string[] fileArray = System.IO.Directory.GetFiles(MapPath(".") + "\\UserFiles\\Events\\" + ID +
+                        "\\Slider\\");
+                    if (fileArray.Length > 0 && (isOwner || ownerUpForGrabs))
+                        PictureNixItButton.Visible = true;
+                    for (int i = 0; i < fileArray.Length; i++)
+                    {
+                        string[] fileTokens = fileArray[i].Split(delim);
+                        string nameFile = fileTokens[fileTokens.Length - 1];
+                        DataView dvE = dat.GetDataDV("SELECT * FROM Event_Slider_Mapping WHERE PictureName='" + nameFile +
+                            "' AND EventID=" + ID);
+                        if (dvE.Count != 0)
+                        {
+                            ListItem newListItem = new ListItem(dvE[0]["RealPictureName"].ToString(), nameFile);
+                            if (!isOwner)
+                                newListItem.Enabled = false;
+                            PictureCheckList.Items.Add(newListItem);
+                        }
+                    }
+                    break;
+                default: break;
+            }
+
+            DataSet dsMusic = dat.GetData("SELECT * FROM Event_Song_Mapping WHERE EventID=" + dsEvent.Tables[0].Rows[0]["ID"].ToString());
+
+            if (dsMusic.Tables.Count > 0)
+                if (dsMusic.Tables[0].Rows.Count > 0)
+                {
+
+                    MusicPanel.Enabled = true;
+
+                    if (isOwner || ownerUpForGrabs)
+                        DeleteSongButton.Visible = true;
+                    for (int i = 0; i < dsMusic.Tables[0].Rows.Count; i++)
+                    {
+                        ListItem newItem = new ListItem(dsMusic.Tables[0].Rows[i]["SongTitle"].ToString(),
+                            dsMusic.Tables[0].Rows[i]["SongName"].ToString());
+                        if (!isOwner)
+                            newItem.Enabled = false;
+                        SongCheckList.Items.Add(newItem);
+                    }
+
+
+                }
+        }
+        catch (Exception ex)
+        {
+            MessagePanel.Visible = true;
+            YourMessagesLabel.Text = ex.ToString();
+        }
+    }
+
+    protected bool CategorySelected()
+    {
+        return OneCategorySelected(ref CategoryTree) || OneCategorySelected(ref RadTreeView1)
+        || OneCategorySelected(ref RadTreeView2) || OneCategorySelected(ref RadTreeView3);
+    }
+
+    protected bool OneCategorySelected(ref Telerik.Web.UI.RadTreeView treeView)
+    {
+        List<Telerik.Web.UI.RadTreeNode> list = (List<Telerik.Web.UI.RadTreeNode>)treeView.GetAllNodes();
+
+        foreach (Telerik.Web.UI.RadTreeNode node in list)
+        {
+            if (node.Checked)
+                return true;
+        }
+
+        return false;
+    }
+
+    protected void SetCategories()
+    {
+        HttpCookie cookie = Request.Cookies["BrowserDate"];
+        Data dat = new Data(DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")));
+        DataSet dsCategories = dat.GetData("SELECT * FROM Event_Category_Mapping WHERE EventID=" +
+            Request.QueryString["ID"].ToString());
+
+        if (dsCategories.Tables.Count > 0)
+            if (dsCategories.Tables[0].Rows.Count > 0)
+            {
+                for (int i = 0; i < dsCategories.Tables[0].Rows.Count; i++)
+                {
+                    Telerik.Web.UI.RadTreeNode node = (Telerik.Web.UI.RadTreeNode)CategoryTree.FindNodeByValue(dsCategories.Tables[0].Rows[i]["CategoryID"].ToString());
+                    if (node != null)
+                    {
+                        node.Checked = true;
+
+                        //node.Enabled = false;
+                    }
+                    else
+                    {
+
+                        node = (Telerik.Web.UI.RadTreeNode)RadTreeView1.FindNodeByValue(dsCategories.Tables[0].Rows[i]["CategoryID"].ToString());
+                        if (node != null)
+                        {
+                            node.Checked = true;
+                            //node.Enabled = false;
+                        }
+                        else
+                        {
+
+                            node = (Telerik.Web.UI.RadTreeNode)RadTreeView2.FindNodeByValue(dsCategories.Tables[0].Rows[i]["CategoryID"].ToString());
+                            if (node != null)
+                            {
+                                node.Checked = true;
+                                //node.Enabled = false;
+                            }
+                            else
+                            {
+                                node = (Telerik.Web.UI.RadTreeNode)RadTreeView3.FindNodeByValue(dsCategories.Tables[0].Rows[i]["CategoryID"].ToString());
+                                if (node != null)
+                                {
+                                    node.Checked = true;
+                                    //node.Enabled = false;
+                                }
+
+                            }
+
+                        }
+                    }
+                    //CategoriesCheckBoxes.Items.FindByValue(dsCategories.Tables[0].Rows[i]["CategoryID"].ToString()).Selected = true;
+                    //CategoriesCheckBoxes.Items.FindByValue(dsCategories.Tables[0].Rows[i]["CategoryID"].ToString()).Enabled = false;
+                }
+            }
+
+        Session["EventCategoriesSet"] = "notnull";
+    }
+
+    protected void ChangeVenueStateAction(object sender, EventArgs e)
+    {
+        ChangeVenueState(VenueCountry.SelectedValue);
+    }
+    
+    protected void ChangeVenueState(string countryID)
+    {
+        HttpCookie cookie = Request.Cookies["BrowserDate"];
+        Data dat = new Data(DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")));
+        DataSet ds = dat.GetData("SELECT * FROM State WHERE country_id=" + countryID);
+
+        
+         Div1.Visible = false;
+        //VenueDropDown.Visible = false;
+        
+
+        bool isTextBox = false;
+        if (ds.Tables.Count > 0)
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                VenueState.Visible = true;
+                VenueStateTextBox.Visible = false;
+                VenueState.DataSource = ds;
+                VenueState.DataTextField = "state_2_code";
+                VenueState.DataValueField = "state_id";
+                VenueState.DataBind();
+            }
+            else
+                isTextBox = true;
+        else
+            isTextBox = true;
+
+        if (isTextBox)
+        {
+            VenueStateTextBox.Visible = true;
+            VenueState.Visible = false;
+        }
+
+        
+    }
+    
+    protected void Page_Init(object sender, EventArgs e)
+    {
+    }
+    
+    //protected void ChangeState(object sender, EventArgs e)
+    //{
+    //    HttpCookie cookie = Request.Cookies["BrowserDate"];
+    //    Data dat = new Data(DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")));
+    //    DataSet ds = dat.GetData("SELECT * FROM State WHERE country_id="+CountryDropDown.SelectedValue);
+
+    //    bool isTextBox = false;
+    //    if (ds.Tables.Count > 0)
+    //        if (ds.Tables[0].Rows.Count > 0)
+    //        {
+    //            StateDropDownPanel.Visible = true;
+    //            StateTextBoxPanel.Visible = false;
+    //            StateDropDown.DataSource = ds;
+    //            StateDropDown.DataTextField = "state_2_code";
+    //            StateDropDown.DataValueField = "state_id";
+    //            StateDropDown.DataBind();
+    //        }
+    //        else
+    //            isTextBox = true;
+    //    else
+    //        isTextBox = true;
+
+    //    if (isTextBox)
+    //    {
+    //        StateTextBoxPanel.Visible = true;
+    //        StateDropDownPanel.Visible = false;
+    //    }
+
+    //    if (CountryDropDown.SelectedValue == "223")
+    //    {
+    //        USPanel.Visible = true;
+    //        InternationalPanel.Visible = false;
+    //    }
+    //    else
+    //    {
+    //        USPanel.Visible = false;
+    //        InternationalPanel.Visible = true;
+    //    }
+    //}
+    
+    protected void ClearEverything()
+    {
+        ShowDescriptionBegining.Text = "";
+        ShowVideoPictureLiteral.Text = "";
+        ShowRestOfDescription.Text = "";
+        Rotator1.Controls.Clear();
+        ShowDateAndTimeLabel.Text = "";
+        ShowVenueName.Text = "";
+        ShowEventName.Text = "";
+    }
+    
+    //protected void AddDate(object sender, EventArgs e)
+    //{
+    //    if (ReoccuringRadDateTimePicker.DbSelectedDate != null)
+    //    {
+    //        DateSelectionsListBox.Items.Add(ReoccuringRadDateTimePicker.DbSelectedDate.ToString());
+    //    }
+    //}
+
+    protected void SubtractDate(object sender, EventArgs e)
+    {
+        List<ListItem> items = new List<ListItem>();
+        for (int i = 0; i < DateSelectionsListBox.Items.Count; i++)
+        {
+            if (DateSelectionsListBox.Items[i].Selected)
+                items.Add(DateSelectionsListBox.Items[i]);
+
+        }
+
+        for (int i = 0; i < items.Count; i++)
+        {
+            DateSelectionsListBox.Items.Remove(items[i]);
+        }
+    }
+
+    protected void PostIt(object sender, EventArgs e)
+    {
+        HttpCookie cookie = Request.Cookies["BrowserDate"];
+        string problem = "";
+        try
+        {
+            if (AgreeCheckBox.Checked)
+            {
+                Data dat = new Data(DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")));
+                string email = "";
+                string textEmail = "";
+                SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Connection"].ToString());
+                conn.Open();
+
+                string mediaCat = "0";
+                if (PictureCheckList.Items.Count > 0)
+                    mediaCat = "1";
+
+              
+                bool isOwner = false;
+
+                string ownerID = "";
+                bool ownerUpForGrabs = false;
+
+                bool isEditing = false;
+                if (isEdit.Text != "")
+                {
+                    isEditing = bool.Parse(isEdit.Text);
+                    ownerUpForGrabs = dat.IsOwnerUpForGrabs(Request.QueryString["ID"].ToString(), 
+                        ref ownerID, ref isOwner, false);
+                }
+
+                bool hasEditChanged = false;
+                bool hadSongs = false;
+                DataSet dsEvent = new DataSet();
+                string theCat = "NULL";
+                if (isEditing)
+                {
+                    dsEvent = dat.GetData("SELECT * FROM Events WHERE ID=" + eventID.Text);
+
+
+                    hadSongs = bool.Parse(dsEvent.Tables[0].Rows[0]["hasSongs"].ToString());
+
+                    if (dsEvent.Tables[0].Rows[0]["MediaCategory"].ToString() != mediaCat)
+                    {
+                        theCat = mediaCat;
+                        hasEditChanged = true;
+                    }
+                }
+                string command = "";
+                if (isEditing)
+                {
+                    if (isOwner || ownerUpForGrabs)
+                    {
+                        string sngs = "";
+                        if (!hadSongs)
+                            sngs = "hasSongs=@songs,";
+
+                        command = "UPDATE Events SET Owner=@owner, [Content]=@content, Header=@header, " +
+                            "Venue=@venue,SponsorPresenter=@sponsor, " + sngs + " mediaCategory=" + mediaCat + ", " +
+                            "ShortDescription=@shortDescription, Country=@country, State=@state, " +
+                            "Zip=@zip, City=@city, LastEditOn=@dateP WHERE ID=" + Request.QueryString["ID"].ToString();
+                    }
+                    else
+                    {
+                        command = "INSERT INTO EventRevisions (EventID, [Content], " +
+                            "Header, Venue, modifierID, "
+                        + "ShortDescription, Country, State, Zip, City, DATE)"
+                            + " VALUES(" + eventID.Text + ", @content,@header, @venue, @userName, @shortDescription"
+                        + ", @country, @state, @zip, @city, '" + DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")).ToString() + "')";
+
+                        dsEvent = dat.GetData("SELECT * FROM Events WHERE ID=" + eventID.Text);
+                    }
+                }
+                else
+                {
+                    command = "INSERT INTO Events (Owner, [Content], " +
+                         "Header, Venue, EventGoersCount, SponsorPresenter, hasSongs, mediaCategory, UserName, "
+                     + "ShortDescription, Country, State, Zip, City, StarRating, PostedOn)"
+                         + " VALUES(@owner, @content, @header, @venue, "
+                         + " @eventGoers, @sponsor, @songs, " + mediaCat + ", @userName, @shortDescription"
+                     + ", @country, @state, @zip, @city, 0, @dateP)";
+                }
+
+                SqlCommand cmd = new SqlCommand(command, conn);
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.Add("@dateP", SqlDbType.DateTime).Value = DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":"));
+                if (isEditing && !isOwner)
+                {
+                    if (ownerUpForGrabs)
+                    {
+                        if (OwnerCheckBox.Checked)
+                        {
+                            hasEditChanged = true;
+                            cmd.Parameters.Add("@owner", SqlDbType.Int).Value = Session["User"].ToString();
+                            dat.Execute("INSERT INTO EventOwnerHistory (EventID, OwnerID, DateCreatedOwnership) "+
+                                "VALUES("+eventID.Text+", "+Session["User"].ToString()+", '"+DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":"))+"')");
+                        }
+                        else
+                        {
+                            if (ownerUpForGrabs)
+                            {
+                                cmd.Parameters.Add("@owner", SqlDbType.Int).Value = DBNull.Value;
+                            }
+                        }
+                    }
+                    else
+                    {
+
+                    }
+
+
+                    if (dsEvent.Tables[0].Rows[0]["Content"].ToString() != DescriptionTextBox.Content)
+                    {
+                        cmd.Parameters.Add("@content", SqlDbType.NVarChar).Value = DescriptionTextBox.Content;
+                        hasEditChanged = true;
+                    }
+                    else
+                    {
+                        if (ownerUpForGrabs)
+                        {
+                            cmd.Parameters.Add("@content", SqlDbType.NVarChar).Value = dsEvent.Tables[0].Rows[0]["Content"].ToString();
+                        }
+                        else
+                        {
+                            cmd.Parameters.Add("@content", SqlDbType.NVarChar).Value = DBNull.Value;
+                        }
+                    }
+
+                    if (dsEvent.Tables[0].Rows[0]["Header"].ToString() != EventNameTextBox.THE_TEXT)
+                    {
+                        cmd.Parameters.Add("@header", SqlDbType.NVarChar).Value = EventNameTextBox.THE_TEXT;
+                        hasEditChanged = true;
+                    }
+                    else
+                    {
+                        if (ownerUpForGrabs)
+                        {
+                            hasEditChanged = true;
+                            cmd.Parameters.Add("@header", SqlDbType.NVarChar).Value = dsEvent.Tables[0].Rows[0]["Header"].ToString();
+                        }
+                        else
+                        {
+                            cmd.Parameters.Add("@header", SqlDbType.NVarChar).Value = DBNull.Value;
+                        }
+                    }
+
+                    if (dsEvent.Tables[0].Rows[0]["ShortDescription"].ToString() != ShortDescriptionTextBox.THE_TEXT)
+                    {
+                        cmd.Parameters.Add("@shortDescription", SqlDbType.NVarChar).Value = ShortDescriptionTextBox.THE_TEXT;
+                        hasEditChanged = true;
+                    }
+                    else
+                    {
+                        if (ownerUpForGrabs)
+                        {
+                            cmd.Parameters.Add("@shortDescription", SqlDbType.NVarChar).Value =
+                                dsEvent.Tables[0].Rows[0]["ShortDescription"].ToString();
+                            hasEditChanged = true;
+                        }
+                        else
+                        {
+                            cmd.Parameters.Add("@shortDescription", SqlDbType.NVarChar).Value = DBNull.Value;
+                        }
+                    }
+
+                    //users that are not the owner are not allowed to delete songs or other media
+                    //therefore, users can only change the state of 'hasSongs' to 'true', never to 'false'
+                    if (ownerUpForGrabs && MusicCheckBox.Checked)
+                    {
+                        cmd.Parameters.Add("@songs", SqlDbType.Bit).Value = MusicCheckBox.Checked;
+                        hasEditChanged = true;
+                    }
+                    else
+                    {
+                        cmd.Parameters.Add("@songs", SqlDbType.Bit).Value = dsEvent.Tables[0].Rows[0]["hasSongs"].ToString();
+                    }
+
+                    cmd.Parameters.Add("@sponsor", SqlDbType.NVarChar).Value = DBNull.Value;
+
+                    cmd.Parameters.Add("@userName", SqlDbType.Int).Value = Session["User"].ToString();
+
+                }
+                else
+                {
+                    hasEditChanged = true;
+                    cmd.Parameters.Add("@content", SqlDbType.NVarChar).Value = DescriptionTextBox.Content;
+                    cmd.Parameters.Add("@header", SqlDbType.NVarChar).Value = EventNameTextBox.THE_TEXT;
+                    cmd.Parameters.Add("@shortDescription", SqlDbType.NVarChar).Value = ShortDescriptionTextBox.THE_TEXT;
+                    cmd.Parameters.Add("@songs", SqlDbType.Bit).Value = MusicCheckBox.Checked;
+
+                    
+
+
+                    if (!isEditing)
+                    {
+                        cmd.Parameters.Add("@rating", SqlDbType.Int).Value = 0;
+                        cmd.Parameters.Add("@userName", SqlDbType.NVarChar).Value = Session["UserName"].ToString();
+                        cmd.Parameters.Add("@eventGoers", SqlDbType.Int).Value = 0;
+                        if (OwnerCheckBox.Checked)
+                        {
+                            cmd.Parameters.Add("@owner", SqlDbType.Int).Value = Session["User"].ToString();
+                        }
+                        else
+                        {
+                                cmd.Parameters.Add("@owner", SqlDbType.Int).Value = DBNull.Value;
+                        
+                        }
+                    }
+                    else
+                    {
+                        if (isOwner)
+                        {
+                            if(OwnerCheckBox.Checked)
+                                cmd.Parameters.Add("@owner", SqlDbType.NVarChar).Value = Session["User"].ToString();
+                            else
+                                cmd.Parameters.Add("@owner", SqlDbType.NVarChar).Value = DBNull.Value;
+                        }
+                    }
+
+                    cmd.Parameters.Add("@sponsor", SqlDbType.NVarChar).Value = DBNull.Value;
+                }
+
+
+
+                #region Create/Assign Venue
+                string venue = "";
+                bool isNewVenue = false;
+                int venueID = 0;
+                string country = "";
+                string state1 = "";
+
+                //Need to check if the user is creating a new venue.
+                //First If statement is if a user chose existing venue from dropdown
+                //The Else statement if for the new venue.
+
+                    venueID = int.Parse(Session["NewVenue"].ToString());
+                    DataSet dsVenue = dat.GetData("SELECT * FROM Venues WHERE ID=" + venueID.ToString());
+                    venue = dsVenue.Tables[0].Rows[0]["Name"].ToString();
+                    if (isEditing && !isOwner)
+                    {
+                        if (dsEvent.Tables[0].Rows[0]["Venue"].ToString() != venueID.ToString())
+                        {
+                            hasEditChanged = true;
+                            cmd.Parameters.Add("@venue", SqlDbType.Int).Value = venueID;
+
+                            if (dsEvent.Tables[0].Rows[0]["Country"].ToString() != dsVenue.Tables[0].Rows[0]["Country"].ToString())
+                                cmd.Parameters.Add("@country", SqlDbType.Int).Value = dsVenue.Tables[0].Rows[0]["Country"].ToString();
+                            else
+                            {
+                                if (ownerUpForGrabs)
+                                {
+                                    cmd.Parameters.Add("@country", SqlDbType.Int).Value = dsEvent.Tables[0].Rows[0]["Country"].ToString();
+                                }
+                                else
+                                {
+                                    cmd.Parameters.Add("@country", SqlDbType.Int).Value = DBNull.Value;
+                                }
+                            }
+
+                            if (dsEvent.Tables[0].Rows[0]["State"].ToString() != dsVenue.Tables[0].Rows[0]["State"].ToString())
+                                cmd.Parameters.Add("@state", SqlDbType.NVarChar).Value = dsVenue.Tables[0].Rows[0]["State"].ToString();
+                            else
+                            {
+                                if (ownerUpForGrabs)
+                                {
+                                    cmd.Parameters.Add("@state", SqlDbType.NVarChar).Value = dsEvent.Tables[0].Rows[0]["State"].ToString();
+                                }
+                                else
+                                {
+                                    cmd.Parameters.Add("@state", SqlDbType.NVarChar).Value = DBNull.Value;
+                                }
+                            }
+                            if (dsEvent.Tables[0].Rows[0]["City"].ToString() != dsVenue.Tables[0].Rows[0]["City"].ToString())
+                                cmd.Parameters.Add("@city", SqlDbType.NVarChar).Value = dsVenue.Tables[0].Rows[0]["City"].ToString();
+                            else
+                            {
+                                if (ownerUpForGrabs)
+                                {
+                                    cmd.Parameters.Add("@city", SqlDbType.NVarChar).Value = dsEvent.Tables[0].Rows[0]["City"].ToString();
+                                }
+                                else
+                                {
+                                    cmd.Parameters.Add("@city", SqlDbType.NVarChar).Value = DBNull.Value;
+                                }
+
+                            }
+
+                            if (dsEvent.Tables[0].Rows[0]["Zip"].ToString() != dsVenue.Tables[0].Rows[0]["Zip"].ToString())
+                                cmd.Parameters.Add("@zip", SqlDbType.NVarChar).Value = dsVenue.Tables[0].Rows[0]["Zip"].ToString();
+                            else
+                            {
+                                if (ownerUpForGrabs)
+                                {
+                                    cmd.Parameters.Add("@zip", SqlDbType.NVarChar).Value = dsEvent.Tables[0].Rows[0]["Zip"].ToString();
+                                }
+                                else
+                                {
+                                    cmd.Parameters.Add("@zip", SqlDbType.NVarChar).Value = DBNull.Value;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            if (ownerUpForGrabs)
+                            {
+                                cmd.Parameters.Add("@venue", SqlDbType.Int).Value = dsEvent.Tables[0].Rows[0]["Venue"].ToString();
+                                cmd.Parameters.Add("@country", SqlDbType.Int).Value = dsEvent.Tables[0].Rows[0]["Country"].ToString();
+                                cmd.Parameters.Add("@state", SqlDbType.NVarChar).Value = dsEvent.Tables[0].Rows[0]["State"].ToString();
+                                cmd.Parameters.Add("@city", SqlDbType.NVarChar).Value = dsEvent.Tables[0].Rows[0]["City"].ToString();
+                                cmd.Parameters.Add("@zip", SqlDbType.NVarChar).Value = dsEvent.Tables[0].Rows[0]["Zip"].ToString();
+                            }
+                            else
+                            {
+                            cmd.Parameters.Add("@venue", SqlDbType.Int).Value = DBNull.Value;
+                            cmd.Parameters.Add("@country", SqlDbType.Int).Value = DBNull.Value;
+                            cmd.Parameters.Add("@state", SqlDbType.NVarChar).Value = DBNull.Value;
+                            cmd.Parameters.Add("@city", SqlDbType.NVarChar).Value = DBNull.Value;
+                            cmd.Parameters.Add("@zip", SqlDbType.NVarChar).Value = DBNull.Value;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        cmd.Parameters.Add("@venue", SqlDbType.Int).Value = venueID;
+                        cmd.Parameters.Add("@country", SqlDbType.Int).Value = dsVenue.Tables[0].Rows[0]["Country"].ToString();
+                        cmd.Parameters.Add("@state", SqlDbType.NVarChar).Value = dsVenue.Tables[0].Rows[0]["State"].ToString();
+                        cmd.Parameters.Add("@city", SqlDbType.NVarChar).Value = dsVenue.Tables[0].Rows[0]["City"].ToString();
+                        cmd.Parameters.Add("@zip", SqlDbType.NVarChar).Value = dsVenue.Tables[0].Rows[0]["Zip"].ToString();
+                    }
+
+
+                    country = dsVenue.Tables[0].Rows[0]["Country"].ToString();
+                    state1 = dsVenue.Tables[0].Rows[0]["State"].ToString();
+                
+
+                #endregion
+
+
+                if (isEditing)
+                {
+                    cmd.ExecuteNonQuery();
+                }
+
+                if (!isEditing || isOwner)
+                {
+                    cmd.ExecuteNonQuery();
+
+
+                }
+
+                bool songsChanged = false;
+                bool mediaChanged = false;
+                bool occuranceChanged = false;
+
+                cmd = new SqlCommand("SELECT @@IDENTITY AS ID", conn);
+                SqlDataAdapter da2 = new SqlDataAdapter(cmd);
+                DataSet ds3 = new DataSet();
+                da2.Fill(ds3);
+
+                string revisionID = "";
+                if (isEditing && !isOwner && !ownerUpForGrabs)
+                {
+                    revisionID = ds3.Tables[0].Rows[0]["ID"].ToString();
+                }
+                string ID = ds3.Tables[0].Rows[0]["ID"].ToString();
+
+                if (!isEditing)
+                {
+                    if (OwnerCheckBox.Checked)
+                    {
+                        dat.Execute("INSERT INTO EventOwnerHistory (EventID, OwnerID, DateCreatedOwnership) " +
+                            "VALUES(" + ID + ", " + Session["User"].ToString() + ", '" + DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")) + "')");
+                    }
+                }
+
+                string firstStartDate = DateSelectionsListBox.Items[0].Text;
+
+                email += "<br/><br/><a href=\"http://HippoHappenings.com/" + dat.MakeNiceName(EventNameTextBox.THE_TEXT) + "_" + ID +
+                    "_Event\">" + EventNameTextBox.THE_TEXT + "</a><br/><br/>" + venue + "<br/><br/>First Dates: " +
+                    firstStartDate + "<br/><br/>" + DescriptionTextBox.Content;
+
+                textEmail = ". Name: " + EventNameTextBox.THE_TEXT + ". Venue: " + venue + ". First Date: " +
+                    firstStartDate +
+                    ". Link: http://HippoHappenings.com/" + dat.MakeNiceName(EventNameTextBox.THE_TEXT) + "_" + ID +
+                    "_Event";
+
+                string temporaryID = "";
+                if (isEditing)
+                {
+                    temporaryID = eventID.Text;
+                }
+                else
+                {
+                    
+                    temporaryID = ID;
+                }
+
+                string categories = 
+                    CreateCategories(temporaryID, isOwner, isEditing, revisionID, ownerUpForGrabs);
+                
+                string temp = categories;
+
+                
+                if (categories != "")
+                    temp += " OR ";
+                temp += "UV.VenueID=" + venueID;
+
+
+                #region Take Care of Media
+
+                if (MusicCheckBox.Checked || hadSongs)
+                {
+                    for (int i = 0; i < SongCheckList.Items.Count; i++)
+                    {
+                        if (isEditing)
+                        {
+                            if (SongCheckList.Items[i].Enabled)
+                            {
+                                if (revisionID != "" && !isOwner && !ownerUpForGrabs)
+                                {
+                                    cmd = new SqlCommand("INSERT INTO EventRevisions_Song_Mapping (RevisionID, EventID, SongName) " +
+                                        "VALUES(" + revisionID + ",@eventID, @songName)", conn);
+                                    cmd.Parameters.Add("@eventID", SqlDbType.Int).Value = int.Parse(eventID.Text);
+                                    cmd.Parameters.Add("@songName", SqlDbType.NVarChar).Value = SongCheckList.Items[i].Value.ToString();
+                                    cmd.ExecuteNonQuery();
+                                }
+                                songsChanged = true;
+
+                                dat.Execute("UPDATE Events SET hasSongs='True' WHERE ID="+eventID.Text);
+
+                                if(i==0)
+                                    dat.Execute("DELETE FROM Event_Song_Mapping WHERE EventID=" + eventID.Text);
+
+
+                                cmd = new SqlCommand("INSERT INTO Event_Song_Mapping (EventID, SongName, SongTitle) "+
+                                    "VALUES(@eventID, @songName, @songTitle)", conn);
+                                cmd.Parameters.Add("@eventID", SqlDbType.Int).Value = int.Parse(eventID.Text);
+                                cmd.Parameters.Add("@songName", SqlDbType.NVarChar).Value = SongCheckList.Items[i].Value.ToString();
+                                cmd.Parameters.Add("@songTitle", SqlDbType.NVarChar).Value = SongCheckList.Items[i].Text;
+                                cmd.ExecuteNonQuery();
+                            }
+                        }
+                        else
+                        {
+                            dat.Execute("UPDATE Events SET hasSongs='True' WHERE ID=" + ID);
+
+                            cmd = new SqlCommand("INSERT INTO Event_Song_Mapping (EventID, SongName, SongTitle) "+
+                                "VALUES(@eventID, @songName, @songTitle)", conn);
+                            cmd.Parameters.Add("@eventID", SqlDbType.Int).Value = int.Parse(ID);
+                            cmd.Parameters.Add("@songName", SqlDbType.NVarChar).Value = SongCheckList.Items[i].Value.ToString();
+                            cmd.Parameters.Add("@songTitle", SqlDbType.NVarChar).Value = SongCheckList.Items[i].Text;
+                            cmd.ExecuteNonQuery();
+                        }
+
+
+
+                    }
+                }
+
+                //Media Categories: NONE: 0, Picture: 1, Video: 2, YouTubeVideo: 3, Slider: 4
+                bool isSlider = false;
+                if (PictureCheckList.Items.Count > 0)
+                    isSlider = true;
+
+                string tempID = ID;
+                if (isEditing)
+                {
+                    tempID = eventID.Text;
+                }
+
+                if (isSlider)
+                {
+
+                    char[] delim2 = { '\\' };
+                    string[] fileArray = System.IO.Directory.GetFiles(MapPath(".") + "\\UserFiles\\" + Session["EffectiveUserName"].ToString() + "\\Slider\\");
+
+                    if (!System.IO.Directory.Exists(MapPath(".") + "\\UserFiles"))
+                    {
+                        System.IO.Directory.CreateDirectory(MapPath(".") + "\\UserFiles");
+                        System.IO.Directory.CreateDirectory(MapPath(".") + "\\UserFiles\\Events\\");
+                        System.IO.Directory.CreateDirectory(MapPath(".") + "\\UserFiles\\Events\\" + tempID);
+                        System.IO.Directory.CreateDirectory(MapPath(".") + "\\UserFiles\\Events\\" + tempID + "\\Slider\\");
+                    }
+                    else
+                    {
+                        if (!System.IO.Directory.Exists(MapPath(".") + "\\UserFiles\\Events\\"))
+                        {
+                            System.IO.Directory.CreateDirectory(MapPath(".") + "\\UserFiles\\Events\\");
+                            System.IO.Directory.CreateDirectory(MapPath(".") + "\\UserFiles\\Events\\" + tempID);
+                            System.IO.Directory.CreateDirectory(MapPath(".") + "\\UserFiles\\Events\\" + tempID + "\\Slider\\");
+                        }
+                        else
+                        {
+                            if (!System.IO.Directory.Exists(MapPath(".") + "\\UserFiles\\Events\\" + tempID))
+                            {
+                                System.IO.Directory.CreateDirectory(MapPath(".") + "\\UserFiles\\Events\\" + tempID);
+                                System.IO.Directory.CreateDirectory(MapPath(".") + "\\UserFiles\\Events\\" + tempID + "\\Slider\\");
+                            }
+                            else
+                            {
+                                if (!System.IO.Directory.Exists(MapPath(".") + "\\UserFiles\\Events\\" + tempID + "\\Slider\\"))
+                                {
+                                    System.IO.Directory.CreateDirectory(MapPath(".") + "\\UserFiles\\Events\\" + tempID + "\\Slider\\");
+                                }
+                            }
+                        }
+                    }
+
+                    string YouTubeStr = "";
+                    char[] delim3 = { '.' };
+                    for (int i = 0; i < PictureCheckList.Items.Count; i++)
+                    {
+                        //int length = fileArray[i].Split(delim2).Length;
+                        string[] tokens = PictureCheckList.Items[i].Value.ToString().Split(delim3);
+
+
+                        if (tokens.Length >= 2)
+                        {
+                            if (tokens[1].ToUpper() == "JPG" || tokens[1].ToUpper() == "JPEG" || tokens[1].ToUpper() == "GIF" || tokens[1].ToUpper() == "PNG")
+                            {
+                                if (!System.IO.File.Exists(MapPath(".") + "\\UserFiles\\Events\\" + tempID + "\\Slider\\" + PictureCheckList.Items[i].Value))
+                                {
+                                    System.IO.File.Copy(MapPath(".") + "\\UserFiles\\" + Session["EffectiveUserName"].ToString() +
+                                                            "\\Slider\\" + PictureCheckList.Items[i].Value,
+                                                            MapPath(".") + "\\UserFiles\\Events\\" + tempID + "\\Slider\\" + PictureCheckList.Items[i].Value);
+                                }
+
+                                if (isEditing)
+                                {
+
+                                    if (revisionID != "" && !isOwner && !ownerUpForGrabs)
+                                    {
+                                        if (PictureCheckList.Items[i].Enabled)
+                                        {
+                                            cmd = new SqlCommand("INSERT INTO EventRevisions_Slider_Mapping (RevisionID, EventID, " +
+                                                "PictureName) VALUES(" + revisionID + ",@eventID, @picName)", conn);
+                                            cmd.Parameters.Add("@eventID", SqlDbType.Int).Value = tempID;
+                                            cmd.Parameters.Add("@picName", SqlDbType.NVarChar).Value = PictureCheckList.Items[i].Value;
+                                            cmd.ExecuteNonQuery();
+                                        }
+                                    }
+                                        mediaChanged = true;
+
+                                        if (i == 0)
+                                            dat.Execute("DELETE FROM Event_Slider_Mapping WHERE EventID=" + eventID.Text);
+
+                                        dat.Execute("UPDATE Events SET mediaCategory=" + mediaCat + " WHERE ID=" + tempID);
+
+                                        cmd = new SqlCommand("INSERT INTO Event_Slider_Mapping (EventID, PictureName, RealPictureName) "+
+                                            "VALUES(@eventID, @picName, @realName)", conn);
+                                        cmd.Parameters.Add("@eventID", SqlDbType.Int).Value = tempID;
+                                        cmd.Parameters.Add("@picName", SqlDbType.NVarChar).Value = PictureCheckList.Items[i].Value;
+                                        cmd.Parameters.Add("@realName", SqlDbType.NVarChar).Value = PictureCheckList.Items[i].Text;
+                                        cmd.ExecuteNonQuery();
+                                    
+                                }
+                                else
+                                {
+                                    cmd = new SqlCommand("INSERT INTO Event_Slider_Mapping (EventID, PictureName, RealPicturename) "+
+                                        "VALUES(@eventID, @picName, @realName)", conn);
+                                    cmd.Parameters.Add("@eventID", SqlDbType.Int).Value = tempID;
+                                    cmd.Parameters.Add("@picName", SqlDbType.NVarChar).Value = PictureCheckList.Items[i].Value;
+                                    cmd.Parameters.Add("@realName", SqlDbType.NVarChar).Value = PictureCheckList.Items[i].Text;
+                                    cmd.ExecuteNonQuery();
+                                }
+
+                            }
+                            //WE NO LONGER ALLOW Videos to be uploaded to the site itself. Only YouTube videos allowed.
+                            //else if (tokens[1].ToUpper() == "WMV")
+                            //{
+                            //    if (!System.IO.File.Exists(MapPath(".") + "\\UserFiles\\Events\\" + tempID + "\\Slider\\" + PictureCheckList.Items[i].Value))
+                            //    {
+                            //        System.IO.File.Copy(MapPath(".") + "\\UserFiles\\" + Session["UserName"].ToString() +
+                            //             "\\Slider\\" + PictureCheckList.Items[i].Value,
+                            //             MapPath(".") + "\\UserFiles\\Events\\" + tempID + "\\Slider\\" + PictureCheckList.Items[i].Value);
+                            //    }
+                            //    if (isEditing)
+                            //    {
+                            //        if (PictureCheckList.Items[i].Enabled)
+                            //        {
+                            //            cmd = new SqlCommand("INSERT INTO EventRevisions_Slider_Mapping (modifierID, EventID, PictureName) VALUES("+Session["User"].ToString()+",@eventID, @picName)", conn);
+                            //            cmd.Parameters.Add("@eventID", SqlDbType.Int).Value = tempID;
+                            //            cmd.Parameters.Add("@picName", SqlDbType.NVarChar).Value = PictureCheckList.Items[i].Value;
+                            //            cmd.ExecuteNonQuery();
+
+                            //            mediaChanged = true;
+
+                            //            cmd = new SqlCommand("INSERT INTO Event_Slider_Mapping (EventID, PictureName) VALUES(@eventID, @picName)", conn);
+                            //            cmd.Parameters.Add("@eventID", SqlDbType.Int).Value = tempID;
+                            //            cmd.Parameters.Add("@picName", SqlDbType.NVarChar).Value = PictureCheckList.Items[i].Value;
+                            //            cmd.ExecuteNonQuery();
+                            //        }
+                            //    }
+                            //    else
+                            //    {
+                            //        cmd = new SqlCommand("INSERT INTO Event_Slider_Mapping (EventID, PictureName) VALUES(@eventID, @picName)", conn);
+                            //        cmd.Parameters.Add("@eventID", SqlDbType.Int).Value = tempID;
+                            //        cmd.Parameters.Add("@picName", SqlDbType.NVarChar).Value = PictureCheckList.Items[i].Value;
+                            //        cmd.ExecuteNonQuery();
+                            //    }
+
+                            //}
+                        }
+                        else
+                        {
+                            mediaChanged = true;
+                            YouTubeStr += PictureCheckList.Items[i].Value + ";";
+                        }
+
+                    }
+
+                    if (YouTubeStr != "")
+                        if (isEditing)
+                        {
+                            if (dsEvent.Tables[0].Rows[0]["YouTubeVideo"].ToString() != YouTubeStr && !isOwner && !ownerUpForGrabs)
+                            {
+                                dat.Execute("INSERT INTO EventRevisions_YouTube (EventID, YouTubeStr, RevisionID) " +
+                                    "VALUES(" + ID + ", '" + YouTubeStr + "', " + revisionID + ")");
+                            }
+
+                            dat.Execute("UPDATE Events SET mediaCategory="+mediaCat+", YouTubeVideo='" + YouTubeStr + "' WHERE ID=" + tempID);
+                        }
+                        else
+                        {
+                            dat.Execute("UPDATE Events SET mediaCategory="+mediaCat+", YouTubeVideo='" + YouTubeStr + "' WHERE ID=" + ID);
+                        }
+
+                }
+
+                #endregion
+
+                #region Take Care of Event Occurance
+                DataSet dsEOccur = dat.GetData("SELECT * FROM Event_Occurance WHERE EventID=" + tempID);
+                DataView dvEOccur = new DataView(dsEOccur.Tables[0], "", "", DataViewRowState.CurrentRows);
+
+                //if (isEditing && (!isOwner || ownerUpForGrabs))
+                //{
+                //    dvEOccur.RowFilter = "DateTimeStart = '" + StartDateTimePicker.DbSelectedDate.ToString() + "' AND " +
+                //        "DateTimeEnd = '" + EndDateTimePicker.DbSelectedDate.ToString() + "'";
+
+                //    if (dvEOccur.Count == 0)
+                //    {
+                //        occuranceChanged = true;
+                //        hasEditChanged = true;
+                //        cmd = new SqlCommand("INSERT INTO EventRevisions_Occurance (EventID, DateTimeStart, DateTimeEnd, RevisionID, DATE) " +
+                //            "VALUES(@eventID, @dateStart, @dateEnd, " + temporaryID + ", '"+DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")).ToString()+"')", conn);
+                //        cmd.Parameters.Add("@eventID", SqlDbType.Int).Value = tempID;
+                //        cmd.Parameters.Add("@dateStart", SqlDbType.DateTime).Value = StartDateTimePicker.DbSelectedDate.ToString();
+                //        if (EndDateTimePicker.DbSelectedDate != null)
+                //            cmd.Parameters.Add("@dateEnd", SqlDbType.DateTime).Value = EndDateTimePicker.DbSelectedDate.ToString();
+                //        else
+                //            cmd.Parameters.Add("@dateEnd", SqlDbType.DateTime).Value = DBNull.Value;
+                //        cmd.ExecuteNonQuery();
+                //    }
+                //}
+                //else
+                //{
+                //    dat.Execute("DELETE FROM Event_Occurance WHERE EventID="+temporaryID);
+                //    cmd = new SqlCommand("INSERT INTO Event_Occurance (EventID, DateTimeStart, DateTimeEnd) VALUES(@eventID, @dateStart, @dateEnd)", conn);
+                //    cmd.Parameters.Add("@eventID", SqlDbType.Int).Value = tempID;
+                //    cmd.Parameters.Add("@dateStart", SqlDbType.DateTime).Value = StartDateTimePicker.DbSelectedDate.ToString();
+                //    if (EndDateTimePicker.DbSelectedDate != null)
+                //        cmd.Parameters.Add("@dateEnd", SqlDbType.DateTime).Value = EndDateTimePicker.DbSelectedDate.ToString();
+                //    else
+                //        cmd.Parameters.Add("@dateEnd", SqlDbType.DateTime).Value = DBNull.Value;
+                //    cmd.ExecuteNonQuery();
+                //}
+
+
+                //DateTime a = DateTime.Parse(EndDateTimePicker.DbSelectedDate.ToString());
+                //TimeSpan b = a.Subtract(DateTime.Parse(StartDateTimePicker.DbSelectedDate.ToString()));
+
+                string[] delimStr = { " -- " };
+
+                dat.Execute("DELETE FROM Event_Occurance WHERE EventID=" + tempID);
+
+                for (int i = 0; i < DateSelectionsListBox.Items.Count; i++)
+                {
+                    if (isEditing)
+                    {
+
+                        string[] tokensStr = DateSelectionsListBox.Items[i].Text.Split(delimStr,
+                                StringSplitOptions.RemoveEmptyEntries);
+                        
+
+                        //if (dvEOccur.Count == 0)
+                        //{
+                            occuranceChanged = true;
+                            hasEditChanged = true;
+
+                            if (!ownerUpForGrabs && !isOwner)
+                            {
+
+                                cmd = new SqlCommand("INSERT INTO EventRevisions_Occurance (EventID, DateTimeStart, DateTimeEnd, RevisionID, DATE)" +
+                                    "VALUES(@eventID, @dateStart, @dateEnd, " + temporaryID + ", '" + DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")).ToString() + "')", conn);
+                                cmd.Parameters.Add("@eventID", SqlDbType.Int).Value = tempID;
+                                cmd.Parameters.Add("@dateStart", SqlDbType.DateTime).Value = tokensStr[0];
+                                cmd.Parameters.Add("@dateEnd", SqlDbType.DateTime).Value = tokensStr[1];
+                                cmd.ExecuteNonQuery();
+                            }
+                            else
+                            {
+                                cmd = new SqlCommand("INSERT INTO Event_Occurance (EventID, DateTimeStart, DateTimeEnd) VALUES(@eventID, @dateStart, @dateEnd)", conn);
+                                cmd.Parameters.Add("@eventID", SqlDbType.Int).Value = tempID;
+                                cmd.Parameters.Add("@dateStart", SqlDbType.DateTime).Value = tokensStr[0];
+                                cmd.Parameters.Add("@dateEnd", SqlDbType.DateTime).Value = tokensStr[1];
+                                cmd.ExecuteNonQuery();
+                            }
+                        //}
+                    }
+                    else
+                    {
+                        string[] tokensStr = DateSelectionsListBox.Items[i].Text.Split(delimStr, StringSplitOptions.RemoveEmptyEntries);
+
+                        cmd = new SqlCommand("INSERT INTO Event_Occurance (EventID, DateTimeStart, DateTimeEnd) VALUES(@eventID, @dateStart, @dateEnd)", conn);
+                        cmd.Parameters.Add("@eventID", SqlDbType.Int).Value = tempID;
+                        cmd.Parameters.Add("@dateStart", SqlDbType.DateTime).Value = tokensStr[0];
+                        cmd.Parameters.Add("@dateEnd", SqlDbType.DateTime).Value = tokensStr[1];
+                        cmd.ExecuteNonQuery();
+                    }
+
+                }
+
+                #endregion
+
+                if (!isEditing)
+                {
+                    dat.SendEventNotification(temp, " UV.VenueID=" + venueID, categories, email, textEmail, country, state1, "");
+                    dat.SendFriendPostedEventNotification(Session["User"].ToString(), ID);
+                }
+
+                
+                conn.Close();
+
+
+
+                Encryption encrypt = new Encryption();
+                string moreMessage = "";
+
+                string emailBody = "";
+
+                
+                try
+                {
+                    TakeCareOfPostEmail(isEditing, isOwner, isNewVenue, ownerUpForGrabs, 
+                        temporaryID, venueID.ToString(), tempID, revisionID, ownerID);
+                }
+                catch (Exception ex)
+                {
+                    MessagePanel.Visible = true;
+                    YourMessagesLabel.Text += "<br/><br/>problem: " +problem+ ex.ToString();
+                }
+            }
+            else
+            {
+                MessagePanel.Visible = true;
+                YourMessagesLabel.Text += "<br/><br/>You must agree to the terms and conditions.";
+            }
+        }
+        catch (Exception ex)
+        {
+            MessagePanel.Visible = true;
+            YourMessagesLabel.Text += "<br/><br/>problem: " + problem + ex.ToString() + ", command: " + Session["command"].ToString();
+        }
+    }
+
+    protected void TakeCareOfPostEmail(bool isEditing, bool isOwner, bool isNewVenue, bool ownerUpForGrabs, 
+        string ID, string venueID, string tempID, string revisionID, string ownerID)
+    {
+        HttpCookie cookie = Request.Cookies["BrowserDate"];
+        Data dat = new Data(DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")));
+        DataSet dsUser = dat.GetData("SELECT Email, UserName FROM USERS WHERE User_ID=" +
+                    Session["User"].ToString());
+        SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Connection"].ToString());
+        conn.Open();
+        string moreMessage = "";
+        string emailBody = "";
+
+        DataSet dsEvent = new DataSet();
+
+        if (isEditing)
+        {
+            dsEvent = dat.GetData("SELECT * FROM Events WHERE ID=" + eventID.Text);
+        }
+
+        Encryption encrypt = new Encryption();
+        if (isEditing && !isOwner)
+        {
+            if (isNewVenue)
+                moreMessage = "You have created a new venue, to fill in the details go to the <a class=\"AddLink\" onclick=\"Search('EnterVenue.aspx?ID=" + venueID.ToString() + "');\">venue's page.</a>";
+
+            if (ownerUpForGrabs)
+            {
+                Session["Message"] =
+                    "Your changes to this event have been posted successfully! Confirmation of this posting has been sent to your email account. " +
+                    "<br/>";
+            }
+            else
+            {
+                if (conn.State == ConnectionState.Closed)
+                    conn.Open();
+                SqlCommand cmd34 = new SqlCommand("INSERT INTO UserMessages (MessageContent, MessageSubject, From_UserID, To_UserID, Date, [Read], Mode, Live, SentLive) VALUES('" +
+                     "EventID:" + Request.QueryString["ID"].ToString() + ",UserID:" + Session["User"].ToString() + ",RevisionID:" + revisionID + "',@content, "+dat.HIPPOHAPP_USERID+", " + ownerID + ", '" + DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")).ToString() + "', 0, 4, 1, 1)", conn);
+                cmd34.Parameters.Add("@content", SqlDbType.NVarChar).Value = "A change request has been submitted for an event you've created: " +
+                    EventNameTextBox.THE_TEXT;
+                cmd34.ExecuteNonQuery();
+                conn.Close();
+                Session["Message"] = "Your changes to this event have been posted successfully! The user who has created this event will be notified and will need to approve these changes before they show on the site, however, any media and categories will be automatically approved.<br/>";
+            }
+            Session["Message"] += moreMessage + "<br/><br/>" + "-Go to <a class=\"AddLink\" onclick=\"Search('" + dat.MakeNiceName(EventNameTextBox.THE_TEXT) + "_" + tempID +
+                    "_Event');\">this event's</a> home page.<br/><br/> -<a class=\"AddLink\" onclick=\"Search('RateExperience.aspx?Type=ER&ID=" + tempID + "');\" >Rate </a>your user experience editing this event.";
+
+            emailBody = "<div style=\"text-align: left;\"><br/>Dear " + dsUser.Tables[0].Rows[0]["UserName"].ToString() + ",<br/><br/> you have successfully posted the event \"" + EventNameTextBox.THE_TEXT +
+            "\". <br/><br/> You can find this event <a href=\"http://hippohappenings.com/" + dat.MakeNiceName(EventNameTextBox.THE_TEXT) + "_" + tempID +
+                    "_Event\">here</a>. " +
+            "<br/><br/> While creating this event, you have created a new venue. To fill in the full details of this new venue please <a href=\"http://hippohappenings.com/EnterVenue.aspx?ID=" + venueID.ToString() + "\">go to it's page.</a>" +
+            "<br/></br> To rate your experience posting this event <a href=\"http://hippohappenings.com/RateExperience.aspx?Type=E&ID=" + tempID + "\">please include your feedback here.</a>" +
+            "<br/><br/><br/>Have a Hippo Happening Day!<br/><br/></div>";
+        }
+        else
+        {
+            if (isNewVenue)
+                moreMessage = "You have created a new venue, to fill in the details go to the <a class=\"AddLink\" onclick=\"Search('EnterVenue.aspx?ID=" + venueID.ToString() + "');\">venue's page.</a>";
+            Session["Message"] = "Your event has been posted successfully!<br/> Here are your next steps. An email with these choices will also be sent to your account. <br/><br/>";
+            Session["Message"] += moreMessage + "<br/><br/>" + "-Go to <a class=\"AddLink\" onclick=\"Search('/" + dat.MakeNiceName(EventNameTextBox.THE_TEXT) + "_" + tempID +
+                    "_Event');\">this event's</a> home page.<br/><br/> -<a class=\"AddLink\" onclick=\"Search('RateExperience.aspx?Type=E&ID=" + tempID + "');\" >Rate </a>your user experience posting this event.";
+
+            emailBody = "<br/><br/>Dear " + dsUser.Tables[0].Rows[0]["UserName"].ToString() + ", <br/><br/> you have successfully posted the event \"" + EventNameTextBox.THE_TEXT +
+            "\". <br/><br/> You can find this event <a href=\"http://hippohappenings.com/" + dat.MakeNiceName(EventNameTextBox.THE_TEXT) + "_" + tempID +
+                    "_Event\">here</a>. " +
+            "<br/><br/> To rate your experience posting this event <a href=\"http://hippohappenings.com/RateExperience.aspx?Type=E&ID=" + tempID + "\">please include your feedback here.</a>" +
+            "<br/><br/><br/>Have a Hippo Happening Day!<br/><br/>";
+        }
+
+        //MessageLiteral.Text = "<script type=\"text/javascript\">alert('" + message + "');</script>";
+        if (!isEditing)
+        {
+            dat.SendEmail(System.Configuration.ConfigurationManager.AppSettings["emailemail"].ToString(),
+                System.Configuration.ConfigurationManager.AppSettings["emailName"].ToString(),
+                dsUser.Tables[0].Rows[0]["Email"].ToString(), emailBody, "You have successfully posted the event: " +
+                EventNameTextBox.THE_TEXT);
+        }
+        else
+        {
+            DataSet dsEventUser = dat.GetData("SELECT * FROM Users U WHERE UserName='" + dsEvent.Tables[0].Rows[0]["UserName"].ToString() + "'");
+            emailBody = "<br/><br/>A change request has been submitted for an event you have posted: \"" + EventNameTextBox.THE_TEXT +
+                "\". <br/><br/> You can find this event <a href=\"http://hippohappenings.com/" + dat.MakeNiceName(EventNameTextBox.THE_TEXT) + "_" +ID +
+                    "_Event\">here</a>. " +
+                "<br/><br/> Please log into Hippo Happenings and check your messages to view and approve these changes.</a>" +
+                "<br/><br/><br/>Have a Hippo Happening Day!<br/><br/>";
+
+            if (!ownerUpForGrabs && !isOwner)
+            {
+                dat.SendEmail(System.Configuration.ConfigurationManager.AppSettings["emailemail"].ToString(),
+                    System.Configuration.ConfigurationManager.AppSettings["emailName"].ToString(),
+                    dsEventUser.Tables[0].Rows[0]["Email"].ToString(), emailBody, "A change request has been submitted for an event you have posted: " +
+                    EventNameTextBox.THE_TEXT);
+            }
+
+            //Send email to all users who have this event in their calendar and have their email preference set for event updates
+            if (isOwner || (ownerUpForGrabs && OwnerCheckBox.Checked))
+            {
+                emailBody = "<br/><br/>Changes have been made to an event in your calendar: Event '\"" + EventNameTextBox.THE_TEXT +
+                    "\"'. <br/><br/> To view these changes, please go to this event's <a class=\"AddLink\"  href=\"http://hippohappenings.com/" + dat.MakeNiceName(EventNameTextBox.THE_TEXT) + "_" + ID +
+                    "_Event\">page</a>. " +
+                    "<br/><br/><br/>Have a Hippo Happening Day!<br/><br/>";
+
+                DataSet dsAllUsers = dat.GetData("SELECT * FROM User_Calendar UC, Users U, UserPreferences UP WHERE U.User_ID=UP.UserID AND UP.EmailPrefs LIKE '%C%' AND U.User_ID=UC.UserID AND UC.EventID="+ID);
+
+                DataView dv = new DataView(dsAllUsers.Tables[0], "", "", DataViewRowState.CurrentRows);
+
+                if (dv.Count > 0)
+                {
+                    for(int i=0;i<dv.Count;i++)
+                    {
+                        dat.SendEmail(System.Configuration.ConfigurationManager.AppSettings["emailemail"].ToString(),
+                            System.Configuration.ConfigurationManager.AppSettings["emailName"].ToString(),
+                            dv[i]["Email"].ToString(), emailBody,
+                            "Event '" +
+                            EventNameTextBox.THE_TEXT + "' has been modified");
+
+                        //Mode is 6: for a 'do not reply' message
+                        dat.Execute("INSERT INTO UserMessages (MessageContent, MessageSubject, From_UserID, " +
+                            "To_UserID, Date, [Read], Mode, Live, SentLive) VALUES('" + emailBody.Replace("'", "''") + "', '" + "Event ''" +
+                            EventNameTextBox.THE_TEXT.ToString().Replace("'", "''") + "'' has been modified', "+
+                            dat.HIPPOHAPP_USERID+", " + dv[i]["UserID"].ToString() + ", GETDATE(), 0, 1, 1, 0)");
+
+                    }
+                }
+            }
+        }
+
+
+        MessageRadWindow.NavigateUrl = "Message.aspx?message=" + encrypt.encrypt(Session["Message"].ToString() +
+            "<br/><br/><img onclick=\"Search('Home.aspx');\" onmouseover=\"this.src='image/DoneSonButtonSelected.png'\" onmouseout=\"this.src='image/DoneSonButton.png'\" src=\"image/DoneSonButton.png\"/><br/>");
+        MessageRadWindow.Visible = true;
+        MessageRadWindow.VisibleOnPageLoad = true;
+    }
+
+    protected void ModifyIt(object sender, EventArgs e)
+    {
+
+    }
+
+    protected string CreateCategories(string ID, bool isOwner, bool isUpdate, string revisionID, bool ownerUpForGrabs)
+    {
+        HttpCookie cookie = Request.Cookies["BrowserDate"];
+        string categories = "";
+        string message = "";
+        
+            Hashtable distinctHash = new Hashtable();
+            Hashtable tagHash = new Hashtable();
+            Data dat = new Data(DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")));
+
+            if ((isUpdate && isOwner) || (isUpdate && ownerUpForGrabs))
+            {
+                dat.Execute("DELETE FROM Event_Category_Mapping WHERE EventID=" + ID);
+            }
+
+            DataSet dsCategories = dat.GetData("SELECT * FROM Event_Category_Mapping WHERE EventID=" + ID);
+            DataView dvCat = new DataView(dsCategories.Tables[0], "", "", DataViewRowState.CurrentRows);
+
+
+
+            categories += GetCategoriesFromTree(isUpdate, isOwner, ref CategoryTree, dvCat, ID, revisionID);
+            categories += GetCategoriesFromTree(isUpdate, isOwner, ref RadTreeView1, dvCat, ID, revisionID);
+            categories += GetCategoriesFromTree(isUpdate, isOwner, ref RadTreeView2, dvCat, ID, revisionID);
+            categories += GetCategoriesFromTree(isUpdate, isOwner, ref RadTreeView3, dvCat, ID, revisionID);
+
+
+
+        return categories;
+    }
+
+    protected string GetCategoriesFromTree(bool isUpdate, bool isOwner, ref Telerik.Web.UI.RadTreeView CategoryTree,
+        DataView dvCat, string ID, string revisionID)
+    {
+        HttpCookie cookie = Request.Cookies["BrowserDate"];
+        string categories = "";
+        Data dat = new Data(DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")));
+        for (int i = 0; i < CategoryTree.Nodes.Count; i++)
+        {
+
+            categories = GetCategoriesFromNode(isUpdate, isOwner, CategoryTree.Nodes[i], dvCat, ID, revisionID);
+            //Recurse if there is children
+        }
+        return categories;
+
+    }
+
+    protected string GetCategoriesFromNode(bool isUpdate, bool isOwner,
+        Telerik.Web.UI.RadTreeNode TreeNode, DataView dvCat, string ID, string revisionID)
+    {
+        HttpCookie cookie = Request.Cookies["BrowserDate"];
+        Data dat = new Data(DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")));
+        string ownerID = "";
+        string categories = "";
+
+
+        bool isOwnerUpForGrabs = dat.IsOwnerUpForGrabs(ID, ref ownerID, ref isOwner, false);
+        if (TreeNode.Checked && TreeNode.Enabled)
+        {
+            dvCat.RowFilter = "CategoryID=" + TreeNode.Value;
+            //distinctHash.Add(CategoriesCheckBoxes.Items[i], 21);
+            //tagHash.Add(CategoriesCheckBoxes.Items[i], "22");
+
+            if (isUpdate)
+            {
+                if (isOwner || isOwnerUpForGrabs)
+                {
+                    if (dvCat.Count == 0)
+                    {
+                        dat.Execute("INSERT INTO Event_Category_Mapping (CategoryID, EventID, tagSize) VALUES("
+                            + TreeNode.Value + "," + ID + ", 22)");
+                        if (categories != "")
+                            categories += " OR ";
+                        categories += " UC.CategoryID=" + TreeNode.Value;
+                    }
+                }
+                else
+                {
+                    if (dvCat.Count == 0)
+                    {
+                        string command22 = "INSERT INTO EventCategoryRevisions (AddOrRemove, EventID, CatID, modifierID, RevisionID, DATE) " +
+                            "VALUES(1, " + ID + ", " + TreeNode.Value + ", " + Session["User"].ToString() + ", " + revisionID + ", '" + DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")) + "')";
+                        Session["command"] = command22;
+                        dat.Execute(command22);
+                    }
+                    else
+                    {
+                        //This case is unnecessary since if the Node is checked and it exists for this event, we don't need to do anything
+                        //dat.Execute("INSERT INTO VenueCategoryRevisions (AddOrRemove, VenueID, CatID, modifierID, RevisionID) " +
+                        //    "VALUES(0, " + ID + ", " + CategoryTree.Nodes[i].Value + ", " + Session["User"].ToString() + ", " + revisionID + ")");
+                    }
+
+                }
+            }
+            else
+            {
+                dat.Execute("INSERT INTO Event_Category_Mapping (CategoryID, EventID, tagSize) VALUES("
+                            + TreeNode.Value + "," + ID + ", 22)");
+                if (categories != "")
+                    categories += " OR ";
+                categories += " UC.CategoryID=" + TreeNode.Value;
+            }
+
+        }
+        else if (!TreeNode.Checked)
+        {
+            dvCat.RowFilter = "CategoryID=" + TreeNode.Value;
+
+            if (isUpdate)
+            {
+                if (isOwner || isOwnerUpForGrabs)
+                {
+                    if (dvCat.Count == 0)
+                    {
+                    }
+                    else
+                    {
+                        dat.Execute("DELETE FROM Event_Category_Mapping WHERE EventID=" + ID +
+                            " AND CategoryID = " + TreeNode.Value);
+
+                    }
+                }
+                else
+                {
+                    if (dvCat.Count == 0)
+                    {
+                    }
+                    else
+                    {
+                        if (isOwnerUpForGrabs)
+                        {
+                            dat.Execute("DELETE FROM Event_Category_Mapping WHERE EventID=" + ID +
+                            " AND CategoryID = " + TreeNode.Value);
+                        }
+                        else
+                        {
+                            dat.Execute("INSERT INTO EventCategoryRevisions (AddOrRemove, EventID, CatID, modifierID, RevisionID, DATE) " +
+                                "VALUES(0, " + ID + ", " + TreeNode.Value + ", " + Session["User"].ToString() + ", " + revisionID + ", '" + DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")) + "')");
+                        }
+                    }
+
+                }
+            }
+            else
+            {
+            }
+        }
+
+        if (TreeNode.Nodes.Count > 0)
+        {
+            for (int j = 0; j < TreeNode.Nodes.Count; j++)
+            {
+                GetCategoriesFromNode(isUpdate, isOwner, TreeNode.Nodes[j], dvCat, ID, revisionID);
+            }
+        }
+
+        
+        
+        return categories;
+    }
+
+    protected void TabClick(object sender, EventArgs e)
+    {
+        int nextIndex = EventTabStrip.SelectedIndex;
+        short selectThisTab = 0;
+        YourMessagesLabel.Text = "";
+        MessagePanel.Visible = false;
+        //ErrorLabel.Text = "nextindex: " + nextIndex.ToString();
+
+        if (Session["EventPrevTab"] != null)
+        {
+            int selectedIndex = (int)Session["EventPrevTab"];
+            //ErrorLabel.Text += "selectedindex: " + selectedIndex.ToString();
+            Session["EventPrevTab"] = nextIndex;
+
+            if (selectedIndex != nextIndex)
+            {
+                bool wasClean = OnwardsIT(false, selectedIndex);
+                if (wasClean)
+                {
+                    //ErrorLabel.Text += ";was here 1;";
+                    selectThisTab = short.Parse(nextIndex.ToString());
+
+                }
+                else
+                {
+                    selectThisTab = short.Parse(selectedIndex.ToString());
+                    //ErrorLabel.Text += ";was here 2;";
+                }
+
+                if (MessagePanel.Visible)
+                {
+                    selectThisTab = short.Parse(selectedIndex.ToString());
+                    //ErrorLabel.Text += ";was here 3;";
+                }
+            }
+            else
+            {
+                selectThisTab = short.Parse(selectedIndex.ToString());
+            }
+
+            if (selectedIndex.ToString() == "4")
+            {
+                selectThisTab = short.Parse(nextIndex.ToString());
+            }
+
+            //ErrorLabel.Text += "selectthistab: " + selectThisTab.ToString();
+        }
+        else
+        {
+            Session["EventPrevTab"] = nextIndex;
+            selectThisTab = short.Parse(nextIndex.ToString());
+        }
+
+        ChangeSelectedTab(0, selectThisTab);
+    }
+
+    protected void Onwards(object sender, EventArgs e)
+    {
+        OnwardsIT(true, EventTabStrip.SelectedIndex);
+    }
+
+    protected bool OnwardsIT(bool changeTab, int selectedIndex)
+    {
+        try
+        {
+            YourMessagesLabel.Text = "";
+            MessagePanel.Visible = false;
+            HttpCookie cookie = Request.Cookies["BrowserDate"];
+            Session["EventPrevTab"] = selectedIndex;
+
+            Data dat = new Data(DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")));
+            bool goOn = false;
+
+            if (Request.QueryString["ID"] != null)
+            {
+                ImageButton6.PostBackUrl = "BlogEvent.aspx?edit=true&ID=" + Request.QueryString["ID"].ToString() + "#top";
+                ImageButton7.PostBackUrl = "BlogEvent.aspx?edit=true&ID=" + Request.QueryString["ID"].ToString() + "#top";
+                ImageButton5.PostBackUrl = "BlogEvent.aspx?edit=true&ID=" + Request.QueryString["ID"].ToString() + "#top";
+                MusicUploadButton.PostBackUrl = "BlogEvent.aspx?edit=true&ID=" + Request.QueryString["ID"].ToString() + "#top";
+            }
+
+
+            switch (selectedIndex)
+            {
+                case 0:
+
+                    bool eventName = false;
+                    bool startDate = false;
+                    bool endDate = true;
+                    bool location = false;
+                    bool venue = true;
+                    bool state = true;
+
+                    EventNameTextBox.THE_TEXT = dat.stripHTML(EventNameTextBox.THE_TEXT);
+
+                    if (EventNameTextBox.THE_TEXT != "")
+                        if (EventNameTextBox.THE_TEXT.Trim().Length > 70)
+                        {
+                            eventName = false;
+                            MessagePanel.Visible = true;
+                            YourMessagesLabel.Text += "<br/><br/>*The event name needs to be less than or equal to 70 characters.";
+                            return false;
+                        }
+                        else
+                        {
+                            eventName = true;
+                        }
+                    else
+                    {
+                        eventName = false;
+                        MessagePanel.Visible = true;
+                        YourMessagesLabel.Text += "<br/><br/>*The event name is required.";
+                        return false;
+                    }
+
+
+
+                    location = true;
+                    
+                        if (Session["NewVenue"] == null)
+                        {
+                            if (TimeFrameDiv.InnerHtml.Trim() == "Select Venue >")
+                            {
+                                venue = false;
+                                MessagePanel.Visible = true;
+                                YourMessagesLabel.Text += "<br/><br/>*Must include the Venue.";
+                                return false;
+                            }
+                            else
+                            {
+                                Session["NewVenue"] = dat.GetDataDV("SELECT * FROM Venues WHERE Name='" +
+                                    TimeFrameDiv.InnerHtml.Replace("'", "''") + "'")[0]["ID"].ToString();
+                                location = true;
+                                state = true;
+                                goOn = true;
+                            }
+                        }
+                        else
+                        {
+
+                            location = true;
+                            state = true;
+                            goOn = true;
+                        }
+
+                    
+
+                    if (DateSelectionsListBox.Items.Count > 0)
+                        startDate = true;
+                    else
+                    {
+                        startDate = false;
+                        MessagePanel.Visible = true;
+                        YourMessagesLabel.Text += "<br/><br/>*Must include the Date.";
+                        return false;
+                    }
+
+                    //if (EndDateTimePicker.DbSelectedDate != null)
+                    //    endDate = true;
+                    //else
+                    //{
+                    //    endDate = false;
+                    //    MessagePanel.Visible = true;
+                    //    YourMessagesLabel.Text += "<br/><br/>*Must include the End Date.";
+                    //}
+
+                    //if (startDate && endDate)
+                    //{
+                    //    DateTime a = DateTime.Parse(StartDateTimePicker.DbSelectedDate.ToString());
+                    //    DateTime b = DateTime.Parse(EndDateTimePicker.DbSelectedDate.ToString());
+
+                    //    int c = DateTime.Compare(a, b);
+
+                    //    if (c > -1)
+                    //    {
+                    //        endDate = false;
+                    //        MessagePanel.Visible = true;
+                    //        YourMessagesLabel.Text += "<br/><br/>*The End date is earier than the Start date.";
+                    //    }
+                    //}
+                    if (eventName && startDate && endDate && location && venue && state && goOn)
+                    {
+                        if(changeTab)
+                            ChangeSelectedTab(0, 1);
+
+                        FillLiteral();
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+
+                    break;
+                case 1:
+                    DescriptionTextBox.Content = dat.StripHTML_LeaveLinks(DescriptionTextBox.Content.Replace("<div>", "<br/>").Replace("</div>", ""));
+                    ShortDescriptionTextBox.THE_TEXT = dat.StripHTML_LeaveLinksNoBr(ShortDescriptionTextBox.THE_TEXT);
+                    if (DescriptionTextBox.Text.Length >= 50)
+                        if (ShortDescriptionTextBox.THE_TEXT.Length <= 150 &&
+                            ShortDescriptionTextBox.THE_TEXT.Length != 0)
+                        {
+                            if(changeTab)
+                                ChangeSelectedTab(1, 2);
+
+                            FillLiteral();
+                            return true;
+                        }
+                        else
+                        {
+                            MessagePanel.Visible = true;
+                            YourMessagesLabel.Text += "<br/><br/>Make sure that Short Description exists and is less than 150 characters.";
+                            return false;
+                        }
+                    else
+                    {
+                        MessagePanel.Visible = true;
+                        YourMessagesLabel.Text += "<br/><br/>*Make sure you say what you want your viewers to hear about this event! The description must be at least 50 characters.";
+                        return false;
+                    }
+                    break;
+                case 2:
+                    if (Session["EventCategoriesSet"] == null && Request.QueryString["ID"] != null)
+                    {
+                        SetCategories();
+                        ImageButton6.PostBackUrl = "BlogEvent.aspx?edit=true&ID=" + Request.QueryString["ID"].ToString() + "#top";
+                        ImageButton7.PostBackUrl = "BlogEvent.aspx?edit=true&ID=" + Request.QueryString["ID"].ToString() + "#top";
+                        ImageButton5.PostBackUrl = "BlogEvent.aspx?edit=true&ID=" + Request.QueryString["ID"].ToString() + "#top";
+                    }
+                    if(changeTab)
+                        ChangeSelectedTab(2, 3);
+
+                    FillLiteral();
+                    return true;
+                    break;
+                case 3:
+
+                    if (CategorySelected())
+                    {
+                        FillLiteral();
+                        
+                        if(changeTab)
+                            ChangeSelectedTab(3, 4);
+                        return true;
+                    }
+                    else
+                    {
+                        YourMessagesLabel.Text = "Must select at least one category.";
+                        MessagePanel.Visible = true;
+                        return false;
+                    }
+                    break;
+                default: break;
+            }
+        }
+        catch (Exception ex)
+        {
+            YourMessagesLabel.Text = ex.ToString();
+            MessagePanel.Visible = true;
+            
+        }
+
+        return false;
+    }
+
+    protected void FillLiteral()
+    {
+        HttpCookie cookie = Request.Cookies["BrowserDate"];
+
+        Data dat = new Data(DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")));
+
+        EventPanel.Visible = true;
+        ShowEventName.Text = EventNameTextBox.THE_TEXT;
+
+        ShowVenueName.Text = dat.GetDataDV("SELECT * FROM Venues WHERE ID=" + Session["NewVenue"].ToString())[0]["Name"].ToString();
+
+        ShowDateAndTimeLabel.Text = "";
+
+        for (int i = 0; i < DateSelectionsListBox.Items.Count; i++)
+        {
+            ShowDateAndTimeLabel.Text += DateSelectionsListBox.Items[i].Text + "<br/>";
+        }
+
+        ShowDescriptionBegining.Text = dat.BreakUpString(DescriptionTextBox.Content, 65);
+
+        //if (DescriptionTextBox.Content.Length > 500)
+        //{
+        //    ShowDescriptionBegining.Text = DescriptionTextBox.Content.Substring(0, 500);
+        //    int j = 500;
+        //    if (DescriptionTextBox.Content[500] != ' ')
+        //    {
+
+        //        while (DescriptionTextBox.Content[j] != ' ')
+        //        {
+        //            ShowDescriptionBegining.Text += DescriptionTextBox.Content[j];
+        //            j++;
+
+        //            if (j >= DescriptionTextBox.Content.Length)
+        //                break;
+        //        }
+        //    }
+        //    ShowDescriptionBegining.Text = dat.BreakUpString(ShowDescriptionBegining.Text, 65);
+        //    ShowRestOfDescription.Text = dat.BreakUpString(DescriptionTextBox.Content.Substring(j), 65);
+        //}
+        //else
+        //{
+        //    ShowDescriptionBegining.Text = dat.BreakUpString(DescriptionTextBox.Content, 60);
+        //    ShowRestOfDescription.Text = "";
+        //}
+
+        if (MainAttractionCheck.Checked)
+        {
+            ShowVideoPictureLiteral.Text = "";
+            if (PictureCheckList.Items.Count > 0)
+            {
+                Rotator1.Items.Clear();
+                char[] delim = { '\\' };
+                //string[] fileArray = System.IO.Directory.GetFiles(MapPath(".") + "\\UserFiles\\" +
+                //    Session["UserName"].ToString() + "\\Slider\\");
+
+                //string[] finalFileArray = new string[PictureCheckList.Items.Count];
+
+                //for (int i = 0; i < PictureCheckList.Items.Count; i++)
+                //{
+                //    finalFileArray[i] = "http://" + Request.Url.Authority + "/HippoHappenings/UserFiles/" + 
+                //        Session["UserName"].ToString() + "/Slider/" + PictureCheckList.Items[i].Value;
+                //}
+                char[] delim2 = { '.' };
+
+                bool isEdit = false;
+
+                if (Request.QueryString["edit"] != null)
+                    isEdit = bool.Parse(Request.QueryString["edit"].ToString());
+
+                for (int i = 0; i < PictureCheckList.Items.Count; i++)
+                {
+                    //if (PictureCheckList.Items[i].Enabled)
+                    //{
+                    Literal literal4 = new Literal();
+                    string toUse = "";
+                    string[] tokens = PictureCheckList.Items[i].Value.ToString().Split(delim2);
+                    if (tokens.Length >= 2)
+                    {
+                        if (tokens[1].ToUpper() == "JPG" || tokens[1].ToUpper() == "JPEG" || tokens[1].ToUpper() == "GIF" || tokens[1].ToUpper() == "PNG")
+                        {
+                            System.Drawing.Image image;
+                            if (isEdit)
+                            {
+                                if (System.IO.File.Exists(MapPath(".") + "\\UserFiles\\Events\\" + Request.QueryString["ID"].ToString() + "\\Slider\\" + PictureCheckList.Items[i].Value.ToString()))
+                                {
+                                    image = System.Drawing.Image.FromFile(MapPath(".") + "\\UserFiles\\Events\\" + Request.QueryString["ID"].ToString() + "\\Slider\\" + PictureCheckList.Items[i].Value.ToString());
+                                    toUse = "/UserFiles/Events/" + Request.QueryString["ID"].ToString() + "/Slider/" + PictureCheckList.Items[i].Value.ToString();
+                                }
+                                else
+                                {
+                                    image = System.Drawing.Image.FromFile(MapPath(".") + "\\UserFiles\\" + Session["EffectiveUserName"].ToString() + "\\Slider\\" + PictureCheckList.Items[i].Value.ToString());
+                                    toUse = "/UserFiles/" + Session["EffectiveUserName"].ToString() + "/Slider/" + PictureCheckList.Items[i].Value.ToString();
+                                }
+                            }
+                            else
+                            {
+                                image = System.Drawing.Image.FromFile(MapPath(".") + "\\UserFiles\\" + Session["EffectiveUserName"].ToString() + "\\Slider\\" + PictureCheckList.Items[i].Value.ToString());
+                                toUse = "/UserFiles/" + Session["EffectiveUserName"].ToString() + "/Slider/" + PictureCheckList.Items[i].Value.ToString();
+                            }
+
+
+
+                            //int width = 410;
+                            //int height = 250;
+
+                            int newHeight = image.Height;
+                            int newIntWidth = image.Width;
+
+                            ////if image height is less than resize height
+                            //if (height >= image.Height)
+                            //{
+                            //    //leave the height as is
+                            //    newHeight = image.Height;
+
+                            //    if (width >= image.Width)
+                            //    {
+                            //        newIntWidth = image.Width;
+                            //    }
+                            //    else
+                            //    {
+                            //        newIntWidth = width;
+
+                            //        double theDivider = double.Parse(image.Width.ToString()) / double.Parse(newIntWidth.ToString());
+                            //        double newDoubleHeight = double.Parse(newHeight.ToString());
+                            //        newDoubleHeight = double.Parse(height.ToString()) / theDivider;
+                            //        newHeight = (int)newDoubleHeight;
+                            //    }
+                            //}
+                            ////if image height is greater than resize height...resize it
+                            //else
+                            //{
+                            //    //make height equal to the requested height.
+                            //    newHeight = height;
+
+                            //    //get the ratio of the new height/original height and apply that to the width
+                            //    double theDivider = double.Parse(image.Height.ToString()) / double.Parse(newHeight.ToString());
+                            //    double newDoubleWidth = double.Parse(newIntWidth.ToString());
+                            //    newDoubleWidth = double.Parse(image.Width.ToString()) / theDivider;
+                            //    newIntWidth = (int)newDoubleWidth;
+
+                            //    //if the resized width is still to big
+                            //    if (newIntWidth > width)
+                            //    {
+                            //        //make it equal to the requested width
+                            //        newIntWidth = width;
+
+                            //        //get the ratio of old/new width and apply it to the already resized height
+                            //        theDivider = double.Parse(image.Width.ToString()) / double.Parse(newIntWidth.ToString());
+                            //        double newDoubleHeight = double.Parse(newHeight.ToString());
+                            //        newDoubleHeight = double.Parse(image.Height.ToString()) / theDivider;
+                            //        newHeight = (int)newDoubleHeight;
+                            //    }
+                            //}
+
+
+                            literal4.Text = "<div style=\"width: 410px; height: 250px;background-color: black;\"><img style=\" margin-left: " + ((410 - newIntWidth) / 2).ToString() + "px; margin-top: " + ((250 - newHeight) / 2).ToString() + "px;\" height=\"" + newHeight + "px\" width=\"" + newIntWidth + "px\" src=\""
+                                + toUse + "\" /></div>";
+
+
+                        }
+                        else if (tokens[1].ToUpper() == "WMV")
+                        {
+                            literal4.Text = "<object><param  name=\"wmode\" value=\"opaque\" ></param><embed wmode=\"opaque\" height=\"250px\" width=\"410px\" src=\""
+                                + "UserFiles/" + Session["EffectiveUserName"].ToString() + "/Slider/" + PictureCheckList.Items[i].Value.ToString() +
+                                "\" /></object>";
+                        }
+                    }
+                    else
+                    {
+                        literal4.Text = "<div style=\"float:left;\"><object width=\"410\" height=\"250\"><param  name=\"wmode\" value=\"opaque\" ></param><param name=\"movie\" value=\"http://www.youtube.com/v/" + PictureCheckList.Items[i].Value.ToString() + "\"></param><param name=\"allowFullScreen\" value=\"true\"></param><embed wmode=\"opaque\" src=\"http://www.youtube.com/v/" + PictureCheckList.Items[i].Value.ToString() + "\" type=\"application/x-shockwave-flash\" allowfullscreen=\"true\" width=\"410\" height=\"250\"></embed></object></div>";
+                    }
+
+                    Telerik.Web.UI.RadRotatorItem r4 = new Telerik.Web.UI.RadRotatorItem();
+                    r4.Controls.Add(literal4);
+                    Rotator1.Items.Add(r4);
+                    //}
+                }
+
+                if (Rotator1.Items.Count == 0)
+                    RotatorPanel.Visible = false;
+                else
+                    RotatorPanel.Visible = true;
+
+                if (Rotator1.Items.Count == 1)
+                {
+                    RotatorPanel.CssClass = "HiddeButtons";
+                }
+                else
+                {
+                    RotatorPanel.CssClass = "";
+                }
+            }
+        }
+
+
+    }
+
+    protected void Backwards(object sender, EventArgs e)
+    {
+        int selectedIndex = EventTabStrip.SelectedIndex;
+        if (Request.QueryString["ID"] != null)
+        {
+            ImageButton6.PostBackUrl = "BlogEvent.aspx?edit=true&ID=" + Request.QueryString["ID"].ToString() + "#top";
+            ImageButton7.PostBackUrl = "BlogEvent.aspx?edit=true&ID=" + Request.QueryString["ID"].ToString() + "#top";
+            ImageButton5.PostBackUrl = "BlogEvent.aspx?edit=true&ID=" + Request.QueryString["ID"].ToString() + "#top";
+        }
+
+        switch (selectedIndex)
+        {
+            case 1:
+                ChangeSelectedTab(1, 0);
+                break;
+            case 2:
+                ChangeSelectedTab(2, 1);
+                break;
+            case 3:
+                ChangeSelectedTab(3, 2);
+                break;
+            case 4:
+                ChangeSelectedTab(4, 3);
+                break;
+            default: break;
+        }
+    }
+    
+    protected void MusicUpload_Click(object sender, EventArgs e)
+    {
+        if (!MusicCheckBox.Checked)
+            MusicCheckBox.Checked = true;
+        HttpCookie cookie = Request.Cookies["BrowserDate"];
+        if (MusicUpload.HasFile && SongCheckList.Items.Count < 3)
+        {
+            char[] delim = { '.' };
+            string[] tokens = MusicUpload.FileName.Split(delim);
+            string fileName = "rename" + DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")).Ticks.ToString() + "." + tokens[1];
+            string extension = fileName.Split(delim)[1];
+            if (extension.ToUpper() == "MP3")
+            {
+                string root = MapPath(".") + "\\UserFiles\\" + Session["EffectiveUserName"].ToString() + "\\Songs\\";
+                if (SongCheckList.Items.Count == 0)
+                {
+                    if (!System.IO.Directory.Exists(MapPath(".") + "\\UserFiles\\" + 
+                        Session["EffectiveUserName"].ToString()))
+                    {
+                        System.IO.Directory.CreateDirectory(MapPath(".") + "\\UserFiles\\" + 
+                            Session["EffectiveUserName"].ToString());
+                    }
+
+                    if (!System.IO.Directory.Exists(root))
+                    {
+                        System.IO.Directory.CreateDirectory(root);
+                    }
+                    
+                }
+                MusicUpload.SaveAs(root + fileName);
+                SongCheckList.Items.Add(new ListItem(MusicUpload.FileName, fileName));
+                DeleteSongButton.Visible = true;
+            }
+            else
+            {
+                MessagePanel.Visible = true;
+                YourMessagesLabel.Text += "<br/><br/>The music file has to be .mp3 file.";
+            }
+        }
+    }
+    
+    //protected void SliderUpload_Click(object sender, EventArgs e)
+    //{
+    //    if (PictureUpload.HasFile && PictureCheckList.Items.Count < 20)
+    //    {
+    //        string root = MapPath(".") + "\\UserFiles\\" + Session["EffectiveUserName"].ToString() + "\\Slider\\";
+    //        if (PictureCheckList.Items.Count == 0)
+    //        {
+    //            if (!System.IO.Directory.Exists(MapPath(".") + "\\UserFiles\\" + Session["EffectiveUserName"].ToString()))
+    //            {
+    //                System.IO.Directory.CreateDirectory(MapPath(".") + "\\UserFiles\\" + Session["EffectiveUserName"].ToString());
+    //            }
+    //            if (!System.IO.Directory.Exists(root))
+    //            {
+    //                System.IO.Directory.CreateDirectory(root);
+    //            }
+    //        }
+    //        char[] delim = { '.' };
+    //        string[] tokens = PictureUpload.FileName.Split(delim);
+    //        string fileName = "rename" + DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")).Ticks.ToString() + "." + tokens[1];
+    //        PictureUpload.SaveAs(root + fileName);
+    //        PictureCheckList.Items.Add(new ListItem(PictureUpload.FileName,fileName));
+    //        PictureNixItButton.Visible = true;
+    //    }
+    //}
+    
+    protected void PictureUpload_Click(object sender, EventArgs e)
+    {
+        HttpCookie cookie = Request.Cookies["BrowserDate"];
+        if (PictureUpload.HasFile)
+        {
+            if (PictureCheckList.Items.Count < 20)
+            {
+                CreateDirectory();
+
+                char[] delim = { '.' };
+                string[] tokens = PictureUpload.FileName.Split(delim);
+
+
+                if (tokens.Length >= 2)
+                {
+                    if (tokens[1].ToUpper() == "JPG" || tokens[1].ToUpper() == "JPEG" || tokens[1].ToUpper() == "GIF" || tokens[1].ToUpper() == "PNG")
+                    {
+
+                        string fileName = "rename" + DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A",
+                            ":")).Ticks.ToString() + "." + tokens[1];
+                        PictureCheckList.Items.Add(new ListItem(PictureUpload.FileName, fileName));
+
+
+                        if (!System.IO.Directory.Exists(MapPath(".").ToString() + "\\UserFiles\\" +
+                        Session["EffectiveUserName"].ToString() + "\\Slider\\"))
+                        {
+                            if (!System.IO.Directory.Exists(MapPath(".").ToString() + "\\UserFiles\\" +
+                        Session["EffectiveUserName"].ToString()))
+                            {
+                                System.IO.Directory.CreateDirectory(MapPath(".").ToString() + "\\UserFiles\\" +
+                        Session["EffectiveUserName"].ToString());
+                            }
+
+                            System.IO.Directory.CreateDirectory(MapPath(".").ToString() + "\\UserFiles\\" +
+                        Session["EffectiveUserName"].ToString() + "\\Slider\\");
+                        }
+
+                        string typeS = "image/" + tokens[1].ToLower();
+
+                        System.Drawing.Image img = System.Drawing.Image.FromStream(PictureUpload.PostedFile.InputStream);
+
+                        SaveThumbnail(img, true, MapPath(".").ToString() + "\\UserFiles\\" +
+                            Session["EffectiveUserName"].ToString() + "\\Slider\\" + fileName, "image/" + tokens[1].ToLower());
+
+                        //SaveJpeg(MapPath(".").ToString() + "/UserFiles/" +
+                        //    Session["EffectiveUserName"].ToString() + "/Slider/" + fileName, img, 50, typeS);
+
+                        //PictureUpload.SaveAs(MapPath(".").ToString() + "/UserFiles/" + 
+                        //    Session["EffectiveUserName"].ToString() + "/Slider/" + fileName);
+                        PictureNixItButton.Visible = true;
+                    }
+                    else
+                    {
+                        YourMessagesLabel.Text = "No go! Pictures can only be .gif, .jpg, .jpeg, or .png.";
+                        MessagePanel.Visible = true;
+                    }
+                }
+            }
+        }
+    }
+
+    protected void CreateDirectory()
+    {
+        if (!System.IO.Directory.Exists(MapPath(".").ToString() + "\\UserFiles\\" + Session["EffectiveUserName"].ToString()))
+        {
+            System.IO.Directory.CreateDirectory(MapPath(".").ToString() + "\\UserFiles\\" + Session["EffectiveUserName"].ToString());
+            System.IO.Directory.CreateDirectory(MapPath(".").ToString() + "\\UserFiles\\" + Session["EffectiveUserName"].ToString() + "\\Slider\\");
+        }
+        else
+        {
+            if (!System.IO.Directory.Exists(MapPath(".").ToString() + "\\UserFiles\\" + Session["EffectiveUserName"].ToString() + "\\Slider\\"))
+            {
+                System.IO.Directory.CreateDirectory(MapPath(".").ToString() + "\\UserFiles\\" + Session["EffectiveUserName"].ToString() + "\\Slider\\");
+            }
+        }
+    }
+
+    protected void VideoUpload_Click(object sender, EventArgs e)
+    {
+        HttpCookie cookie = Request.Cookies["BrowserDate"];
+        if (VideoUpload.HasFile)
+        {
+            if (PictureCheckList.Items.Count < 20)
+            {
+                char[] delim = { '.' };
+                string[] tokens = VideoUpload.FileName.Split(delim);
+                string fileName = "rename" + DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")).Ticks.ToString() + "." + tokens[1];
+                PictureCheckList.Items.Add(new ListItem(VideoUpload.FileName, fileName));
+                VideoUpload.SaveAs(MapPath(".").ToString() + "/UserFiles/" + Session["EffectiveUserName"].ToString() + "/Slider/" + fileName);
+                PictureNixItButton.Visible = true;
+            }
+        }
+    }
+    
+    protected void YouTubeUpload_Click(object sender, EventArgs e)
+    {
+        if (YouTubeTextBox.Text != "")
+        {
+            YouTubeTextBox.Text = YouTubeTextBox.Text.Trim().Replace("http://www.youtube.com/watch?v=", "");
+            if (PictureCheckList.Items.Count < 20)
+            {
+                PictureCheckList.Items.Add(new ListItem("YouTube ID: " + YouTubeTextBox.Text, YouTubeTextBox.Text));
+                PictureNixItButton.Visible = true;
+            }
+        }
+    }
+    
+    //protected void ChangeVenue(object sender, EventArgs e)
+    //{
+    //    HttpCookie cookie = Request.Cookies["BrowserDate"];
+    //        Div1.Visible = true;
+    //        LocationPanel.Visible = false;
+    //        ExistingVenuePanel.Visible = true;
+    //        VenueNameTextBox.Visible = false;
+    //    VenueCountry.SelectedValue = "223";
+
+    //    bool isTextBox = false;
+    //    Data dat = new Data(DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")));
+    //    DataSet ds = dat.GetData("SELECT * FROM State WHERE country_id=223");
+    //    if (ds.Tables.Count > 0)
+    //        if (ds.Tables[0].Rows.Count > 0)
+    //        {
+    //            StateDropDownPanel.Visible = true;
+    //            StateTextBoxPanel.Visible = false;
+    //            StateDropDown.DataSource = ds;
+    //            StateDropDown.DataTextField = "state_2_code";
+    //            StateDropDown.DataValueField = "state_id";
+    //            StateDropDown.DataBind();
+    //        }
+    //        else
+    //            isTextBox = true;
+    //    else
+    //        isTextBox = true;
+
+    //    if (isTextBox)
+    //    {
+    //        StateTextBoxPanel.Visible = true;
+    //        StateDropDownPanel.Visible = false;
+    //    }
+
+    //}
+    
+    protected void ShowVideo(object sender, EventArgs e)
+    {
+        //if (VideoRadioList.SelectedValue == "0")
+        //{
+        //    UploadPanel.Visible = true;
+        //    YouTubePanel.Visible = false;
+        //}
+        //else
+        //{
+        //    UploadPanel.Visible = false;
+        //    YouTubePanel.Visible = true;
+        //}
+    }
+    
+    protected void ShowSliderOrVidPic(object sender, EventArgs e)
+    {
+        if (MainAttracionRadioList.SelectedValue == "0")
+        {
+            VideoPanel.Visible = true;
+            YouTubePanel.Visible = true;
+            PicturePanel.Visible = false;
+        }
+        else
+        {
+            VideoPanel.Visible = false;
+            YouTubePanel.Visible = false;
+            PicturePanel.Visible = true;
+        }
+    }
+    
+    //protected void ShowVideoOrPicture(object sender, EventArgs e)
+    //{
+    //    if (VideoRadioList.SelectedValue == "0")
+    //    {
+    //        PicturePanel.Visible = true;
+    //        VideoPanel.Visible = false;
+    //    }
+    //    else
+    //    {
+    //        PicturePanel.Visible = false;
+    //        VideoPanel.Visible = true;
+    //    }
+    //}
+    
+    protected void EnableMainAttractionPanel(object sender, EventArgs e)
+    {
+        if (MainAttractionCheck.Checked)
+        {
+            MainAttractionPanel.Enabled = true;
+            MainAttractionPanel.Visible = true;
+        }
+        else
+        {
+            MainAttractionPanel.Enabled = false;
+            MainAttractionPanel.Visible = false;
+        }
+    }
+
+    protected void AddDate(object sender, EventArgs e)
+    {
+        if (StartDateTimePicker.DbSelectedDate != null && EndDateTimePicker.DbSelectedDate != null)
+        {
+            DateTime a = DateTime.Parse(StartDateTimePicker.DbSelectedDate.ToString());
+            DateTime b = DateTime.Parse(EndDateTimePicker.DbSelectedDate.ToString());
+
+            int c = DateTime.Compare(a, b);
+
+            if (c > -1)
+            {
+                //MessagePanel.Visible = true;
+                DateErrorLabel.Text = "<br/><br/>*The End date is earier than the Start date.";
+            }
+            else
+            {
+                DateSelectionsListBox.Items.Add(StartDateTimePicker.DbSelectedDate.ToString() + " -- " + EndDateTimePicker.DbSelectedDate.ToString());
+            }
+        }
+        else
+        {
+            //MessagePanel.Visible = true;
+            DateErrorLabel.Text = "<br/><br/>*Need to include both the Start date and End date.";
+        }
+    }
+
+    protected void EnableMusicPanel(object sender, EventArgs e)
+    {
+        if (MusicCheckBox.Checked)
+            MusicPanel.Enabled = true;
+        else
+            MusicPanel.Enabled = false;
+    }
+    
+    protected void NixIt(object sender, EventArgs e)
+    {
+        int songCount = SongCheckList.Items.Count;
+        CheckBoxList tempList = new CheckBoxList();
+        for (int i = 0; i < songCount; i++)
+        {
+            if (!SongCheckList.Items[i].Selected)
+                tempList.Items.Add(SongCheckList.Items[i]);
+        }
+        SongCheckList.Items.Clear();
+        for (int j = 0; j < tempList.Items.Count; j++)
+        {
+            SongCheckList.Items.Add(tempList.Items[j]);
+        }
+        if (SongCheckList.Items.Count == 0)
+            DeleteSongButton.Visible = false;
+    }
+    
+    protected void PictureNixIt(object sender, EventArgs e)
+    {
+        PictureCheckList.Items.Clear();
+
+        PictureNixItButton.Visible = false;
+    }
+    
+    protected void SliderNixIt(object sender, EventArgs e)
+    {
+        int songCount = PictureCheckList.Items.Count;
+        CheckBoxList tempList = new CheckBoxList();
+        for (int i = 0; i < songCount; i++)
+        {
+            if (!PictureCheckList.Items[i].Selected)
+                tempList.Items.Add(PictureCheckList.Items[i]);
+            else
+            {
+                if (System.IO.File.Exists(MapPath(".") + "/UserFiles/" + Session["UserName"].ToString() + "/Slider/" + PictureCheckList.Items[i].Value))
+                {
+                    System.IO.File.Delete(MapPath(".") + "/UserFiles/" + Session["UserName"].ToString() + "/Slider/" + PictureCheckList.Items[i].Value);
+                }
+            }
+        }
+        PictureCheckList.Items.Clear();
+        for (int j = 0; j < tempList.Items.Count; j++)
+        {
+            PictureCheckList.Items.Add(tempList.Items[j]);
+        }
+        if (PictureCheckList.Items.Count == 0)
+            PictureNixItButton.Visible = false;
+    }
+    
+    protected void VideoNixIt(object sender, EventArgs e)
+    {
+        PictureCheckList.Items.Clear();
+
+        PictureNixItButton.Visible = false;
+    }
+    
+    protected void SuggestCategoryClick(object sender, EventArgs e)
+    {
+
+
+        HttpCookie cookie = Request.Cookies["BrowserDate"];
+        Data dat = new Data(DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")));
+        CategoriesTextBox.Text = dat.stripHTML(CategoriesTextBox.Text.Trim());
+
+        if (CategoriesTextBox.Text.Trim() != "")
+        {
+
+            MessagePanel.Visible = true;
+
+            YourMessagesLabel.Text = "<br/><br/>Your category '" + CategoriesTextBox.Text + "' has been suggested. We'll send you an update when it has been approved.";
+
+            CategoriesTextBox.Text = dat.StripHTML_LeaveLinks(CategoriesTextBox.Text);
+
+            DataSet dsUser = dat.GetData("SELECT Email, UserName FROM USERS WHERE User_ID=" + Session["User"].ToString());
+
+            dat.SendEmail(System.Configuration.ConfigurationManager.AppSettings["categoryemail"].ToString(),
+                        System.Configuration.ConfigurationManager.AppSettings["emailName"].ToString(),
+                System.Configuration.ConfigurationManager.AppSettings["categoryemail"].ToString(), "Category has been suggested from 'BlogEvent.aspx'. The user ID who suggested " +
+                "the category is userID: '" + Session["User"].ToString() + "'. The category suggestion is '" + CategoriesTextBox.Text + "'", "Hippo Happenings category suggestion");
+            CategoriesTextBox.Text = "";
+        }
+        else
+        {
+            MessagePanel.Visible = true;
+
+            YourMessagesLabel.Text = "<br/><br/>Please type in the description and name of the category you want to suggest.";
+        }
+    }
+    
+    private void ChangeSelectedTab(int unselectIndex, short selectIndex)
+    {
+        Session["EventPrevTab"] = int.Parse(selectIndex.ToString());
+        EventTabStrip.Tabs[selectIndex].Enabled = true;
+        EventTabStrip.Tabs[selectIndex].Selected = true;
+        EventTabStrip.MultiPage.SelectedIndex = selectIndex;
+        EventTabStrip.SelectedTab.TabIndex = selectIndex;
+        EventTabStrip.SelectedIndex = selectIndex;
+        EventTabStrip.TabIndex = selectIndex;
+        //EventTabStrip.Tabs[unselectIndex].Enabled = false;
+    }
+    
+    public Control FindControlRecursive(Control Root, string Id)
+    {
+        if (Root.ID == Id)
+            return Root;
+
+        foreach (Control Ctl in Root.Controls)
+        {
+            Control FoundCtl = FindControlRecursive(Ctl, Id);
+
+            if (FoundCtl != null)
+                return FoundCtl;
+        }
+        return null;
+    }
+    
+    protected void GetVenues(object sender, EventArgs e)
+    {
+
+        GetThoseVenues();
+    }
+
+    protected void SetNewVenue(object sender, EventArgs e)
+    {
+        string parameter = Request.Form["__EVENTARGUMENT"];
+        Session["NewVenue"] = parameter;
+        HttpCookie cookie = Request.Cookies["BrowserDate"];
+        if (cookie == null)
+        {
+            cookie = new HttpCookie("BrowserDate");
+            cookie.Value = DateTime.Now.ToString();
+            cookie.Expires = DateTime.Now.AddDays(22);
+            Response.Cookies.Add(cookie);
+        }
+        Data dat = new Data(DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")));
+
+        TimeFrameDiv.InnerHtml = dat.GetDataDV("SELECT * FROM Venues WHERE ID=" + parameter)[0]["Name"].ToString();
+    }
+
+    protected void GetThoseVenues()
+    {
+        try
+        {
+            HttpCookie cookie = Request.Cookies["BrowserDate"];
+            Data dat = new Data(DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")));
+
+            TimeFrameDiv.InnerHtml = "Select Venue >";
+
+            Session["NewVenue"] = null;
+            Session.Remove("NewVenue");
+
+            string state = "";
+            if (VenueState.Visible)
+                state = VenueState.SelectedItem.Text;
+            else
+                state = VenueStateTextBox.Text;
+
+            SqlDbType[] types = { SqlDbType.NVarChar };
+            object[] data = { state };
+            DataSet ds = dat.GetDataWithParemeters("SELECT CASE WHEN SUBSTRING(Name, 1, 4) = 'The' THEN "+
+                "SUBSTRING(Name, 5, LEN(Name)-4) ELSE Name END AS Name1, * FROM Venues WHERE Country=" +
+                VenueCountry.SelectedValue + " AND State=@p0 ORDER BY Name1 ASC", types, data);
+            
+
+            Session["LocationVenues"] = ds;
+
+            fillVenues(ds);
+
+        }
+        catch (Exception ex)
+        {
+            MessagePanel.Visible = true;
+            YourMessagesLabel.Text += ex.ToString();
+        }
+    }
+
+    protected void fillVenues(DataSet ds)
+    {
+        DataView dv = new DataView(ds.Tables[0], "", "", DataViewRowState.CurrentRows);
+        Div1.Visible = true;
+        Tip1.Controls.Clear();
+        if (ds.Tables.Count > 0)
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+
+                //VenueDropDown.Visible = true;
+                //VenueDropDown.DataSource = ds;
+                //VenueDropDown.DataTextField = "Name";
+                //VenueDropDown.DataValueField = "ID";
+                //VenueDropDown.DataBind();
+
+                //VenueDropDown.Items.Insert(0, new ListItem("Select Venue >..", "-1"));
+                Literal litBeg = new Literal();
+                litBeg.Text = "<div style=\"max-width: 800px;\"><div>";
+                Literal litMid = new Literal();
+                litMid.Text = "";
+
+                char[] letters = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };
+                char[] lettersLow = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
+
+                int countLetters = 0;
+                int max = 0;
+
+                for (int j = 0; j < letters.Length; j++)
+                {
+                    dv.RowFilter = "substring(Name1,1,1) = '" + lettersLow[j] + "' OR substring(Name1,1,1) = '" + letters[j] + "' ";
+
+
+                    if (dv.Count > 0)
+                    {
+                        countLetters++;
+
+                        string classL = "";
+                        if (countLetters == 1)
+                            classL = "AddGreenLink";
+                        else
+                            classL = "AddWhiteLink";
+                        litBeg.Text += "<div style=\"float: left; padding: 5px;\" id='titleDiv" + letters[j] +
+                            "' class=\"" + classL + "\"><a onclick=\"SelectLetterDiv('" +
+                            letters[j] + "');\">" + letters[j] + "</a></div>";
+                        string displayL = "";
+                        if (countLetters == 1)
+                            displayL = "block";
+                        else
+                            displayL = "none";
+                        litMid.Text += "<div id='contentDiv" + letters[j] + "' style=\"display: " +
+                            displayL + "; float: left;\">";
+                        for (int i = 0; i < dv.Count; i++)
+                        {
+                            string borderN = "";
+                            if (i != dv.Count - 1)
+                                borderN = "border-right: solid 1px white;";
+                            litMid.Text += "<div style=\"" + borderN + "padding: 5px; float: left; width: 100px;\"><a onclick=\"fillDrop('" +
+                                dv[i]["Name"].ToString().Replace("'", "&&") + "', " +
+                                dv[i]["ID"].ToString() + ");\" class=\"AddLink\">" +
+                                dv[i]["Name"].ToString() + "</a></div>";
+                        }
+                        litMid.Text += "</div>";
+
+                        if (dv.Count > max)
+                            max = dv.Count;
+                    }
+                }
+                litBeg.Text += "</div><br/>";
+                litMid.Text += "</div>";
+
+                //Tip1.Width = countLetters * 34;
+                //Tip1.Height = max * 10;
+                Tip1.Controls.Add(litBeg);
+                Tip1.Controls.Add(litMid);
+            }
+            else
+            {
+                Literal litMid = new Literal();
+                litMid.Text = "No venues found for this location. Create one my clicking on 'New Venue' radio button.";
+
+                Tip1.Controls.Add(litMid);
+
+                MessagePanel.Visible = true;
+                YourMessagesLabel.Text += "<br/><br/>No venues found. Create one my clicking on 'New Venue' radio button.";
+            }
+        else
+        {
+            Literal litMid = new Literal();
+            litMid.Text = "No venues found for this location. Create one my clicking on 'New Venue' radio button.";
+
+            Tip1.Controls.Add(litMid);
+
+            MessagePanel.Visible = true;
+            YourMessagesLabel.Text += "<br/><br/>No venues found. Create one my clicking on 'New Venue' radio button.";
+        }
+    }
+
+    //public Bitmap ResizeBitmap(Bitmap b, int nWidth, int nHeight)
+    //{
+    //    Bitmap result = new Bitmap(nWidth, nHeight);
+    //    using (Graphics g = Graphics.FromImage((Image)result))
+    //        g.DrawImage(b, 0, 0, nWidth, nHeight);
+    //    return result;
+    //}
+
+    private static ImageCodecInfo GetEncoderInfo(string mimeType)
+    {
+        // Get image codecs for all image formats 
+        ImageCodecInfo[] codecs = ImageCodecInfo.GetImageEncoders();
+
+        // Find the correct image codec
+        ImageCodecInfo a = codecs[0];
+        for (int i = 0; i < codecs.Length; i++)
+        {
+            if (codecs[i].MimeType == mimeType)
+            {
+                return codecs[i];
+
+            }
+            if (codecs[i].MimeType == "jpeg")
+                a = codecs[i];
+        }
+        return a;
+    }
+
+    private void SaveThumbnail(System.Drawing.Image image, bool isRotator, string path, string typeS)
+    {
+        int width = 410;
+        int height = 250;
+
+        int newHeight = 0;
+        int newIntWidth = 0;
+
+        float newFloatHeight = 0.00F;
+        float newFloatWidth = 0.00F;
+
+        if (isRotator)
+        {
+            //if image height is less than resize height
+            if (height >= image.Height)
+            {
+                //leave the height as is
+                newHeight = image.Height;
+
+                if (width >= image.Width)
+                {
+                    newIntWidth = image.Width;
+                    newFloatWidth = image.Width;
+                }
+                else
+                {
+                    newIntWidth = width;
+
+                    double theDivider = double.Parse(image.Width.ToString()) / double.Parse(newIntWidth.ToString());
+                    double newDoubleHeight = double.Parse(newHeight.ToString());
+                    newDoubleHeight = double.Parse(height.ToString()) / theDivider;
+                    newHeight = (int)newDoubleHeight;
+                    newFloatHeight = (float)newDoubleHeight;
+                }
+            }
+            //if image height is greater than resize height...resize it
+            else
+            {
+                //make height equal to the requested height.
+                newHeight = height;
+                newFloatHeight = height;
+                //get the ratio of the new height/original height and apply that to the width
+                double theDivider = double.Parse(image.Height.ToString()) / double.Parse(newHeight.ToString());
+                double newDoubleWidth = double.Parse(newIntWidth.ToString());
+                newDoubleWidth = double.Parse(image.Width.ToString()) / theDivider;
+                newIntWidth = (int)newDoubleWidth;
+                newFloatWidth = (float)newDoubleWidth;
+                //if the resized width is still to big
+                if (newIntWidth > width)
+                {
+                    //make it equal to the requested width
+                    newIntWidth = width;
+
+                    //get the ratio of old/new width and apply it to the already resized height
+                    theDivider = double.Parse(image.Width.ToString()) / double.Parse(newIntWidth.ToString());
+                    double newDoubleHeight = double.Parse(newHeight.ToString());
+                    newDoubleHeight = double.Parse(image.Height.ToString()) / theDivider;
+                    newHeight = (int)newDoubleHeight;
+                    newFloatHeight = (float)newDoubleHeight;
+                }
+            }
+        }
+        else
+        {
+            newHeight = 100;
+            newIntWidth = 100;
+        }
+
+        //if (quality < 0 || quality > 100)
+        //    throw new ArgumentOutOfRangeException("quality must be between 0 and 100.");
+
+
+        //// Encoder parameter for image quality 
+        //EncoderParameter qualityParam =
+        //    new EncoderParameter(Encoder.Quality, 100);
+        //// Jpeg image codec 
+        //ImageCodecInfo jpegCodec = GetEncoderInfo(typeS);
+
+        //EncoderParameters encoderParams = new EncoderParameters(1);
+        //encoderParams.Param[0] = qualityParam;
+
+        System.Drawing.Bitmap bmpResized = new System.Drawing.Bitmap(image, newIntWidth, newHeight); 
+
+        
+        //System.Drawing.Image thumbnail = image.GetThumbnailImage(newIntWidth, newHeight,
+        //    new System.Drawing.Image.GetThumbnailImageAbort(EmptyCallBack), IntPtr.Zero);
+        //SaveJpeg(path, thumbnail, 10, typeS);
+
+
+
+        bmpResized.Save(path);
+        //thumbnail.Save(path);
+    }
+
+    public static void SaveJpeg(string path, System.Drawing.Image img, int quality, string typeS)
+    {
+        if (quality < 0 || quality > 100)
+            throw new ArgumentOutOfRangeException("quality must be between 0 and 100.");
+
+
+        // Encoder parameter for image quality 
+        EncoderParameter qualityParam =
+            new EncoderParameter(Encoder.Quality, quality);
+        // Jpeg image codec 
+        ImageCodecInfo jpegCodec = GetEncoderInfo(typeS);
+
+        EncoderParameters encoderParams = new EncoderParameters(1);
+        encoderParams.Param[0] = qualityParam;
+
+        img.Save(path, jpegCodec, encoderParams);
+    }
+
+    private bool EmptyCallBack()
+    {
+        return false;
+    }
+
+}
+

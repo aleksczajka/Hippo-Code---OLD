@@ -1,0 +1,2818 @@
+using System;
+using System.Data;
+using System.Configuration;
+using System.Collections;
+using System.Web;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Web.UI.HtmlControls;
+using System.Data.SqlClient;
+using System.Collections.Generic;
+
+
+public partial class User : Telerik.Web.UI.RadAjaxPage
+{
+    public string UserName;
+    
+    public int UserID;
+
+    System.Drawing.Color greyText = System.Drawing.Color.FromArgb(102, 102, 102);
+    System.Drawing.Color greyBack = System.Drawing.Color.FromArgb(51, 51, 51);
+    System.Drawing.Color greyDark = System.Drawing.Color.FromArgb(27, 27, 27);
+    System.Drawing.Color greyBorder = System.Drawing.Color.FromArgb(54, 54, 54);
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        DoAll();
+
+
+        if (!IsPostBack)
+        {
+            //Categories have to be set from Page_Load not Page_Init for some reason. Otherwise it doesn't work.
+            Data dat = new Data(DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")));
+            //Set Ad categories
+            Telerik.Web.UI.RadTreeView CategoryTree = (Telerik.Web.UI.RadTreeView)AdCategoryRadPanel.Items[0].Items[0].FindControl("CategoryTree");
+            Telerik.Web.UI.RadTreeView RadTreeView2 = (Telerik.Web.UI.RadTreeView)AdCategoryRadPanel.Items[0].Items[0].FindControl("RadTreeView2");
+            CategoryTree.DataBind();
+            //RadTreeView1.DataBind();
+            RadTreeView2.DataBind();
+            //RadTreeView3.DataBind();
+
+            DataSet dsCategories = dat.GetData("SELECT * FROM UserCategories UC, AdCategories AC WHERE UC.UserID=" +
+                Session["User"].ToString() + " AND UC.CategoryID=AC.ID");
+            FillCategories(dsCategories, ref CategoryTree);
+            FillCategories(dsCategories, ref RadTreeView2);
+
+
+            //Set Event categories
+            Telerik.Web.UI.RadTreeView RadTreeView1 =
+                (Telerik.Web.UI.RadTreeView)EventPanelBar.Items[0].Items[0].FindControl("RadTreeView1");
+            Telerik.Web.UI.RadTreeView RadTreeView3 =
+                (Telerik.Web.UI.RadTreeView)EventPanelBar.Items[0].Items[0].FindControl("RadTreeView3");
+            RadTreeView1.DataBind();
+            RadTreeView3.DataBind();
+
+            dsCategories = dat.GetData("SELECT * FROM UserEventCategories UEC, EventCategories EC WHERE UEC.UserID=" +
+                Session["User"].ToString() + " AND UEC.CategoryID=EC.ID");
+            FillCategories(dsCategories, ref RadTreeView1);
+            FillCategories(dsCategories, ref RadTreeView3);
+        }
+    }
+
+    protected void GoToSearches(object sender, EventArgs e)
+    {
+        Response.Redirect("SearchesAndPages.aspx");
+    }
+
+    protected void GoToAdStatistics(object sender, EventArgs e)
+    {
+        Response.Redirect("AdStatistics.aspx");
+    }
+
+    protected void Page_Init(object sender, EventArgs e)
+    {
+        string USER_ID = "";
+        try
+        {
+            //Ajax.Utility.RegisterTypeForAjax(typeof(User));
+            
+
+            //if (!IsPostBack)
+            //{
+            //    FriendsButton.Attributes.Add("onmouseover", "this.src='image/MyFriendsHover.png'");
+            //    FriendsButton.Attributes.Add("onmouseout", "this.src='image/MyFriends.png'");
+
+
+            //}
+            //else
+            //{
+            //    FriendsButton.Attributes.Remove("onmouseover");
+            //    FriendsButton.Attributes.Remove("onmouseout");
+            //    MessagesButton.Attributes.Remove("onmouseover");
+            //    MessagesButton.Attributes.Remove("onmouseout");
+            //}
+
+
+            //FOR USER PREFERENCES
+            Data dat = new Data(DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")));
+            MessageRadWindowManager.VisibleOnPageLoad = false;
+
+            
+            if (!IsPostBack)
+            {
+                try
+                {
+                    
+
+                    if (Session["User"] != null)
+                    {
+                    }
+                    else
+                    {
+                        Button calendarLink = (Button)dat.FindControlRecursive(this, "CalendarLink");
+                        calendarLink.Visible = false;
+                        Response.Redirect("~/UserLogin.aspx");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ErrorLabel.Text = ex.ToString();
+                   Response.Redirect("~/UserLogin.aspx");
+                }
+
+                USER_ID = Session["User"].ToString();
+
+                //DataSet dsCat = dat.GetData("SELECT * FROM Categories");
+                //CategoriesCheckBoxes.DataSource = dsCat;
+                //CategoriesCheckBoxes.DataTextField = "CategoryName";
+                //CategoriesCheckBoxes.DataValueField = "ID";
+                //CategoriesCheckBoxes.DataBind();
+
+                
+
+
+
+                DataSet dsProvider = dat.GetData("SELECT * FROM PhoneProviders");
+                ProviderDropDown.DataSource = dsProvider;
+                ProviderDropDown.DataTextField = "Provider";
+                ProviderDropDown.DataValueField = "ID";
+                ProviderDropDown.DataBind();
+
+
+                Data d = new Data(DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")));
+                DataSet ds = d.GetData("SELECT * FROM Events E, Venues V, Event_Occurance EO, User_Calendar UC WHERE UC.EventID=E.ID AND E.ID=EO.EventID AND E.Venue=V.ID AND UC.UserID=" + USER_ID);
+                DataSet dsUser = d.GetData("SELECT * FROM Users WHERE User_ID=" + USER_ID);
+                DataSet dsUserPrefs = d.GetData("SELECT * FROM UserPreferences WHERE UserID=" + USER_ID);
+
+                if (dsUserPrefs.Tables.Count > 0)
+                    if (dsUserPrefs.Tables[0].Rows.Count > 0)
+                    {
+                        AgeTextBox.Text = dsUserPrefs.Tables[0].Rows[0]["Age"].ToString();
+                        SexTextBox.Text = dsUserPrefs.Tables[0].Rows[0]["Sex"].ToString();
+
+                        LocationTextBox.Text = dsUserPrefs.Tables[0].Rows[0]["Location"].ToString();
+
+                        string eventsPosted = "0";
+                        DataSet dsEvents = dat.GetData("SELECT COUNT(*) AS COUNT1 FROM Events WHERE UserName='" + Session["UserName"].ToString() + "'");
+                        if (dsEvents.Tables.Count > 0)
+                            if (dsEvents.Tables[0].Rows.Count > 0)
+                                eventsPosted = dsEvents.Tables[0].Rows[0]["COUNT1"].ToString();
+                        EventsLabel.Text = eventsPosted;
+                        AttendedLabel.Text = dsUserPrefs.Tables[0].Rows[0]["EventsAttended"].ToString();
+
+                        if (dsUserPrefs.Tables[0].Rows[0]["CalendarPrivacyMode"].ToString() != null)
+                        {
+                            PublicPrivateCheckList.SelectedValue = dsUserPrefs.Tables[0].Rows[0]["CalendarPrivacyMode"].ToString();
+                        }
+
+                        if (dsUserPrefs.Tables[0].Rows[0]["PollPreferences"].ToString() != null)
+                        {
+                            PollRadioList.SelectedValue = dsUserPrefs.Tables[0].Rows[0]["PollPreferences"].ToString();
+                        }
+
+                        if (dsUserPrefs.Tables[0].Rows[0]["CommentsPreferences"].ToString() != null)
+                        {
+                            CommentsRadioList.SelectedValue = dsUserPrefs.Tables[0].Rows[0]["CommentsPreferences"].ToString();
+                        }
+                        RadioButtonList CategoriesOnOffRadioList = (RadioButtonList)AdCategoryRadPanel.Items[0].Items[0].FindControl("CategoriesOnOffRadioList");
+                        if (dsUserPrefs.Tables[0].Rows[0]["CategoriesOnOff"].ToString() != null)
+                        {
+                            if (bool.Parse(dsUserPrefs.Tables[0].Rows[0]["CategoriesOnOff"].ToString()))
+                                CategoriesOnOffRadioList.SelectedValue = "1";
+                            else
+                                CategoriesOnOffRadioList.SelectedValue = "2";
+                        }
+
+                        if(dsUserPrefs.Tables[0].Rows[0]["RecommendationPrefs"].ToString() != null){
+                            string recom = dsUserPrefs.Tables[0].Rows[0]["RecommendationPrefs"].ToString();
+                            if (recom.Contains("1"))
+                                RecommendationsCheckList.Items[0].Selected = true;
+                            if (recom.Contains("2"))
+                                RecommendationsCheckList.Items[1].Selected = true;
+                            if (recom.Contains("3"))
+                                RecommendationsCheckList.Items[2].Selected = true;
+                        }
+
+                        if (dsUserPrefs.Tables[0].Rows[0]["CommunicationPrefs"].ToString() != null)
+                        {
+                            CommunicationPrefsRadioList.SelectedValue = dsUserPrefs.Tables[0].Rows[0]["CommunicationPrefs"].ToString();
+                        }
+
+
+                        if (dsUserPrefs.Tables[0].Rows[0]["Country"].ToString() != null)
+                        {
+                            if (dsUserPrefs.Tables[0].Rows[0]["Country"].ToString().Trim() != "")
+                            {
+                                if (dsUserPrefs.Tables[0].Rows[0]["Address"].ToString() != null)
+                                {
+                                    AddressTextBox.THE_TEXT = dsUserPrefs.Tables[0].Rows[0]["Address"].ToString();
+                                }
+
+                                if (dsUserPrefs.Tables[0].Rows[0]["City"].ToString() != null)
+                                {
+                                    BillCityTextBox.THE_TEXT = dsUserPrefs.Tables[0].Rows[0]["City"].ToString();
+                                }
+
+                                if (dsUserPrefs.Tables[0].Rows[0]["ZIP"].ToString() != null)
+                                {
+                                    ZipTextBox.THE_TEXT = dsUserPrefs.Tables[0].Rows[0]["ZIP"].ToString();
+                                }
+
+                                BillCountryDropDown.SelectedValue = dsUserPrefs.Tables[0].Rows[0]["Country"].ToString();
+
+                                DataSet dsStates = dat.GetData("SELECT * FROM State WHERE country_id=" + dsUserPrefs.Tables[0].Rows[0]["Country"].ToString());
+
+                                bool isText = false;
+                                if (dsStates.Tables.Count > 0)
+                                    if (dsStates.Tables[0].Rows.Count > 0)
+                                    {
+                                        BillStateDropDown.DataSource = dsStates;
+                                        BillStateDropDown.DataTextField = "state_2_code";
+                                        BillStateDropDown.DataValueField = "state_id";
+                                        BillStateDropDown.DataBind();
+                                        BillStateDropDown.Items.Insert(0, new ListItem("Select State..", "-1"));
+
+                                        if (dsUserPrefs.Tables[0].Rows[0]["State"].ToString() != null)
+                                        {
+                                            ListItem a = BillStateDropDown.Items.FindByText(dsUserPrefs.Tables[0].Rows[0]["State"].ToString());
+                                            if (a != null)
+                                                BillStateDropDown.SelectedValue = a.Value;
+                                        }
+
+                                        BillStateDropPanel.Visible = true;
+                                        BillStateTextPanel.Visible = false;
+                                    }
+                                    else
+                                    {
+                                        isText = true;
+                                    }
+                                else
+                                    isText = true;
+
+                                if (isText)
+                                {
+                                    if (dsUserPrefs.Tables[0].Rows[0]["State"].ToString() != null)
+                                    {
+                                        BillStateTextBox.THE_TEXT = dsUserPrefs.Tables[0].Rows[0]["State"].ToString();
+                                    }
+                                    BillStateTextPanel.Visible = true;
+                                    BillStateDropPanel.Visible = false;
+                                }
+                            }
+                        }
+                        if (dsUserPrefs.Tables[0].Rows[0]["CatCountry"].ToString() != null)
+                        {
+                            if (dsUserPrefs.Tables[0].Rows[0]["CatCountry"].ToString().Trim() != "")
+                            {
+                                if (dsUserPrefs.Tables[0].Rows[0]["CatCity"].ToString() != null)
+                                {
+                                    CityTextBox.THE_TEXT = dsUserPrefs.Tables[0].Rows[0]["CatCity"].ToString();
+                                }
+
+
+                                CountryDropDown.SelectedValue = dsUserPrefs.Tables[0].Rows[0]["CatCountry"].ToString();
+
+                                DataSet dsStates = dat.GetData("SELECT * FROM State WHERE country_id=" + dsUserPrefs.Tables[0].Rows[0]["CatCountry"].ToString());
+
+                                bool isText = false;
+                                if (dsStates.Tables.Count > 0)
+                                    if (dsStates.Tables[0].Rows.Count > 0)
+                                    {
+                                        StateDropDown.DataSource = dsStates;
+                                        StateDropDown.DataTextField = "state_2_code";
+                                        StateDropDown.DataValueField = "state_id";
+                                        StateDropDown.DataBind();
+
+                                        if (dsUserPrefs.Tables[0].Rows[0]["CatState"] != null)
+                                        {
+                                            StateDropDown.SelectedValue = StateDropDown.Items.FindByText(dsUserPrefs.Tables[0].Rows[0]["CatState"].ToString()).Value;
+                                        }
+
+                                        StateDropDownPanel.Visible = true;
+                                        StateTextBoxPanel.Visible = false;
+                                    }
+                                    else
+                                    {
+                                        isText = true;
+                                    }
+                                else
+                                    isText = true;
+
+                                if (isText)
+                                {
+                                    if (dsUserPrefs.Tables[0].Rows[0]["CatState"].ToString() != null)
+                                    {
+                                        StateTextBox.THE_TEXT = dsUserPrefs.Tables[0].Rows[0]["CatState"].ToString();
+                                    }
+                                    StateTextBoxPanel.Visible = true;
+                                    StateDropDownPanel.Visible = false;
+                                }
+                            }
+                        }
+                        if (dsUserPrefs.Tables[0].Rows[0]["TextingPrefs"].ToString() != null)
+                        {
+                            if (dsUserPrefs.Tables[0].Rows[0]["TextingPrefs"].ToString().Contains("1"))
+                                TextingCheckBoxList.Items[0].Selected = true;
+                            if (dsUserPrefs.Tables[0].Rows[0]["TextingPrefs"].ToString().Contains("2"))
+                                TextingCheckBoxList.Items[1].Selected = true;
+                            if (dsUserPrefs.Tables[0].Rows[0]["TextingPrefs"].ToString().Contains("3"))
+                                TextingCheckBoxList.Items[2].Selected = true;
+                        }
+
+                        if (dsUserPrefs.Tables[0].Rows[0]["EmailPrefs"].ToString() != null)
+                        {
+                            if (dsUserPrefs.Tables[0].Rows[0]["EmailPrefs"].ToString().Contains("1"))
+                                EmailCheckList.Items[0].Selected = true;
+                            if (dsUserPrefs.Tables[0].Rows[0]["EmailPrefs"].ToString().Contains("2"))
+                                EmailCheckList.Items[1].Selected = true;
+                            if (dsUserPrefs.Tables[0].Rows[0]["EmailPrefs"].ToString().Contains("3"))
+                                EmailCheckList.Items[2].Selected = true;
+
+                            if (dsUserPrefs.Tables[0].Rows[0]["EmailPrefs"].ToString().Contains("C"))
+                                EmailCheckList3.Items[0].Selected = true;
+                        }
+                    }
+
+                DataSet dsComments = d.GetData("SELECT * FROM User_Comments CU, Users U WHERE CU.CommenterID=U.User_ID AND CU.UserID=" + USER_ID.ToString());
+                //Label UserNameLabel = (Label)Tab3.FindControl("UserNameLabel");
+
+                //UserNameLabel.Text = dsUser.Tables[0].Rows[0]["UserName"].ToString();
+
+                if (dsUser.Tables[0].Rows[0]["Email"].ToString() != null)
+                {
+                    EmailTextBox.Text = dsUser.Tables[0].Rows[0]["Email"].ToString();
+                }
+
+                if (dsUser.Tables[0].Rows[0]["PhoneNumber"].ToString() != null)
+                {
+                    PhoneTextBox.THE_TEXT = dsUser.Tables[0].Rows[0]["PhoneNumber"].ToString();
+                }
+
+                if (dsUser.Tables[0].Rows[0]["PhoneProvider"].ToString() != null)
+                {
+                    ProviderDropDown.SelectedValue = dsUser.Tables[0].Rows[0]["PhoneProvider"].ToString();
+                }
+
+                Image FriendImage = (Image)Tab3.FindControl("FriendImage");
+
+                if (dsUser.Tables[0].Rows[0]["ProfilePicture"].ToString() != null)
+                {
+                    if (System.IO.File.Exists(Server.MapPath(".") + "/UserFiles/" + dsUser.Tables[0].Rows[0]["UserName"].ToString() + "/Profile/" + dsUser.Tables[0].Rows[0]["ProfilePicture"].ToString()))
+                    {
+                        System.Drawing.Image theimg = System.Drawing.Image.FromFile(Server.MapPath(".") + "/UserFiles/" + dsUser.Tables[0].Rows[0]["UserName"].ToString() +
+                "/Profile/" + dsUser.Tables[0].Rows[0]["ProfilePicture"].ToString());
+
+                        double width = double.Parse(theimg.Width.ToString());
+                        double height = double.Parse(theimg.Height.ToString());
+
+                        if (width > height)
+                        {
+                            if (width <= 150)
+                            {
+
+                            }
+                            else
+                            {
+                                double dividor = double.Parse("150.00") / double.Parse(width.ToString());
+                                width = double.Parse("150.00");
+                                height = height * dividor;
+                            }
+                        }
+                        else
+                        {
+                            if (width == height)
+                            {
+                                width = double.Parse("150.00");
+                                height = double.Parse("150.00");
+                            }
+                            else
+                            {
+                                double dividor = double.Parse("150.00") / double.Parse(height.ToString());
+                                height = double.Parse("150.00");
+                                width = width * dividor;
+                            }
+                        }
+
+                        FriendImage.Width = int.Parse((Math.Round(decimal.Parse(width.ToString()))).ToString());
+                        FriendImage.Height = int.Parse((Math.Round(decimal.Parse(height.ToString()))).ToString());
+
+                        FriendImage.ImageUrl = "~/UserFiles/" + dsUser.Tables[0].Rows[0]["UserName"].ToString() + "/Profile/" + dsUser.Tables[0].Rows[0]["ProfilePicture"].ToString();
+                        Session["ProfilePicture"] = dsUser.Tables[0].Rows[0]["ProfilePicture"].ToString();
+                    }
+                    else
+                    {
+                        FriendImage.ImageUrl = "~/NewImages/NoAvatar150.jpg";
+                    }
+                }
+                else
+                    FriendImage.ImageUrl = "~/NewImages/NoAvatar150.jpg";
+            }
+            else
+            {
+                if (Session["User"] == null)
+                {
+                    ErrorLabel.Text = "something happen";
+                    //Session.Abandon();
+                    Response.Redirect("~/UserLogin.aspx");
+
+                }
+            }
+
+            
+
+            DataSet dsVenues = dat.GetData("SELECT * FROM UserVenues UV, Venues V WHERE V.ID=UV.VenueID AND UV.UserID=" + Session["User"].ToString());
+
+            VenuesRadPanel.Items[0].Text = "<div style=\" background-color: #1b1b1b; cursor: pointer;" +
+                "\"><label class=\"PreferencesTitle\" style=\"cursor: pointer !important;\">Favorite Venues</label><span " +
+                "style=\"font-style: italic; font-family: Arial; font-size: 14px; color: #666666;\">" +
+                " (Click to drop down the list. Un-check to remove a venue from the favorites list.)</span></div>";
+
+            //"<div style=\"border-bottom: dotted 1px black; " +
+            //    "padding-top: 10px;\"><label class=\"PreferencesTitle\">Favorite Venues</label><span " +
+            //    "style=\"font-style: italic; font-family: Arial; font-size: 14px; color: #666666;\">" +
+            //    "(You can add these from the <a href=\"VenueSearch.aspx\" class=\"AddLink\">Venues Page</a>. " +
+            //    "Un-check to remove a venue from the favorites list.)</span></div>";
+
+
+            CheckBoxList VenueCheckBoxes = new CheckBoxList();
+            VenueCheckBoxes.Width = 560;
+            VenueCheckBoxes.CssClass = "VenueCheckBoxes";
+            VenueCheckBoxes.ID = "VenueCheckBoxes";
+            VenueCheckBoxes.RepeatColumns = 4;
+            VenueCheckBoxes.RepeatDirection = RepeatDirection.Horizontal;
+
+            VenueCheckBoxes.DataSource = dsVenues;
+            VenueCheckBoxes.DataTextField = "NAME";
+            VenueCheckBoxes.DataValueField = "ID";
+            VenueCheckBoxes.DataBind();
+
+            for (int i = 0; i < VenueCheckBoxes.Items.Count; i++)
+            {
+                VenueCheckBoxes.Items[i].Selected = true;
+            }
+
+            if (VenueCheckBoxes.Items.Count == 0)
+            {
+                Label label = new Label();
+                label.CssClass = "VenueCheckBoxes";
+                label.Text = "You have no venues specified as your favorite. To add venues as your favorites search for them on the <a href=\"VenueSearch.aspx\" class=\"AddLink\">Venues Page</a>";
+                VenuesRadPanel.Items[0].Items[0].Controls.Add(label);
+            }
+            else
+            {
+                VenuesRadPanel.Items[0].Items[0].Controls.Add(VenueCheckBoxes);
+            }
+
+            VenuesRadPanel.CollapseAllItems();
+        }
+        catch (Exception ex)
+        {
+            UserErrorLabel.Text = ex.ToString();
+        }
+
+        if (Request.QueryString["p"] != null)
+        {
+            RadTabStrip2.Tabs[2].Selected = true;
+            RadTabStrip2.Tabs[2].CssClass = "MyTabsPreferencesSelected";
+            RadTabStrip2.Tabs[0].CssClass = "MyTabsMessages";
+            RadTabStrip2.Tabs[1].CssClass = "MyTabsFriends";
+            TheMultipage.PageViews[2].Selected = true;
+        }
+    }
+
+    protected void FillCategories(DataSet dsContent, ref Telerik.Web.UI.RadTreeView treeView)
+    {
+        if (treeView.Nodes.Count > 0)
+        {
+            if (dsContent.Tables.Count > 0)
+                for (int i = 0; i < dsContent.Tables[0].Rows.Count; i++)
+                {
+                    Telerik.Web.UI.RadTreeNode node = (Telerik.Web.UI.RadTreeNode)treeView.FindNodeByValue(dsContent.Tables[0].Rows[i]["CategoryID"].ToString());
+                    
+                    if(node != null)
+                        node.Checked = true;
+                }
+        }
+    }
+
+    protected void DoAll()
+    {
+
+        if (Session["User"] != null)
+        {
+            Data dat = new Data(DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")));
+            string cookieName = FormsAuthentication.FormsCookieName;
+            HttpCookie authCookie = Context.Request.Cookies[cookieName];
+
+            FormsAuthenticationTicket authTicket = null;
+            try
+            {
+                authTicket = FormsAuthentication.Decrypt(authCookie.Value);
+                string group = authTicket.UserData.ToString();
+
+                if (group.Contains("User"))
+                {
+                    Session["User"] = authTicket.Name;
+                    Session["UserName"] = dat.GetData("SELECT UserName FROM USERS WHERE User_ID=" + Session["User"].ToString()).Tables[0].Rows[0]["UserName"].ToString();
+                    
+                }
+                else
+                {
+                    Button calendarLink = (Button)dat.FindControlRecursive(this, "CalendarLink");
+                    calendarLink.Visible = false;
+                    Response.Redirect("~/UserLogin.aspx");
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Redirect("~/UserLogin.aspx");
+            }
+            
+            Session["UserName"] = dat.GetData("SELECT * FROM Users WHERE User_ID=" +
+                Session["User"].ToString()).Tables[0].Rows[0]["UserName"].ToString();
+            UserLabel.Text = Session["UserName"].ToString();
+            ClearMessage();
+            CalendarLink.NavigateUrl = "UserCalendar.aspx?ID=" + Session["User"].ToString();
+            if (IsPostBack)
+            {
+                if (ViewState["FriendDS"] != null)
+                    FillSearchPanel((DataSet)ViewState["FriendDS"]);
+            }
+            FillVenues();
+            FillRecommendedEvents();
+
+            
+                LoadControlsNotAJAX();
+            
+
+            LoadFriends();
+
+            LoadGlanceCalendar();
+            //GetFriendEvents();
+
+            
+
+        }
+        else
+        {
+            ErrorLabel.Text = "somtin happen";
+            Response.Redirect("UserLogin.aspx");
+        } 
+    }
+
+    protected void LoadGlanceCalendar()
+    {
+        Data dat = new Data(DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")));
+        int sun = 0;
+        int mon = 0;
+        int tues = 0;
+        int wed = 0;
+        int thurs = 0;
+        int fri = 0;
+        int sat = 0;
+        DataSet ds = dat.GetData("SELECT * FROM User_Calendar UC, Event_Occurance EO WHERE UC.EventID=EO.EventID AND UC.UserID="+Session["User"].ToString());
+
+        int subtraction = 0;
+
+        switch (DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")).DayOfWeek)
+        {
+            case DayOfWeek.Friday:
+                subtraction = 5;
+                break;
+            case DayOfWeek.Monday:
+                subtraction = 1;
+                break;
+            case DayOfWeek.Saturday:
+                subtraction = 6;
+                break;
+            case DayOfWeek.Sunday:
+                subtraction = 0;
+                break;
+            case DayOfWeek.Thursday:
+                subtraction = 4;
+                break;
+            case DayOfWeek.Tuesday:
+                subtraction = 2;
+                break;
+            case DayOfWeek.Wednesday:
+                subtraction = 3;
+                break;
+            default: break;
+        }
+
+        if(ds.Tables.Count > 0)
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                {
+                    DateTime date = DateTime.Parse(ds.Tables[0].Rows[i]["DateTimeStart"].ToString());
+
+
+                    switch (date.DayOfWeek)
+                    {
+                        case DayOfWeek.Friday:
+                            if (dat.IsThisWeek(date))
+                                fri++;
+                            GlanceDay6.DATE = date;
+                            break;
+                        case DayOfWeek.Monday:
+                            if (dat.IsThisWeek(date))
+                                mon++;
+                            GlanceDay2.DATE = date;
+                            break;
+                        case DayOfWeek.Saturday:
+                            if (dat.IsThisWeek(date))
+                                sat++;
+                            GlanceDay7.DATE = date;
+                            break;
+                        case DayOfWeek.Sunday:
+                            if (dat.IsThisWeek(date))
+                                sun++;
+                            GlanceDay1.DATE = date;
+                            break;
+                        case DayOfWeek.Thursday:
+                            if (dat.IsThisWeek(date))
+                                thurs++;
+                            GlanceDay5.DATE = date;
+                            break;
+                        case DayOfWeek.Tuesday:
+                            if (dat.IsThisWeek(date))
+                                tues++;
+                            GlanceDay3.DATE = date;
+                            break;
+                        case DayOfWeek.Wednesday:
+                            if (dat.IsThisWeek(date))
+                                wed++;
+                            GlanceDay4.DATE = date;
+                            break;
+                        default: break;
+                    }
+
+                    
+                }
+            }
+
+        if (sun == 0)
+            GlanceDay1.DATE = DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")).Subtract(TimeSpan.FromDays(subtraction));
+        GlanceDay1.NUM_OF_EVENTS = sun;
+
+        if (mon == 0)
+            GlanceDay2.DATE = DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")).Subtract(TimeSpan.FromDays(subtraction-1));
+        GlanceDay2.NUM_OF_EVENTS = mon;
+
+        if (tues == 0)
+            GlanceDay3.DATE = DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")).Subtract(TimeSpan.FromDays(subtraction-2));
+        GlanceDay3.NUM_OF_EVENTS = tues;
+
+        if (wed == 0)
+            GlanceDay4.DATE = DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")).Subtract(TimeSpan.FromDays(subtraction-3));
+        GlanceDay4.NUM_OF_EVENTS = wed;
+
+        if (thurs == 0)
+            GlanceDay5.DATE = DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")).Subtract(TimeSpan.FromDays(subtraction-4));
+        GlanceDay5.NUM_OF_EVENTS = thurs;
+
+        if (fri == 0)
+            GlanceDay6.DATE = DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")).Subtract(TimeSpan.FromDays(subtraction-5));
+        GlanceDay6.NUM_OF_EVENTS = fri;
+
+        if (sat == 0)
+            GlanceDay7.DATE = DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")).Subtract(TimeSpan.FromDays(subtraction-6));
+        GlanceDay7.NUM_OF_EVENTS = sat;
+
+        GlanceDay1.USER_ID = Session["User"].ToString();
+        GlanceDay2.USER_ID = Session["User"].ToString();
+        GlanceDay3.USER_ID = Session["User"].ToString();
+        GlanceDay4.USER_ID = Session["User"].ToString();
+        GlanceDay5.USER_ID = Session["User"].ToString();
+        GlanceDay6.USER_ID = Session["User"].ToString();
+        GlanceDay7.USER_ID = Session["User"].ToString();
+
+    }
+    
+    //protected void LoadControls_OLD()
+    //{
+    //    Telerik.Web.UI.RadPanelBar MessagePanelBar = new Telerik.Web.UI.RadPanelBar();
+    //    MessagePanelBar.CausesValidation = false;
+    //    MessagePanelBar.Width = 560;
+    //    MessagePanelBar.ExpandMode = Telerik.Web.UI.PanelBarExpandMode.MultipleExpandedItems;
+    //    MessagePanelBar.EnableEmbeddedSkins = false;
+    //    MessagePanelBar.ID = "MessagePanelBar1";
+    //    MessagePanelBar.ItemClick += new Telerik.Web.UI.RadPanelBarEventHandler(MarkAsRead);
+
+    //    ClearMessage();
+    //    Data dat = new Data(DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")));
+    //    DataSet ds = dat.GetData("SELECT * FROM UserMessages WHERE Live='True' AND To_UserID="+
+    //        Session["User"].ToString()+" ORDER BY Date DESC");
+        
+       
+    //    System.Drawing.Color greyText = System.Drawing.Color.FromArgb(102, 102, 102);
+    //    System.Drawing.Color greyBack = System.Drawing.Color.FromArgb(51, 51, 51);
+
+    //    ASP.controls_pager_ascx pagerPanel = new ASP.controls_pager_ascx();
+    //    pagerPanel.NUMBER_OF_ITEMS_PER_PAGE = 1;
+    //    ArrayList a = new ArrayList(ds.Tables[0].Rows.Count);
+
+    //    int unreadCount = 0;
+    //    int count = 0;
+    //    int times = 1;
+    //    if (ds.Tables.Count > 0)
+    //        if (ds.Tables[0].Rows.Count > 0)
+    //        {
+    //            for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+    //            {
+                    
+    //                if (count == 10*times)
+    //                {
+    //                    a.Add(MessagePanelBar);
+    //                    times++;
+    //                    MessagePanelBar = new Telerik.Web.UI.RadPanelBar();
+    //                    MessagePanelBar.CausesValidation = false;
+    //                    MessagePanelBar.Width = 560;
+    //                    MessagePanelBar.ExpandMode = Telerik.Web.UI.PanelBarExpandMode.MultipleExpandedItems;
+    //                    MessagePanelBar.EnableEmbeddedSkins = false;
+    //                    MessagePanelBar.ID = "MessagePanelBar"+times.ToString();
+    //                    MessagePanelBar.ItemClick += new Telerik.Web.UI.RadPanelBarEventHandler(MarkAsRead);
+                        
+    //                }
+    //                count++;
+    //                DataSet dsUsers = dat.GetData("SELECT * FROM Users WHERE User_ID=" + ds.Tables[0].Rows[i]["From_UserID"].ToString());
+
+    //                if (!bool.Parse(ds.Tables[0].Rows[i]["Read"].ToString()))
+    //                    unreadCount++;
+
+
+    //                Telerik.Web.UI.RadPanelItem messageItem = new Telerik.Web.UI.RadPanelItem();
+    //                messageItem.Expanded = false;
+    //                messageItem.Height = 45;
+    //                messageItem.BorderColor = greyBack;
+    //                messageItem.BorderWidth = 1;
+    //                messageItem.Attributes.Add("CommandArgument", ds.Tables[0].Rows[i]["ID"].ToString());
+    //                messageItem.Attributes.Add("Read", ds.Tables[0].Rows[i]["Read"].ToString());
+    //                messageItem.BorderStyle = BorderStyle.Solid;
+    //                messageItem.BackColor = greyBack;
+
+    //                string theUser = dsUsers.Tables[0].Rows[0]["UserName"].ToString();
+    //                if (ds.Tables[0].Rows[i]["Mode"].ToString() == "1")
+    //                {
+    //                    theUser = "HippoHappenings";
+    //                }
+
+    //                string boldOrNot = "font-size: 12px;";
+
+    //                if (!bool.Parse(ds.Tables[0].Rows[i]["Read"].ToString()))
+    //                    boldOrNot = "font-weight:bold;font-size: 14px;";
+
+    //                messageItem.Text = "<table  width=\"560px\" cellpadding=\"0\" cellspacing=\"0\"><tr><td><span style=\"padding-left:5px;font-family:Arial;color: #cccccc; " +
+    //                    boldOrNot + "\">From: </span><span style=\"" + boldOrNot + "color: #1fb6e7; font-family: Arial;\">" + theUser
+    //                    + "</span></td><td><span style=\"padding-top:10px;font-family:Arial;" +
+    //                    boldOrNot + "color: #cccccc;float:right;padding-right:5px;\">" +
+    //                    ds.Tables[0].Rows[i]["Date"].ToString() + "</span></td></tr><tr><td colspan=\"3\"><span style=\"font-family:Arial;" + boldOrNot + "color: #cccccc;padding-left: 5px;\">Subject: "
+    //                    + ds.Tables[0].Rows[i]["MessageSubject"].ToString() +
+    //                    "</span></td></tr></table>";
+
+
+    //                messageItem.ForeColor = greyText;
+    //                ASP.controls_usermessage_ascx message = new ASP.controls_usermessage_ascx();
+    //                message.myEvent += new ASP.controls_usermessage_ascx.EventDelegate(this_OnProgress);
+
+    //                message.ID = "message" + i.ToString();
+    //                message.MESSAGE_TEXT = ds.Tables[0].Rows[i]["MessageContent"].ToString();
+    //                message.SUBJECT_TEXT = ds.Tables[0].Rows[i]["MessageSubject"].ToString();
+    //                message.TO_ID = int.Parse(ds.Tables[0].Rows[i]["To_UserID"].ToString());
+    //                message.FROM_ID = int.Parse(ds.Tables[0].Rows[i]["From_UserID"].ToString());
+    //                message.DATE = ds.Tables[0].Rows[i]["Date"].ToString();
+    //                message.MESSAGE_ID = int.Parse(ds.Tables[0].Rows[i]["ID"].ToString());
+    //                message.CONTROL_ID = i;
+    //                if (ds.Tables[0].Rows[i]["Mode"].ToString() == "1")
+    //                    message.MODE = Controls_UserMessage.Mode.HippoRequest;
+    //                else if (ds.Tables[0].Rows[i]["Mode"].ToString() == "2")
+    //                    message.MODE = Controls_UserMessage.Mode.HippoReply;
+    //                Telerik.Web.UI.RadPanelItem subItem = new Telerik.Web.UI.RadPanelItem();
+    //                subItem.Controls.Add(message);
+
+
+    //                messageItem.Items.Add(subItem);
+
+
+    //                MessagePanelBar.Items.Add(messageItem);
+                    
+    //                //message.DATE = ds.Tables[0].Rows[i]["Date"].ToString();
+
+
+    //                //MessagePanel.Controls.Add(message);
+    //            }
+
+    //            if (ds.Tables[0].Rows.Count % 10 != 0 || ds.Tables[0].Rows.Count == 10)
+    //            {
+    //                 a.Add(MessagePanelBar);
+    //            }
+
+    //        }
+
+    //    pagerPanel.DATA = a;
+    //    pagerPanel.DataBind2();
+
+    //    Label label = new Label();
+
+    //    string temp = "messages";
+    //    if (ds.Tables[0].Rows.Count == 1)
+    //        temp = "message";
+    //    label.Text = "<span style=\"font-family: Arial; font-size: 20px; color: White;\">My Messages</span>"
+    //        + "<span style=\"font-family: Arial; font-size: 12px; color: #cccccc; padding-left: 5px;\">(" + unreadCount.ToString()
+    //        + " new " + temp + ")</span>";
+
+    //    MessagesPanel.Controls.Clear();
+    //    MessagesPanel.Controls.Add(label);
+    //    MessagesPanel.Controls.Add(pagerPanel);
+
+    //}
+
+    protected int AddMessages(DataSet ds, ref ArrayList a, bool areSent)
+    {
+        //Mode 4,5: venue,event changes request
+        //Mode 2: Friend request
+        string message = "";
+        try
+        {
+            int itemCount = 0;
+            int times = 1;
+            int unreadCount = 0;
+
+            Data dat = new Data(DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")));
+
+            Telerik.Web.UI.RadPanelBar bar = new Telerik.Web.UI.RadPanelBar();
+            bar.BorderColor = greyBorder;
+            bar.BorderWidth = 3;
+            bar.ExpandAnimation.Type = Telerik.Web.UI.AnimationType.Linear;
+            bar.ExpandAnimation.Duration = 50;
+            bar.AllowCollapseAllItems = true;
+            bar.ExpandMode = Telerik.Web.UI.PanelBarExpandMode.SingleExpandedItem;
+            bar.Width = 570;
+
+
+            int replyMessagesCount = 0;
+
+            for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+            {
+                if (itemCount == 20 * times)
+                {
+                    if (!areSent)
+                    {
+                        bar.ItemClick += new Telerik.Web.UI.RadPanelBarEventHandler(ServerMarkRead);
+                    }
+                    a.Add(bar);
+                    bar = new Telerik.Web.UI.RadPanelBar();
+
+                    bar.BorderColor = greyBorder;
+                    bar.BorderWidth = 3;
+                    bar.ExpandAnimation.Type = Telerik.Web.UI.AnimationType.Linear;
+                    bar.ExpandAnimation.Duration = 50;
+                    bar.AllowCollapseAllItems = true;
+                    bar.ExpandMode = Telerik.Web.UI.PanelBarExpandMode.SingleExpandedItem;
+                    bar.Width = 570;
+
+                    times++;
+                }
+                itemCount++;
+                Telerik.Web.UI.RadPanelItem item = new Telerik.Web.UI.RadPanelItem();
+
+                item.BackColor = greyDark;
+                item.CssClass = "OneMessage";
+                item.SelectedCssClass = "OneMessageSelected";
+
+
+                #region Mark If Read
+                if (!areSent)
+                {
+                    if (!bool.Parse(ds.Tables[0].Rows[i]["Read"].ToString()))
+                    {
+                        item.Text = "<div id=\"divID" + i.ToString() + "\" style=\"font-weight: bold; color: White;\"><div style=\"float: left;\">From: <span class=\"AddLinkNotBold\">" +
+                            ds.Tables[0].Rows[i]["UserName"].ToString() +
+                            "</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subject:&nbsp;&nbsp;</div><div style=\"" +
+                        "width: 200px; text-wrap: true; float: left;\">" + ds.Tables[0].Rows[i]["MessageSubject"].ToString() +
+                            "</div><div style=\"float: right; margin-right: 8px;\">" +
+                                ds.Tables[0].Rows[i]["Date"].ToString() + "</div></div>";
+                        item.Value = ds.Tables[0].Rows[i]["ID"].ToString();
+                    }
+                    else
+                    {
+                        item.Text = "<div style=\"float: left; color: #cccccc;\">From: <span class=\"AddLinkNotBold\">" +
+                            ds.Tables[0].Rows[i]["UserName"].ToString() +
+                            "</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subject:&nbsp;&nbsp;</div><div style=\"" +
+                        "width: 200px; color: #cccccc; text-wrap: true; float: left;\">" + ds.Tables[0].Rows[i]["MessageSubject"].ToString() +
+                            "</div><div style=\"float: right; margin-right: 8px; color: #cccccc;\">" +
+                                ds.Tables[0].Rows[i]["Date"].ToString() + "</div>";
+                        item.Value = ds.Tables[0].Rows[i]["ID"].ToString();
+                    }
+                }
+                else
+                {
+                    item.Text = "<div style=\"float: left; color: #cccccc;\">To: <span class=\"AddLinkNotBold\">" + ds.Tables[0].Rows[i]["UserName"].ToString() +
+                        "</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subject:&nbsp;&nbsp;</div><div style=\"width: 200px;  color: #cccccc;text-wrap: true; float: left;\">" + ds.Tables[0].Rows[i]["MessageSubject"].ToString() +
+                        "</div><div style=\"float: right; margin-right: 8px; color: #cccccc;\">" + ds.Tables[0].Rows[i]["Date"].ToString() + "</div>";
+                    item.Value = ds.Tables[0].Rows[i]["ID"].ToString();
+                }
+
+                #endregion
+
+                #region Create Delete Button
+                item.Expanded = false;
+
+
+                Telerik.Web.UI.RadPanelItem item2 = new Telerik.Web.UI.RadPanelItem();
+                item2.BackColor = greyDark;
+                item2.CssClass = "OneMessageContent";
+
+                Literal wrapLit = new Literal();
+                wrapLit.Text = "<div class=\"topDiv\" style=\"min-height: 200px; overflow:hidden;\">" +
+                    "<div style=\"width: 100%;\"><div align=\"right\" style=\" padding-bottom: 10px;padding-right: 22px; display: block;\">";
+                item2.Controls.Add(wrapLit);
+
+                ImageButton xIt = new ImageButton();
+
+                xIt.ID = ds.Tables[0].Rows[i]["From_UserID"].ToString() + "X" + i.ToString();
+                xIt.Width = 16;
+                xIt.Height = 16;
+                xIt.ImageUrl = "~/image/X.png";
+                xIt.AlternateText = "Delete Message";
+                xIt.ToolTip = "Delete Message";
+                xIt.CommandArgument = ds.Tables[0].Rows[i]["ID"].ToString();
+                xIt.Click += new ImageClickEventHandler(ServerDeleteMessage);
+                //xIt.Attributes.Add("onserverclick", "ServerDeleteMessage");
+                xIt.Attributes.Add("onmouseover", "this.src = 'image/XSelected.png';");
+                xIt.Attributes.Add("onmouseout", "this.src = 'image/X.png';");
+                xIt.OnClientClick = "return confirm('Do you want to delete this message?');";
+
+                item2.Controls.Add(xIt);
+
+                #endregion
+
+                #region Construct Message Content
+
+                wrapLit = new Literal();
+                wrapLit.Text = "</div></div><div style=\"width: 100%; display: block;\"><div style=\"float: left;\"> ";
+
+                item2.Controls.Add(wrapLit);
+
+                Label theMessage = new Label();
+                theMessage.BackColor = greyDark;
+                theMessage.CssClass = "OneMessageContent";
+                theMessage.Width = 300;
+                theMessage.Text = ds.Tables[0].Rows[i]["MessageContent"].ToString();
+
+                DataSet dsEvent = new DataSet();
+                DataSet dsSentUser = new DataSet();
+                if (ds.Tables[0].Rows[i]["Mode"].ToString() == "4")
+                {
+                   string abc = ds.Tables[0].Rows[i]["MessageContent"].ToString();
+                    string [] delimeter = {",UserID:"};
+                    string[] thetokens = abc.Replace("EventID:", "").Split(delimeter, StringSplitOptions.None);
+
+                    string[] delimeter2 = { ",RevisionID:" };
+                    string[] thetokens2 = thetokens[1].Split(delimeter2, StringSplitOptions.None);
+
+                    dsSentUser = dat.GetData("SELECT * FROM Users WHERE User_ID="+thetokens2[0]);
+                    dsEvent = dat.GetData("SELECT * FROM Events WHERE ID="+thetokens[0]);
+
+                    theMessage.Text = "Hello from HippoHappenings,<br/><br/> The user <a href=\"Friend.aspx?ID="+thetokens2[0]+"\" class=\"AddGreenLink\">"+
+                        dsSentUser.Tables[0].Rows[0]["UserName"].ToString() + "</a> has requested to make a " +
+                        "change to the event '"+dsEvent.Tables[0].Rows[0]["Header"].ToString()+
+                        "'.<br/>Click <a class=\"AddLink\" href=\"Event.aspx?EventID="+thetokens[0]+"\">here</a> to view this event. <br/> <br/> We must fully stress that if you do not either accept or reject ALL the requested chanes "+
+                        "within 7 days, your ownership of this event will be waived and taken over by someone else willing to be the moderator for this event."+
+                        "<br/>For each one of the changes which you accept, please select 'Accept Changes' on the right. If no changes are listed on the right, this means "+
+                        "the user chose to only add media (songs/videos/pictues) or add new categories which have been automatically added to the event.";
+                }
+                else if (ds.Tables[0].Rows[i]["Mode"].ToString() == "5")
+                {
+                    //VenueID:90,UserID:40,RevisionID:90
+                    string abc = ds.Tables[0].Rows[i]["MessageContent"].ToString();
+                    string[] delimeter = { ",UserID:" };
+                    string[] thetokens = abc.Replace("VenueID:", "").Split(delimeter, StringSplitOptions.None);
+
+                    string[] delimeter2 = { ",RevisionID:" };
+                    string[] thetokens2 = thetokens[1].Split(delimeter2, StringSplitOptions.None);
+
+                    dsSentUser = dat.GetData("SELECT * FROM Users WHERE User_ID=" + thetokens2[0]);
+                    dsEvent = dat.GetData("SELECT * FROM Venues WHERE ID=" + thetokens[0]);
+
+                    theMessage.Text = "Hello from HippoHappenings,<br/><br/> The user <a href=\"Friend.aspx?ID=" + thetokens2[0] + "\" class=\"AddGreenLink\">" +
+                        dsSentUser.Tables[0].Rows[0]["UserName"].ToString() + "</a> has requested to make a " +
+                        "change to the venue '" + dsEvent.Tables[0].Rows[0]["Name"].ToString() +
+                        "'.<br/>Click <a class=\"AddLink\" href=\"Venue.aspx?ID=" + thetokens[0] + "\">here</a> to view this venue.<br/> <br/> We must fully stress that if you do not either accept or reject ALL the requested chanes "+
+                        "within 4 days, your ownership of this event will be waived and taken over by someone else willing to be the moderator for this event."+
+                        "<br/>For each one of the changes, please select 'Accept' or 'Reject'. If no changes are listed on the right, this means " +
+                        "the user chose to only add media (videos/pictues) which have been automatically added to the venue.";
+
+                }
+
+
+                if (ds.Tables[0].Rows[i]["From_UserID"].ToString() == dat.HIPPOHAPP_USERID.ToString() && theMessage.Text.Contains("My Preferences"))
+                {
+                    theMessage.Text = theMessage.Text.Replace("<a class=\"AddLink\" href=\"UserPreferences.aspx\">My Preferences</a>.", "");
+                    Literal theLit = new Literal();
+                    theLit.Text = "<div class=\"OneMessageContent\">" + theMessage.Text +
+                        "<div style=\"cursor: pointer;\" onclick=\"SelectPreferences();\" class=\"AddLink\">My Preferences</div></div>";
+                    item2.Controls.Add(theLit);
+                }
+                else
+                {
+                    item2.Controls.Add(theMessage);
+                }
+
+
+                wrapLit = new Literal();
+                wrapLit.Text = "</div>";
+
+                item2.Controls.Add(wrapLit);
+
+                if (!bool.Parse(ds.Tables[0].Rows[i]["Read"].ToString()))
+                    unreadCount++;
+
+                if (ds.Tables[0].Rows[i]["Mode"].ToString() == "2")
+                {
+                    DataSet ds3 = dat.GetData("SELECT * FROM User_Friends WHERE UserID=" + Session["User"].ToString() +
+                    " AND FriendID=" + ds.Tables[0].Rows[i]["From_UserID"].ToString());
+
+                    bool hasFriend = false;
+
+                    if (ds3.Tables.Count > 0)
+                        if (ds3.Tables[0].Rows.Count > 0)
+                            hasFriend = true;
+                        else
+                            hasFriend = false;
+                    else
+                        hasFriend = false;
+
+                    if (!areSent)
+                    {
+                        if (!hasFriend)
+                        {
+
+                            HtmlButton img = new HtmlButton();
+
+                            img.ID = ds.Tables[0].Rows[i]["From_UserID"].ToString() + "accept" + i.ToString();
+                            img.Style.Value = "margin-top: 20px; margin-left: 50px;padding-bottom: 4px;height: 30px; width: 112px;background-color: transparent; " +
+                            "color: White; background-image: url('image/PostButtonNoPost.png'); background-repeat: " +
+                            "no-repeat; border: 0;";
+                            img.ServerClick += new EventHandler(ServerAcceptFriend);
+                            img.Attributes.Add("onmouseover", "this.style.backgroundImage = 'url(image/PostButtonNoPostHover.png)';");
+                            img.Attributes.Add("onmouseout", "this.style.backgroundImage = 'url(image/PostButtonNoPost.png)';");
+                            img.Attributes.Add("onclick", "this.innerHTML = 'Working...';this.disabled=true;this.style.backgroundImage = 'url(image/PostButtonNoPostHover.png)';");
+
+                            img.InnerText = "Accept Friend";
+
+
+                            item2.Controls.Add(img);
+                        }
+                        else
+                        {
+                            Literal lit = new Literal();
+                            lit.Text = "<div style=\"float: right; width: 220px;height: 30px; margin: 5px;\" class=\"AddGreenLink\">You have accepted this gal/guy as a friend! Good luck you two!</div>";
+                            item2.Controls.Add(lit);
+                        }
+                    }
+                    else
+                    {
+                        if (!hasFriend)
+                        {
+                            Literal lit = new Literal();
+                            lit.Text = "<div style=\"float: right; width: 220px;height: 30px; margin: 5px;\" class=\"AddGreenLink\">You are still waiting for a response from this user!</div>";
+                            item2.Controls.Add(lit);
+                        }
+                        else
+                        {
+                            Literal lit = new Literal();
+                            lit.Text = "<div style=\"float: right; width: 220px;height: 30px; margin: 5px;\" class=\"AddGreenLink\">Your friend has already accepted your invitation!</div>";
+                            item2.Controls.Add(lit);
+                        }
+                    }
+                }
+                else if (ds.Tables[0].Rows[i]["Mode"].ToString() == "4" || ds.Tables[0].Rows[i]["Mode"].ToString() == "5")
+                {
+                    string abc = ds.Tables[0].Rows[i]["MessageContent"].ToString();
+                    string[] delimeter = { ",UserID:" };
+
+                    string temp = "VenueID:";
+                    if (ds.Tables[0].Rows[i]["Mode"].ToString() == "4")
+                        temp = "EventID:";
+                    string[] thetokens = abc.Replace(temp, "").Split(delimeter, StringSplitOptions.None);
+
+                    string[] delimeter2 = { ",RevisionID:" };
+                    string[] thetokens2 = thetokens[1].Split(delimeter2, StringSplitOptions.None);
+
+                    string temp2 = "";
+                    if (thetokens2[1].Trim() != "")
+                    {
+                        temp = "VenueRevisions";
+                        if (ds.Tables[0].Rows[i]["Mode"].ToString() == "4")
+                            temp = "EventRevisions";
+
+                        DataSet dsChanges = dat.GetData("SELECT * FROM " + temp + " WHERE ID=" + thetokens2[1]);
+
+
+                    }
+                    RadWindow2.NavigateUrl = "Revisions.aspx?ID=" + thetokens2[1] + "&Mode=" + ds.Tables[0].Rows[i]["Mode"].ToString();
+                    Literal lit = new Literal();
+                    lit.Text = "<div style=\"width: 220px; float: right;\" ><a onclick=\"OpenRevisions();\">View Revisions</a></div>";
+
+                    item2.Controls.Add(lit);
+                }
+                else
+                {
+                    if (!areSent)
+                    {
+
+                        if (ds.Tables[0].Rows[i]["From_UserID"].ToString() == dat.HIPPOHAPP_USERID.ToString())
+                        {
+
+                        }
+                        else
+                        {
+                            //Insert ability to reply to message
+                            Literal lit = new Literal();
+                            lit.Text = "<div style=\"width: 220px; float: right;\" >";
+
+                            item2.Controls.Add(lit);
+
+                            TextBox textbox = new TextBox();
+                            textbox.ID = ds.Tables[0].Rows[i]["From_UserID"].ToString() + "textbox" + ds.Tables[0].Rows[i]["ID"].ToString();
+                            textbox.Width = 200;
+                            textbox.Height = 100;
+                            textbox.TextMode = TextBoxMode.MultiLine;
+
+                            item2.Controls.Add(textbox);
+
+                            lit = new Literal();
+                            lit.Text = "<br/><br/><br/>";
+
+                            item2.Controls.Add(lit);
+
+                            HtmlButton img = new HtmlButton();
+                            img.ID = ds.Tables[0].Rows[i]["From_UserID"].ToString() + "reply" + ds.Tables[0].Rows[i]["ID"].ToString();
+                            img.Style.Value = "padding-bottom: 4px;height: 30px; width: 112px;background-color: transparent; " +
+                            "color: White; background-image: url('image/PostButtonNoPost.png'); background-repeat: " +
+                            "no-repeat; border: 0;";
+                            img.ServerClick += new EventHandler(ServerReply);
+                            img.Attributes.Add("onmouseover", "this.style.backgroundImage = 'url(image/PostButtonNoPostHover.png)';");
+                            img.Attributes.Add("onmouseout", "this.style.backgroundImage = 'url(image/PostButtonNoPost.png)';");
+                            img.Attributes.Add("onclick", "this.innerHTML = 'Working...';this.disabled=true;this.style.backgroundImage='url(image/PostButtonNoPostHover.png)';");
+
+                            img.InnerText = "Reply";
+
+                            item2.Controls.Add(img);
+
+                            lit = new Literal();
+                            lit.Text = "</div>";
+
+                            item2.Controls.Add(lit);
+
+                            replyMessagesCount++;
+                        }
+                    }
+                }
+
+                wrapLit = new Literal();
+
+                wrapLit.Text = "</div></div>";
+                item2.Controls.Add(wrapLit);
+
+                item.Items.Add(item2);
+                bar.Items.Add(item);
+                #endregion
+            }
+
+            if (ds.Tables[0].Rows.Count % 20 != 0 || ds.Tables[0].Rows.Count == 20)
+            {
+                if (!areSent)
+                {
+                    bar.ItemClick += new Telerik.Web.UI.RadPanelBarEventHandler(ServerMarkRead);
+                }
+                a.Add(bar);
+            }
+
+            return unreadCount;
+        }
+        catch (Exception ex)
+        {
+            UserErrorLabel.Text = ex.ToString();
+            return 0;
+        }
+    }
+
+    
+
+    protected void LoadControlsNotAJAX()
+    {
+        try
+        {
+            Data dat = new Data(DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")));
+            DataSet ds = dat.GetData("SELECT TOP 100 UM.MessageSubject, UM.ID, UM.From_UserID, UM.MessageContent, UM.[Read], UM.Date, U.UserName, UM.Mode FROM UserMessages UM, Users U WHERE UM.Live='True' AND UM.To_UserID=" +
+                Session["User"].ToString() + " AND UM.From_UserID=U.User_ID AND UM.LIVE=1 ORDER BY Date DESC");
+
+            ASP.controls_pager_ascx pagerPanel = new ASP.controls_pager_ascx();
+            pagerPanel.NUMBER_OF_ITEMS_PER_PAGE = 1;
+            pagerPanel.WIDTH = 576;
+            pagerPanel.NUMBER_OF_VISIBLE_PAGES = 4;
+            ArrayList a = new ArrayList(ds.Tables[0].Rows.Count);
+
+            if (ds.Tables[0].Rows.Count == 0)
+            {
+                Literal lit = new Literal();
+                lit.Text = "<div style=\"border: solid 3px #363636;" +
+               "float: left; width: 570px;\"><div style=\"width: 560px; display: block; float: left; margin" +
+               "-left: 5px;\"><table width=\"100%\"><tr><td><span style=\"font-family: Arial; font-size: 12px;" +
+               "color: #cccccc; padding-left: 5px;\">(0 messages)</span></td></tr></table></div>" +
+               "<div style=\"width: 560px; display: block; float: left; margin-left: 5px; padding-bottom: 5px;\">" +
+               "</div></div>";
+                MessagesPanel.Controls.Add(lit);
+            }
+            else
+            {
+                int unreadCount = AddMessages(ds, ref a, false);
+
+                pagerPanel.DATA = a;
+                pagerPanel.DataBind2();
+
+                Label label = new Label();
+
+                string temp = "messages";
+                if (ds.Tables[0].Rows.Count == 1)
+                    temp = "message";
+
+                if (unreadCount > 0)
+                {
+                    RadTabStrip3.Tabs[0].Text = "Inbox <span style=\"font-size: 12px; vertical-align: middle; font-weight: normal; padding-bottom: 3px;\">(" + unreadCount.ToString() + " New)</span>";
+                    //label.Text = "<span style=\"font-family: Arial; font-size: 20px; color: White;\">My Messages</span>"
+                    //    + "<span style=\"font-family: Arial; font-size: 12px; color: #cccccc; padding-left: 5px;\">(" + unreadCount.ToString()
+                    //    + " new " + temp + ")</span>";
+                    RadTabStrip3.Tabs[0].Value = unreadCount.ToString();
+                }
+                MessagesPanel.Controls.Clear();
+                //MessagesPanel.Controls.Add(label);
+                MessagesPanel.Controls.Add(pagerPanel);
+            }
+
+
+
+
+
+            ds = dat.GetData("SELECT TOP 100 UM.MessageContent, UM.ID, UM.To_UserID AS From_UserID, UM.MessageSubject, UM.[Read], UM.Mode, UM.Date, U.UserName FROM UserMessages UM, Users U WHERE UM.Live='True' AND UM.From_UserID=" +
+                Session["User"].ToString() + " AND U.User_ID=UM.To_UserID AND UM.LIVE=1 ORDER BY Date DESC");
+
+            pagerPanel = new ASP.controls_pager_ascx();
+            pagerPanel.NUMBER_OF_ITEMS_PER_PAGE = 1;
+            pagerPanel.WIDTH = 576;
+            a = new ArrayList(ds.Tables[0].Rows.Count);
+
+            if (ds.Tables[0].Rows.Count == 0)
+            {
+                Literal lit = new Literal();
+                lit.Text = "<div style=\"border: solid 3px #363636;" +
+               "float: left; width: 570px;\"><div style=\"width: 560px; display: block; float: left; margin" +
+               "-left: 5px;\"><table width=\"100%\"><tr><td><span style=\"font-family: Arial; font-size: 12px;" +
+               "color: #cccccc; padding-left: 5px;\">(0 sent messages)</span></td></tr></table></div>" +
+               "<div style=\"width: 560px; display: block; float: left; margin-left: 5px; padding-bottom: 5px;\">" +
+               "</div></div>";
+                UsedMessagesPanel.Controls.Add(lit);
+            }
+            else
+            {
+
+                AddMessages(ds, ref a, true);
+
+                pagerPanel.DATA = a;
+                pagerPanel.DataBind2();
+
+                UsedMessagesPanel.Controls.Clear();
+                UsedMessagesPanel.Controls.Add(pagerPanel);
+            }
+        }
+        catch (Exception ex)
+        {
+            UserErrorLabel.Text = ex.ToString();
+        }
+    }
+
+    protected void LoadControls()
+    {
+        TheDiv.InnerHtml = "";
+
+        
+
+        Data dat = new Data(DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")));
+        DataSet ds = dat.GetData("SELECT UM.MessageSubject, UM.MessageContent, U.UserName FROM UserMessages UM, Users U WHERE UM.Live='True' AND UM.To_UserID=" +
+            Session["User"].ToString() + " AND UM.From_UserID=U.User_ID ORDER BY Date DESC");
+
+
+        System.Drawing.Color greyText = System.Drawing.Color.FromArgb(102, 102, 102);
+        System.Drawing.Color greyBack = System.Drawing.Color.FromArgb(51, 51, 51);
+
+        ASP.controls_pager_ascx pagerPanel = new ASP.controls_pager_ascx();
+        pagerPanel.NUMBER_OF_ITEMS_PER_PAGE = 1;
+        ArrayList a = new ArrayList(ds.Tables[0].Rows.Count);
+
+        int unreadCount = 0;
+        int count = 0;
+        int times = 1;
+
+        Panel ItemsPanel = new Panel();
+        ItemsPanel.ID = "PanelM1";
+        if (ds.Tables.Count > 0)
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                {
+
+                    if (count == 10 * times)
+                    {
+                        a.Add(ItemsPanel);
+                        times++;
+                        ItemsPanel = new Panel();
+                        ItemsPanel.ID = "PanelM" + times.ToString();
+                    }
+                    count++;
+                    DataSet dsUsers = dat.GetData("SELECT * FROM Users WHERE User_ID=" + 
+                        ds.Tables[0].Rows[i]["From_UserID"].ToString());
+
+                    if (!bool.Parse(ds.Tables[0].Rows[i]["Read"].ToString()))
+                        unreadCount++;
+
+                    string boldOrNot = "font-size: 12px;";
+
+                    if (!bool.Parse(ds.Tables[0].Rows[i]["Read"].ToString()))
+                        boldOrNot = "font-weight:bold;font-size: 14px;";
+
+                    HtmlGenericControl thediv = new HtmlGenericControl();
+                    thediv.Attributes.Add("class", "MailHeader");
+                    thediv.Attributes.Add("style", boldOrNot);
+                    thediv.Attributes.Add("onclick", "OpenEmail('" + i.ToString() + "');");
+                    //thediv.Attributes.Add("onserverclick", "MarkAsRead2");
+                    thediv.ID = "header" + i.ToString();
+                    
+
+
+                    string thedivsText = "";
+                    //thedivsText = "<div class=\"MailHeader\" style=\""+boldOrNot+"\" "+
+                    //    "onclick=\"OpenEmail('"+i.ToString()+"');\" id=\"header"+i.ToString()+"\">";
+
+                    //thedivsText += "<div style=\"display: none;\" id=\"readDiv"+i.ToString()+"\">"+
+                    //    ds.Tables[0].Rows[i]["Read"].ToString()+"</div>";
+                    //thedivsText += "<div style=\"display: none;\" id=\"idDiv"+i.ToString()+"\">"+
+                    //    ds.Tables[0].Rows[i]["ID"].ToString()+"</div>";
+                    //thedivsText += "<div style=\"display: none;\" id=\"userDiv" + i.ToString() + "\">" + 
+                    //    Session["User"].ToString() + "</div>";
+                    //thedivsText += "<div style=\"display: none;\" id=\"fromDiv" + i.ToString() + "\">" + 
+                    //    ds.Tables[0].Rows[i]["From_UserID"].ToString() + "</div>";
+
+                    string tempor2 = "";
+                    string theUser = dsUsers.Tables[0].Rows[0]["UserName"].ToString();
+                    if (ds.Tables[0].Rows[i]["Mode"].ToString() == "1")
+                    {
+                        theUser = "HippoHappenings";
+                        tempor2 = " style=\"display:none;\" ";
+                    }
+
+                    string acceptHTML = "";
+                    string tempor = "";
+                    
+                    if (ds.Tables[0].Rows[i]["Mode"].ToString() == "2")
+                    {
+                        tempor2 = " style=\"display:none;\" ";
+                        tempor = "<a class=\"AddGreenLink\" href=\"javascript:AcceptFriend('" + i.ToString() + "');\">Accept Friend Request</a>"; 
+                        DataSet isFirend = dat.GetData("SELECT * FROM User_Friends WHERE UserID="+Session["User"].ToString()+" AND FriendID="+ds.Tables[0].Rows[i]["From_UserID"].ToString());
+                        if (isFirend.Tables.Count > 0)
+                            if (isFirend.Tables[0].Rows.Count > 0)
+                                tempor = "<span class=\"AddGreenLink\">You are already friends with "+theUser + "</span>";
+                        acceptHTML = "<div class=\"AddGreenLink\" id=\"accept"+i.ToString()+"\">"+tempor+"</div><br/>";
+                    }
+
+                    thedivsText += "<table width=\"560px\" cellpadding=\"0\" cellspacing=\"0\"><tr><td><span style=\"padding-left:5px;font-family:Arial;color: #cccccc; "
+                        + "\">From: </span><span style=\"color: #1fb6e7; font-family: Arial;\">" + theUser
+                        + "</span></td><td ><span style=\"padding-top:10px;font-family:Arial;" +
+                        "color: #cccccc;float:right;padding-right:5px;\">" +
+                        ds.Tables[0].Rows[i]["Date"].ToString() + "</span></td></tr><tr><td colspan=\"3\"><span style=\"font-family:Arial;color: #cccccc;padding-left: 5px;\">Subject: <span id=\"subject" + i.ToString() + "\">"
+                        + ds.Tables[0].Rows[i]["MessageSubject"].ToString() + 
+                        "</span></span></td></tr></table>";
+
+                    thedivsText += "</div>";
+                    thediv.InnerHtml = thedivsText;
+
+                    HtmlGenericControl messageDiv = new HtmlGenericControl();
+                    messageDiv.Attributes.Add("style", "display: none;");
+                    messageDiv.Attributes.Add("class", "MailContent EventBody");
+                    messageDiv.ID = "contentDiv";
+
+                    string messageDivsText = "";
+
+
+                    //thedivsText += "<div style=\"display: none;\" class=\"MailContent EventBody\" id=\"contentDiv"+
+                    //    i.ToString()+"\">";
+                    messageDivsText += "<table><tr><td width=\"285px\" valign=\"top\"><label>" + 
+                        ds.Tables[0].Rows[i]["MessageContent"].ToString()+" <br/><br/><br/> " +acceptHTML + "</label></td>";
+                    messageDivsText += "<td valign=\"top\"><table ><tr><td width=\"285px\" align=\"right\">" +
+                        "<img alt=\"Delete Message\" name=\"Delete Message\" style=\"cursor: pointer;\" "+
+                        "onclick=\"DeleteEmail('" + i.ToString() + "');\" src=\"image/X.png\" "+
+                        "onmouseover=\"this.src='image/XSelected.png'\" onmouseout=\"this.src='image/X.png'\" />"+
+                        "</td></tr><tr><td " + tempor2 + "><textarea cols=\"30\" rows=\"10\" id=\"textDiv" + 
+                        i.ToString() + "\"></textarea></td></tr>";
+                    messageDivsText += "<tr><td " + tempor2 + "><img onclick=\"ReplyMessage('" + i.ToString() + 
+                        "');\" src=\"image/ReplyButton.png\" onmouseout=\"this.src='image/ReplyButton.png'\""+
+                        "onmouseover=\"this.src='image/ReplyButtonSelected.png'\" /></td></tr>";
+                    messageDivsText += "<tr><td><div class=\"AddLink\" id=\"message" + i.ToString() + "\"></div></td></tr>";
+                    messageDivsText += "</table></td></tr></table>";
+                    //thedivsText += "</div>";
+
+                    messageDiv.InnerHtml = messageDivsText;
+
+                    ItemsPanel.Controls.Add(thediv);
+
+
+                    //message.DATE = ds.Tables[0].Rows[i]["Date"].ToString();
+
+
+                    //MessagePanel.Controls.Add(message);
+                }
+
+                if (ds.Tables[0].Rows.Count % 10 != 0 || ds.Tables[0].Rows.Count == 10)
+                {
+                    a.Add(ItemsPanel);
+                }
+
+            }
+
+        if (a.Count > 0)
+        {
+            pagerPanel.DATA = a;
+            pagerPanel.DataBind2();
+        }
+        Label label = new Label();
+
+        string temp = "messages";
+        if (ds.Tables[0].Rows.Count == 1)
+            temp = "message";
+        label.Text = "<table width=\"570px\"><tr><td><span style=\"font-family: Arial; font-size: 20px; color: White;\">My Messages</span>"
+            + "<span style=\"font-family: Arial; font-size: 12px; color: #cccccc; padding-left: 5px;\">(<span id=\"messagesCount\">" + unreadCount.ToString()
+            + "</span> new " + temp + ")</span></td><td align=\"right\"><div class=\"AddGreenLink\" id=\"globalMessage\"></div></td></tr></table>";
+
+        Panel MessagesPanel = (Panel)Tab1.FindControl("MessagesPanel");
+
+        MessagesPanel.Controls.Clear();
+        MessagesPanel.Controls.Add(label);
+        MessagesPanel.Controls.Add(pagerPanel);
+    }
+
+    protected DataView MergeDVThreeCol(DataView dv1, DataView dv2)
+    {
+        if (dv1.Count != 0)
+        {
+            DataTable dt = dv1.ToTable();
+            DataRow row;
+            
+            for (int i = 0; i < dv2.Count; i++)
+            {
+                row = dt.NewRow();
+                row["UserName"] = dv2[i]["UserName"].ToString();
+                row["THE_DATE"] = dv2[i]["THE_DATE"].ToString();
+                row["HEADER"] = dv2[i]["HEADER"].ToString();
+                dt.Rows.Add(row);
+            }
+
+            return new DataView(dt, "", "", DataViewRowState.CurrentRows);
+        }
+        else
+            return dv2;
+    }
+
+    protected void LoadFriends()
+    {
+        ClearMessage();
+        Data dat = new Data(DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")));
+        DataSet dsFriends = dat.GetData("SELECT * FROM User_Friends UF, Users U WHERE UF.FriendID=U.User_ID AND UF.UserID=" + Session["User"].ToString());
+        Panel FriendPanel = (Panel)Tab1.FindControl("FriendPanel");
+
+        
+
+        //Search for what your friends did in the past 30 days.
+        Panel WhatMyFriendsDidPanel = (Panel)Tab2.FindControl("WhatMyFriendsDidPanel");
+        DataView dvFriends = new DataView(dsFriends.Tables[0], "", "", DataViewRowState.CurrentRows);
+
+        if (dvFriends.Count > 0)
+        {
+            //Added Events to calendar
+            DataView dvEvents = dat.GetDataDV("SELECT U.UserName, UC.DateAdded AS THE_DATE, 'Added the event <a class=AddLink target=_blank href=Event.aspx?EventID='+CONVERT(NVARCHAR,E.ID)+'>'+E.Header +'</a>' AS HEADER " +
+                "FROM User_Friends UF, Users U, User_Calendar UC, Events E WHERE UF.UserID=" +
+                Session["User"].ToString() + " AND U.User_ID=UF.FriendID AND E.ID=UC.EventID AND UF.FriendID=UC.UserID AND UC.DateAdded > CONVERT(DATETIME, '" +
+                DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")).AddDays(double.Parse("-30")).Date.ToString() + "') ");
+
+            //Added Favorite Venues
+            DataView dvVenues = dat.GetDataDV("SELECT U.UserName, UV.DateAdded AS THE_DATE, 'Added a favorite venue <a class=AddLink target=_blank href=Venue.aspx?ID='+CONVERT(NVARCHAR,V.ID)+'>'+V.Name +'</a>' AS HEADER " +
+                "FROM User_Friends UF, Users U, UserVenues UV, Venues V WHERE UF.UserID=" +
+                Session["User"].ToString() + " AND V.ID=UV.VenueID AND U.User_ID=UF.FriendID AND UF.FriendID=UV.UserID AND UV.DateAdded > CONVERT(DATETIME, '" +
+                DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")).AddDays(double.Parse("-30")).Date.ToString() + "') ");
+
+            //Added Event Comments
+            DataView dvComments = dat.GetDataDV("SELECT U.UserName, C.BlogDate AS THE_DATE, 'Posted a comment:  <a class=AddLink target=_blank href=Event.aspx?EventID='+CONVERT(NVARCHAR,E.ID)+'>'+CASE WHEN LEN(C.Comment) < 50 THEN C.Comment ELSE SUBSTRING(C.Comment, 0, 50) END +'</a>' AS HEADER " +
+                "FROM User_Friends UF, Users U, Comments C, Events E WHERE UF.UserID=" +
+                Session["User"].ToString() + " AND U.User_ID=UF.FriendID AND C.BlogID=E.ID AND UF.FriendID=C.UserID AND C.BlogDate > CONVERT(DATETIME, '" +
+                DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")).AddDays(double.Parse("-30")).Date.ToString() + "') ");
+
+            //Added Venue Comments
+            DataView dvCommentsVenue = dat.GetDataDV("SELECT U.UserName, VC.CommentDate AS THE_DATE, 'Posted a comment: <a class=AddLink target=_blank href=Venue.aspx?ID='+CONVERT(NVARCHAR,V.ID)+'>'+CASE WHEN LEN(VC.Comment) < 50 THEN VC.Comment ELSE SUBSTRING(VC.Comment, 0, 50) END +'</a>' AS HEADER " +
+                "FROM User_Friends UF, Users U, Venue_Comments VC, Venues V WHERE UF.UserID=" +
+                Session["User"].ToString() + " AND U.User_ID=UF.FriendID AND V.ID=VC.VenueID AND UF.FriendID=VC.UserID " +
+                "AND VC.CommentDate > CONVERT(DATETIME, '" +
+                DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")).AddDays(double.Parse("-30")).Date.ToString() + "') ");
+
+            //Posted Events
+            DataView dvPostedEvents = dat.GetDataDV("SELECT U.UserName, E.PostedOn AS THE_DATE, 'Posted the event <a class=AddLink target=_blank href=Event.aspx?EventID='+CONVERT(NVARCHAR,E.ID)+'>'+E.Header +'</a>'AS HEADER " +
+                "FROM User_Friends UF, Users U, Events E WHERE UF.UserID=" +
+                Session["User"].ToString() + " AND U.User_ID=UF.FriendID AND U.UserName=E.UserName AND E.PostedOn > CONVERT(DATETIME, '" +
+                DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")).AddDays(double.Parse("-30")).Date.ToString() + "') ");
+
+            //Posted Venues
+            DataView dvPostedVenues = dat.GetDataDV("SELECT U.UserName, V.PostedOn AS THE_DATE, 'Posted the venue <a class=AddLink target=_blank href=Venue.aspx?ID='+CONVERT(NVARCHAR,V.ID)+'>'+V.Name +'</a>' AS HEADER " +
+                "FROM User_Friends UF, Users U, Venues V WHERE UF.UserID=" +
+                Session["User"].ToString() + " AND U.User_ID=UF.FriendID AND UF.FriendID=V.CreatedByUser AND V.PostedOn > CONVERT(DATETIME, '" +
+                DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")).AddDays(double.Parse("-30")).Date.ToString() + "') ");
+
+            //Posted Ads
+            DataView dvPostedAds = dat.GetDataDV("SELECT U.UserName, A.DateAdded AS THE_DATE, 'Posted the ad <a target=_blank class=AddLink href=Ad.aspx?AdID='+CONVERT(NVARCHAR,A.Ad_ID)+'>'+A.Header+'</a>' AS HEADER " +
+                "FROM User_Friends UF, Users U, Ads A WHERE UF.UserID=" +
+                Session["User"].ToString() + " AND U.User_ID=UF.FriendID AND UF.FriendID=A.User_ID AND A.DateAdded > CONVERT(DATETIME, '" +
+                DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")).AddDays(double.Parse("-30")).Date.ToString() + "') ");
+
+
+            DataView dvFinal = MergeDVThreeCol(MergeDVThreeCol(MergeDVThreeCol(MergeDVThreeCol(MergeDVThreeCol(MergeDVThreeCol(dvEvents,
+                dvVenues), dvComments), dvPostedEvents), dvPostedVenues), dvPostedAds), dvCommentsVenue);
+
+            dvFinal.Sort = "THE_DATE DESC";
+            Label lab;
+            if (dvFinal.Count != 0)
+            {
+                Literal lit = new Literal();
+                lit.Text = "<ul style=\"color: #1fb6e7;margin: 0;margin-bottom:5px;margin-top:5px;padding-left:20px;\" color=#1fb6e7>";
+                WhatMyFriendsDidPanel.Controls.Add(lit);
+                for (int i = 0; i < dvFinal.Count; i++)
+                {
+                    lab = new Label();
+                    lab.Text = "<li color=#1fb6e7><span class=\"AspLabel\"><span class=\"AddWhiteLink\">" + dvFinal[i]["UserName"].ToString() + "</span> " + dvFinal[i]["HEADER"].ToString() +
+                        " on " + dvFinal[i]["THE_DATE"].ToString() + "</span></li>";
+                    WhatMyFriendsDidPanel.Controls.Add(lab);
+                }
+                lit = new Literal();
+                lit.Text = "</ul>";
+                WhatMyFriendsDidPanel.Controls.Add(lit);
+            }
+            else
+            {
+                WhatMyFriendsDidPanel.Visible = false;
+            }
+        }
+        else
+        {
+            WhatMyFriendsDidPanel.Visible = false;
+            MyFriendsPanel.Visible = false;
+        }
+
+        int friendcount = 0; 
+        if (dsFriends.Tables.Count > 0)
+            if (dsFriends.Tables[0].Rows.Count > 0)
+            {
+                friendcount = dsFriends.Tables[0].Rows.Count;
+                for (int i = 0; i < dsFriends.Tables[0].Rows.Count; i++)
+                {
+                    Literal lit = new Literal();
+                    lit.Text = "<div style=\"float: left; padding: 8px;\"><table align=\"center\" valign=\"middle\" cellpadding=\"0\" cellspacing=\"0\"  bgcolor=\"#666666\" width=\"52\" height=\"52\"><tr><td align=\"center\">";
+                    ImageButton profilePicture = new ImageButton();
+                    
+                    profilePicture.AlternateText = dsFriends.Tables[0].Rows[i]["UserName"].ToString();
+                    profilePicture.ToolTip = dsFriends.Tables[0].Rows[i]["UserName"].ToString();
+                    profilePicture.Height = 50;
+                    profilePicture.Width = 50;
+                    profilePicture.ID = "pic" + i.ToString();
+                    profilePicture.AlternateText = dsFriends.Tables[0].Rows[i]["UserName"].ToString();
+                    profilePicture.CommandArgument = dsFriends.Tables[0].Rows[i]["FriendID"].ToString();
+                    if (System.IO.File.Exists(Server.MapPath(".") + "\\UserFiles\\" + dsFriends.Tables[0].Rows[i]["UserName"].ToString() + "\\Profile\\" + dsFriends.Tables[0].Rows[i]["ProfilePicture"].ToString()))
+                    {
+                        profilePicture.ImageUrl = "~/UserFiles/" + dsFriends.Tables[0].Rows[i]["UserName"].ToString() + "/Profile/" + dsFriends.Tables[0].Rows[i]["ProfilePicture"].ToString();
+                        System.Drawing.Image theimg = System.Drawing.Image.FromFile(Server.MapPath(".") + "/UserFiles/" + dsFriends.Tables[0].Rows[i]["UserName"].ToString() +
+                     "/Profile/" + dsFriends.Tables[0].Rows[i]["ProfilePicture"].ToString());
+
+                        double width = double.Parse(theimg.Width.ToString());
+                        double height = double.Parse(theimg.Height.ToString());
+
+                        if (width > height)
+                        {
+                            if (width <= 50)
+                            {
+
+                            }
+                            else
+                            {
+                                double dividor = double.Parse("50.00") / double.Parse(width.ToString());
+                                width = double.Parse("50.00");
+                                height = height * dividor;
+                            }
+                        }
+                        else
+                        {
+                            if (width == height)
+                            {
+                                width = double.Parse("50.00");
+                                height = double.Parse("50.00");
+                            }
+                            else
+                            {
+                                double dividor = double.Parse("50.00") / double.Parse(height.ToString());
+                                height = double.Parse("50.00");
+                                width = width * dividor;
+                            }
+                        }
+
+                        profilePicture.Width = int.Parse((Math.Round(decimal.Parse(width.ToString()))).ToString());
+                        profilePicture.Height = int.Parse((Math.Round(decimal.Parse(height.ToString()))).ToString());
+                    
+                    }
+                    else
+                    {
+                        profilePicture.ImageUrl = "~/image/noAvatar_50x50_small.png";
+                        profilePicture.Attributes.Add("onmouseover", "this.src='NewImages/noAvatar_50x50_smallhover.png'");
+                        profilePicture.Attributes.Add("onmouseout", "this.src='image/noAvatar_50x50_small.png'");
+                    }
+
+                    profilePicture.Click += new ImageClickEventHandler(ViewFriend);
+
+                    MyFriendsPanel.Controls.Add(lit);
+                    MyFriendsPanel.Controls.Add(profilePicture);
+                    lit = new Literal();
+                    lit.Text = "</td></tr></table></div>";
+                    MyFriendsPanel.Controls.Add(lit);
+                }
+            }
+
+        NumFriendsLabel.Text = friendcount.ToString();
+        LinkButton friendLink = new LinkButton();
+        friendLink.Text = "Add Friends";
+    }
+    
+    //protected void MarkAsRead_OLD(object sender, Telerik.Web.UI.RadPanelBarEventArgs e)
+    //{
+    //    if (e.Item.Attributes["CommandArgument"] != null)
+    //    {
+    //        bool read = bool.Parse(e.Item.Attributes["Read"]);
+
+    //        if (!read)
+    //        {
+    //            Telerik.Web.UI.RadPanelItem rItem = (Telerik.Web.UI.RadPanelItem)e.Item;
+    //            int key = int.Parse(e.Item.Attributes["CommandArgument"]);
+    //            rItem.Text = rItem.Text.Replace("font-weight:bold;", "");
+    //            rItem.Text = rItem.Text.Replace("font-weight: bold;", "");
+    //            Data dat = new Data(DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")));
+
+    //            dat.Execute("UPDATE UserMessages SET [Read] = 'True' WHERE ID=" + key);
+
+    //            //LoadControls();
+    //        }
+    //    }
+    //}
+
+    //[Ajax.AjaxMethod]
+    //public static string MarkAsRead(string messageID)
+    //{
+    //    Data dat = new Data(DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")));       
+    //    dat.Execute("UPDATE UserMessages SET [Read] = 'True' WHERE ID=" + messageID);
+
+    //    return "strindsfdffg";
+    //}
+
+    protected void MarkAsRead2(object sender, EventArgs e)
+    {
+        HtmlGenericControl theSender = (HtmlGenericControl)sender;
+        string messageID = theSender.ID.Replace("header", "");
+        Data dat = new Data(DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")));
+        dat.Execute("UPDATE UserMessages SET [Read] = 'True' WHERE ID=" + messageID);
+
+    }
+
+    protected void OpenSearchFriends(object sender, EventArgs e)
+    {
+        Data dat = new Data(DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")));
+        Panel SearchFriendPanel = (Panel)dat.FindControlRecursive(this, "SearchFriendPanel");
+        SearchFriendPanel.Visible = true;
+    }
+    
+    protected void CancelFriendSearch(object sender, EventArgs e)
+    {
+        CloseSearchPanel();
+    }
+    
+    protected void CloseSearchPanel()
+    {
+        Data dat = new Data(DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")));
+        Panel SearchFriendPanel = (Panel)dat.FindControlRecursive(this, "SearchFriendPanel");
+        SearchFriendPanel.Visible = false;
+    }
+    
+    protected void FriendSearch(object sender, EventArgs e)
+    {
+        ClearMessage();
+        Data dat = new Data(DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")));
+
+        ASP.controls_hippotextbox_ascx FriendSearchTextBox = (ASP.controls_hippotextbox_ascx)dat.FindControlRecursive(this,"FriendSearchTextBox");
+        
+        Label FriendMessageLabel = (Label)dat.FindControlRecursive(this, "FriendMessageLabel");
+
+
+        if (FriendSearchTextBox.THE_TEXT != "" && dat.TrapKey(FriendSearchTextBox.THE_TEXT, 1))
+        {
+            DataSet ds = dat.GetData("SELECT * FROM Users WHERE UserName LIKE '%" + FriendSearchTextBox.THE_TEXT + "%'");
+
+            if (ds.Tables.Count > 0)
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    FillSearchPanel(ds);
+                    ViewState["FriendDS"] = ds;
+                }
+                else
+                    FriendMessageLabel.Text = "0 Results Found.";
+            else
+                FriendMessageLabel.Text = "0 Results Found.";
+        }
+        else
+            FriendMessageLabel.Text = "Include a valid User Name in the text field.";
+    }
+    
+    protected void FillSearchPanel(DataSet ds)
+    {
+        Data dat = new Data(DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")));
+        Panel SearchResultsPanel = (Panel)dat.FindControlRecursive(this, "SearchResultsPanel");
+        for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+        {
+            Image image = new Image();
+            image.Width = 50;
+            image.Height = 50;
+
+            if (System.IO.File.Exists(Server.MapPath(".") + "\\UserFiles\\" + ds.Tables[0].Rows[i]["UserName"].ToString() + "\\Profile\\" + ds.Tables[0].Rows[i]["ProfilePicture"].ToString()))
+            {
+                image.ImageUrl = "~/UserFiles/" + ds.Tables[0].Rows[i]["UserName"].ToString() + "/Profile/" + ds.Tables[0].Rows[i]["ProfilePicture"].ToString();
+            }
+            else
+                image.ImageUrl = "~/image/noAvatar_50x50_small.png";
+
+            Label label = new Label();
+            label.Text = ds.Tables[0].Rows[i]["UserName"].ToString();
+
+            LinkButton link = new LinkButton();
+            link.Text = "Add Friend";
+            link.CssClass = "AddLink";
+            link.CausesValidation = false;
+            link.ID = "link" + i.ToString();
+            link.CommandArgument = ds.Tables[0].Rows[i]["User_ID"].ToString();
+            link.Click += new EventHandler(this.AddFriend);
+
+
+            SearchResultsPanel.Controls.Add(image);
+            SearchResultsPanel.Controls.Add(label);
+            SearchResultsPanel.Controls.Add(link);
+        }
+    }
+    
+    protected void FillVenues()
+    {
+        Data dat = new Data(DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")));
+        DataSet ds = dat.GetData("SELECT *, UV.VenueID AS VID  FROM UserVenues UV, Venues V "+
+            "WHERE V.ID=UV.VenueID AND UV.UserID="+
+            Session["User"].ToString() + " ORDER BY V.Name");
+
+        bool noneExist = false;
+
+        if (ds.Tables.Count > 0)
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                ASP.controls_pager_ascx pagerPanel = new ASP.controls_pager_ascx();
+                pagerPanel.NUMBER_OF_ITEMS_PER_PAGE = 10;
+                pagerPanel.PANEL_CSSCLASS = "FavoritesPanel";
+                pagerPanel.WIDTH = 260;
+                ArrayList a = new ArrayList(ds.Tables[0].Rows.Count * 2);
+
+                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                {
+                    Literal lit = new Literal();
+                    lit.Text = "<div class=\"topDiv\" style=\"padding-top: 20px;\">";
+
+                    Literal lit2 = new Literal();
+                    lit2.Text = "</div>";
+
+                    ASP.controls_hipporating_ascx rating = new ASP.controls_hipporating_ascx();
+                    rating.VENUE_ID = ds.Tables[0].Rows[i]["ID"].ToString();
+
+                    Label label = new Label();
+                    label.Text = "<div style=\"float:left; padding-top: 4px;\"><a class=\"AddLink\" href=\"Venue.aspx?ID=" + ds.Tables[0].Rows[i]["ID"].ToString() + "\">" + ds.Tables[0].Rows[i]["Name"].ToString() + "</a></div>";
+
+                    DataSet dsEvents = dat.GetData("SELECT * FROM Events E, Event_Occurance EO WHERE EO.EventID=E.ID AND "+
+                        "DAY(EO.DateTimeStart) = DAY(GETDATE()) AND MONTH(EO.DateTimeStart) = MONTH(GETDATE()) AND YEAR"+
+                        "(EO.DateTimeStart) = YEAR(GETDATE()) "
+                      +   " AND E.Venue=" + ds.Tables[0].Rows[i]["VID"].ToString());
+                    int count = 0;
+
+                    if (dsEvents.Tables.Count > 0)
+                        if (dsEvents.Tables[0].Rows.Count > 0)
+                            count = dsEvents.Tables[0].Rows.Count;
+
+                    Label label2 = new Label();
+                    label2.Text = "<div style=\"display: block; padding-top: 3px;\">"+count + " event[s] going on today </div>";
+
+                    Panel allP = new Panel();
+                    allP.Controls.Add(lit);
+                    allP.Controls.Add(label);
+                    allP.Controls.Add(rating);
+                    allP.Controls.Add(lit2);
+                    allP.Controls.Add(label2);
+                    
+                    a.Add(allP);
+                }
+
+                pagerPanel.DATA = a;
+                pagerPanel.DataBind2();
+                FavoriteVenues.Controls.Add(pagerPanel);
+            }
+            else
+                noneExist = true;
+        else
+            noneExist = true;
+
+        if (noneExist)
+        {
+            Label label = new Label();
+            label.Text = "You have not added any venues to your favorite's list. To search for some awesome venues and make them your favorite visit the <a class=\"AddGreenLink\" href=\"VenueSearch.aspx\">venue's page.</a>";
+            FavoriteVenues.Controls.Add(label);
+        }
+    }
+    
+    protected void FillRecommendedEvents()
+    {
+        Data dat = new Data(DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")));
+
+        //only show top 10
+        int topCount = 10;
+
+        //Put the sets together
+        DataSet dsAll = dat.RetrieveRecommendedEvents(topCount, true);
+
+        bool noneMessage = false;
+
+        if (dsAll.Tables.Count > 0)
+            if (dsAll.Tables[0].Rows.Count > 0)
+            {
+                //insert link to all recommended events
+                Session["RecomDS"] = dsAll;
+                Literal link = new Literal();
+                link.Text = "<h4 style=\"margin-bottom: 5px;\">Top 10 Recommended Events</h4><div><a class=\"AddLink\" onclick=\"OpenRadRecom();\">See All</a></div>";
+
+                RecommendedEvents.Controls.Add(link);
+
+                Hashtable hash = new Hashtable();
+
+                ASP.controls_pager_ascx pagerPanel = new ASP.controls_pager_ascx();
+                pagerPanel.NUMBER_OF_ITEMS_PER_PAGE = 3;
+                pagerPanel.PANEL_CSSCLASS = "FavoritesPanel";
+                pagerPanel.WIDTH = 270;
+                ArrayList a = new ArrayList(topCount);
+
+                for (int i = 0; i < topCount; i++)
+                {
+                    dat.InsertOneEvent(dsAll, i, ref a, false);
+                }
+
+                pagerPanel.DATA = a;
+                pagerPanel.DataBind2();
+                RecommendedEvents.Controls.Add(pagerPanel);
+            }
+            else
+            {
+                noneMessage = true;
+            }
+        else
+            noneMessage = true;
+
+        if (noneMessage)
+        {
+            Label lab = new Label();
+            lab.Text = "There are no recommended events here this month. There are a few reasons for this. "+
+                "There simply is no events that fit your recommendation criteria, or you have selected not to "+
+                "recommend any events. To modify your preferences please visit the 'My Preferences' tab on this page.";
+
+            RecommendedEvents.Controls.Add(lab);
+        }
+
+    }
+
+    //protected void GetFriendEvents()
+    //{
+    //    DateTime date = DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":"));
+    //    Data dat = new Data(DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")));
+    //    string command = "SELECT DISTINCT U.UserName, UC.EventID, EO.DateTimeStart, E.Header " +
+    //        "FROM Users AS U INNER JOIN " +
+    //                     "User_Friends AS UF ON U.User_ID = UF.FriendID INNER JOIN " +
+    //                     "User_Calendar AS UC ON UF.FriendID = UC.UserID INNER JOIN " +
+    //                     "Event_Occurance AS EO ON UC.EventID = EO.EventID INNER JOIN " +
+    //                     "Events AS E ON EO.EventID = E.ID " +
+    //                     "WHERE (UF.UserID = "+Session["User"].ToString()+") AND MONTH(EO.DateTimeStart) = "+DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")).Month.ToString();
+
+    //    DataSet dsFriends = dat.GetData(command);
+    //    int count = 0;
+    //    if (dsFriends.Tables.Count > 0)
+    //        if (dsFriends.Tables[0].Rows.Count > 0)
+    //            if (dsFriends.Tables[0].Rows.Count > count)
+    //            {
+    //                count = dsFriends.Tables[0].Rows.Count;
+                    
+    //            }
+
+    //    if (count == 0)
+    //        FriendMessagesPanel.Visible = false;
+    //    for (int i = 0; i < count; i++)
+    //    {
+    //        string title = dsFriends.Tables[0].Rows[i]["Header"].ToString();
+
+    //        if (title.Length > 30)
+    //            title = title.Substring(0, 30) + "..";
+    //        FriendMessagesLiteral.Text += "<div class=\"EventBody FriendMessage\" style=\"width: 400px;\"> " + dsFriends.Tables[0].Rows[i]["UserName"].ToString() +
+    //            " has added <a class=\"AddLink\"  href=\"Event.aspx?EventID=" +
+    //            dsFriends.Tables[0].Rows[i]["EventID"].ToString() + "\">" +
+    //            dsFriends.Tables[0].Rows[i]["Header"].ToString() + "</a> to their calendar<br/></div>";
+    //    }
+    //}
+
+    protected void ServerDeleteMessage(object sender, EventArgs e)
+    {
+        UserErrorLabel.Text = "hello";
+        try
+        {
+            ImageButton theImg = (ImageButton)sender;
+            string messageID = theImg.CommandArgument;
+
+            Data dat = new Data(DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")));
+
+            DataSet dsMess = dat.GetData("SELECT * FROM UserMessages WHERE ID="+messageID);
+            if (dsMess.Tables[0].Rows[0]["From_UserID"] == Session["User"])
+            {
+                dat.Execute("UPDATE UserMessages SET SentLive=0 WHERE ID=" + messageID);
+            }
+            else
+            {
+                dat.Execute("UPDATE UserMessages SET Live=0 WHERE ID=" + messageID);
+            }
+
+            //Telerik.Web.UI.RadPanelBar bar = (Telerik.Web.UI.RadPanelBar)theImg.Parent.Parent.Parent;
+
+            //Telerik.Web.UI.RadPanelItem item = (Telerik.Web.UI.RadPanelItem)theImg.Parent.Parent;
+            //item.Visible = false;
+
+            Response.Redirect("User.aspx");
+
+            //LoadControlsNotAJAX();
+
+            //RadPageView3 : UserErrorLabel.Text = theImg.Parent.Parent.Parent.Parent.Parent.Parent.Parent.ID.ToString();
+        }
+        catch (Exception ex)
+        {
+            UserErrorLabel.Text = ex.ToString();
+        }
+        
+    }
+
+    protected void ServerMarkRead(object sender, Telerik.Web.UI.RadPanelBarEventArgs e)
+    {
+        try
+        {
+            Data dat = new Data(DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")));
+
+            DataSet dsRead = dat.GetData("SELECT * FROM UserMessages WHERE ID=" + e.Item.Value);
+
+            if (!bool.Parse(dsRead.Tables[0].Rows[0]["Read"].ToString()))
+            {
+
+                dat.Execute("UPDATE UserMessages SET [Read]='True' WHERE ID=" + e.Item.Value);
+
+                e.Item.Text = e.Item.Text.Replace("bold", "normal");
+                e.Item.Text = e.Item.Text.Replace("White", "#cccccc");
+
+                int unreadCount = int.Parse(RadTabStrip3.Tabs[0].Value) - 1;
+
+                RadTabStrip3.Tabs[0].Value = unreadCount.ToString();
+
+                if (unreadCount == 0)
+                {
+                    RadTabStrip3.Tabs[0].Text = "Inbox";
+                }
+                else
+                {
+
+                    RadTabStrip3.Tabs[0].Text = "Inbox <span style=\"font-size: 12px; vertical-align: middle; font-weight: normal; padding-bottom: 3px;\">(" + unreadCount.ToString() + " New)</span>";
+
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            UserErrorLabel.Text = ex.ToString();
+        }
+    }
+
+    protected void ServerReply(object sender, EventArgs e)
+    {
+        try
+        {
+            Data dat = new Data(DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")));
+
+            HtmlButton link = (HtmlButton)sender;
+            string[] delim = { "reply" };
+
+            string[] tokens = link.ID.Split(delim, StringSplitOptions.None);
+
+            TextBox textbox = (TextBox)link.Parent.FindControl(tokens[0] + "textbox" + tokens[1]);
+
+            int To_ID = int.Parse(tokens[0]);
+
+            DataSet ds = dat.GetData("SELECT * FROM UserMessages WHERE ID=" + tokens[1]);
+
+
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Connection"].ToString());
+
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("INSERT INTO UserMessages (MessageContent, MessageSubject, " +
+                "From_UserID, To_UserID, Date, [Read], Mode)"
+                + " VALUES(@content, @subject, @fromID, @toID, @date, 'False', 0)", conn);
+            cmd.Parameters.Add("@content", SqlDbType.Text).Value = textbox.Text;
+            cmd.Parameters.Add("@subject", SqlDbType.NVarChar).Value = "Re: " + ds.Tables[0].Rows[0]["MessageSubject"].ToString();
+            cmd.Parameters.Add("@toID", SqlDbType.Int).Value = To_ID;
+            cmd.Parameters.Add("@fromID", SqlDbType.Int).Value = Session["User"].ToString();
+            cmd.Parameters.Add("@date", SqlDbType.DateTime).Value = DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":"));
+            cmd.ExecuteNonQuery();
+
+            DataSet dsUser = dat.GetData("SELECT * FROM Users WHERE User_ID=" + Session["User"].ToString());
+            DataSet dsTo = dat.GetData("SELECT * FROM Users U, UserPreferences UP WHERE UP.UserID=U.User_ID AND U.User_ID=" + To_ID);
+
+            //only send to email if users preferences are set to do so.
+            if (dsTo.Tables[0].Rows[0]["EmailPrefs"].ToString().Contains("4"))
+            {
+                dat.SendEmail(System.Configuration.ConfigurationManager.AppSettings["emailemail"],
+                    System.Configuration.ConfigurationManager.AppSettings["emailName"],
+                    dsTo.Tables[0].Rows[0]["Email"].ToString(), textbox.Text, "Re: " + ds.Tables[0].Rows[0]["MessageSubject"].ToString());
+            }
+            conn.Close();
+
+
+            Literal lit = new Literal();
+            lit.Text = "<div align=\"left\" style=\"height: 30px; width: 220px; margin: 5px; float: right;\" class=\"AddGreenLink\">Your reply has been sent!</div>";
+
+            link.Parent.Controls.AddAt(9, lit);
+        }
+        catch (Exception ex)
+        {
+            UserErrorLabel.Text = ex.ToString();
+        }
+    }
+
+    protected void ServerAcceptFriend(object sender, EventArgs e)
+    {
+        try
+        {
+            Data dat = new Data(DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")));
+
+            HtmlButton link = (HtmlButton)sender;
+            string[] delim = { "accept" };
+
+            int To_ID = int.Parse(link.ID.Split(delim, StringSplitOptions.None)[0]);
+
+            DataSet ds = dat.GetData("SELECT * FROM User_Friends WHERE UserID=" + Session["User"].ToString() +
+                " AND FriendID=" + To_ID);
+
+            bool hasFriend = false;
+
+            if (ds.Tables.Count > 0)
+                if (ds.Tables[0].Rows.Count > 0)
+                    hasFriend = true;
+                else
+                    hasFriend = false;
+            else
+                hasFriend = false;
+
+            if (!hasFriend)
+            {
+
+                SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Connection"].ToString());
+
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("INSERT INTO UserMessages (MessageContent, MessageSubject, " +
+                    "From_UserID, To_UserID, Date, [Read], Mode)"
+                    + " VALUES(@content, @subject, 6, @toID, @date, 'False', 0)", conn);
+                cmd.Parameters.Add("@content", SqlDbType.Text).Value = "Congratulations!, <br/><br/> " +
+                    "We wanted to let you know that " + Session["UserName"].ToString()
+                    + " hass accepted your friend request. Good luck in your journey!<br/><br/> Have a " +
+                    "Happening Day! <br/><br/> ";
+                cmd.Parameters.Add("@subject", SqlDbType.NVarChar).Value = "Friend Request Approved from " + Session["UserName"].ToString();
+                cmd.Parameters.Add("@toID", SqlDbType.Int).Value = To_ID;
+                cmd.Parameters.Add("@date", SqlDbType.DateTime).Value = DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":"));
+                cmd.ExecuteNonQuery();
+
+                DataSet dsUser = dat.GetData("SELECT * FROM Users WHERE User_ID=" + Session["User"].ToString());
+                DataSet dsTo = dat.GetData("SELECT * FROM Users U, UserPreferences UP WHERE UP.UserID=U.User_ID AND U.User_ID=" + To_ID);
+
+                //only send to email if users preferences are set to do so.
+                if (dsTo.Tables[0].Rows[0]["EmailPrefs"].ToString().Contains("8"))
+                {
+                    dat.SendEmail(System.Configuration.ConfigurationManager.AppSettings["emailemail"],
+                    System.Configuration.ConfigurationManager.AppSettings["emailName"],
+                        dsTo.Tables[0].Rows[0]["Email"].ToString(), "Congratulations!, <br/><br/> " +
+                        "We wanted to let you know that " + Session["UserName"].ToString()
+                        + " hass accepted your friend request. Good luck in your journey!<br/><br/> Have a " +
+                        "Happening Day! <br/><br/> ", "Friend Request Approved from " + Session["UserName"].ToString());
+                }
+                dat.Execute("INSERT INTO User_Friends (UserID, FriendID) VALUES(" + Session["User"].ToString()
+                    + ", " + To_ID + ")");
+                dat.Execute("INSERT INTO User_Friends (UserID, FriendID) VALUES(" + To_ID
+                    + ", " + Session["User"].ToString() + ")");
+
+                conn.Close();
+
+            }
+
+            Literal lit = new Literal();
+            lit.Text = "<div style=\"float: right; width: 220px;height: 30px; margin: 5px;\" " +
+                "class=\"AddGreenLink\">You have accepted this gal/guy as a friend! Good luck you two!</div>";
+
+            link.Parent.Controls.Add(lit);
+
+            link.Parent.Controls.Remove(link);
+        }
+        catch (Exception ex)
+        {
+            UserErrorLabel.Text = ex.ToString();
+        }
+    }
+
+
+
+    protected void AddFriend(object sender, EventArgs e)
+    {
+        Data dat = new Data(DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")));
+
+        LinkButton link = (LinkButton)sender;
+
+        int To_ID = int.Parse(link.CommandArgument);
+
+        DataSet ds = dat.GetData("SELECT * FROM User_Friends WHERE UserID="+Session["User"].ToString() + 
+            " AND FriendID="+To_ID);
+
+        bool hasFriend = false;
+
+        if (ds.Tables.Count > 0)
+            if (ds.Tables[0].Rows.Count > 0)
+                hasFriend = true;
+            else
+                hasFriend = false;
+        else
+            hasFriend = false;
+
+        if (!hasFriend)
+        {
+
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Connection"].ToString());
+
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("INSERT INTO UserMessages (MessageContent, MessageSubject, From_UserID, To_UserID, Date, [Read], Mode)"
+                + " VALUES(@content, @subject, @fromID, @toID, @date, 'False', 2)", conn);
+            cmd.Parameters.Add("@content", SqlDbType.Text).Value = "Good Day from Hippo Happenings!, <br/><br/> We wanted to let you know that the user '" + Session["UserName"].ToString() + "' would like " +
+                "to add you to their list of friends. To accept this request select the link below. <br/><br/> Have a Happening Day! <br/><br/> ";
+            cmd.Parameters.Add("@subject", SqlDbType.NVarChar).Value = "You Have a Hippo Friend Request!";
+            cmd.Parameters.Add("@toID", SqlDbType.Int).Value = To_ID;
+            cmd.Parameters.Add("@fromID", SqlDbType.Int).Value = Session["User"].ToString();
+            cmd.Parameters.Add("@date", SqlDbType.DateTime).Value = DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":"));
+            cmd.ExecuteNonQuery();
+            conn.Close();
+
+            MessageLabel.Text = "Your friend request has been sent!";
+
+
+        }
+        else
+            MessageLabel.Text = "The user you selected is already your friend!";
+
+
+
+        Panel SearchResultsPanel = (Panel)dat.FindControlRecursive(this, "SearchResultsPanel");
+        SearchResultsPanel.Controls.Clear();
+
+        CloseSearchPanel();
+
+    }
+    
+    protected void ViewFriend(object sender, EventArgs e)
+    {
+        ClearMessage();
+        ImageButton button = (ImageButton)sender;
+        string arg = button.CommandArgument;
+        Session["FriendToView"] = arg;
+        Response.Redirect("Friend.aspx?ID="+arg);
+    }
+    
+    private void this_OnProgress(object sender, int ID)
+    {
+        if (Session["Archived"] != null)
+            if (bool.Parse(Session["Archived"].ToString()))
+            {
+                LoadControls();
+                DoAll();
+            }
+
+        Session["Archived"] = "False";
+
+    }
+    
+    protected void GoTo(object sender, EventArgs e)
+    {
+        ImageButton b = (ImageButton)sender;
+
+        string command = b.CommandArgument;
+
+        switch (command)
+        {
+            case "P":
+                Response.Redirect("UserPreferences.aspx?ID="+Session["User"].ToString());
+                break;
+            case "M":
+                //MessagesPanel.Visible = true;
+                //FriendPanel.Visible = false;
+                //MessagesButton.ImageUrl = "image/MyMessagesHover.png";
+                //FriendsButton.ImageUrl = "image/MyFriends.png";
+                //MessagesButton.Attributes.Remove("onmouseover");
+                //MessagesButton.Attributes.Remove("onmouseout");
+                //FriendsButton.Attributes.Add("onmouseover", "this.src='image/MyFriendsHover.png'");
+                //FriendsButton.Attributes.Add("onmouseout", "this.src='image/MyFriends.png'");
+                break;
+            case "F":
+                //FriendPanel.Visible = true;
+                //MessagesPanel.Visible = false;
+                //MessagesButton.ImageUrl = "image/MyMessages.png";
+                //MessagesButton.Attributes.Add("onmouseover", "this.src='image/MyMessagesHover.png'");
+                //MessagesButton.Attributes.Add("onmouseout", "this.src='image/MyMessages.png'");
+                //FriendsButton.ImageUrl = "image/MyFriendsHover.png";
+                //FriendsButton.Attributes.Remove("onmouseover");
+                //FriendsButton.Attributes.Remove("onmouseout");
+                break;
+            default: break;
+        }
+    }
+   
+    protected void ClearMessage()
+    {
+        MessageLabel.Text = "";
+    }
+
+    //[Ajax.AjaxMethod(Ajax.HttpSessionStateRequirement.ReadWrite)]
+    //public int Reply(string message, string subject, string fromID, string userID, string messageID, string i)
+    //{
+    //    try
+    //    {
+    //        SqlConnection conn;
+    //        conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Connection"].ToString());
+    //        conn.Open();
+
+    //        SqlCommand cmd = new SqlCommand("INSERT INTO UserMessages (MessageContent, MessageSubject, From_UserID, To_UserID, Date, [Read], Mode) " +
+    //            " VALUES(@content, @subject, @from, @to, @date, 'false', 0)", conn);
+    //        cmd.Parameters.Add("@content", SqlDbType.NVarChar).Value = message;
+    //        cmd.Parameters.Add("@subject", SqlDbType.NVarChar).Value = "Re: " + subject;
+    //        cmd.Parameters.Add("@from", SqlDbType.Int).Value = userID;
+    //        cmd.Parameters.Add("@to", SqlDbType.Int).Value = fromID;
+    //        cmd.Parameters.Add("@date", SqlDbType.DateTime).Value = DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":"));
+    //        cmd.ExecuteNonQuery();
+    //        conn.Close();
+
+            
+    //    }
+    //    catch (Exception ex)
+    //    {
+            
+    //    }
+
+    //    return int.Parse(i);
+    //}
+
+    //[Ajax.AjaxMethod(Ajax.HttpSessionStateRequirement.ReadWrite)]
+    //public int AcceptFriend(string userID, string friendID, string i)
+    //{
+    //    try
+    //    {
+    //        Data dat = new Data(DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")));
+
+    //        SqlConnection conn;
+    //        conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Connection"].ToString());
+    //        conn.Open();
+    //        string username = dat.GetData("SELECT UserName FROM USERS WHERE User_ID=" + userID).Tables[0].Rows[0]["UserName"].ToString();
+    //        //Add the friend.
+    //        SqlCommand cmd = new SqlCommand("INSERT INTO User_Friends (FriendID, UserID) VALUES(@friend, @user)", conn);
+    //        cmd.Parameters.Add("@friend", SqlDbType.Int).Value = userID;
+    //        cmd.Parameters.Add("@user", SqlDbType.Int).Value = friendID;
+    //        cmd.ExecuteNonQuery();
+    //        cmd = new SqlCommand("INSERT INTO User_Friends (FriendID, UserID) VALUES(@friend, @user)", conn);
+    //        cmd.Parameters.Add("@friend", SqlDbType.Int).Value = friendID;
+    //        cmd.Parameters.Add("@user", SqlDbType.Int).Value = userID;
+    //        cmd.ExecuteNonQuery();
+
+    //        //Send message notifying the requestor that the friend has accepted
+    //        cmd = new SqlCommand("INSERT INTO UserMessages (MessageContent, MessageSubject, From_UserID, To_UserID, Date, [Read], Mode) " +
+    //            " VALUES(@content, @subject, @from, @to, @date, 'false', 1)", conn);
+    //        cmd.Parameters.Add("@content", SqlDbType.NVarChar).Value = "Good Day from Hippo Happenings! <br/><br/> Congratulations! The friend request submited for user '" + username + "' has been approved by this user. You are now friends! ";
+    //        cmd.Parameters.Add("@subject", SqlDbType.NVarChar).Value = "Friend Request Approved!";
+    //        cmd.Parameters.Add("@from", SqlDbType.Int).Value = 6;
+    //        cmd.Parameters.Add("@to", SqlDbType.Int).Value = friendID;
+    //        cmd.Parameters.Add("@date", SqlDbType.DateTime).Value = DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":"));
+    //        cmd.ExecuteNonQuery();
+
+    //        conn.Close();
+
+    //    }
+    //    catch (Exception ex)
+    //    {
+
+    //    }
+
+    //    return int.Parse(i);
+
+    //}
+
+    //[Ajax.AjaxMethod(Ajax.HttpSessionStateRequirement.ReadWrite)]
+    //public int ArchiveMessage(string ID)
+    //{
+    //    Data dat = new Data(DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")));
+    //    dat.Execute("UPDATE UserMessages SET Live='False' WHERE ID="+ID);
+
+    //   return 0;
+    //}
+
+    protected void UploadPhoto(object sender, EventArgs e)
+    {
+
+        if (PictureUpload.HasFile)
+        {
+            if (!System.IO.Directory.Exists(MapPath(".").ToString() + "/UserFiles/" + Session["UserName"].ToString() +
+                "/Profile/"))
+            {
+                System.IO.Directory.CreateDirectory(MapPath(".").ToString() + "/UserFiles/" + Session["UserName"].ToString() +
+                "/Profile/");
+            }
+            PictureUpload.SaveAs(MapPath(".").ToString() + "/UserFiles/" + Session["UserName"].ToString() +
+                "/Profile/" + PictureUpload.FileName);
+            FriendImage.ImageUrl = "UserFiles/" + Session["UserName"].ToString() + "/Profile/" +
+                PictureUpload.FileName;
+            Session["ProfilePicture"] = PictureUpload.FileName;
+
+
+            System.Drawing.Image theimg = System.Drawing.Image.FromFile(Server.MapPath(".") + "/UserFiles/" + Session["UserName"].ToString() +
+    "/Profile/" + PictureUpload.FileName);
+
+            double width = double.Parse(theimg.Width.ToString());
+            double height = double.Parse(theimg.Height.ToString());
+
+            if (width > height)
+            {
+                if (width <= 150)
+                {
+
+                }
+                else
+                {
+                    double dividor = double.Parse("150.00") / double.Parse(width.ToString());
+                    width = double.Parse("150.00");
+                    height = height * dividor;
+                }
+            }
+            else
+            {
+                if (width == height)
+                {
+                    width = double.Parse("150.00");
+                    height = double.Parse("150.00");
+                }
+                else
+                {
+                    double dividor = double.Parse("150.00") / double.Parse(height.ToString());
+                    height = double.Parse("150.00");
+                    width = width * dividor;
+                }
+            }
+
+            FriendImage.Width = int.Parse((Math.Round(decimal.Parse(width.ToString()))).ToString());
+            FriendImage.Height = int.Parse((Math.Round(decimal.Parse(height.ToString()))).ToString());
+
+            FriendImage.ImageUrl = "UserFiles/" + Session["UserName"].ToString() + "/Profile/" +
+                PictureUpload.FileName;
+            Session["ProfilePicture"] = PictureUpload.FileName;
+
+        }
+    }
+
+    protected void Save(object sender, EventArgs e)
+    {
+        try
+        {
+            Data d = new Data(DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")));
+
+            if (d.ValidateEmail(EmailTextBox.Text))
+            {
+                //This is a flag to check whether the ads on the site need to be reset. 
+                //They will need to be reset if the user changed the location or ad categories
+                bool resetAds = false;
+
+                string USER_ID = Session["User"].ToString();
+                SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Connection"].ToString());
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("UPDATE Users SET ProfilePicture=@pic, Email=@email, PhoneNumber=@phone " +
+                    ", PhoneProvider=@provider WHERE User_ID=@id ", conn);
+                if (Session["ProfilePicture"] != null)
+                    cmd.Parameters.Add("@pic", SqlDbType.NVarChar).Value = Session["ProfilePicture"].ToString();
+                else
+                    cmd.Parameters.Add("@pic", SqlDbType.NVarChar).Value = DBNull.Value;
+                cmd.Parameters.Add("@email", SqlDbType.NVarChar).Value = EmailTextBox.Text;
+                cmd.Parameters.Add("@phone", SqlDbType.Real).Value = d.RemoveNoneNumbers(PhoneTextBox.THE_TEXT);
+                cmd.Parameters.Add("@provider", SqlDbType.Int).Value = ProviderDropDown.SelectedValue;
+                cmd.Parameters.Add("@id", SqlDbType.Int).Value = USER_ID;
+                cmd.ExecuteNonQuery();
+
+                string prefs = "0";
+
+                if (TextingCheckBoxList.Items[0].Selected)
+                    prefs += "1";
+                if (TextingCheckBoxList.Items[1].Selected)
+                    prefs += "2";
+                if (TextingCheckBoxList.Items[2].Selected)
+                    prefs += "3";
+
+                string emailPrefs = "0";
+
+                if (EmailCheckList.Items[0].Selected)
+                    emailPrefs += "1";
+                if (EmailCheckList.Items[1].Selected)
+                    emailPrefs += "2";
+                if (EmailCheckList.Items[2].Selected)
+                    emailPrefs += "3";
+
+                if (EmailCheckList3.Items[0].Selected)
+                    emailPrefs += "C";
+
+                if (EmailUserCheckList1.Items[0].Selected)
+                    emailPrefs += "4";
+                if (EmailUserCheckList1.Items[1].Selected)
+                    emailPrefs += "5";
+                if (EmailUserCheckList1.Items[2].Selected)
+                    emailPrefs += "6";
+
+                if (EmailUserCheckList2.Items[0].Selected)
+                    emailPrefs += "7";
+                if (EmailUserCheckList2.Items[1].Selected)
+                    emailPrefs += "8";
+                if (EmailUserCheckList2.Items[2].Selected)
+                    emailPrefs += "9";
+
+                string calendarPrefs = "";
+                if (PublicPrivateCheckList.SelectedValue != null)
+                    if (PublicPrivateCheckList.SelectedValue != "")
+                        calendarPrefs = PublicPrivateCheckList.SelectedValue;
+
+                string commPrefs = "";
+                if (CommunicationPrefsRadioList.SelectedValue != null)
+                    if (CommunicationPrefsRadioList.SelectedValue != "")
+                        commPrefs = CommunicationPrefsRadioList.SelectedValue;
+
+                string commentsPrefs = "";
+                if (CommentsRadioList.SelectedValue != null)
+                    if (CommentsRadioList.SelectedValue != "")
+                        commentsPrefs = CommentsRadioList.SelectedValue;
+
+                string pollPrefs = "";
+                if (PollRadioList.SelectedValue != null)
+                    if (PollRadioList.SelectedValue != "")
+                        pollPrefs = PollRadioList.SelectedValue;
+
+                string onoff = "";
+                RadioButtonList CategoriesOnOffRadioList = (RadioButtonList)AdCategoryRadPanel.Items[0].Items[0].FindControl("CategoriesOnOffRadioList");
+                Telerik.Web.UI.RadTreeView CategoryTree = (Telerik.Web.UI.RadTreeView)AdCategoryRadPanel.Items[0].Items[0].FindControl("CategoryTree");
+                Telerik.Web.UI.RadTreeView RadTreeView2 = (Telerik.Web.UI.RadTreeView)AdCategoryRadPanel.Items[0].Items[0].FindControl("RadTreeView2");
+
+                if (CategoriesOnOffRadioList.SelectedValue != null)
+                    if (CategoriesOnOffRadioList.SelectedValue != "")
+                        onoff = CategoriesOnOffRadioList.SelectedValue;
+
+                
+                string recommendPrefs = "";
+                if (RecommendationsCheckList.Items[0].Selected)
+                    recommendPrefs += "1";
+                if (RecommendationsCheckList.Items[1].Selected)
+                    recommendPrefs += "2";
+                if (RecommendationsCheckList.Items[2].Selected)
+                    recommendPrefs += "3";
+
+                DataView usersPrevPrefs = d.GetDataDV("SELECT * FROM UserPreferences WHERE UserID="+Session["User"].ToString());
+
+                cmd = new SqlCommand("UPDATE UserPreferences SET Age=@age, Sex=@sex, Location=@location, CalendarPrivacyMode=@calendarmode " +
+                    ", CommunicationPrefs=@commPrefs, TextingPrefs=@textprefs, EmailPrefs=@email, Address=@address, City=@city, " +
+                    " CommentsPreferences=@comments, PollPreferences=@poll, CategoriesOnOff=@onoff, State=@state, ZIP=@zip, Country=@country, " +
+                    " CatCountry=@catCountry, CatState=@catState, CatCity=@catCity, RecommendationPrefs=@rPrefs WHERE UserID=@id ", conn);
+                cmd.Parameters.Add("@age", SqlDbType.NVarChar).Value = AgeTextBox.Text;
+                cmd.Parameters.Add("@sex", SqlDbType.NVarChar).Value = SexTextBox.Text;
+                cmd.Parameters.Add("@location", SqlDbType.NVarChar).Value = LocationTextBox.Text;
+                if (recommendPrefs != "")
+                    cmd.Parameters.Add("@rPrefs", SqlDbType.Int).Value = recommendPrefs;
+                else
+                    cmd.Parameters.Add("@rPrefs", SqlDbType.Int).Value = DBNull.Value;
+                if (onoff != "")
+                    cmd.Parameters.Add("@onoff", SqlDbType.Int).Value = onoff;
+                else
+                    cmd.Parameters.Add("@onoff", SqlDbType.Int).Value = DBNull.Value;
+                if (calendarPrefs != "")
+                    cmd.Parameters.Add("@calendarmode", SqlDbType.Int).Value = calendarPrefs;
+                else
+                    cmd.Parameters.Add("@calendarmode", SqlDbType.Int).Value = DBNull.Value;
+                if (commPrefs != "")
+                    cmd.Parameters.Add("@commPrefs", SqlDbType.Int).Value = commPrefs;
+                else
+                    cmd.Parameters.Add("@commPrefs", SqlDbType.Int).Value = DBNull.Value;
+                if (commentsPrefs != "")
+                    cmd.Parameters.Add("@comments", SqlDbType.Int).Value = commentsPrefs;
+                else
+                    cmd.Parameters.Add("@comments", SqlDbType.Int).Value = DBNull.Value;
+                if (pollPrefs != "")
+                    cmd.Parameters.Add("@poll", SqlDbType.Int).Value = pollPrefs;
+                else
+                    cmd.Parameters.Add("@poll", SqlDbType.Int).Value = DBNull.Value;
+                cmd.Parameters.Add("@address", SqlDbType.NVarChar).Value = AddressTextBox.THE_TEXT;
+                cmd.Parameters.Add("@city", SqlDbType.NVarChar).Value = BillCityTextBox.THE_TEXT;
+                
+                
+                if (BillCountryDropDown.SelectedValue != "-1")
+                {
+                    cmd.Parameters.Add("@country", SqlDbType.Int).Value = BillCountryDropDown.SelectedValue;
+
+                    string state = "";
+                    if (BillStateDropPanel.Visible)
+                        state = BillStateDropDown.SelectedItem.Text;
+                    else
+                        state = BillStateTextBox.THE_TEXT;
+
+                    cmd.Parameters.Add("@state", SqlDbType.NVarChar).Value = state;
+                }
+                else
+                {
+                    cmd.Parameters.Add("@country", SqlDbType.Int).Value = DBNull.Value;
+                    cmd.Parameters.Add("@state", SqlDbType.NVarChar).Value = DBNull.Value;
+                }
+
+                
+
+                if (CountryDropDown.SelectedValue != "-1")
+                {
+                    cmd.Parameters.Add("@catCountry", SqlDbType.Int).Value = CountryDropDown.SelectedValue;
+                    Session["UserCountry"] = CountryDropDown.SelectedValue;
+
+                    string state = "";
+                    if (StateDropDownPanel.Visible)
+                        state = StateDropDown.SelectedItem.Text;
+                    else
+                        state = StateTextBox.THE_TEXT;
+
+                    if (state != "")
+                    {
+                        cmd.Parameters.Add("@catState", SqlDbType.NVarChar).Value = state;
+
+                    }
+                    else
+                        cmd.Parameters.Add("@catState", SqlDbType.NVarChar).Value = DBNull.Value;
+                    Session["UserState"] = state;
+                    if (CityTextBox.THE_TEXT != "")
+                    {
+                        cmd.Parameters.Add("@catCity", SqlDbType.NVarChar).Value = CityTextBox.THE_TEXT;
+
+                    }
+                    else
+                        cmd.Parameters.Add("@catCity", SqlDbType.NVarChar).Value = DBNull.Value;
+                    Session["UserCity"] = CityTextBox.THE_TEXT;
+
+                    if (CityTextBox.THE_TEXT.Trim() != usersPrevPrefs[0]["CatCity"].ToString() ||
+                    state != usersPrevPrefs[0]["CatState"].ToString() ||
+                    CountryDropDown.SelectedValue != usersPrevPrefs[0]["CatCountry"])
+                    {
+                        resetAds = true;
+                    }
+                }
+                else
+                {
+                    cmd.Parameters.Add("@catCountry", SqlDbType.Int).Value = DBNull.Value;
+                    cmd.Parameters.Add("@catState", SqlDbType.NVarChar).Value = DBNull.Value;
+                    cmd.Parameters.Add("@catCity", SqlDbType.NVarChar).Value = DBNull.Value;
+                }
+
+
+
+                cmd.Parameters.Add("@zip", SqlDbType.NVarChar).Value = ZipTextBox.THE_TEXT;
+                cmd.Parameters.Add("@textprefs", SqlDbType.Int).Value = prefs;
+                cmd.Parameters.Add("@email", SqlDbType.NVarChar).Value = emailPrefs;
+                cmd.Parameters.Add("@id", SqlDbType.Int).Value = USER_ID;
+                cmd.ExecuteNonQuery();
+
+
+
+                CreateCategories(ref resetAds);
+
+
+
+                cmd = new SqlCommand("DELETE FROM UserVenues WHERE UserID=@user", conn);
+                cmd.Parameters.Add("@user", SqlDbType.Int).Value = USER_ID;
+                cmd.ExecuteNonQuery();
+
+                CheckBoxList VenueCheckBoxes = (CheckBoxList)VenuesRadPanel.Items[0].Items[0].FindControl("VenueCheckBoxes");
+
+                if (VenueCheckBoxes != null)
+                {
+                    for (int i = 0; i < VenueCheckBoxes.Items.Count; i++)
+                    {
+                        if (VenueCheckBoxes.Items[i].Selected)
+                        {
+                            cmd = new SqlCommand("INSERT INTO UserVenues (UserID, VenueID) VALUES(@user, @cat)", conn);
+                            cmd.Parameters.Add("@user", SqlDbType.Int).Value = USER_ID;
+                            cmd.Parameters.Add("@cat", SqlDbType.Int).Value = VenueCheckBoxes.Items[i].Value;
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+                }
+
+
+                //If reset is set, reset the user ads
+                if (resetAds)
+                {
+                    //DataView dvprevads = d.GetDataDV("SELECT * FROM UserAds WHERE UserID=" + Session["User"].ToString() +
+                    //    " AND [DATE]= '" + DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")).Date.ToShortDateString() + "'");
+
+                    //if (dvprevads.Count != 0)
+                    //{
+                        d.Execute("DELETE FROM UserAds WHERE UserID=" + Session["User"].ToString() + 
+                            " AND BigAd='True' AND [Date] = '" + DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")).Date.ToString() + "'");
+                    //}
+                }
+
+                conn.Close();
+                Encryption encrypt = new Encryption();
+                Session["Message"] = "Your profile has been updated!";
+
+                //MessageLiteral.Text = "<script type=\"text/javascript\">alert('" + message + "');</script>";
+
+                MessageRadWindow.NavigateUrl = "Message.aspx?message=" + 
+                    encrypt.encrypt(Session["Message"].ToString() + 
+                    "<br/><br/><br/><img onclick=\"Search('User.aspx');\" onmouseover=\"this.src='image/DoneSonButtonSelected.png'\" onmouseout=\"this.src='image/DoneSonButton.png'\" src=\"image/DoneSonButton.png\"/>");
+                MessageRadWindow.Visible = true;
+                MessageRadWindowManager.VisibleOnPageLoad = true;
+
+               
+            }
+            else
+            {
+                Encryption encrypt = new Encryption();
+                Session["Message"] = "Email is invalid";
+
+                //MessageLiteral.Text = "<script type=\"text/javascript\">alert('" + message + "');</script>";
+
+                MessageRadWindow.Title = "Invalid Email";
+                MessageRadWindow.NavigateUrl = "Message.aspx?message=" + encrypt.encrypt(Session["Message"].ToString() + "<br/><img onclick=\"Search('Home.aspx');\" onmouseover=\"this.src='image/DoneSonButtonSelected.png'\" onmouseout=\"this.src='image/DoneSonButton.png'\" src=\"image/DoneSonButton.png\"/>");
+                MessageRadWindow.Visible = true;
+                MessageRadWindowManager.VisibleOnPageLoad = true;
+            }
+        }
+        catch (Exception ex)
+        {
+            ErrorLabel.Text = ex.ToString();
+        }
+
+        //RecomUpdate.Update();
+    }
+
+    protected void CreateCategories(ref bool resetAds)
+    {
+        string categories = "";
+        string message = "";
+        Data dat = new Data(DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")));
+
+        Telerik.Web.UI.RadTreeView CategoryTree = (Telerik.Web.UI.RadTreeView)AdCategoryRadPanel.Items[0].Items[0].FindControl("CategoryTree");
+        Telerik.Web.UI.RadTreeView RadTreeView2 = (Telerik.Web.UI.RadTreeView)AdCategoryRadPanel.Items[0].Items[0].FindControl("RadTreeView2");
+        Telerik.Web.UI.RadTreeView RadTreeView1 = (Telerik.Web.UI.RadTreeView)EventPanelBar.Items[0].Items[0].FindControl("RadTreeView1");
+        Telerik.Web.UI.RadTreeView RadTreeView3 = (Telerik.Web.UI.RadTreeView)EventPanelBar.Items[0].Items[0].FindControl("RadTreeView3");
+
+        //First delete user's Ad Categories and Event categories
+        dat.Execute("DELETE FROM UserEventCategories WHERE UserID=" + Session["User"].ToString());
+        dat.Execute("DELETE FROM UserCategories WHERE UserID=" + Session["User"].ToString());
+
+        //Second add the categories back into the user's account
+        GetCategoriesFromTree(ref CategoryTree, true, ref resetAds);
+        GetCategoriesFromTree(ref RadTreeView1, false, ref resetAds);
+        GetCategoriesFromTree(ref RadTreeView2, true, ref resetAds);
+        GetCategoriesFromTree(ref RadTreeView3, false, ref resetAds);
+    }
+
+    protected void GetCategoriesFromTree(ref Telerik.Web.UI.RadTreeView CategoryTree, bool isAd, ref bool resetAds)
+    {
+        string categories = "";
+        Data dat = new Data(DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")));
+
+        List<Telerik.Web.UI.RadTreeNode> list = (List<Telerik.Web.UI.RadTreeNode>)CategoryTree.GetAllNodes();
+
+        foreach (Telerik.Web.UI.RadTreeNode node in list)
+        {
+            DataView dv = dat.GetDataDV("SELECT * FROM UserCategories WHERE CategoryID=" + node.Value +
+                " AND UserID=" + Session["User"].ToString());
+            if (node.Checked)
+            {
+                if (isAd)
+                {
+                    dat.Execute("INSERT INTO UserCategories (CategoryID, UserID) VALUES("
+                                + node.Value + "," + Session["User"].ToString() + ")");
+
+                    if (dv.Count == 0)
+                        resetAds = true;
+                }
+                else
+                {
+                    dat.Execute("INSERT INTO UserEventCategories (CategoryID, UserID) VALUES("
+                                + node.Value + "," + Session["User"].ToString() + ")");
+
+                }
+            }
+            else
+            {
+                if (isAd)
+                {
+                    if (dv.Count != 0)
+                        resetAds = true;
+                }
+            }
+        }
+    }
+
+    protected void ChangeState(object sender, EventArgs e)
+    {
+        Data dat = new Data(DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")));
+        DataSet ds = dat.GetData("SELECT * FROM State WHERE country_id=" + CountryDropDown.SelectedValue);
+
+        bool isTextBox = false;
+        if (ds.Tables.Count > 0)
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                StateDropDownPanel.Visible = true;
+                StateTextBoxPanel.Visible = false;
+                StateDropDown.DataSource = ds;
+                StateDropDown.DataTextField = "state_2_code";
+                StateDropDown.DataValueField = "state_id";
+                StateDropDown.DataBind();
+            }
+            else
+                isTextBox = true;
+        else
+            isTextBox = true;
+
+        if (isTextBox)
+        {
+            StateTextBoxPanel.Visible = true;
+            StateDropDownPanel.Visible = false;
+        }
+    }
+
+    protected void ChangeBillState(object sender, EventArgs e)
+    {
+        Data dat = new Data(DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")));
+        DataSet ds = dat.GetData("SELECT * FROM State WHERE country_id=" + BillCountryDropDown.SelectedValue);
+
+        bool isTextBox = false;
+        if (ds.Tables.Count > 0)
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                BillStateDropPanel.Visible = true;
+                BillStateTextPanel.Visible = false;
+                BillStateDropDown.DataSource = ds;
+                BillStateDropDown.DataTextField = "state_2_code";
+                BillStateDropDown.DataValueField = "state_id";
+                BillStateDropDown.DataBind();
+            }
+            else
+                isTextBox = true;
+        else
+            isTextBox = true;
+
+        if (isTextBox)
+        {
+            BillStateTextPanel.Visible = true;
+            BillStateDropPanel.Visible = false;
+        }
+    }
+}

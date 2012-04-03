@@ -1,0 +1,1158 @@
+using System;
+using System.Data;
+using System.Configuration;
+using System.Collections;
+using System.Web;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Web.UI.HtmlControls;
+using System.Data.SqlClient;
+
+
+public partial class Revisions : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        string Mode = Request.QueryString["Mode"].ToString();
+        string theID = Request.QueryString["ID"].ToString();
+        string temp = "VenueRevisions";
+        if (Mode == "4")
+            temp = "EventRevisions";
+
+        Data dat = new Data(DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")));
+
+        DataSet dsChanges = dat.GetData("SELECT * FROM " + temp + " WHERE ID=" + Mode);
+        DataSet dsEvent2;
+
+        string temp2 = "";
+
+        if (dsChanges.Tables[0].Rows.Count > 0)
+        {
+            temp = "Venues";
+            if (Mode == "4")
+                temp = "Events";
+
+            temp2 = "VenueID";
+            if (Mode == "4")
+                temp2 = "EventID";
+
+            dsEvent2 = dat.GetData("SELECT * FROM " + temp + " WHERE ID=" +
+                dsChanges.Tables[0].Rows[0][temp2].ToString());
+        }
+
+        int tempInt = 9;
+        if (Mode == "4")
+            tempInt = 12;
+
+        for (int n = 0; n < tempInt; n++)
+        {
+            InsertRevision(dsChanges, n, Mode);
+        }
+        if (Mode == "5")
+        {
+            CategoryChanges(thetokens2, ref count, tempstr, true);
+        }
+
+        if (Mode == "4")
+        {
+            EventOccuranceChanges(ref count, thetokens2, tempstr);
+            CategoryChanges(ref item2, thetokens2, ref count, tempstr, false);
+        }
+
+    }
+
+    protected void InsertRevision(DataSet dsChanges, int n, string Mode)
+    {
+        Data dat = new Data(DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")));
+        if (dsChanges.Tables[0].Rows[0][n + 3].ToString().Trim() != "")
+        {
+
+            string content = "";
+
+            string str = "venue";
+            if (Mode == "4")
+                str = "event";
+
+            bool isVenue = false;
+            if (str == "venue")
+                isVenue = true;
+
+            string colName = dsChanges.Tables[0].Columns[n + 3].ColumnName.ToLower();
+
+            if (!isVenue && (colName == "address" || colName == "zip" || colName == "state" || 
+                colName == "city" || colName == "country"))
+            {
+
+            }
+            else
+            {
+                if (dsChanges.Tables[0].Columns[n + 3].ColumnName.ToLower() == "address")
+                {
+                    DataView dvV = dat.GetDataDV("SELECT * FROM Venues WHERE ID=" +
+                        dsChanges.Tables[0].Rows[0]["VenueID"].ToString());
+                    if (dvV[0]["Country"].ToString() == "223")
+                        content = dat.GetAddress(dsChanges.Tables[0].Rows[0][n + 3].ToString(), false);
+                    else
+                        content = dat.GetAddress(dsChanges.Tables[0].Rows[0][n + 3].ToString(), true);
+                }
+                else if (dsChanges.Tables[0].Columns[n + 3].ColumnName.ToLower() == "venue")
+                {
+                    DataView dvV = dat.GetDataDV("SELECT * FROM Venues WHERE ID=" + dsChanges.Tables[0].Rows[0][n + 3].ToString());
+                    content = "<a class=\"AddLink\" target=\"_blank\" href=\"Venue.aspx?ID=" + dsChanges.Tables[0].Rows[0][n + 3].ToString() +
+                        "\">" + dvV[0]["Name"].ToString() + "</a>";
+                }
+                else
+                {
+                    content = dsChanges.Tables[0].Rows[0][n + 3].ToString();
+                }
+
+
+
+                content = dsChanges.Tables[0].Columns[n + 3].ColumnName + " Change Request To: <br/><br/>" +
+                    dat.BreakUpString(content, 30) + "<br/>";
+               
+          
+
+                bool notSeen = dat.isNotSeen(dsChanges, n);
+                bool isApproved = dat.isApproved(dsChanges, n);
+
+                bool changeHasBeenMade = true;
+
+                if (notSeen && changeHasBeenMade)
+                {
+                    if (colName == "header")
+                    {
+                        EventHeaderRevisionPanel.Visible = true;
+                        EventHeaderLabel.Text = content;
+                        EventHeaderButton1.CommandArgument = n;
+                        EventHeaderButton2.CommandArgument = n;
+                    }
+                }
+                else
+                {
+                    if (isApproved)
+                    {
+                        if (colName == "header")
+                        {
+                            EventHeaderRevisionPanel.Visible = true;
+                            EventHeaderLabel.Text = content;
+                            EventHeaderLabel2.Text = "<br/><br/><span  class=\"AddGreenLink FloatRight\">You have accepted this change.</span>";
+                            EventHeaderButton1.Visible = false;
+                            EventHeaderButton2.Visible = false;
+                        }
+                    }
+                    else
+                    {
+                        if (colName == "header")
+                        {
+                            EventHeaderRevisionPanel.Visible = true;
+                            EventHeaderLabel.Text = content;
+                            EventHeaderLabel2.Text = "<br/><br/><span  class=\"AddGreenLink FloatRight\">You have rejected this change.</span>";
+                            EventHeaderButton1.Visible = false;
+                            EventHeaderButton2.Visible = false;
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+
+    protected void EventOccuranceChanges(ref Telerik.Web.UI.RadPanelItem item2, ref int count,
+        string[] thetokens2, string tempstr)
+    {
+        Data dat = new Data(DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")));
+        DataSet dsChanges = dat.GetData("SELECT * FROM EventRevisions_Occurance WHERE RevisionID=" + thetokens2[1]);
+
+        if (dsChanges.Tables[0].Rows.Count > 0)
+        {
+            Label theLab = new Label();
+            theLab.Text = tempstr + count.ToString() + ". The following re-occurance dates have been added <br/><br/>";
+            count++;
+            item2.Controls.Add(theLab);
+
+            theLab = new Label();
+            for (int n = 0; n < dsChanges.Tables[0].Rows.Count; n++)
+            {
+
+                theLab.Text += dsChanges.Tables[0].Rows[n]["DateTimeStart"].ToString() + "<br/>";
+            }
+
+            item2.Controls.Add(theLab);
+
+            if (dsChanges.Tables[0].Rows[0]["Approved"].ToString().Trim() == "")
+            {
+                HtmlButton img = new HtmlButton();
+                img.Attributes.Add("commandargument", thetokens2[1] + "occurance");
+                img.ID = dsChanges.Tables[0].Rows[0]["ID"].ToString() + "occurance";
+                img.Style.Value = "float: right;font-size: 11px;font-weight: bold;margin-top: 20px; padding-bottom: 4px;height: 30px; width: 112px;background-color: transparent; " +
+                "color: White; background-image: url('image/PostButtonNoPost.png'); background-repeat: " +
+                "no-repeat; border: 0;";
+                img.ServerClick += new EventHandler(ServerAcceptChange);
+                img.Attributes.Add("onmouseover", "this.style.backgroundImage = 'url(image/PostButtonNoPostHover.png)';");
+                img.Attributes.Add("onmouseout", "this.style.backgroundImage = 'url(image/PostButtonNoPost.png)';");
+                img.Attributes.Add("onclick", "this.innerHTML = 'Working...';this.disabled=true;this.style.backgroundImage = 'url(image/PostButtonNoPostHover.png)';");
+
+                img.InnerText = "Accept";
+
+                item2.Controls.Add(img);
+
+                img = new HtmlButton();
+                img.Attributes.Add("commandargument", thetokens2[1] + "occurance");
+                img.ID = dsChanges.Tables[0].Rows[0]["ID"].ToString() + "occurance";
+                img.Style.Value = "float: right;font-size: 11px;font-weight: bold;margin-top: 20px; padding-bottom: 4px;height: 30px; width: 112px;background-color: transparent; " +
+                "color: White; background-image: url('image/PostButtonNoPost.png'); background-repeat: " +
+                "no-repeat; border: 0;";
+                img.ServerClick += new EventHandler(ServerRejectChange);
+                img.Attributes.Add("onmouseover", "this.style.backgroundImage = 'url(image/PostButtonNoPostHover.png)';");
+                img.Attributes.Add("onmouseout", "this.style.backgroundImage = 'url(image/PostButtonNoPost.png)';");
+                img.Attributes.Add("onclick", "this.innerHTML = 'Working...';this.disabled=true;this.style.backgroundImage = 'url(image/PostButtonNoPostHover.png)';");
+
+                img.InnerText = "Reject";
+
+                item2.Controls.Add(img);
+            }
+            else
+            {
+                theLab = new Label();
+                if (bool.Parse(dsChanges.Tables[0].Rows[0]["Approved"].ToString()))
+                {
+                    theLab.Text = "<br/><br/><span  class=\"AddGreenLink FloatRight\">You have accepted this change.</span>";
+                }
+                else
+                {
+                    theLab.Text = "<br/><br/><span  class=\"AddGreenLink FloatRight\">You have rejected this change.</span>";
+                }
+                item2.Controls.Add(theLab);
+            }
+
+        }
+    }
+
+    protected void CategoryChanges(ref Telerik.Web.UI.RadPanelItem item2, string[] thetokens2,
+        ref int count, string tempstr, bool isVenue)
+    {
+        Data dat = new Data(DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")));
+        string categoryRevisions = "EventCategoryRevisions";
+        string categories = "EventCategories";
+        string nameID = "EventID";
+        string EventOVenue = "event";
+        if (isVenue)
+        {
+            categoryRevisions = "VenueCategoryRevisions";
+            categories = "VenueCategories";
+            nameID = "VenueID";
+            EventOVenue = "venue";
+        }
+
+        DataSet dsChanges = dat.GetData("SELECT * FROM " + categoryRevisions + " VCR, " + categories + " VC " +
+                                    "WHERE VCR.CatID=VC.ID AND VCR.RevisionID=" + thetokens2[1]);
+
+        if (dsChanges.Tables.Count > 0)
+        {
+            if (dsChanges.Tables[0].Rows.Count > 0)
+            {
+                Literal theLab = new Literal();
+                theLab.Text = tempstr + count.ToString() + ". The following category changes have been suggested <br/><br/>";
+                count++;
+                item2.Controls.Add(theLab);
+                string tempS = "Add ";
+                HtmlButton theButt;
+                Literal lab;
+                Literal lit;
+                HtmlButton rejectButt;
+
+                for (int h = 0; h < dsChanges.Tables[0].Rows.Count; h++)
+                {
+                    lit = new Literal();
+                    lit.Text = "<div style=\"width: 240px;\">";
+                    item2.Controls.Add(lit);
+                    theButt = new HtmlButton();
+                    rejectButt = new HtmlButton();
+                    rejectButt.Style.Value = "cursor: pointer;font-size: 11px;font-weight: bold;margin-top: 20px; padding-bottom: 4px;height: 30px; width: 112px;background-color: transparent; " +
+                "color: White; background-image: url('image/PostButtonNoPost.png'); background-repeat: " +
+                "no-repeat; border: 0;";
+                    theButt.Style.Value = "cursor: pointer;font-size: 11px;font-weight: bold;margin-top: 20px; padding-bottom: 4px;height: 30px; width: 112px;background-color: transparent; " +
+                "color: White; background-image: url('image/PostButtonNoPost.png'); background-repeat: " +
+                "no-repeat; border: 0;";
+                    theButt.Attributes.Add("commandargument", dsChanges.Tables[0].Rows[h][nameID].ToString() + "category" + EventOVenue + "category" + dsChanges.Tables[0].Rows[h]["CatID"].ToString() + "category" + dsChanges.Tables[0].Rows[h]["ID"].ToString());
+                    rejectButt.Attributes.Add("commandargument", dsChanges.Tables[0].Rows[h][nameID].ToString() + "category" + EventOVenue + "category" + dsChanges.Tables[0].Rows[h]["CatID"].ToString() + "category" + dsChanges.Tables[0].Rows[h]["ID"].ToString());
+
+                    theButt.Attributes.Add("onmouseover", "this.style.backgroundImage = 'url(image/PostButtonNoPostHover.png)';");
+                    theButt.Attributes.Add("onmouseout", "this.style.backgroundImage = 'url(image/PostButtonNoPost.png)';");
+                    theButt.Attributes.Add("onclick", "this.innerHTML = 'Working...';this.disabled=true;this.style.backgroundImage = 'url(image/PostButtonNoPostHover.png)';");
+
+                    rejectButt.Attributes.Add("onmouseover", "this.style.backgroundImage = 'url(image/PostButtonNoPostHover.png)';");
+                    rejectButt.Attributes.Add("onmouseout", "this.style.backgroundImage = 'url(image/PostButtonNoPost.png)';");
+                    rejectButt.Attributes.Add("onclick", "this.innerHTML = 'Working...';this.disabled=true;this.style.backgroundImage = 'url(image/PostButtonNoPostHover.png)';");
+
+                    theLab = new Literal();
+                    Label lab2 = new Label();
+                    lit = new Literal();
+                    if (!bool.Parse(dsChanges.Tables[0].Rows[h]["AddOrRemove"].ToString()))
+                    {
+                        if (dsChanges.Tables[0].Rows[h]["Approved"].ToString().Trim() != "")
+                        {
+                            if (dsChanges.Tables[0].Rows[h]["Approved"].ToString().ToLower() == "true")
+                            {
+                                lab = new Literal();
+
+
+                                lab.Text = "<label class=\"AddGreenLink\">&nbsp;&nbsp;&nbsp;&nbsp;Removed</label></div>";
+                                theLab.Text = "<div align=\"right\" style=\"margin-left: 10px;padding-bottom: 4px;\">" + tempS + dsChanges.Tables[0].Rows[h]["Name"].ToString();
+                                item2.Controls.Add(theLab);
+                                item2.Controls.Add(lab);
+                                lit.Text = "<br/><br/>";
+                                item2.Controls.Add(lab2);
+                                item2.Controls.Add(lit);
+                            }
+                            else
+                            {
+                                lab = new Literal();
+
+
+                                lab.Text = "<label class=\"AddGreenLink\">&nbsp;&nbsp;&nbsp;&nbsp;Rejected</label></div>";
+                                theLab.Text = "<div align=\"right\" style=\"margin-left: 10px;padding-bottom: 4px;\">" + tempS + dsChanges.Tables[0].Rows[h]["Name"].ToString();
+                                item2.Controls.Add(theLab);
+                                item2.Controls.Add(lab);
+                                lit.Text = "<br/><br/>";
+
+                                item2.Controls.Add(lab2);
+                                item2.Controls.Add(lit);
+                            }
+                        }
+                        else
+                        {
+                            tempS = "Remove ";
+                            theLab.Text = "<div style=\"padding-bottom: 4px;\">" + tempS + dsChanges.Tables[0].Rows[h]["Name"].ToString() + "<br/>";
+                            item2.Controls.Add(theLab);
+                            theButt.InnerHtml = tempS;
+                            rejectButt.InnerHtml = "Reject";
+                            rejectButt.ServerClick += new EventHandler(RejectCategory);
+                            theButt.ServerClick += new EventHandler(RemoveCategory);
+                            item2.Controls.Add(theButt);
+                            item2.Controls.Add(rejectButt);
+                            lit.Text = "</div><br/>";
+
+                            item2.Controls.Add(lit);
+                        }
+
+                    }
+                    else
+                    {
+                        if (dsChanges.Tables[0].Rows[h]["Approved"].ToString().Trim() != "")
+                        {
+                            if (dsChanges.Tables[0].Rows[h]["Approved"].ToString().ToLower() == "true")
+                            {
+                                lab = new Literal();
+                                lab.Text = "<label class=\"AddGreenLink\">&nbsp;&nbsp;&nbsp;&nbsp;Added</label></div>";
+
+                                theLab.Text = "<div align=\"right\" style=\"margin-left: 10px;padding-bottom: 4px;\">" +
+                                    tempS + dsChanges.Tables[0].Rows[h]["Name"].ToString();
+                                item2.Controls.Add(theLab);
+                                item2.Controls.Add(lab);
+                                lit.Text = "<br/><br/>";
+
+                                item2.Controls.Add(lab2);
+                                item2.Controls.Add(lit);
+                            }
+                            else
+                            {
+                                lab = new Literal();
+                                lab.Text = "<label class=\"AddGreenLink\">&nbsp;&nbsp;&nbsp;&nbsp;Rejected</label></div>";
+
+                                theLab.Text = "<div align=\"right\" style=\"margin-left: 10px;padding-bottom: 4px;\">" +
+                                    tempS + dsChanges.Tables[0].Rows[h]["Name"].ToString();
+                                item2.Controls.Add(theLab);
+                                item2.Controls.Add(lab2);
+                                item2.Controls.Add(lab);
+                                lit.Text = "<br/><br/>";
+
+
+                                item2.Controls.Add(lit);
+                            }
+                        }
+                        else
+                        {
+                            tempS = "Add ";
+                            theButt.ServerClick += new EventHandler(AddCategory);
+                            rejectButt.ServerClick += new EventHandler(RejectCategory);
+                            theLab.Text = "<div style=\"padding-bottom: 4px;\">" + tempS +
+                                dsChanges.Tables[0].Rows[h]["Name"].ToString() + "<br/>";
+                            item2.Controls.Add(theLab);
+                            theButt.InnerHtml = tempS;
+                            rejectButt.InnerHtml = "Reject";
+                            item2.Controls.Add(theButt);
+                            item2.Controls.Add(rejectButt);
+                            lit.Text = "</div><br/><br/>";
+                            item2.Controls.Add(lit);
+                        }
+                    }
+
+
+                    lit = new Literal();
+                    lit.Text = "</div>";
+                    item2.Controls.Add(lit);
+
+
+                }
+            }
+        }
+    }
+
+    protected void ServerAcceptChange(object sender, EventArgs e)
+    {
+        try
+        {
+            Button thebutton = (Button)sender;
+
+            Data dat = new Data(DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")));
+            string theRow = "";
+            bool isVenue = false;
+
+            if (Request.QueryString["Mode"].ToString() == "5")
+                isVenue = true;
+
+            if (isVenue)
+            {
+                if (thebutton.Attributes["commandargument"].Contains("category"))
+                {
+
+
+                }
+                else
+                {
+                    string rowID = Request.QueryString["ID"].ToString();
+                    string columnNumber = thebutton.CommandArgument;
+                    theRow = rowID;
+                    DataSet dsEventID = dat.GetData("SELECT * FROM VenueRevisions WHERE ID=" + rowID);
+
+                    string eventID = dsEventID.Tables[0].Rows[0]["VenueID"].ToString();
+
+                    string columnName = dsEventID.Tables[0].Columns[int.Parse(columnNumber)+3].ColumnName;
+
+                    string temp = dsEventID.Tables[0].Rows[0][columnName].ToString();
+
+                    SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Connection"].ToString());
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand("UPDATE Venues SET " + columnName + "=@p1 WHERE ID=@eventID", conn);
+                    cmd.Parameters.Add("@p1", SqlDbType.NVarChar).Value = dsEventID.Tables[0].Rows[0][columnName].ToString();
+                    cmd.Parameters.Add("@eventID", SqlDbType.Int).Value = eventID;
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                    dat.ApproveRejectChange("VenueRevisions", rowID, int.Parse(columnNumber), true);
+
+
+                    string venueName = dat.GetData("SELECT * FROM Venues V, VenueRevisions VCR WHERE V.ID=VCR.VenueID AND VCR.ID=" + rowID).Tables[0].Rows[0]["Name"].ToString();
+
+
+                    //string categoryName = dat.GetData("SELECT * FROM VenueRevisions VCR, VenueCategories VC " +
+                    //    "WHERE VC.CategoryID=VCR.CategoryID AND VCR.ID=" + rowID).Tables[0].Rows[0]["CategoryName"].ToString();
+
+                    DataSet dsRevision = dat.GetData("SELECT * FROM VenueRevisions VCR, Users U WHERE U.User_ID=VCR.modifierID AND VCR.ID=" + rowID);
+
+                    DataSet dsUser = dat.GetData("SELECT * FROM Users U WHERE User_ID=" + dsRevision.Tables[0].Rows[0]["modifierID"].ToString());
+                    string emailBody = "The revised venue " + columnName + " has been apporved by the author of the venue. <br/><br/> " +
+                        "To view these changes, please visit <a href=\"http://HippoHappenings.com/Venue.aspx?ID=" + dsRevision.Tables[0].Rows[0]["VenueID"].ToString() + "\">" + venueName + "</a>";
+
+                    if (!Request.IsLocal)
+                    {
+                        dat.SendEmail(System.Configuration.ConfigurationManager.AppSettings["emailemail"].ToString(),
+                        System.Configuration.ConfigurationManager.AppSettings["emailName"].ToString(),
+                        dsUser.Tables[0].Rows[0]["Email"].ToString(), emailBody, "One of your changes has been approved for venue: '" +
+                        venueName + "'");
+                    }
+
+                    if (columnName == "header")
+                    {
+
+                    }
+                }
+            }
+            else
+            {
+
+
+                if (thebutton.Attributes["commandargument"].Contains("occurance"))
+                {
+                    string rowID = thebutton.Attributes["commandargument"].Replace("occurance", "");
+                    theRow = rowID;
+                    dat.Execute("INSERT INTO Event_Occurance (EventID, DateTimeStart, DateTimeEnd) " +
+        "SELECT EventID, DateTimeStart, DateTimeEnd FROM EventRevisions_Occurance WHERE RevisionID=" + rowID);
+
+                    dat.Execute("UPDATE EventRevisions_Occurance SET Approved='True' WHERE RevisionID=" + rowID);
+
+                    DataSet dsRevision = dat.GetData("SELECT E.Header AS H1, E.ID AS TID, *  FROM EventRevisions ER, Events E WHERE E.ID=ER.EventID AND ER.ID=" + rowID);
+
+                    DataSet dsUser = dat.GetData("SELECT * FROM Users U WHERE User_ID=" + dsRevision.Tables[0].Rows[0]["modifierID"].ToString());
+                    string emailBody = "The revised event re-occurance dates have been apporved by the author of the event. <br/><br/> " +
+                        "To view these changes, please visit <a href=\"http://HippoHappenings.com/Event.aspx?EventID=" + dsRevision.Tables[0].Rows[0]["TID"].ToString() + "\">" + dsRevision.Tables[0].Rows[0]["H1"].ToString() + "</a>";
+
+                    if (!Request.IsLocal)
+                    {
+                        dat.SendEmail(System.Configuration.ConfigurationManager.AppSettings["emailemail"].ToString(),
+                        System.Configuration.ConfigurationManager.AppSettings["emailName"].ToString(),
+                        dsUser.Tables[0].Rows[0]["Email"].ToString(), emailBody, "One of your changes has been approved for event: '" +
+                        dsRevision.Tables[0].Rows[0]["H1"].ToString() + "'");
+
+                        //Send email to all users who have this event in their calendar and have their email preference set for event updates
+
+                        emailBody = "<br/><br/>Changes have been made to an event in your calendar: Event '\"" + dsRevision.Tables[0].Rows[0]["H1"].ToString() +
+                            "\"'. <br/><br/> To view these changes, please go to this event's <a class=\"AddLink\"  href=\"http://hippohappenings.com/Event.aspx?EventID=" + dsRevision.Tables[0].Rows[0]["TID"].ToString() + "\">page</a>. " +
+                            "<br/><br/><br/>Have a Hippo Happening Day!<br/><br/> <a class=\"AddLink\"  href=\"http://HippoHappenings.com\">Happening Hippo</a>";
+
+                        DataSet dsAllUsers = dat.GetData("SELECT * FROM User_Calendar UC, Users U, UserPreferences UP WHERE U.User_ID=UP.UserID AND UP.EmailPrefs LIKE '%C%' AND U.User_ID=UC.UserID AND UC.EventID=" + dsRevision.Tables[0].Rows[0]["TID"].ToString());
+
+                        DataView dv = new DataView(dsAllUsers.Tables[0], "", "", DataViewRowState.CurrentRows);
+
+                        if (dv.Count > 0)
+                        {
+                            for (int i = 0; i < dv.Count; i++)
+                            {
+                                dat.SendEmail(System.Configuration.ConfigurationManager.AppSettings["emailemail"].ToString(),
+                                    System.Configuration.ConfigurationManager.AppSettings["emailName"].ToString(),
+                                    dv[i]["Email"].ToString(), emailBody,
+                                    "Event '" +
+                                    dsRevision.Tables[0].Rows[0]["H1"].ToString() + "' has been modified");
+
+                                dat.Execute("INSERT INTO UserMessages (MessageContent, MessageSubject, From_UserID, " +
+                                    "To_UserID, Date, [Read], Mode, Live, SentLive) VALUES('" + emailBody.Replace("'", "''") + "', '" + "Event ''" +
+                                    dsRevision.Tables[0].Rows[0]["H1"].ToString().Replace("'", "''") + "'' has been modified', 6, " + dv[i]["UserID"].ToString() + ", GETDATE(), 0, 1, 1, 0)");
+                            }
+                        }
+
+                    }
+                }
+                else
+                {
+                    string rowID = Request.QueryString["ID"].ToString();
+                    string columnNumber = thebutton.CommandArgument;
+                    theRow = rowID;
+                    DataSet dsEventID = dat.GetData("SELECT * FROM EventRevisions WHERE ID=" + rowID);
+
+                    string eventID = dsEventID.Tables[0].Rows[0]["EventID"].ToString();
+
+                    string columnName = dsEventID.Tables[0].Columns[int.Parse(columnNumber) + 3].ColumnName;
+
+                    string temp = dsEventID.Tables[0].Rows[0][columnName].ToString();
+
+                    dat.ApproveRejectChange("EventRevisions", rowID, int.Parse(columnNumber), true);
+
+
+                    //if user is accepting a venue change, also accept zip, city, state and country
+                    if (columnName.ToLower() == "venue")
+                    {
+                        dat.ApproveRejectChange("EventRevisions", rowID, 3, true);
+                        dat.ApproveRejectChange("EventRevisions", rowID, 4, true);
+                        dat.ApproveRejectChange("EventRevisions", rowID, 5, true);
+                        dat.ApproveRejectChange("EventRevisions", rowID, 6, true);
+                        dat.ApproveRejectChange("EventRevisions", rowID, 10, true);
+                    }
+
+
+
+                    SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Connection"].ToString());
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand("UPDATE Events SET " + columnName + "=@p1 WHERE ID=@eventID", conn);
+                    cmd.Parameters.Add("@p1", SqlDbType.NVarChar).Value = dsEventID.Tables[0].Rows[0][columnName].ToString();
+                    cmd.Parameters.Add("@eventID", SqlDbType.Int).Value = eventID;
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+
+
+                    DataSet dsRevision = dat.GetData("SELECT E.Header AS H1, E.ID AS TID, * FROM EventRevisions ER, Events E WHERE E.ID=ER.EventID AND ER.ID=" + rowID);
+
+                    DataSet dsUser = dat.GetData("SELECT * FROM Users U WHERE User_ID=" + dsRevision.Tables[0].Rows[0]["modifierID"].ToString());
+                    string emailBody = "The revised event " + columnName + " has been apporved by the author of the event. <br/><br/> " +
+                        "To view these changes, please visit <a href=\"http://HippoHappenings.com/Event.aspx?EventID=" + dsRevision.Tables[0].Rows[0]["TID"].ToString() + "\">" + dsRevision.Tables[0].Rows[0]["H1"].ToString() + "</a>";
+
+                    if (!Request.IsLocal)
+                    {
+
+                        dat.SendEmail(System.Configuration.ConfigurationManager.AppSettings["emailemail"].ToString(),
+                        System.Configuration.ConfigurationManager.AppSettings["emailName"].ToString(),
+                        dsUser.Tables[0].Rows[0]["Email"].ToString(), emailBody, "One of your changes has been approved for event: '" +
+                        dsRevision.Tables[0].Rows[0]["H1"].ToString() + "'");
+
+                        //Send email to all users who have this event in their calendar and have their email preference set for event updates
+
+                        emailBody = "<br/><br/>Changes have been made to an event in your calendar: Event '\"" + dsRevision.Tables[0].Rows[0]["H1"].ToString() +
+                            "\"'. <br/><br/> To view these changes, please go to this event's <a class=\"AddLink\" href=\"http://hippohappenings.com/Event.aspx?EventID=" + dsRevision.Tables[0].Rows[0]["TID"].ToString() + "\">page</a>. " +
+                            "<br/><br/><br/>Have a Hippo Happening Day!<br/><br/> <a class=\"AddLink\" href=\"http://HippoHappenings.com\">Happening Hippo</a>";
+
+                        DataSet dsAllUsers = dat.GetData("SELECT * FROM User_Calendar UC, Users U, UserPreferences UP WHERE U.User_ID=UP.UserID AND UP.EmailPrefs LIKE '%C%' AND U.User_ID=UC.UserID AND UC.EventID=" + dsRevision.Tables[0].Rows[0]["TID"].ToString());
+
+                        DataView dv = new DataView(dsAllUsers.Tables[0], "", "", DataViewRowState.CurrentRows);
+
+                        if (dv.Count > 0)
+                        {
+                            for (int i = 0; i < dv.Count; i++)
+                            {
+                                dat.SendEmail(System.Configuration.ConfigurationManager.AppSettings["emailemail"].ToString(),
+                                    System.Configuration.ConfigurationManager.AppSettings["emailName"].ToString(),
+                                    dv[i]["Email"].ToString(), emailBody,
+                                    "Event '" +
+                                    dsRevision.Tables[0].Rows[0]["H1"].ToString() + "' has been modified");
+
+                                dat.Execute("INSERT INTO UserMessages (MessageContent, MessageSubject, From_UserID, " +
+                                    "To_UserID, Date, [Read], Mode, Live, SentLive) VALUES('" + emailBody.Replace("'", "''") + "', '" + "Event ''" +
+                                    dsRevision.Tables[0].Rows[0]["H1"].ToString().Replace("'", "''") + "'' has been modified', 6, " + dv[i]["UserID"].ToString() + ", GETDATE(), 0, 1, 1, 0)");
+                            }
+                        }
+                    }
+
+                    if (columnName == "header")
+                    {
+                        EventHeaderLabel2.Text = "<br/><br/><span  class=\"AddGreenLink FloatRight\">You have accepted this change.</span>";
+                        EventHeaderButton1.Visible = false;
+                        EventHeaderButton2.Visible = false;
+                    }
+                }
+
+
+            }
+        }
+        catch (Exception ex)
+        {
+        }
+    }
+
+    protected void ServerRejectChange(object sender, EventArgs e)
+    {
+        try
+        {
+            Button thebutton = (Button)sender;
+
+            Data dat = new Data(DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")));
+
+            string theRow = "";
+            bool isVenue = false;
+
+            if (Request.QueryString["Mode"] == "5")
+                isVenue = true;
+
+            string rowID = "";
+
+            if (isVenue)
+            {
+                if (thebutton.Attributes["commandargument"].Contains("category"))
+                {
+                    //THIS PART NOW TAKEN CARE OF BY REJECTCATEGORY METHOD
+                    //rowID = thebutton.Attributes["commandargument"].Replace("category", "");
+                    //theRow = rowID;
+
+                    //string venueName = dat.GetData("SELECT * FROM Venues V, VenueCategoryRevisions VCR WHERE V.ID=VCR.VenueID AND VCR.ID=" + rowID).Tables[0].Rows[0]["Name"].ToString();
+
+                    //string categoryName = dat.GetData("SELECT * FROM VenueCategoryRevisions VCR, VenueCategories VC " +
+                    //    "WHERE VC.CategoryID=VCR.CategoryID AND VCR.ID=" + rowID).Tables[0].Rows[0]["CategoryName"].ToString();
+                    //dat.Execute("UPDATE VenueCategoryRevisions SET Approved='False' WHERE ID=" + rowID);
+
+                    //DataSet dsRevision = dat.GetData("SELECT * FROM VenueCategoryRevisions VCR, Users U WHERE U.User_ID=VCR.modifierID AND VCR.ID=" + rowID);
+
+
+                    //DataSet dsUser = dat.GetData("SELECT * FROM Users U WHERE User_ID=" + dsRevision.Tables[0].Rows[0]["modifierID"].ToString());
+                    //string emailBody = "The category suggestion '" + categoryName + "' has been rejected for the venue '" + venueName +
+                    //    "' by the venue's author. <br/><br/> " +
+                    //    "To view the venue, please visit <a href=\"http://HippoHappenings.com/Venue.aspx?ID=" +
+                    //    dsRevision.Tables[0].Rows[0]["VenueID"].ToString() + "\">" + venueName + "</a>";
+                    //dat.SendEmail(System.Configuration.ConfigurationManager.AppSettings["emailemail"].ToString(),
+                    //System.Configuration.ConfigurationManager.AppSettings["emailName"].ToString(),
+                    //dsUser.Tables[0].Rows[0]["Email"].ToString(), emailBody, "One of your changes has been rejected for venue: '" +
+                    //venueName + "'");
+
+                    //Literal lab = new Literal();
+
+                    //lab.Text = "<div class=\"AddGreenLink\" style=\"float: right;margin-top: 20px; padding-bottom: 4px;height: 30px;\">You have rejected this change.</div>";
+                    ////Remove the 'Accept' button first
+                    //thebutton.Page.Controls.RemoveAt(thebutton.Parent.Controls.IndexOf(thebutton) - 1);
+                    ////Put the label in place of the 'Reject' button
+                    //thebutton.Parent.Controls.AddAt(thebutton.Parent.Controls.IndexOf(thebutton), lab);
+                    ////Then remove the 'Reject' button
+                    //thebutton.Parent.Controls.Remove(thebutton);
+                }
+                else
+                {
+                    rowID = Request.QueryString["ID"].ToString();
+                    int columnNumber = int.Parse(thebutton.CommandArgument);
+                    dat.ApproveRejectChange("VenueRevisions", rowID, columnNumber, false);
+
+                    theRow = rowID;
+                    DataSet dsEventID = dat.GetData("SELECT * FROM VenueRevisions WHERE ID=" + rowID);
+
+                    string eventID = dsEventID.Tables[0].Rows[0]["VenueID"].ToString();
+
+                    string columnName = dsEventID.Tables[0].Columns[columnNumber + 3].ColumnName;
+
+                    string temp = dsEventID.Tables[0].Rows[0][columnName].ToString();
+
+                    Literal lab = new Literal();
+
+                    lab.Text = "<div class=\"AddGreenLink\" style=\"float: right;margin-top: 20px; padding-bottom: 4px;height: 30px;\">You have rejected this change.</div>";
+                    string venueName = dat.GetData("SELECT * FROM Venues V, VenueRevisions VCR WHERE V.ID=VCR.VenueID AND VCR.ID=" +
+                        rowID).Tables[0].Rows[0]["Name"].ToString();
+
+                    //string categoryName = dat.GetData("SELECT * FROM VenueRevisions VCR, VenueCategories VC " +
+                    //    "WHERE VC.CategoryID=VCR.CategoryID AND VCR.ID=" + rowID).Tables[0].Rows[0]["CategoryName"].ToString();
+
+                    DataSet dsRevision = dat.GetData("SELECT * FROM VenueRevisions VCR, Users U WHERE U.User_ID=VCR.modifierID AND VCR.ID=" +
+                        rowID);
+
+                    DataSet dsUser = dat.GetData("SELECT * FROM Users U WHERE User_ID=" + dsRevision.Tables[0].Rows[0]["modifierID"].ToString());
+                    string emailBody = "The submitted change for " + columnName + " has been rejected by the author of the venue. <br/><br/> " +
+                        "To view these changes, please visit <a href=\"http://HippoHappenings.com/Venue.aspx?ID=" + dsRevision.Tables[0].Rows[0]["VenueID"].ToString() + "\">" + venueName + "</a>";
+
+
+                    if (!Request.IsLocal)
+                    {
+                        dat.SendEmail(System.Configuration.ConfigurationManager.AppSettings["emailemail"].ToString(),
+                        System.Configuration.ConfigurationManager.AppSettings["emailName"].ToString(),
+                        dsUser.Tables[0].Rows[0]["Email"].ToString(), emailBody, "One of your changes has been rejected for venue: '" +
+                        venueName + "'");
+                    }
+
+                    if (columnName == "header")
+                    {
+
+                    }
+                }
+            }
+            else
+            {
+                if (thebutton.Attributes["commandargument"].Contains("occurance"))
+                {
+                    rowID = thebutton.Attributes["commandargument"].Replace("occurance", "");
+                    theRow = rowID;
+
+                    dat.Execute("UPDATE EventRevisions_Occurance SET Approved='False' WHERE RevisionID=" + rowID);
+
+                    DataSet dsRevision = dat.GetData("SELECT E.Header AS H1, E.ID AS TID, *  FROM EventRevisions ER, Events E WHERE E.ID=ER.EventID AND ER.ID=" + rowID);
+
+                    DataSet dsUser = dat.GetData("SELECT * FROM Users U WHERE User_ID=" + dsRevision.Tables[0].Rows[0]["modifierID"].ToString());
+                    string emailBody = "The revised event re-occurance dates have been rejected by the author of the event. <br/><br/> " +
+                        "We appologize for any inconvenience. <br/><br/>To view the event, please visit <a href=\"http://HippoHappenings.com/Event.aspx?EventID=" +
+                        dsRevision.Tables[0].Rows[0]["TID"].ToString() + "\">" + dsRevision.Tables[0].Rows[0]["H1"].ToString() + "</a>";
+                    dat.SendEmail(System.Configuration.ConfigurationManager.AppSettings["emailemail"].ToString(),
+                    System.Configuration.ConfigurationManager.AppSettings["emailName"].ToString(),
+                    dsUser.Tables[0].Rows[0]["Email"].ToString(), emailBody, "One of your changes has been rejected for event: '" +
+                    dsRevision.Tables[0].Rows[0]["H1"].ToString() + "'");
+
+                    Literal lab = new Literal();
+
+                    lab.Text = "<div class=\"AddGreenLink\" style=\"float: right;margin-top: 20px; padding-bottom: 4px;height: 30px;\">You have rejected this change.</div>";
+
+
+
+                    Label lab2 = new Label();
+                    HtmlButton but2 = new HtmlButton();
+                    but2 = (HtmlButton)thebutton.Parent.Controls[thebutton.Parent.Controls.IndexOf(thebutton) + 1];
+
+                    but2.Parent.Controls.AddAt(but2.Parent.Controls.IndexOf(but2), lab2);
+                    but2.Parent.Controls.Remove(but2);
+                    //Put the label in place of the button
+                    thebutton.Parent.Controls.AddAt(thebutton.Parent.Controls.IndexOf(thebutton), lab);
+                    //Then remove the button
+                    thebutton.Parent.Controls.Remove(thebutton);
+                }
+                else
+                {
+
+                    rowID = Request.QueryString["ID"].ToString();
+                    int columnNumber = int.Parse(thebutton.CommandArgument);
+                    theRow = rowID;
+                    DataSet dsEventID = dat.GetData("SELECT * FROM EventRevisions WHERE ID=" + rowID);
+
+                    dat.ApproveRejectChange("EventRevisions", rowID, columnNumber, false);
+
+                    string eventID = dsEventID.Tables[0].Rows[0]["EventID"].ToString();
+
+                    string columnName = dsEventID.Tables[0].Columns[columnNumber + 3].ColumnName;
+
+                    string temp = dsEventID.Tables[0].Rows[0][columnName].ToString();
+
+                    if (columnName.ToLower() == "venue")
+                    {
+                        dat.ApproveRejectChange("EventRevisions", rowID, 3, false);
+                        dat.ApproveRejectChange("EventRevisions", rowID, 4, false);
+                        dat.ApproveRejectChange("EventRevisions", rowID, 5, false);
+                        dat.ApproveRejectChange("EventRevisions", rowID, 6, false);
+                        dat.ApproveRejectChange("EventRevisions", rowID, 10, false);
+                    }
+
+                    DataSet dsRevision = dat.GetData("SELECT E.Header AS H1, E.ID AS TID, * FROM EventRevisions ER, Events E WHERE E.ID=ER.EventID AND ER.ID=" + rowID);
+
+                    DataSet dsUser = dat.GetData("SELECT * FROM Users U WHERE User_ID=" + dsRevision.Tables[0].Rows[0]["modifierID"].ToString());
+                    string emailBody = "The revised event " + columnName + " has been rejected by the author of the event. <br/><br/> " +
+                        "We appologize for any inconvenience. To view the event, please visit <a href=\"http://HippoHappenings.com/Event.aspx?EventID=" +
+                        dsRevision.Tables[0].Rows[0]["TID"].ToString() + "\">" + dsRevision.Tables[0].Rows[0]["H1"].ToString() + "</a>";
+                    dat.SendEmail(System.Configuration.ConfigurationManager.AppSettings["emailemail"].ToString(),
+                    System.Configuration.ConfigurationManager.AppSettings["emailName"].ToString(),
+                    dsUser.Tables[0].Rows[0]["Email"].ToString(), emailBody, "One of your changes has been rejected for event: '" +
+                    dsRevision.Tables[0].Rows[0]["H1"].ToString() + "'");
+
+                    if (columnName == "header")
+                    {
+                        EventHeaderLabel2.Text = "<br/><br/><span  class=\"AddGreenLink FloatRight\">You have rejected this change.</span>";
+                        EventHeaderButton1.Visible = false;
+                        EventHeaderButton2.Visible = false;
+                    }
+                }
+
+
+            }
+        }
+        catch (Exception ex)
+        {
+        }
+
+    }
+
+    protected void AddCategory(object sender, EventArgs e)
+    {
+        MessagesLabel.Text += "got here";
+
+        try
+        {
+            HtmlButton theButt = (HtmlButton)sender;
+
+            string[] delim = { "category" };
+            string[] tokens = theButt.Attributes["commandargument"].Split(delim, StringSplitOptions.None);
+            string CatID = tokens[2];
+            string venueOrEvent = tokens[1];
+            string contentID = tokens[0];
+            Data dat = new Data(DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")));
+
+            MessagesLabel.Text += "tok 1: " + tokens[0] + ", tok2: " + tokens[1] + ", tok3: " + tokens[2];
+
+            Literal lab = new Literal();
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Connection"].ToString());
+            conn.Open();
+            SqlCommand cmd;
+            if (venueOrEvent == "venue")
+            {
+                cmd = new SqlCommand("INSERT INTO Venue_Category (VENUE_ID, CATEGORY_ID) VALUES(@vID, @cID)", conn);
+                cmd.Parameters.Add("@vID", SqlDbType.Int).Value = contentID;
+                cmd.Parameters.Add("@cID", SqlDbType.Int).Value = CatID;
+                cmd.ExecuteNonQuery();
+
+                dat.Execute("UPDATE VenueCategoryRevisions SET Approved='True' WHERE ID=" + tokens[3]);
+
+                #region Send Email
+                //send email
+                string rowID = tokens[3];
+
+                string venueName = dat.GetData("SELECT * FROM Venues V, VenueCategoryRevisions VCR WHERE V.ID=VCR.VenueID AND VCR.ID=" + rowID).Tables[0].Rows[0]["Name"].ToString();
+
+                string categoryName = dat.GetData("SELECT * FROM VenueCategoryRevisions VCR, VenueCategories VC " +
+                    "WHERE VC.ID=VCR.CatID AND VCR.ID=" + rowID).Tables[0].Rows[0]["Name"].ToString();
+
+                DataSet dsRevision = dat.GetData("SELECT * FROM VenueCategoryRevisions VCR, Users U WHERE U.User_ID=VCR.modifierID AND VCR.ID=" + rowID);
+
+
+
+                DataSet dsUser = dat.GetData("SELECT * FROM Users U WHERE User_ID=" + dsRevision.Tables[0].Rows[0]["modifierID"].ToString());
+                string emailBody = "The addition of category '" + categoryName + "' has been approved for the venue '" + venueName +
+                    "' by the venue's author. <br/><br/> " +
+                    "To view these changes, please visit <a href=\"http://HippoHappenings.com/Venue.aspx?ID=" +
+                    dsRevision.Tables[0].Rows[0]["VenueID"].ToString() + "\">" + venueName + "</a>";
+
+                if (!Request.IsLocal)
+                {
+                    dat.SendEmail(System.Configuration.ConfigurationManager.AppSettings["emailemail"].ToString(),
+                    System.Configuration.ConfigurationManager.AppSettings["emailName"].ToString(),
+                    dsUser.Tables[0].Rows[0]["Email"].ToString(), emailBody, "One of your changes has been approved for venue: '" +
+                    venueName + "'");
+                }
+                #endregion
+            }
+            else
+            {
+                cmd = new SqlCommand("INSERT INTO Event_Category_Mapping (EventID, CategoryID) VALUES(@vID, @cID)",
+                    conn);
+                cmd.Parameters.Add("@vID", SqlDbType.Int).Value = contentID;
+                cmd.Parameters.Add("@cID", SqlDbType.Int).Value = CatID;
+                cmd.ExecuteNonQuery();
+
+                dat.Execute("UPDATE EventCategoryRevisions SET Approved='True' WHERE ID=" + tokens[3]);
+
+                #region Send Email
+                //send email
+                string rowID = tokens[3];
+
+                string eventName = dat.GetData("SELECT * FROM Events V, EventCategoryRevisions VCR WHERE V.ID=VCR.EventID AND VCR.ID=" + rowID).Tables[0].Rows[0]["Header"].ToString();
+
+                string categoryName = dat.GetData("SELECT * FROM EventCategoryRevisions VCR, EventCategories VC " +
+                    "WHERE VC.ID=VCR.CatID AND VCR.ID=" + rowID).Tables[0].Rows[0]["Name"].ToString();
+
+                DataSet dsRevision = dat.GetData("SELECT * FROM EventCategoryRevisions VCR, Users U WHERE U.User_ID=VCR.modifierID AND VCR.ID=" + rowID);
+
+
+
+                DataSet dsUser = dat.GetData("SELECT * FROM Users U WHERE User_ID=" + dsRevision.Tables[0].Rows[0]["modifierID"].ToString());
+                string emailBody = "The addition of category '" + categoryName + "' has been approved for the event '" + eventName +
+                    "' by the event's author. <br/><br/> " +
+                    "To view these changes, please visit <a href=\"http://HippoHappenings.com/Event.aspx?EventID=" +
+                    dsRevision.Tables[0].Rows[0]["EventID"].ToString() + "\">" + eventName + "</a>";
+
+                if (!Request.IsLocal)
+                {
+                    dat.SendEmail(System.Configuration.ConfigurationManager.AppSettings["emailemail"].ToString(),
+                    System.Configuration.ConfigurationManager.AppSettings["emailName"].ToString(),
+                    dsUser.Tables[0].Rows[0]["Email"].ToString(), emailBody, "One of your changes has been approved for event: '" +
+                    eventName + "'");
+                }
+                #endregion
+            }
+
+
+
+
+            conn.Close();
+            lab.Text = "<label class=\"AddGreenLink\">&nbsp;&nbsp;&nbsp;&nbsp;Added</label>";
+            Label lab2 = new Label();
+            Literal theLit =
+                (Literal)theButt.Parent.Controls[theButt.Parent.Controls.IndexOf(theButt) - 1];
+            theLit.Text = theLit.Text.Replace("<br/>", "");
+            theLit.Text = theLit.Text.Replace("<div style=\"padding-bottom: 4px;\">",
+                "<div align=\"right\" style=\"padding-bottom: 4px;\">");
+
+            HtmlButton but2 = new HtmlButton();
+            but2 = (HtmlButton)theButt.Parent.Controls[theButt.Parent.Controls.IndexOf(theButt) + 1];
+
+            but2.Parent.Controls.AddAt(but2.Parent.Controls.IndexOf(but2), lab2);
+            but2.Parent.Controls.Remove(but2);
+            //Put the label in place of the button
+            theButt.Parent.Controls.AddAt(theButt.Parent.Controls.IndexOf(theButt), lab);
+            //Then remove the button
+            theButt.Parent.Controls.Remove(theButt);
+        }
+        catch (Exception ex)
+        {
+            MessagesLabel.Text = ex.ToString();
+        }
+
+    }
+
+    protected void RemoveCategory(object sender, EventArgs e)
+    {
+        try
+        {
+            HtmlButton theButt = (HtmlButton)sender;
+
+            string[] delim = { "category" };
+            string[] tokens = theButt.Attributes["commandargument"].Split(delim, StringSplitOptions.None);
+            string CatID = tokens[2];
+            string venueOrEvent = tokens[1];
+            string contentID = tokens[0];
+            Data dat = new Data(DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")));
+
+            Literal lab = new Literal();
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Connection"].ToString());
+            conn.Open();
+            SqlCommand cmd;
+            if (venueOrEvent == "venue")
+            {
+                cmd = new SqlCommand("DELETE FROM Venue_Category WHERE Venue_ID=@vID AND Category_ID=@cID", conn);
+                cmd.Parameters.Add("@vID", SqlDbType.Int).Value = contentID;
+                cmd.Parameters.Add("@cID", SqlDbType.Int).Value = CatID;
+                cmd.ExecuteNonQuery();
+
+                dat.Execute("UPDATE VenueCategoryRevisions SET Approved='True' WHERE ID=" + tokens[3]);
+                #region Send Email
+                //send email
+                string rowID = tokens[3];
+
+                string venueName = dat.GetData("SELECT * FROM Venues V, VenueCategoryRevisions VCR WHERE V.ID=VCR.VenueID AND VCR.ID=" + rowID).Tables[0].Rows[0]["Name"].ToString();
+
+                string categoryName = dat.GetData("SELECT * FROM VenueCategoryRevisions VCR, VenueCategories VC " +
+                    "WHERE VC.ID=VCR.CatID AND VCR.ID=" + rowID).Tables[0].Rows[0]["Name"].ToString();
+
+                DataSet dsRevision = dat.GetData("SELECT * FROM VenueCategoryRevisions VCR, Users U WHERE U.User_ID=VCR.modifierID AND VCR.ID=" + rowID);
+
+
+
+                DataSet dsUser = dat.GetData("SELECT * FROM Users U WHERE User_ID=" + dsRevision.Tables[0].Rows[0]["modifierID"].ToString());
+                string emailBody = "The removal of category '" + categoryName + "' has been approved for the venue '" + venueName +
+                    "' by the venue's author. <br/><br/> " +
+                    "To view these changes, please visit <a href=\"http://HippoHappenings.com/Venue.aspx?ID=" +
+                    dsRevision.Tables[0].Rows[0]["VenueID"].ToString() + "\">" + venueName + "</a>";
+
+                if (!Request.IsLocal)
+                {
+                    dat.SendEmail(System.Configuration.ConfigurationManager.AppSettings["emailemail"].ToString(),
+                    System.Configuration.ConfigurationManager.AppSettings["emailName"].ToString(),
+                    dsUser.Tables[0].Rows[0]["Email"].ToString(), emailBody, "One of your changes has been approved for venue: '" +
+                    venueName + "'");
+                }
+                #endregion
+            }
+            else
+            {
+                cmd = new SqlCommand("DELETE FROM Event_Category_Mapping WHERE EventID=@vID AND CategoryID=@cID", conn);
+                cmd.Parameters.Add("@vID", SqlDbType.Int).Value = contentID;
+                cmd.Parameters.Add("@cID", SqlDbType.Int).Value = CatID;
+                cmd.ExecuteNonQuery();
+
+                dat.Execute("UPDATE EventCategoryRevisions SET Approved='True' WHERE ID=" + tokens[3]);
+
+                #region Send Email
+                //send email
+                string rowID = tokens[3];
+
+                string eventName = dat.GetData("SELECT * FROM Events V, EventCategoryRevisions VCR WHERE V.ID=VCR.EventID AND VCR.ID=" + rowID).Tables[0].Rows[0]["Header"].ToString();
+
+                string categoryName = dat.GetData("SELECT * FROM EventCategoryRevisions VCR, EventCategories VC " +
+                    "WHERE VC.ID=VCR.CatID AND VCR.ID=" + rowID).Tables[0].Rows[0]["Name"].ToString();
+
+                DataSet dsRevision = dat.GetData("SELECT * FROM EventCategoryRevisions VCR, Users U WHERE U.User_ID=VCR.modifierID AND VCR.ID=" + rowID);
+
+
+
+                DataSet dsUser = dat.GetData("SELECT * FROM Users U WHERE User_ID=" + dsRevision.Tables[0].Rows[0]["modifierID"].ToString());
+                string emailBody = "The removal of category '" + categoryName + "' has been approved for the event '" + eventName +
+                    "' by the event's author. <br/><br/> " +
+                    "To view these changes, please visit <a href=\"http://HippoHappenings.com/Event.aspx?EventID=" +
+                    dsRevision.Tables[0].Rows[0]["EventID"].ToString() + "\">" + eventName + "</a>";
+
+                if (!Request.IsLocal)
+                {
+                    dat.SendEmail(System.Configuration.ConfigurationManager.AppSettings["emailemail"].ToString(),
+                    System.Configuration.ConfigurationManager.AppSettings["emailName"].ToString(),
+                    dsUser.Tables[0].Rows[0]["Email"].ToString(), emailBody, "One of your changes has been approved for event: '" +
+                    eventName + "'");
+                }
+                #endregion
+            }
+            conn.Close();
+            lab.Text = "<label class=\"AddGreenLink\">&nbsp;&nbsp;&nbsp;&nbsp;Removed</label>";
+
+
+            Literal theLit =
+                (Literal)theButt.Parent.Controls[theButt.Parent.Controls.IndexOf(theButt) - 1];
+            theLit.Text = theLit.Text.Replace("<br/>", "");
+            theLit.Text = theLit.Text.Replace("<div style=\"padding-bottom: 4px;\">", "<div align=\"right\" style=\"padding-bottom: 4px;\">");
+            Label lab2 = new Label();
+
+
+            HtmlButton but2 = new HtmlButton();
+            but2 = (HtmlButton)theButt.Parent.Controls[theButt.Parent.Controls.IndexOf(theButt) + 1];
+
+            but2.Parent.Controls.AddAt(but2.Parent.Controls.IndexOf(but2), lab2);
+            but2.Parent.Controls.Remove(but2);
+            //Put the label in place of the button
+            theButt.Parent.Controls.AddAt(theButt.Parent.Controls.IndexOf(theButt), lab);
+            //Then remove the button
+            theButt.Parent.Controls.Remove(theButt);
+        }
+        catch (Exception ex)
+        {
+            MessagesLabel.Text = ex.ToString();
+        }
+    }
+
+    protected void RejectCategory(object sender, EventArgs e)
+    {
+        try
+        {
+            HtmlButton theButt = (HtmlButton)sender;
+
+            string[] delim = { "category" };
+            string[] tokens = theButt.Attributes["commandargument"].Split(delim, StringSplitOptions.None);
+            string CatID = tokens[2];
+            string venueOrEvent = tokens[1];
+            string contentID = tokens[0];
+            Data dat = new Data(DateTime.Parse(cookie.Value.ToString().Replace("%20", " ").Replace("%3A", ":")));
+
+            Literal lab = new Literal();
+            if (venueOrEvent == "venue")
+            {
+
+                dat.Execute("UPDATE VenueCategoryRevisions SET Approved='False' WHERE ID=" + tokens[3]);
+                #region Send Email
+                //send email
+                string rowID = tokens[3];
+
+                string venueName = dat.GetData("SELECT * FROM Venues V, VenueCategoryRevisions VCR WHERE V.ID=VCR.VenueID AND VCR.ID=" + rowID).Tables[0].Rows[0]["Name"].ToString();
+
+                string categoryName = dat.GetData("SELECT * FROM VenueCategoryRevisions VCR, VenueCategories VC " +
+                    "WHERE VC.ID=VCR.CatID AND VCR.ID=" + rowID).Tables[0].Rows[0]["Name"].ToString();
+
+                DataSet dsRevision = dat.GetData("SELECT * FROM VenueCategoryRevisions VCR, Users U WHERE U.User_ID=VCR.modifierID AND VCR.ID=" + rowID);
+
+
+
+                DataSet dsUser = dat.GetData("SELECT * FROM Users U WHERE User_ID=" + dsRevision.Tables[0].Rows[0]["modifierID"].ToString());
+                string emailBody = "The removal of category '" + categoryName + "' has been rejected for the venue '" + venueName +
+                    "' by the venue's author. <br/><br/> " +
+                    "To view these changes, please visit <a href=\"http://HippoHappenings.com/Venue.aspx?ID=" +
+                    dsRevision.Tables[0].Rows[0]["VenueID"].ToString() + "\">" + venueName + "</a>";
+
+                if (!Request.IsLocal)
+                {
+                    dat.SendEmail(System.Configuration.ConfigurationManager.AppSettings["emailemail"].ToString(),
+                    System.Configuration.ConfigurationManager.AppSettings["emailName"].ToString(),
+                    dsUser.Tables[0].Rows[0]["Email"].ToString(), emailBody, "One of your changes has been rejected for venue: '" +
+                    venueName + "'");
+                }
+                #endregion
+            }
+            else
+            {
+                dat.Execute("UPDATE EventCategoryRevisions SET Approved='False' WHERE ID=" + tokens[3]);
+
+                #region Send Email
+                //send email
+                string rowID = tokens[3];
+
+                string eventName = dat.GetData("SELECT * FROM Events V, EventCategoryRevisions VCR WHERE V.ID=VCR.EventID AND VCR.ID=" + rowID).Tables[0].Rows[0]["Header"].ToString();
+
+                string categoryName = dat.GetData("SELECT * FROM EventCategoryRevisions VCR, EventCategories VC " +
+                    "WHERE VC.ID=VCR.CatID AND VCR.ID=" + rowID).Tables[0].Rows[0]["Name"].ToString();
+
+                DataSet dsRevision = dat.GetData("SELECT * FROM EventCategoryRevisions VCR, Users U WHERE U.User_ID=VCR.modifierID AND VCR.ID=" + rowID);
+
+
+
+                DataSet dsUser = dat.GetData("SELECT * FROM Users U WHERE User_ID=" + dsRevision.Tables[0].Rows[0]["modifierID"].ToString());
+                string emailBody = "The removal of category '" + categoryName + "' has been rejected for the event '" + eventName +
+                    "' by the event's author. <br/><br/> " +
+                    "To view these changes, please visit <a href=\"http://HippoHappenings.com/Event.aspx?EventID=" +
+                    dsRevision.Tables[0].Rows[0]["EventID"].ToString() + "\">" + eventName + "</a>";
+
+                if (!Request.IsLocal)
+                {
+                    dat.SendEmail(System.Configuration.ConfigurationManager.AppSettings["emailemail"].ToString(),
+                    System.Configuration.ConfigurationManager.AppSettings["emailName"].ToString(),
+                    dsUser.Tables[0].Rows[0]["Email"].ToString(), emailBody, "One of your changes has been rejected for event: '" +
+                    eventName + "'");
+                }
+                #endregion
+            }
+            lab.Text = "<label class=\"AddGreenLink\">&nbsp;&nbsp;&nbsp;&nbsp;Rejected</label>";
+
+            Literal theLit =
+        (Literal)theButt.Parent.Controls[theButt.Parent.Controls.IndexOf(theButt) - 2];
+            theLit.Text = theLit.Text.Replace("<br/>", "");
+            theLit.Text = theLit.Text.Replace("<div style=\"padding-bottom: 4px;\">", "<div align=\"right\" style=\"padding-bottom: 4px;\">");
+
+
+            Label lab2 = new Label();
+
+
+            HtmlButton but2 = new HtmlButton();
+            but2 = (HtmlButton)theButt.Parent.Controls[theButt.Parent.Controls.IndexOf(theButt) - 1];
+
+            but2.Parent.Controls.AddAt(but2.Parent.Controls.IndexOf(but2), lab2);
+            but2.Parent.Controls.Remove(but2);
+            //Put the label in place of the button
+            theButt.Parent.Controls.AddAt(theButt.Parent.Controls.IndexOf(theButt), lab);
+            //Then remove the button
+            theButt.Parent.Controls.Remove(theButt);
+        }
+        catch (Exception ex)
+        {
+            MessagesLabel.Text = ex.ToString();
+        }
+    }
+}

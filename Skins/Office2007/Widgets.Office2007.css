@@ -1,0 +1,631 @@
+input,
+textarea,
+.scrollable-element,
+.imagePreview
+{
+    border: solid 1px #7f9db9;
+}
+
+.filesize
+{
+	border-right: solid 1px #a0bee5 !important;
+}
+
+.fileextension
+{
+	border-left: solid 1px #a0bee5 !important;
+}
+
+.propertiesTableCell .RadToolBar
+{
+	margin-top: 21px !important;
+	border-right: solid 1px #a0bee5 !important;
+	border-right: solid 1px #a0bee5 !important;
+}
+
+.editor-datagrid
+{
+	width: 340px;
+	top: 22px;
+}
+
+*+html .editor-datagrid
+{
+	width: 340px;
+	top: 21px !important;
+}
+
+.propertiesTableCell .RadToolBar
+{
+	margin-top: 21px !important;
+}
+
+.scrollable-element
+{
+	background: #e5e5e5;
+}
+
+.dialogtabstrip
+{
+	background: transparent url('Widgets/DialogToolbarButtonSprites.gif') repeat-x 0 -123px;
+}
+
+.dialogtabstrip ul
+{
+	padding: 0; 
+	margin: 12px 0 0 14px;
+}
+
+.dialogtabstrip ul li,
+.dialogtabstrip ul li a,
+.dialogtabstrip ul li a span
+{
+	font: normal 12px Arial, Verdana, Sans-serif;
+	color: #666;
+}
+
+.dialogtabstrip ul li
+{
+	background: #e5e5e5;
+}
+
+.dialogtabstrip ul li a
+{
+	margin: 0 0 0 3px;
+	padding: 0 3px 0 0;
+}
+
+.dialogtabstrip ul li a span
+{
+	padding: 0 20px;
+	line-height: 23px;
+	background-position: 0 -125px;
+	background-repeat: repeat-x;
+}
+
+.dialogtabstrip ul li.selectedtab
+{
+	background: white;
+}
+
+.dialogtabstrip ul li.selectedtab a span
+{
+	color: #333;
+}
+
+div.editor-datagrid table.filemanagergrid
+{
+	background: transparent url('Widgets/DialogToolbarButtonSprites.gif') repeat-x 0 -100px;
+	
+	border: 0; 
+	padding: 0 0 0 0; 
+	margin: 0 0 0 0;
+	border-collapse: collapse;
+	font: normal 11px Verdana, Arial, Sans-serif;
+	width: 100%; 
+	table-layout: fixed;
+	text-align: left;
+	color: black;
+	cursor: pointer; 
+	cursor: hand;
+	clear: both;
+	border-bottom: solid 1px #cbcbcb;
+}
+
+div.editor-datagrid table.filemanagergrid a,
+div.editor-datagrid table.filemanagergrid a span
+{
+	display: block; 
+	line-height: 16px; 
+	color: #fff; 
+	text-decoration: none;
+}
+
+div.editor-datagrid table.filemanagergrid td
+{
+	border-right: solid 1px #cbcbcb;
+	padding: 0 2px 0 2px;
+	background: #e5e5e5;
+}
+
+div.editor-datagrid table.filemanagergrid tr th
+{
+	background: #cbdef6;
+	border-top: solid 1px #a0bbdf;
+	border-top: solid 1px #a0bbdf;
+	height: 27px !important;
+}
+
+div.editor-datagrid table.filemanagergrid tr th a
+{
+	padding: 0 0 0 16px;
+	background: transparent url(Widgets/SortingArrows.gif) no-repeat;
+	display: block;
+	font: bold 11px Arial, Verdana;
+}
+
+div.editor-datagrid table.filemanagergrid tr th a span
+{
+    color: #14567a;
+}
+
+div.editor-datagrid table.filemanagergrid tr th a.sortascending
+{
+	background-position: 0 -14px;
+}
+
+div.editor-datagrid table.filemanagergrid tr th a.sortdescending
+{
+	background-position: 0 -30px;
+}
+
+div.editor-datagrid table.filemanagergrid.gridheader .fileextension
+{
+	width: 48px;
+}
+
+div.editor-datagrid table.filemanagergrid.griddata .fileextension
+{
+	width: 44px;
+}
+
+div.editor-datagrid table.filemanagergrid img
+{
+	display: block;
+	margin: 2px auto;
+}
+
+div.editor-datagrid table.filemanagergrid tr.selectedrow td
+{
+	background: #0a246a;
+	color: white;
+}
+
+div.editor-datagrid table.filemanagergrid tr.folder
+{
+	font-weight: normal;
+	color: blue;
+}
+
+div.editorleftpane
+{
+	float: left;
+}
+
+div.editorrightpane
+{
+	float: right;
+}
+
+.editor-datagrid table
+{
+	border-collapse: collapse;
+}
+
+th.filesize
+{
+	width:101px;
+}
+td.filesize
+{
+	width:80px;
+}
+
+* html td.filesize
+{
+	width:96px;
+}
+*+html td.filesize
+{
+	width:96px;
+}
+
+td.fileextension
+{
+	height: 18px !important; 
+	line-height: 18px !important; 
+	font-size: 1px !important;
+	text-indent: -9999px !important;
+	width: 44px;
+	background-image: url(Widgets/FileExtensionSprites.gif) !important;
+	background-repeat: no-repeat !important;
+	background-position: center -681px !important;
+}
+
+div.imagePreviewPane
+{
+	width: 370px;
+	font: normal 12px Arial, Verdana, Sans-serif;
+	cursor: default;
+}
+
+div.imagePreviewPane div.imagePreview
+{
+	overflow: auto;
+	height: 230px;
+	clear: both;
+}
+
+*html div.imagePreviewPane div.imagePreview
+{
+	width: 100%;
+}
+
+div.imagePreviewPane div.altInput
+{
+	background: #f3f3f3;
+	color: black;
+	padding: 10px 0;
+}
+
+div.imagePreviewPane div.altInput input
+{
+	width: 211px; 
+	height: 21px; 
+	line-height: 21px;
+	vertical-align: middle;
+	width:160px;
+}
+
+*html div.imagePreviewPane div.altInput input
+{
+	width: 150px;
+}
+
+div.imagePreviewPane div.altInput ul
+{
+	padding: 0; margin: 0; list-style: none;
+}
+
+div.imagePreviewPane div.altInput ul li
+{
+	padding: 0 0 0 12px;
+}
+
+div.imagePreviewPane ul li
+{
+    line-height: 25px;
+}
+
+div.imagePreviewPane ul li label
+{
+    width: 80px;
+    display: block;
+    float: left;
+    margin-top: 10px;
+    text-align: right;
+    padding-right: 8px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+div.imagePreviewPane ul li input.textinput
+{
+    width: 210px;
+}
+
+div.imagePreviewPane ul li select
+{
+    width: 216px;
+}
+
+.mediaPreviewer
+{
+	border: 0;
+	width: 260px;
+	height: 333px !important;
+	background-image: none !important;
+}
+
+.mediaPreviewer .mediaPropertiesPane
+{
+	overflow-y:auto;
+    width: 271px;
+    height: 275px;
+    float: left;
+}
+
+.mediaPreviewer li
+{
+   line-height: 34px;   
+}
+
+.mediaPreviewer input.textinput
+{
+    width: 135px;
+    float: left;
+}
+
+.mediaPreviewer select
+{
+    width: 139px;
+    float: left;
+}
+
+.mediaPreviewer label
+{
+    display: inline-block;
+    width: 64px;
+    padding-right: 8px;
+}
+
+.mediaPreviewer fieldset ul li
+{
+	clear: both;
+}
+
+.mediaPreviewer fieldset ul li label
+{
+	width: 90px;
+	display: block;
+    text-overflow: ellipsis;
+    overflow: hidden;   
+    float: left;
+    height: 34px;
+}
+
+.mediaPreviewer fieldset ul li label.valueProperty
+{
+	float: left;
+	height: 50px;
+	padding-top: 5px;
+}
+
+.mediaPreviewer fieldset ul li label.descriptionProperty
+{
+	float: left;
+	width: 135px;
+	padding: 0px;
+	height: auto;
+}
+
+.mediaPreviewer fieldset ul li div.propertiesField
+{
+	float: left;
+	width: 135px;
+}
+
+.mediaPreviewer .propertiesField div
+{
+	float: left;
+	width: 65px;
+}
+
+.mediaPreviewer .propertiesField div label
+{
+	width: 30px;
+}
+
+.mediaPreviewer fieldset ul li input,
+.mediaPreviewer .propertiesField div input,
+.mediaPreviewer .propertiesField div div select
+{
+	float: left;
+}
+.mediaPreviewer .propertiesField .flatTextBox
+{
+	width: 135px;
+}
+
+.mediaPreviewer .propertiesField div div select
+{
+	width: 139px;
+}
+
+.mediaPreviewer .dialogtoolbar.imagemanipulator ul li a,
+.mediaPreviewer .dialogtoolbar.imagemanipulator ul li a:hover,
+.mediaPreviewer .dialogtoolbar.imagemanipulator ul li.disabledtoolbarbutton a,
+.mediaPreviewer .dialogtoolbar.imagemanipulator ul li.disabledtoolbarbutton a span,
+.mediaPreviewer .dialogtoolbar.imagemanipulator ul li a span
+{
+	background:none;
+	width:70px !important;
+	text-indent:0px;
+}
+
+.flashPreviewer
+{
+	border: 0;
+	height: 335px !important;
+	background-image: none !important;
+}
+
+.flashPreviewer .flashPropertiesPane
+{
+	overflow-y:auto;
+    width: 100%;
+    height: 275px;
+    float: left;
+}
+
+.flashPreviewer .flashPreviewPane
+{
+    width: 271px;
+    height: 275px;
+}
+
+.flashPreviewer li
+{
+   line-height: 34px;
+}
+
+.flashPreviewer input.textinput
+{
+    width: 80px;
+}
+
+.flashPreviewer select
+{
+    width: 84px;
+}
+
+.flashPreviewer label
+{
+    display: inline-block;
+    width: 64px;
+    padding-right: 8px;
+}
+
+.flashPreviewer fieldset ul li label
+{
+	display: inline-block;
+	width:150px;
+    text-overflow: ellipsis;
+    overflow : hidden;
+}
+
+.flashPreviewer .dialogtoolbar.imagemanipulator ul li a,
+.flashPreviewer .dialogtoolbar.imagemanipulator ul li a:hover,
+.flashPreviewer .dialogtoolbar.imagemanipulator ul li.disabledtoolbarbutton a,
+.flashPreviewer .dialogtoolbar.imagemanipulator ul li.disabledtoolbarbutton a span,
+.flashPreviewer .dialogtoolbar.imagemanipulator ul li a span
+{
+	background:none;
+	width:70px !important;
+	text-indent:0px;
+}
+
+.templatePreviewer
+{
+	border: 0;
+	width: 260px;
+	height: 335px !important;
+	background-image: none !important;
+}
+
+.templatePreviewer iframe
+{
+	width: 260px;
+	height: 303px;
+}
+
+.reSpinButtonsList
+{
+	float: left;
+	height: auto;
+}
+
+.reSpinButtonsList li
+{
+	float: none; 
+	clear: both;
+	line-height: 11px;
+	margin: 0 0 1px 1px;
+}
+
+.reSpinButtonsList input.textinput
+{
+	width: 40px;
+	float: left;
+	display: block;
+	text-align: right;
+}
+
+.reSpinButtonsList label
+{
+	display: block;
+	float: left;
+	width: 100px;
+	line-height: 24px;
+}
+
+.reSpinButtonsList ul
+{
+	float: left;
+}
+
+.reSpinButtonsList a
+{
+	display: block;
+	float: left;
+	border: solid 1px black;
+	text-align: center;
+	font: bold 12px Verdana, Arial, Sans-serif;
+	color: #093a7a;
+	cursor: default;
+}
+
+.reSpinButtonsList a:hover
+{
+	background: #e3e3e3;
+	border: solid 1px #666;
+}
+
+.reSpinButtonsList a span
+{
+	display: block;
+	width: 11px; 
+	height: 11px; 
+	line-height: 11px;
+}
+
+.radedialog.reCodeFormatter
+{
+	width: 680px;
+	height: 600px;
+	padding: 0 4px 4px;
+	border: 0;
+}
+
+.rade_dialog .rade_dialog_toolbar
+{
+	background: #e5e5e5;
+}
+
+.rade_dialog .rade_dialog_toolbar a,
+.rade_dialog .rade_dialog_toolbar a span
+{
+	width: 19px;
+	height: 17px;
+}
+
+.rade_dialog .rade_filepath
+{
+	border: solid 1px #ccc;
+
+}
+
+div.dialogtoolbar ul li .imageEditor
+{
+    font-weight: bold !important;
+    width: 80px !important;
+    color: #fff !important;
+	text-decoration: none !important;
+	background-image: url('Editor/ImageEditorOpenerIcon.gif') !important;
+	background-repeat: no-repeat !important;
+	background-position: 2px !important;
+	background-color: #686868 !important;
+	text-indent: 0;
+	padding-left: 26px;
+	padding-bottom: 2px;
+	border: solid 1px #191919 !important;
+}
+
+.folderPath
+{
+	background: #fff;
+    margin: 0;
+    padding: 0 0 0 2px;
+	font: normal 11px/17px Arial, Verdana, Sans-serif; 
+	height: 17px;
+	display: block;
+    vertical-align: top;
+    float: left;
+    position: absolute !important;
+    top: -20px;
+    width: 680px !important;
+    border: solid 1px #abc1de !important;
+    z-index: 100000;
+    color: black !important;
+}
+
+.rade_ImageDialogCaller a
+{
+	background: #abc1de;
+	border-color: #7f9db9;
+}
+
+.rade_ImageDialogCaller a span
+{
+	color: #000;
+}

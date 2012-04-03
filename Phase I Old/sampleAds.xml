@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ads>
+<item>
+	<showad thumb="images/thumb1.jpg" bg="images/bg0.jpg" header="Heading abc Heading abc Heading abc Heading " footer="footer ds sfdsfsfs sdfsdfsdf dsfjdsfsd fsdfsdfsdf sfsdfsdf" readmore="http://google.com/"></showad>
+	<showad thumb="images/thumb2.jpg" bg="images/bg0.jpg" header="Heading erer" footer="footer asd" readmore="http://yahoo.com/"></showad>
+	<showad thumb="images/thumb3.jpg" bg="images/bg0.jpg" header="Heading w31" footer="footer g" readmore="http://gmail.com/"></showad>
+	<showad thumb="images/thumb4.jpg" bg="images/bg0.jpg" header="Heading fdgh" footer="footer fd" readmore="http://adobe.com/"></showad>
+	<showad thumb="images/thumb5.jpg" bg="images/bg0.jpg" header="Heading 21" footer="footer c" readmore="http://google.com/"></showad>
+	<showad thumb="images/thumb6.jpg" bg="images/bg0.jpg" header="Heading fsdf" footer="footer weqw" readmore="http://yahoo.com/"></showad>
+	<showad thumb="images/thumb7.jpg" bg="images/bg0.jpg" header="Heading bvb" footer="footer q7" readmore="http://google.com/"></showad>
+	<showad thumb="images/thumb8.jpg" bg="images/bg0.jpg" header="Heading d" footer="footer qw" readmore="http://yahoo.com/"></showad>
+	<showad thumb="images/thumb6.jpg" bg="images/bg0.jpg" header="Heading qw" footer="footer " readmore="http://yahoo.com/"></showad>
+	<showad thumb="images/thumb7.jpg" bg="images/bg0.jpg" header="Heading qe" footer="footer " readmore="http://google.com/"></showad>
+	<showad thumb="images/thumb8.jpg" bg="images/bg0.jpg" header="Heading qw" footer="footer " readmore="http://yahoo.com/"></showad>
+	
+	<showad thumb="images/thumb1.jpg" bg="images/bg0.jpg" header="Heading abc" footer="footer ds sfdsfsfs sdfsdfsdf dsfjdsfsd fsdfsdfsdf sfsdfsdf" readmore="http://google.com/"></showad>
+	<showad thumb="images/thumb2.jpg" bg="images/bg0.jpg" header="Heading erer" footer="footer asd" readmore="http://yahoo.com/"></showad>
+	<showad thumb="images/thumb3.jpg" bg="images/bg0.jpg" header="Heading w31" footer="footer g" readmore="http://gmail.com/"></showad>
+	<showad thumb="images/thumb4.jpg" bg="images/bg0.jpg" header="Heading fdgh" footer="footer fd" readmore="http://adobe.com/"></showad>
+	<showad thumb="images/thumb5.jpg" bg="images/bg0.jpg" header="Heading 21" footer="footer c" readmore="http://google.com/"></showad>
+	<showad thumb="images/thumb6.jpg" bg="images/bg0.jpg" header="Heading fsdf" footer="footer weqw" readmore="http://yahoo.com/"></showad>
+	<showad thumb="images/thumb7.jpg" bg="images/bg0.jpg" header="Heading bvb" footer="footer q7" readmore="http://google.com/"></showad>
+	<showad thumb="images/thumb8.jpg" bg="images/bg0.jpg" header="Heading d" footer="footer qw" readmore="http://yahoo.com/"></showad>
+	<showad thumb="images/thumb6.jpg" bg="images/bg0.jpg" header="Heading qw" footer="footer " readmore="http://yahoo.com/"></showad>
+	<showad thumb="images/thumb7.jpg" bg="images/bg0.jpg" header="Heading qe" footer="footer " readmore="http://google.com/"></showad>
+	<showad thumb="images/thumb8.jpg" bg="images/bg0.jpg" header="Heading qw" footer="footer " readmore="http://yahoo.com/"></showad>
+	
+	<showad thumb="images/thumb1.jpg" bg="images/bg0.jpg" header="Heading abc" footer="footer ds sfdsfsfs sdfsdfsdf dsfjdsfsd fsdfsdfsdf sfsdfsdf" readmore="http://google.com/"></showad>
+	<showad thumb="images/thumb2.jpg" bg="images/bg0.jpg" header="Heading erer" footer="footer asd" readmore="http://yahoo.com/"></showad>
+	<showad thumb="images/thumb3.jpg" bg="images/bg0.jpg" header="Heading w31" footer="footer g" readmore="http://gmail.com/"></showad>
+	<showad thumb="images/thumb4.jpg" bg="images/bg0.jpg" header="Heading fdgh" footer="footer fd" readmore="http://adobe.com/"></showad>
+	<showad thumb="images/thumb5.jpg" bg="images/bg0.jpg" header="Heading 21" footer="footer c" readmore="http://google.com/"></showad>
+	<showad thumb="images/thumb6.jpg" bg="images/bg0.jpg" header="Heading fsdf" footer="footer weqw" readmore="http://yahoo.com/"></showad>
+	<showad thumb="images/thumb7.jpg" bg="images/bg0.jpg" header="Heading bvb" footer="footer q7" readmore="http://google.com/"></showad>
+	<showad thumb="images/thumb8.jpg" bg="images/bg0.jpg" header="Heading d" footer="footer qw" readmore="http://yahoo.com/"></showad>
+	<showad thumb="images/thumb6.jpg" bg="images/bg0.jpg" header="Heading qw" footer="footer " readmore="http://yahoo.com/"></showad>
+	<showad thumb="images/thumb7.jpg" bg="images/bg0.jpg" header="Heading qe" footer="footer " readmore="http://google.com/"></showad>
+	<showad thumb="images/thumb8.jpg" bg="images/bg0.jpg" header="Heading qw" footer="footer " readmore="http://yahoo.com/"></showad>
+	
+	<showad thumb="images/thumb1.jpg" bg="images/bg0.jpg" header="Heading abc" footer="footer ds sfdsfsfs sdfsdfsdf dsfjdsfsd fsdfsdfsdf sfsdfsdf" readmore="http://google.com/"></showad>
+	<showad thumb="images/thumb2.jpg" bg="images/bg0.jpg" header="Heading erer" footer="footer asd" readmore="http://yahoo.com/"></showad>
+	<showad thumb="images/thumb3.jpg" bg="images/bg0.jpg" header="Heading w31" footer="footer g" readmore="http://gmail.com/"></showad>
+	<showad thumb="images/thumb4.jpg" bg="images/bg0.jpg" header="Heading fdgh" footer="footer fd" readmore="http://adobe.com/"></showad>
+	<showad thumb="images/thumb5.jpg" bg="images/bg0.jpg" header="Heading 21" footer="footer c" readmore="http://google.com/"></showad>
+	<showad thumb="images/thumb6.jpg" bg="images/bg0.jpg" header="Heading fsdf" footer="footer weqw" readmore="http://yahoo.com/"></showad>
+	<showad thumb="images/thumb7.jpg" bg="images/bg0.jpg" header="Heading bvb" footer="footer q7" readmore="http://google.com/"></showad>
+	<showad thumb="images/thumb8.jpg" bg="images/bg0.jpg" header="Heading d" footer="footer qw" readmore="http://yahoo.com/"></showad>
+	<showad thumb="images/thumb6.jpg" bg="images/bg0.jpg" header="Heading qw" footer="footer " readmore="http://yahoo.com/"></showad>
+	<showad thumb="images/thumb7.jpg" bg="images/bg0.jpg" header="Heading qe" footer="footer " readmore="http://google.com/"></showad>
+	<showad thumb="images/thumb8.jpg" bg="images/bg0.jpg" header="Heading qw" footer="footer " readmore="http://yahoo.com/"></showad>
+	
+	<showad thumb="images/thumb1.jpg" bg="images/bg0.jpg" header="Heading abc" footer="footer ds sfdsfsfs sdfsdfsdf dsfjdsfsd fsdfsdfsdf sfsdfsdf" readmore="http://google.com/"></showad>
+	<showad thumb="images/thumb2.jpg" bg="images/bg0.jpg" header="Heading erer" footer="footer asd" readmore="http://yahoo.com/"></showad>
+	<showad thumb="images/thumb3.jpg" bg="images/bg0.jpg" header="Heading w31" footer="footer g" readmore="http://gmail.com/"></showad>
+	<showad thumb="images/thumb4.jpg" bg="images/bg0.jpg" header="Heading fdgh" footer="footer fd" readmore="http://adobe.com/"></showad>
+	<showad thumb="images/thumb5.jpg" bg="images/bg0.jpg" header="Heading 21" footer="footer c" readmore="http://google.com/"></showad>
+	<showad thumb="images/thumb6.jpg" bg="images/bg0.jpg" header="Heading fsdf" footer="footer weqw" readmore="http://yahoo.com/"></showad>
+	<showad thumb="images/thumb7.jpg" bg="images/bg0.jpg" header="Heading bvb" footer="footer q7" readmore="http://google.com/"></showad>
+	<showad thumb="images/thumb8.jpg" bg="images/bg0.jpg" header="Heading d" footer="footer qw" readmore="http://yahoo.com/"></showad>
+	<showad thumb="images/thumb6.jpg" bg="images/bg0.jpg" header="Heading qw" footer="footer " readmore="http://yahoo.com/"></showad>
+	<showad thumb="images/thumb7.jpg" bg="images/bg0.jpg" header="Heading qe" footer="footer " readmore="http://google.com/"></showad>
+	<showad thumb="images/thumb8.jpg" bg="images/bg0.jpg" header="Heading qw" footer="footer " readmore="http://yahoo.com/"></showad>
+	
+
+</item>
+<config>
+<details adtimer="20" headercolor="FFFFFF" headerbold="true" headerfont="Arial" headersize="14" footercolor="CCCCCC" footerbold="false" footerfont="Arial" footersize="12" readmecolor="1FB6E7" readmebold="true" readmefont="Arial" readmesize="12" buttoncolor="1FB6E7" buttonbold="true" buttonfont="Arial" buttonsize="12"></details>
+</config>
+</ads>
+
+
+

@@ -1,0 +1,144 @@
+/* Telerik RadInput Office2007 Skin */
+
+/*global*/
+
+.radInput_Office2007
+{
+	font:12px arial,tahoma,sans-serif;
+	vertical-align:middle;
+}
+
+.radInput_Office2007 table,
+.radInput_Office2007 table td
+{
+	border:0;
+}
+
+.radInput_Office2007 table
+{
+	vertical-align:bottom;
+}
+
+.radInput_Office2007 td
+{
+	padding:0;
+	vertical-align:middle;
+	overflow:visible;/*RadGrid*/
+}
+
+.radInput_Office2007 td.inputCell 
+{
+	padding-right:4px;
+}
+
+.radInput_Office2007 textarea
+{
+	vertical-align:bottom;
+	overflow:auto;
+}
+
+/*textbox states*/
+
+html body .radInput_Office2007 .radEnabledCss_Office2007,
+html body .radInput_Office2007 .radEmptyMessageCss_Office2007,
+html body .radInput_Office2007 .radHoverCss_Office2007,
+html body .radInput_Office2007 .radFocusedCss_Office2007,
+html body .radInput_Office2007 .radReadOnlyCss_Office2007,
+html body .radInput_Office2007 .radDisabledCss_Office2007,
+html body .radInput_Office2007 .radNegativeCss_Office2007,
+html body .radInput_Office2007 .radInvalidCss_Office2007
+{
+	border:1px solid #7f9db9;
+	padding:2px 0 2px 1px;
+	background:#fff;
+	color:#000;
+	font:11px arial,tahoma,sans-serif;
+}
+
+html body .radInput_Office2007 .radEmptyMessageCss_Office2007
+{
+	color:#999;
+}
+
+html body .radInput_Office2007 .radHoverCss_Office2007
+{
+	border-color:#38577e;
+}
+
+html body .radInput_Office2007 .radReadOnlyCss_Office2007,
+html body .radInput_Office2007 .radDisabledCss_Office2007
+{
+	border-color:#c0cfdd;
+}
+
+html body .radInput_Office2007 .radDisabledCss_Office2007
+{
+	color:#999;
+	cursor:default;
+}
+
+html body .radInput_Office2007 .radInvalidCss_Office2007
+{	
+	border-color:#dcaa78;
+	color:#dcaa78;
+}
+
+html body .radInput_Office2007 .radNegativeCss_Office2007
+{
+	color:#333;
+}
+
+/*buttons*/
+
+.radInput_Office2007 a
+{
+	display:block;
+	text-indent:-4444px;
+	overflow:hidden;
+	position:relative;/*FF*/
+	outline:none;/*FF*/
+	z-index:2;/*Opera*/
+	background:url('Input/sprite.gif') no-repeat;
+}
+* html .radInput_Office2007 a{position:static}/*IE6*/
+*+html .radInput_Office2007 a{position:static}/*IE7*/
+
+/*go*/
+
+.radInput_Office2007 a.gobutton
+{
+	width:20px;
+	height:17px; 
+	line-height:17px;
+	background-position:3px 4px;
+}
+
+/*spin*/
+
+.radInput_Office2007 a.spinbutton
+{
+	width:12px;
+	height:7px; 
+	line-height:7px;
+	margin:0 1px;
+}
+
+.radInput_Office2007 a.up
+{
+	background-position:3px -41px;
+}
+
+.radInput_Office2007 a.down
+{
+	background-position:3px -76px;
+	margin-top:2px;
+}
+
+/*label*/
+
+.radLabelCss_Office2007
+{
+	margin:0 4px 0 0;
+	color:#000;
+	white-space:nowrap;
+}

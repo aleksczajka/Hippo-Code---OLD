@@ -1,0 +1,248 @@
+/* r.a.d.tooltip VISTA skin */
+
+/* r.a.d.tooltip resize element */
+div.radtooltip_Office2007 .ResizeElement
+{
+	border: solid 1px #d3fd2c;
+	background: #f8fce0;
+}
+
+div.radtooltip_Office2007 .LoadingSign
+{	
+	background: url(ToolTip/Loading.gif)  no-repeat center;
+	width: 100%; height: 100%;
+}
+
+div.radtooltip_Office2007 
+{
+	position: absolute;
+	cursor: default;
+}
+
+div.radtooltip_Office2007 div.ToolTipCallout
+{
+	display:none;
+}
+
+div.radtooltip_Office2007 .visiblecallout
+{
+	/**/
+}
+
+div.radtooltip_Office2007 .visiblecallout div.ToolTipCallout
+{
+	display: block;
+}
+
+
+div.radtooltip_Office2007 table.ToolTipWrapper
+{
+	padding: 0; margin: 0;
+	border-collapse: collapse;
+}
+
+div.radtooltip_Office2007 table.ToolTipWrapper td
+{		
+	padding: 0; margin: 0;
+	border-collapse: collapse;
+	text-align: left;
+}
+
+/* -------------------------- CORNER SETTINGS BEGIN ---------------------------------- */
+div.radtooltip_Office2007 table.ToolTipWrapper td.ToolTipTopLeft,
+div.radtooltip_Office2007 table.ToolTipWrapper td.ToolTipTopRight,
+div.radtooltip_Office2007 table.ToolTipWrapper td.ToolTipBottomLeft,
+div.radtooltip_Office2007 table.ToolTipWrapper td.ToolTipBottomRight
+{
+	width: 3px; height: 4px; 
+	line-height: 0px; font-size: 1px;
+	background-image: url('ToolTip/ToolTipCorners.gif');
+	background-repeat: no-repeat;
+}
+
+div.radtooltip_Office2007 table.ToolTipWrapper td.ToolTipTopLeft
+{
+	background-position: 0 0;
+}
+
+div.radtooltip_Office2007 table.ToolTipWrapper td.ToolTipTopRight
+{
+	background-position: right 0;
+}
+
+div.radtooltip_Office2007 table.ToolTipWrapper td.ToolTipBottomLeft
+{
+	background-position: 0 bottom;
+}
+
+div.radtooltip_Office2007 table.ToolTipWrapper td.ToolTipBottomRight
+{
+	background-position: right bottom;
+}
+
+div.radtooltip_Office2007 table.ToolTipWrapper td.ToolTipTopCenter,
+div.radtooltip_Office2007 table.ToolTipWrapper td.ToolTipBottomCenter
+{
+	height: 3px; 
+	line-height: 0px; font-size: 1px;
+	background:  url('ToolTip/ToolTipTopParts.gif');
+	background-repeat: repeat-x;
+}
+
+div.radtooltip_Office2007 table.ToolTipWrapper td.ToolTipTopCenter
+{
+	background-position: 0 0;
+}
+
+div.radtooltip_Office2007 table.ToolTipWrapper td.ToolTipBottomCenter
+{
+	background-position: 0 bottom;
+}
+
+div.radtooltip_Office2007 table.ToolTipWrapper td.ToolTipLeftMiddle,
+div.radtooltip_Office2007 table.ToolTipWrapper td.ToolTipRightMiddle
+{
+	background-image:  url('ToolTip/ToolTipSideParts.gif') ;
+	background-repeat: repeat-y;
+	font-size: 1px;
+	width: 3px;
+}
+
+div.radtooltip_Office2007 table.ToolTipWrapper td.ToolTipLeftMiddle
+{
+	background-position: 0 0;
+}
+
+div.radtooltip_Office2007 table.ToolTipWrapper td.ToolTipRightMiddle
+{
+	background-position: right 0;
+}
+/* -------------------------- CORNER SETTINGS END ---------------------------------- */
+div.radtooltip_Office2007 table.ToolTipWrapper td.ToolTipContent
+{
+	font: normal 12px "Segoe UI", "Trebuchet MS", Arial, Verdana, Sans-serif;
+	height: 100%;
+	background: #cad9ee url('ToolTip/ContentBgr.gif') repeat-x;
+	padding: 4px;
+	color: black;
+}
+
+div.radtooltip_Office2007 div.ToolTipTitlebar
+{	
+	color: #272397;
+	font: normal 18px "Segoe UI", "Trebuchet MS", Arial, Verdana, Sans-serif;
+	float:left;
+	line-height: 22px;
+	padding: 4px;
+}
+
+/* close button */
+div.radtooltip_Office2007 a.CloseButton,
+div.radtooltip_Office2007 a.CloseButton:hover
+{
+	display: block; float: right;
+	position:absolute;
+	right: 2px;
+	width: 28px; height: 15px;
+	font-size: 1px; line-height: 1px;
+	margin-top: 3px;
+	margin-right: 1px;
+	background: url('ToolTip/close.gif')  no-repeat;
+	text-indent: -9999px;
+	outline: none;
+}
+
+/* --------------------------------------------- TOOLTIP CALLOUT SETTINGS BEGIN --------------------------------------------- */
+div.radtooltip_Office2007 div.ToolTipCallout
+{
+	position: absolute; top: 0; left: 0;
+	height: 11px; width: 11px;
+	line-height: 0px; font-size: 1px;
+	background-image: url('ToolTip/Callouts.gif');
+	background-repeat: no-repeat;
+}
+
+/* position="Center" */
+div.radtooltip_Office2007 .Center
+{
+	background: none !important;
+}
+
+/* position="BottomRight" */
+.radtooltip_Office2007 .TopLeft
+{
+	margin-top: -10px; margin-left: 20px;
+	background-position: 0 -22px;
+}
+
+/* position="BottomCenter" */
+.radtooltip_Office2007 .TopCenter
+{
+	left: 50% !important;
+	margin-top: -9px; margin-left: -10px;
+	background-position: 0 0 !important;
+}
+
+/* position="BottomLeft" */
+.radtooltip_Office2007 .TopRight
+{
+	left: 100% !important;
+	margin-top: -10px; margin-left: -20px;
+	background-position: 0 -11px !important;
+}
+
+/* position="TopCenter" */
+.radtooltip_Office2007 .BottomCenter
+{
+	top: 100% !important; left: 50% !important;
+	margin-left: -10px !important; margin-top: -1px !important;
+	width: 100% !important;
+	background-position: 0 -55px !important;
+}
+
+/* position="TopLeft" */
+.radtooltip_Office2007 .BottomRight
+{
+	top: 100% !important; left: 100% !important;
+	margin-left: -40px !important; margin-top: -1px !important;
+	background-position: 0 -66px !important;
+}
+
+/* position="TopRight" */
+.radtooltip_Office2007 .BottomLeft
+{
+	top: 100% !important;
+	margin-left: 20px !important; margin-top: -1px !important;
+	background-position: 0 -77px !important;
+}
+
+/* position="MiddleRight" */
+.radtooltip_Office2007 .MiddleLeft
+{
+	top: 50% !important;
+	margin-left: -10px; margin-top: -7px;
+	background-position: 0 -44px !important;
+}
+
+/* position="MiddleLeft" */
+.radtooltip_Office2007 .MiddleRight
+{
+	left: 100% !important; top: 50% !important;
+	margin-left: -1px; margin-top: -10px;
+	background-position: 0 -33px;
+}
+/* --------------------------------------------- TOOLTIP CALLOUT SETTINGS END --------------------------------------------- */
+
+div.radtooltip_Office2007 table.ToolTipWrapper td.ToolTipTopLeft,   
+div.radtooltip_Office2007 table.ToolTipWrapper td.ToolTipTopCenter,   
+div.radtooltip_Office2007 table.ToolTipWrapper td.ToolTipTopRight,   
+div.radtooltip_Office2007 table.ToolTipWrapper td.ToolTipLeftMiddle,   
+div.radtooltip_Office2007 table.ToolTipWrapper td.ToolTipContent,   
+div.radtooltip_Office2007 table.ToolTipWrapper td.ToolTipRightMiddle,   
+div.radtooltip_Office2007 table.ToolTipWrapper td.ToolTipBottomLeft,   
+div.radtooltip_Office2007 table.ToolTipWrapper td.ToolTipBottomCenter,   
+div.radtooltip_Office2007 table.ToolTipWrapper td.ToolTipBottomRight   
+{
+    padding: 0;
+    border: 0;
+}

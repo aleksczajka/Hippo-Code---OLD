@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--  This file is a ROR Sitemap for describing this website to the search engines. For details about the ROR format, go to www.rorweb.com.   -->
+<rss version="2.0" xmlns:ror="http://rorweb.com/0.1/" >
+  <channel>
+    <title>ROR Sitemap for http://hippohappenings.com/</title>
+    <description>sitemap for HippoHappenings, site for local community events, venues and ads in your neighborhood</description>
+    <link>http://hippohappenings.com/</link>
+    <item>
+      <title>ROR Sitemap for http://hippohappenings.com/</title>
+      <link>http://hippohappenings.com/</link>
+      <ror:about>sitemap</ror:about>
+      <ror:type>SiteMap</ror:type>
+    </item>
+    <item>
+      <link>http://hippohappenings.com/</link>
+      <ror:updatePeriod>week</ror:updatePeriod>
+      <ror:sortOrder>0</ror:sortOrder>
+      <ror:resourceOf>sitemap</ror:resourceOf>
+    </item>
+    <item>
+      <link>http://hippohappenings.com/home</link>
+      <ror:updatePeriod>week</ror:updatePeriod>
+      <ror:sortOrder>0</ror:sortOrder>
+      <ror:resourceOf>sitemap</ror:resourceOf>
+    </item>
+    <item>
+      <link>http://hippohappenings.com/event-search</link>
+      <ror:updatePeriod>week</ror:updatePeriod>
+      <ror:sortOrder>0</ror:sortOrder>
+      <ror:resourceOf>sitemap</ror:resourceOf>
+    </item>
+    <item>
+      <link>http://hippohappenings.com/venue-search</link>
+      <ror:updatePeriod>week</ror:updatePeriod>
+      <ror:sortOrder>0</ror:sortOrder>
+      <ror:resourceOf>sitemap</ror:resourceOf>
+    </item>
+    <item>
+      <link>http://hippohappenings.com/trip-search</link>
+      <ror:updatePeriod>week</ror:updatePeriod>
+      <ror:sortOrder>0</ror:sortOrder>
+      <ror:resourceOf>sitemap</ror:resourceOf>
+    </item>
+    <item>
+      <link>http://hippohappenings.com/login</link>
+      <ror:updatePeriod>week</ror:updatePeriod>
+      <ror:sortOrder>0</ror:sortOrder>
+      <ror:resourceOf>sitemap</ror:resourceOf>
+    </item>
+    <item>
+      <link>http://hippohappenings.com/register</link>
+      <ror:updatePeriod>week</ror:updatePeriod>
+      <ror:sortOrder>0</ror:sortOrder>
+      <ror:resourceOf>sitemap</ror:resourceOf>
+    </item>
+    <item>
+      <link>http://hippohappenings.com/contact-us</link>
+      <ror:updatePeriod>week</ror:updatePeriod>
+      <ror:sortOrder>0</ror:sortOrder>
+      <ror:resourceOf>sitemap</ror:resourceOf>
+    </item>
+    <item>
+      <link>http://hippohappenings.com/terms-and-conditions</link>
+      <ror:updatePeriod>week</ror:updatePeriod>
+      <ror:sortOrder>0</ror:sortOrder>
+      <ror:resourceOf>sitemap</ror:resourceOf>
+    </item>
+    <item>
+      <link>http://hippohappenings.com/privacy-policy</link>
+      <ror:updatePeriod>week</ror:updatePeriod>
+      <ror:sortOrder>0</ror:sortOrder>
+      <ror:resourceOf>sitemap</ror:resourceOf>
+    </item>
+    <item>
+      <link>http://hippohappenings.com/about</link>
+      <ror:updatePeriod>week</ror:updatePeriod>
+      <ror:sortOrder>0</ror:sortOrder>
+      <ror:resourceOf>sitemap</ror:resourceOf>
+    </item>
+    <item>
+      <link>http://hippohappenings.com/feedback</link>
+      <ror:updatePeriod>week</ror:updatePeriod>
+      <ror:sortOrder>0</ror:sortOrder>
+      <ror:resourceOf>sitemap</ror:resourceOf>
+    </item>
+    <item>
+      <link>http://hippohappenings.com/add</link>
+      <ror:updatePeriod>week</ror:updatePeriod>
+      <ror:sortOrder>0</ror:sortOrder>
+      <ror:resourceOf>sitemap</ror:resourceOf>
+    </item>
+  </channel>
+</rss>
+
+
+

@@ -1,0 +1,89 @@
+/* new styles */
+.radr_Office2007 .radr_clipRegion
+{
+	border: solid 1px #3b5a82;
+}
+
+/*================== The list ========================*/
+
+.radr_Office2007 .radr_clipRegion  .radr_itemsList 
+{
+	float: left;
+	padding: 0;
+	margin: 0;
+	list-style: none;          
+}
+
+/* For vertical carousel, not set, width defaults to auto */
+/* Note if you explicitly set width to auto, this might cause */
+/* problems with Safari */
+
+.radr_Office2007 .radr_button
+{
+	background-image: url('Rotator/RotatorButtons.gif');
+	background-repeat: no-repeat;
+	/*Button size is defined here, we use margins to position them too */
+	height: 20px;
+	width: 20px;
+	line-height: 20px;
+	/* Very important for the layout!*/	
+}
+
+.radr_Office2007 .radr_button.radr_buttonUp
+{
+	background-position: 0 0;
+	top: -20px;
+	left: 50%;
+	margin-left: -10px;
+}
+
+.radr_Office2007 .radr_button.radr_buttonUp:hover
+{
+	background-position: -20px 0;
+}
+
+.radr_Office2007 .radr_button.radr_buttonRight
+{
+	background-position: 0 -20px;
+	margin-top: -10px;
+	right: -20px;
+	top: 50%;   
+}
+
+.radr_Office2007 .radr_button.radr_buttonRight:hover
+{
+	background-position: -20px -20px;
+}
+
+.radr_Office2007 .radr_button.radr_buttonDown
+{
+	background-position: 0 -40px;
+	top:100%;
+	left: 50%;
+	margin-left: -10px;
+}
+
+.radr_Office2007 .radr_button.radr_buttonDown:hover
+{
+	background-position: -20px -40px;
+}
+
+.radr_Office2007 .radr_button.radr_buttonLeft
+{
+	background-position: 0 -60px;
+	margin-top: -7px;
+	left: -15px;
+	top: 50%;
+}
+
+.radr_Office2007 .radr_button.radr_buttonLeft:hover
+{
+	background-position: -20px -60px;
+}
+
+.radr_Office2007 .radr_button.radr_buttonDisabled
+{
+	filter: alpha(opacity=20);
+	opacity: .2;
+	-moz-opacity: .2;
+}

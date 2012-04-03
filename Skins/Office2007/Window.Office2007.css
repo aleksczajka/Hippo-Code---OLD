@@ -1,0 +1,308 @@
+/* RADWINDOW PROMETHEUS "OFFICE2007" SKIN */
+
+div.radwindow_Office2007 table td.corner
+{
+	width: 4px;
+}
+
+div.radwindow_Office2007 table td.topleft
+{
+	background: transparent url('Window/CornerLeft.gif') no-repeat left top;
+	height: 8px;
+}
+
+div.radwindow_Office2007 table td.topright
+{
+	background: transparent url('Window/CornerRight.gif') no-repeat right top;
+	height: 8px;
+}
+
+div.radwindow_Office2007 table td.bodyleft
+{
+	background: transparent url('Window/BodyLeft.gif') repeat-y left top;
+}
+
+div.radwindow_Office2007 .windowcontent
+{
+	height: 100%;
+	border: solid 1px black;
+	border-bottom: 0;
+	background: white;
+}
+
+div.radwindow_Office2007 table td.bodyright
+{
+	background: transparent url('Window/BodyRight.gif') repeat-y right top;
+}
+
+div.radwindow_Office2007 table td.footerleft
+{
+	background: transparent url('Window/FooterLeft.gif') no-repeat left bottom;
+	height: 8px;
+}
+
+div.radwindow_Office2007 table td.footerright
+{
+	background: transparent url('Window/FooterRight.gif') no-repeat right bottom;
+	height: 8px;
+}
+
+div.radwindow_Office2007 table td.footercenter
+{
+	background: transparent url('Window/FooterCenter.gif') repeat-x bottom;
+	height: 8px;
+}
+
+div.radwindow_Office2007 table td.titlebar
+{
+	background: transparent url('Window/TitleBar.gif') repeat-x left top;
+}
+
+div.radwindow_Office2007 td.statusbar
+{
+	height: 23px; line-height: 23px;
+	background: #f7f3e9;
+	border-top: solid 1px #6788be;
+}
+
+div.radwindow_Office2007 td.statusbar input
+{
+    background-repeat: no-repeat;
+    background: transparent;
+    color: #6788be;
+    padding-top: 6px;
+    height: 17px;
+    font: normal 11px Verdana, Arial, Sans-serif;
+}
+
+div.radwindow_Office2007 td.statusbar div
+{
+      /*background: url('Window/WindowVerticalSprites.gif') no-repeat -40px 4px;*/
+}
+
+div.radwindow_Office2007 td.statusbar .loading
+{	
+	background-image: url('Window/Loading.gif');	
+	background-repeat: no-repeat;
+}
+
+div.radwindow_Office2007 td.statusbar span.statustext
+{
+	font: normal 11px Verdana, Arial, Sans-serif;
+	color: black;
+}
+
+div.radwindow_Office2007 table.titlebarcontrols ul.controlbuttons li a
+{
+	width: 13px; height: 13px; line-height: 13px; font-size: 1px;
+	cursor: default;
+	margin: 4px 0 0 2px;
+}
+
+/* reload button */
+div.radwindow_Office2007 a.reloadbutton
+{
+	background: transparent url('Window/ControlButtons.gif') no-repeat -50px top;
+}
+
+/* unpin button */
+div.radwindow_Office2007 a.pinbutton
+{
+	background: transparent url('Window/ControlButtons.gif') no-repeat 0 0;	
+}
+
+/* pin button */
+div.radwindow_Office2007 a.pinbutton.on
+{
+	background-position: -17px 0 !important;
+}
+
+/* minimize button */
+div.radwindow_Office2007 a.minimizebutton
+{
+	background: transparent url('Window/ControlButtons.gif') no-repeat -65px 0;
+}
+
+/* maximize button */
+div.radwindow_Office2007 a.maximizebutton
+{
+	background: transparent url('Window/ControlButtons.gif') no-repeat -80px 0;
+}
+
+/* close button */
+div.radwindow_Office2007 a.closebutton
+{
+	background: transparent url('Window/ControlButtons.gif') no-repeat 100% 0;
+}
+
+/* restore button */
+div.radwindow_Office2007.maximizedwindow a.maximizebutton,
+div.radwindow_Office2007.minimizedwindow a.minimizebutton
+{
+	background: transparent url('Window/ControlButtons.gif') no-repeat -34px 0 !important;
+}
+
+div.radwindow_Office2007 table.titlebarcontrols a.windowicon
+{
+	background: transparent url('Window/Icon.gif') no-repeat left top;
+	width: 16px; height: 16px;
+	cursor: default;
+	margin: 6px 0 0 2px;
+}
+
+div.radwindow_Office2007 table.titlebarcontrols em
+{
+	font-style: normal;
+	font: normal 12px Verdana, Arial, sans-serif;
+	color: black;	
+	padding: 6px 0 0 4px;
+}
+
+div.radwindow_Office2007.minimizedwindow
+{
+	width: 140px !important; height: 30px !important;
+	background: #abc1de;
+	border: solid 1px #5d6f88;
+}
+
+/* overlay element should be minimized when the window is minimized */
+iframe.minimizedwindowoverlay_Office2007
+{
+	/* take into account the borders of the main DIV of the window when setting width/height */
+	width: 142px !important; height: 32px !important;
+}
+
+div.radwindow.radwindow_Office2007.minimizedwindow table.titlebarcontrols 
+{
+	width: 150px !important;
+    position: relative; top: -4px;
+}
+
+div.radwindow_Office2007.minimizedwindow em
+{
+	color: white !important;
+	width: 55px !important;
+}
+
+div.radwindow_Office2007.minimizedwindow td.corner
+{
+	cursor: default;
+}
+
+div.radwindow_Office2007.minimizedwindow td.corner.topleft,
+div.radwindow_Office2007.minimizedwindow td.corner.topright
+{
+	background: none;
+	width: 10px !important;
+}
+
+div.radwindow_Office2007.minimizedwindow td.titlebar
+{
+	background: none;
+	cursor: default !important;
+}
+
+div.radwindow_Office2007 .windowcontent .windowpopup
+{
+	margin:16px;
+	font:normal 11px Arial;
+	color:black;	
+	padding:0px 0px 16px 50px;
+}
+
+div.radwindow_Office2007 .windowcontent .windowpopup.radalert
+{
+	background: transparent url('Window/ModalDialogAlert.gif') no-repeat 8px center;
+}
+
+div.radwindow_Office2007 .windowcontent .windowpopup.radprompt
+{
+	padding: 0;
+	
+}
+
+div.radwindow_Office2007 .windowcontent .windowpopup.radconfirm
+{
+	background: transparent url('Window/ModalDialogConfirm.gif') no-repeat 8px center;	
+}
+
+div.radwindow_Office2007 .windowcontent input.dialoginput
+{
+	border: solid 1px #666;
+	padding: 3px 4px 0 4px;
+	height: 17px;
+	background: transparent url('<%=WebResource("Telerik.Web.UI.Skins.Office2007.Window.ModalDialogButtonSprites.gif') repeat-x 0 -44px;
+	width: 100%;
+	font: normal 11px Verdana, Arial, Sans-serif;
+}
+
+div.radwindow_Office2007 .windowcontent a,
+div.radwindow_Office2007 .windowcontent a span
+{
+	text-decoration: none;
+	color: black;
+	line-height: 22px;
+	cursor: default;
+}
+
+div.radwindow_Office2007 .windowcontent a.radwindowbutton
+{
+	background: transparent url('Window/ModalDialogButtonSprites.gif') no-repeat 0 0; 
+	padding: 0 0 0 3px;
+	margin: 8px 8px 8px 0;
+}
+
+div.radwindow_Office2007 .windowcontent a.radwindowbutton span.outerspan
+{
+	background: transparent url('Window/ModalDialogButtonSprites.gif') no-repeat 100% 0;
+	padding: 0 3px 0 0;
+}
+
+div.radwindow_Office2007 .windowcontent a.radwindowbutton span.innerspan
+{
+	background: white url('Window/ModalDialogButtonSprites.gif') repeat-x 0 -22px;
+	padding: 0 12px;
+}
+
+div.radwindow_Office2007 .windowcontent a.radwindowbutton:hover
+{
+	background: transparent url('Window/ModalDialogButtonSprites.gif') no-repeat 0 -64px; 
+	padding: 0 0 0 3px;
+	margin: 8px 8px 8px 0;
+}
+
+div.radwindow_Office2007 .windowcontent a.radwindowbutton:hover span.outerspan
+{
+	background: transparent url('Window/ModalDialogButtonSprites.gif') no-repeat right -64px;
+	padding: 0 3px 0 0;
+}
+
+div.radwindow_Office2007 .windowcontent a.radwindowbutton:hover span.innerspan
+{
+	background: white url('Window/ModalDialogButtonSprites.gif') repeat-x 0 -86px;
+	padding: 0 12px;
+}
+
+div.modaldialogbacgkround
+{
+	background: black;
+}
+
+/* set window transparency */
+div.radwindow.radwindow_Office2007.normalwindow.transparentwindow td.corner,
+div.radwindow.radwindow_Office2007.normalwindow.transparentwindow td.titlebar,
+div.radwindow.radwindow_Office2007.transparentwindow td.footercenter
+{
+	filter: progid:DXImageTransform.Microsoft.Alpha(opacity=80);
+	opacity: .8; -moz-opacity: .8;
+}
+
+div.radwindow_Office2007 .topresize
+{
+    background: transparent url('Window/TitleBar.gif') repeat-x;
+}
+
+div.radwindow.radwindow_Office2007 .windowcontent
+{
+	background: #cddcee;
+}

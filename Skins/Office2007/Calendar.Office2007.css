@@ -1,0 +1,284 @@
+/* Telerik RadCalendar Office2007 Skin */
+
+table.calendarWrapper_Office2007
+{
+	border-collapse:separate !important;
+	width:170px; /*default*/
+	background:#fff;
+	font:normal 8pt tahoma;	
+	cursor:default;
+}
+
+/*popup*/
+body>div>div>.calendarWrapper_Office2007
+{
+	border:1px solid #9ac6ff !important;
+}
+
+.TableLayout_Office2007
+{
+	width:100%;
+	border-collapse:separate !important;
+	border:0;
+	border-left:6px solid #fff;
+	border-right:6px solid #fff;
+}
+
+.TableLayout_Office2007 a,
+.TableLayout_Office2007 span
+{
+	display:block;
+	text-align:right;
+	padding:0 3px;
+	text-decoration:none;
+	cursor:default;
+}
+
+.TableLayout_Office2007 a
+{
+	color:#000;
+}
+
+.DaysOfWeek_Office2007
+{
+	color:#000;
+	text-align:center;
+}
+
+th.DaysOfWeek_Office2007
+{
+	border-bottom:1px solid #9ac6ff;
+	line-height:15px;
+	font-weight:normal;
+}
+
+td.DaysOfWeek_Office2007
+{
+	padding-right:2px;
+	padding-left:2px;
+}
+
+.titlebar_Office2007
+{
+	border-collapse:separate !important;
+	border:1px solid #e3efff;
+	width:100%;
+	background:#e3efff;
+	font:11px/13px tahoma,sans-serif;
+}
+
+.titlebar_Office2007 td
+{
+	padding:0 0 1px;
+}
+
+.titlebar_Office2007 a img
+{
+	margin-left:2px;
+	margin-right:2px;
+}
+
+.radCalDefault_Office2007,
+.radCalHover_Office2007,
+.radCalWeekendDefault_Office2007,
+.otherMonth_Office2007
+{
+	border:1px solid #fff;
+	background:#fff;
+}
+
+.radCalToday_Office2007
+{
+	border:1px solid #bb5503;
+	background:#fff;
+	font-weight: bold;
+}
+
+.radCalToday_Office2007 a
+{
+	padding:0 2px;
+}
+
+.radCalSelect_Office2007
+{
+	border:1px solid #fbc84f;
+	background:#fbc84f;
+}
+
+.otherMonth_Office2007 a
+{
+	color:#b3b3b3;
+}
+
+.outOfRange_Office2007
+{
+	text-align:right;
+	background:#fff;
+}
+
+.outOfRange_Office2007 span
+{
+	color:#aca899;
+}
+
+/*multimonth view*/
+
+.TableLayout_Office2007 .TableLayout_Office2007
+{
+	width:95%;
+	margin:6px 2px;
+	border:0;
+}
+
+/*month view*/
+
+table.MonthYearFastNav_Office2007
+{
+	border: 1px solid #9ebef5;
+	background: #f6f6f6;
+	font: normal 8pt Tahoma;
+	color: #000;
+	filter: progid:DXImageTransform.Microsoft.Shadow(direction=140,color=#666666,strength=3);
+	cursor: default;
+}
+
+.MonthYearFastNav_Office2007 td
+{
+	vertical-align:middle;
+	text-align:center;
+	padding:1px 1px 1px 1px;
+	border:1px solid #f6f6f6;
+}
+
+.MonthYearFastNav_Office2007 td.selected_Office2007
+{
+	background: #ffe7a2;
+	color: black;
+}
+
+.MonthYearFastNav_Office2007 td.bottom_Office2007
+{
+	text-align:center;
+	padding-left:9px;
+	padding-bottom:0;
+}
+
+.MonthYearFastNav_Office2007 td input
+{
+	background: #daeaff;
+	border: solid 1px #5d8cc9;
+	font: normal 8pt Tahoma;
+	color: black;
+	float: left;
+	width: auto;
+	margin-right: 1px;
+}
+
+/* Timepicker Office2007 skin */
+
+.radTimeTableCss_Office2007 caption
+{
+    display: none;
+}
+
+.radTimeTableCss_Office2007 
+{
+	font-family: Arial, Verdana, Sans-Serif;
+	border: solid 1px #9ac6ff;
+	border-collapse: collapse;
+	background: white;
+	cursor: pointer;
+	cursor: default;
+	background: white;
+}
+
+.radTimeTableCss_Office2007 td
+{
+	border:0;
+	text-align:right;
+}
+
+.radTimeTableCss_Office2007 a
+{
+	display: block;
+	font-size: 11px;
+	text-decoration: none;
+	color: black;
+	line-height: 21px;
+	padding: 0 2px;
+}
+
+.radTimeOverCss_Office2007 a
+{
+	text-decoration: underline;
+}
+
+.radHeaderCss_Office2007,
+th.radTimeOverCss_Office2007
+{
+	font-size: 11px;
+	font-weight: normal;
+	color: black;
+	height: 20px;
+	background: #e3efff;
+}
+
+.radItemCss_Office2007 a,
+.AlternatingItemCss_Office2007
+{
+    /**/
+}
+
+.radItemCss_Office2007 a:hover,
+.radAlternatingItemCss_Office2007 a:hover
+{	
+	/**/
+}
+
+.radPopupImage_Office2007
+{
+	position: relative; 
+	_position: static; /*IE fix*/
+	outline: none;
+}
+*+html .radPopupImage_Office2007
+{
+	position: static;
+}
+
+.radPopupImage_Office2007 img
+{
+	vertical-align:middle;
+	margin:0 2px;
+	border:0;
+}
+
+.radDisabled_Office2007 img
+{
+	 filter: progid:DXImageTransform.Microsoft.Alpha(opacity=60);
+	-moz-opacity: 0.6;
+	opacity: 0.6;
+}
+
+.pickerWrapper_Office2007
+{
+	vertical-align:middle;
+}
+
+.pickerWrapper_Office2007 table
+{
+	vertical-align:bottom;
+}
+
+.pickerWrapper_Office2007 table,
+.pickerWrapper_Office2007 td
+{
+	border: 0;
+	padding: 0;
+	margin: 0;
+}
+
+.pickerWrapper_Office2007 td.inputCell 
+{
+	padding: 0 4px 0 0;
+}

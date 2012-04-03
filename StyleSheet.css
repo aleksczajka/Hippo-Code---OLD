@@ -1,0 +1,5862 @@
+﻿:focus
+{
+	outline: 0;
+}
+body {
+        font-family: 'Helvetica Neue','Helvetica','Arial',sans-serif;
+		color: #535252;
+		font-size: 12px;
+		font-weight: normal;
+    }
+    #AlertDiv{
+    left: 40%; top: 40%;
+    position: absolute; width: 200px;
+    padding: 12px; 
+    border: #000000 1px solid;
+    background-color: white; 
+    text-align: left;
+    visibility: hidden;
+    z-index: 99;
+    }
+    #AlertButtons{
+    position: absolute;
+    right: 5%;
+    bottom: 5%;
+    }
+a
+{
+	cursor: pointer;
+}
+
+.TextNormal
+{
+	font-family: 'Helvetica Neue','Helvetica','Arial',sans-serif;
+		color: #535252;
+		font-size: 12px;
+		font-weight: normal;
+}
+
+
+
+.Text11
+{
+	font-family: 'Helvetica Neue','Helvetica','Arial',sans-serif;
+		color: #535252;
+		font-size: 11px;
+		font-weight: normal;
+}
+
+.SearchWindow
+{
+	background-image: url(image/ajax-loader.gif) !important;
+}
+textarea
+{
+	font-family: Arial;
+	color: #535252;
+	font-size: 12px;
+}
+
+select
+{
+	color: #535252;
+}
+
+input
+{
+	color: #535252;
+}
+
+.TextBoxLeftImage
+{
+	 border: 0;
+	 float: left; 
+	 background: url('image/SearchTextBoxLeftSide.gif'); 
+     background-repeat: no-repeat; 
+     background-position: left; 
+     height: 18px; 
+     clear: none;
+    padding: 0px; 
+     padding-left: 5px; 
+     margin: 0px; 
+}
+/*hack for IE 6*/
+* html .TextBox {margin-top: -1px;}
+
+/*hack for IE 7*/
+* + html .TextBox {margin-top: -1px;}
+
+.ListBox
+{
+	border: solid 1px #dedbdb;
+}
+.BigWhiteButton
+{
+	color: White;
+	font-size: 30px;
+	font-weight: bold;
+	text-decoration: none;
+}
+.MsgDiv
+{
+	padding-left: 20px;
+}
+.TextBoxLeftImage25
+{ 
+	 float: left; 
+	 background: url('image/TextBoxLeft25.png'); 
+     background-repeat: no-repeat; 
+     background-position: left; 
+     height: 25px; 
+     clear: none; 
+     padding: 0px; 
+     padding-left: 5px; 
+     margin: 0px; 
+}
+.TextBox25
+{
+	color: #666666;
+	border: 0px;
+	background: url(image/TextBoxBackground25.png);
+	font-size: 12px;
+	background-repeat: repeat-x;
+	padding: 5px 4px 0 0;
+	width: 290px;
+	height: 20px;      /* 5px less than the acutal size.*/
+}
+/*hack for IE 6*/
+* html .TextBox25 {margin-top: -1px;}
+
+/*hack for IE 7*/
+* + html .TextBox25 {margin-top: -1px;}
+
+.TextBoxLeftImage100
+{ 
+	 float: left; 
+	 background: url('image/AdDescriptionLeftImage.png'); 
+     background-repeat: no-repeat; 
+     background-position: left; 
+     height: 102px; 
+     clear: none; 
+     padding: 0px; 
+     padding-left: 5px; 
+     margin: 0px; 
+}
+.TextBox100
+{
+	color: #666666;
+	border: 0px;
+	background: url(image/AdDescriptionBackground.png);
+	font-size: 12px;
+	background-repeat: repeat-x;
+	padding: 4px 4px 0px 0px;
+	padding-top: 5px;
+	margin: 0px;
+	width: 290px;
+	height: 100px;      /* 5px less than the acutal size.*/
+}
+
+/*hack for IE 6*/
+* html .TextBox100 {margin-top: -1px;}
+
+/*hack for IE 7*/
+* + html .TextBox100 {margin-top: -1px;}
+
+.TopButton
+{
+	padding: 0px;
+	margin: 0px;
+}
+.NavBarImage
+{
+	padding: 0px;
+	margin: 0px;
+	border: solid 1px pink;
+}
+.NavBarImage
+{
+	padding: 0px;
+	margin: 0px;
+	border: solid 1px pink;
+}
+.NavBarImageHome
+{
+	padding: 0px;
+	margin: 0px;
+	border: solid 1px pink;
+	width: 65px;
+	height: 27px;
+	background-image: url(./image/HomeLink.png);
+	border: none;
+	cursor: pointer;
+}
+.NavBarImageHome:hover,
+.NavBarImageHome:selected
+{
+	padding: 0px;
+	margin: 0px;
+	border: solid 1px pink;
+	width: 65px;
+	height: 27px;
+	background-image: url(./image/HomeLinkHover.png);
+	border: none;
+	cursor: pointer;
+}
+input.NavBarImageHome:hover
+{
+	padding: 0px;
+	margin: 0px;
+	border: solid 1px pink;
+	width: 65px;
+	height: 27px;
+	background-image: url(./image/HomeLinkHover.png);
+	border: none;
+	cursor: pointer;
+}
+.NavBarImageHomeSelected
+{
+	padding: 0px;
+	margin: 0px;
+	border: solid 1px pink;
+	width: 65px;
+	height: 27px;
+	background-image: url(./image/HomeLinkHover.png);
+	border: none;
+	cursor: pointer;
+}
+
+.NavBarImageVote
+{
+	padding: 0px;
+	margin: 0px;
+	border: solid 1px pink;
+	width: 65px;
+	height: 27px;
+	background-image: url(./image/Vote.png);
+	border: none;
+	cursor: pointer;
+}
+.NavBarImageVote:hover,
+.NavBarImageVote:selected
+{
+	padding: 0px;
+	margin: 0px;
+	border: solid 1px pink;
+	width: 65px;
+	height: 27px;
+	background-image: url(./image/VoteHover.png);
+	border: none;
+	cursor: pointer;
+}
+input.NavBarImageVote:hover
+{
+	padding: 0px;
+	margin: 0px;
+	border: solid 1px pink;
+	width: 65px;
+	height: 27px;
+	background-image: url(./image/VoteHover.png);
+	border: none;
+	cursor: pointer;
+}
+.NavBarImageVoteSelected
+{
+	padding: 0px;
+	margin: 0px;
+	border: solid 1px pink;
+	width: 65px;
+	height: 27px;
+	background-image: url(./image/VoteHover.png);
+	border: none;
+	cursor: pointer;
+}
+
+
+.NavBarImageFeedback
+{
+	padding: 0px;
+	margin: 0px;
+	border: solid 1px pink;
+	width: 100px;
+	height: 27px;
+	background-image: url(./image/Feedback.png);
+	border: none;
+	cursor: pointer;
+}
+.NavBarImageFeedback:hover,
+.NavBarImageFeedback:selected
+{
+	padding: 0px;
+	margin: 0px;
+	border: solid 1px pink;
+	width: 100px;
+	height: 27px;
+	background-image: url(./image/FeedbackHover.png);
+	border: none;
+	cursor: pointer;
+}
+input.NavBarImageFeedback:hover
+{
+	padding: 0px;
+	margin: 0px;
+	border: solid 1px pink;
+	width: 100px;
+	height: 27px;
+	background-image: url(./image/FeedbackHover.png);
+	border: none;
+	cursor: pointer;
+}
+.NavBarImageFeedbackSelected
+{
+	padding: 0px;
+	margin: 0px;
+	border: solid 1px pink;
+	width: 100px;
+	height: 27px;
+	background-image: url(./image/FeedbackHover.png);
+	border: none;
+	cursor: pointer;
+}
+
+
+
+.NavBarImageBlog
+{
+	padding: 0px;
+	margin: 0px;
+	border: solid 1px pink;
+	width: 99px;
+	height: 27px;
+	background-image: url('./image/BlogAnEventLink.png');
+	 border: none;
+	 cursor: pointer;
+}
+.NavBarImageBlog:hover,
+.NavBarImageBlog:selected
+{
+	padding: 0px;
+	margin: 0px;
+	border: solid 1px pink;
+	width: 99px;
+	height: 27px;
+	background-image: url('./image/BlogAnEventHover.png');
+	border: none;
+	cursor: pointer;
+}
+input.NavBarImageBlog:hover
+{
+	padding: 0px;
+	margin: 0px;
+	border: solid 1px pink;
+	width: 99px;
+	height: 27px;
+	background-image: url('./image/BlogAnEventHover.png');
+	border: none;
+	cursor: pointer;
+}
+.NavBarImageBlogSelected
+{
+	padding: 0px;
+	margin: 0px;
+	border: solid 1px pink;
+	width: 99px;
+	height: 27px;
+	background-image: url('./image/BlogAnEventHover.png');
+	border: none;
+	cursor: pointer;
+}
+.NavBarImageAbout
+{
+	padding: 0px;
+	margin: 0px;
+	border: solid 1px pink;
+	width: 49px;
+	height: 27px;
+	background-image: url('./image/About.png');
+	border: none;
+	cursor: pointer;
+}
+
+.NavBarImageAbout:hover,
+.NavBarImageAbout:selected
+{
+	padding: 0px;
+	margin: 0px;
+	border: solid 1px pink;
+	width: 49px;
+	height: 27px;
+	background-image: url('./image/AboutSelected.png');
+	border: none;
+	cursor: pointer;
+}
+input.NavBarImageAbout:hover
+{
+	padding: 0px;
+	margin: 0px;
+	border: solid 1px pink;
+	width: 49px;
+	height: 27px;
+	background-image: url('./image/AboutSelected.png');
+	border: none;
+	cursor: pointer;
+}
+.NavBarImageAboutSelected
+{
+	padding: 0px;
+	margin: 0px;
+	border: solid 1px pink;
+	width: 49px;
+	height: 27px;
+	background-image: url('./image/AboutSelected.png');
+	border: none;
+	cursor: pointer;
+}
+/*
+.NavBarImageFeedback
+{
+	padding: 0px;
+	margin: 0px;
+	border: solid 1px pink;
+	width: 100px;
+	height: 27px;
+	background-image: url('./image/FeedbackStarz.png');
+	border: none;
+	cursor: pointer;
+}*/
+.NavBarImageCalendar
+{
+	padding: 0px;
+	margin: 0px;
+	width: 94px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./image/MyCalendarSelected.png');
+	 border: none;
+	 cursor: pointer;
+}
+.NavBarImageCalendar:hover,
+.NavBarImageCalendar:selected
+{
+	padding: 0px;
+	margin: 0px;
+	width: 94px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./image/MyCalendar.png');
+	border: none;
+	cursor: pointer;
+}
+input.NavBarImageCalendar:hover
+{
+	padding: 0px;
+	margin: 0px;
+	width: 94px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./image/MyCalendar.png');
+	border: none;
+	cursor: pointer;
+}
+.NavBarImageCalendarSelected
+{
+	padding: 0px;
+	margin: 0px;
+	width: 94px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./image/MyCalendar.png');
+	border: none;
+	cursor: pointer;
+}
+.NavBarImageEvent
+{
+	padding: 0px;
+	margin: 0px;
+	width: 70px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./image/Events.png');
+	 border: none;
+	 cursor: pointer;
+}
+.NavBarImageEvent:hover,
+.NavBarImageEvent:selected
+{
+	padding: 0px;
+	margin: 0px;
+	width: 70px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./image/EventsSelected.png');
+	border: none;
+	cursor: pointer;
+}
+input.NavBarImageEvent:hover
+{
+	padding: 0px;
+	margin: 0px;
+	width: 70px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./image/EventsSelected.png');
+	border: none;
+	cursor: pointer;
+}
+.NavBarImageEventSelected
+{
+	padding: 0px;
+	margin: 0px;
+	width: 70px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./image/EventsSelected.png');
+	border: none;
+	cursor: pointer;
+}
+.NavBarImageAddEvent
+{
+	padding: 0px;
+	margin: 0px;
+	width: 82px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./images/AddEventButton.png');
+	 border: none;
+	 cursor: pointer;
+}
+.NavBarImageAddEvent:hover,
+.NavBarImageAddEvent:selected
+{
+	padding: 0px;
+	margin: 0px;
+	width: 82px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./images/AddEventButtonSelected.png');
+	border: none;
+	cursor: pointer;
+}
+input.NavBarImageAddEvent:hover
+{
+	padding: 0px;
+	margin: 0px;
+	width: 82px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./images/AddEventButtonSelected.png');
+	border: none;
+	cursor: pointer;
+}
+.NavBarImageAddEventSelected
+{
+	padding: 0px;
+	margin: 0px;
+	width: 82px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./images/AddEventButtonSelected.png');
+	border: none;
+	cursor: pointer;
+}
+
+.NavBarImageAddGroup
+{
+	padding: 0px;
+	margin: 0px;
+	width: 92px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./images/MakeGroup.png');
+	 border: none;
+	 cursor: pointer;
+}
+.NavBarImageAddGroup:hover,
+.NavBarImageAddGroup:selected
+{
+	padding: 0px;
+	margin: 0px;
+	width: 92px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./images/MakeGroupSelected.png');
+	border: none;
+	cursor: pointer;
+}
+input.NavBarImageAddGroup:hover
+{
+	padding: 0px;
+	margin: 0px;
+	width: 92px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./images/MakeGroupSelected.png');
+	border: none;
+	cursor: pointer;
+}
+.NavBarImageAddGroupSelected
+{
+	padding: 0px;
+	margin: 0px;
+	width: 92px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./images/MakeGroupSelected.png');
+	border: none;
+	cursor: pointer;
+}
+
+
+.NavBarImageVenue
+{
+	padding: 0px;
+	margin: 0px;
+	width: 65px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./image/VenuesLink.png');
+	 border: none;
+	 cursor: pointer;
+}
+.NavBarImageVenue:hover,
+.NavBarImageVenue:selected
+{
+	padding: 0px;
+	margin: 0px;
+	width: 65px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./image/VenuesLinkHover.png');
+	border: none;
+	cursor: pointer;
+}
+input.NavBarImageVenue:hover
+{
+	padding: 0px;
+	margin: 0px;
+	width: 65px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./image/VenuesLinkHover.png');
+	border: none;
+	cursor: pointer;
+}
+.NavBarImageVenueSelected
+{
+	padding: 0px;
+	margin: 0px;
+	width: 65px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./image/VenuesLinkHover.png');
+	border: none;
+	cursor: pointer;
+}
+.NavBarImageAddVenue
+{
+	padding: 0px;
+	margin: 0px;
+	width: 92px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./images/SubmitVenueButton.png');
+	 border: none;
+	 cursor: pointer;
+}
+.NavBarImageAddVenue:hover,
+.NavBarImageAddVenue:selected
+{
+	padding: 0px;
+	margin: 0px;
+	width: 92px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./images/SubmitVenueButtonSelected.png');
+	border: none;
+	cursor: pointer;
+}
+input.NavBarImageAddVenue:hover
+{
+	padding: 0px;
+	margin: 0px;
+	width: 92px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./images/SubmitVenueButtonSelected.png');
+	border: none;
+	cursor: pointer;
+}
+.NavBarImageAddVenueSelected
+{
+	padding: 0px;
+	margin: 0px;
+	width: 92px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./images/SubmitVenueButtonSelected.png');
+	border: none;
+	cursor: pointer;
+}
+
+.NavBarImageAd
+{
+	padding: 0px;
+	margin: 0px;
+	width: 115px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./image/AdsClassifiedsLink.png');
+	 border: none;
+	 cursor: pointer;
+}
+.NavBarImageAd:hover,
+.NavBarImageAd:selected
+{
+	padding: 0px;
+	margin: 0px;
+	width: 115px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./image/AdsClassifiedsSelected.png');
+	border: none;
+	cursor: pointer;
+}
+input.NavBarImageAd:hover
+{
+	padding: 0px;
+	margin: 0px;
+	width: 115px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./image/AdsClassifiedsSelected.png');
+	border: none;
+	cursor: pointer;
+}
+.NavBarImageAdSelected
+{
+	padding: 0px;
+	margin: 0px;
+	width: 115px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./image/AdsClassifiedsSelected.png');
+	border: none;
+	cursor: pointer;
+}
+
+
+.NavBarImageGroup
+{
+	padding: 0px;
+	margin: 0px;
+	width: 70px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./images/Groups.png');
+	 border: none;
+	 cursor: pointer;
+}
+.NavBarImageGroup:hover,
+.NavBarImageGroup:selected
+{
+	padding: 0px;
+	margin: 0px;
+	width: 70px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./images/GroupsSelected.png');
+	border: none;
+	cursor: pointer;
+}
+input.NavBarImageGroup:hover
+{
+	padding: 0px;
+	margin: 0px;
+	width: 70px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./images/GroupsSelected.png');
+	border: none;
+	cursor: pointer;
+}
+.NavBarImageGroupSelected
+{
+	padding: 0px;
+	margin: 0px;
+	width: 70px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./images/GroupsSelected.png');
+	border: none;
+	cursor: pointer;
+}
+
+
+.NavBarImageAddAd
+{
+	padding: 0px;
+	margin: 0px;
+	width: 71px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./images/PostAdButton.png');
+	 border: none;
+	 cursor: pointer;
+}
+.NavBarImageAddAd:hover,
+.NavBarImageAddAd:selected
+{
+	padding: 0px;
+	margin: 0px;
+	width: 71px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./images/PostAdButtonSelected.png');
+	border: none;
+	cursor: pointer;
+}
+input.NavBarImageAddAd:hover
+{
+	padding: 0px;
+	margin: 0px;
+	width: 71px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./images/PostAdButtonSelected.png');
+	border: none;
+	cursor: pointer;
+}
+.NavBarImageAddAdSelected
+{
+	padding: 0px;
+	margin: 0px;
+	width: 71px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./images/PostAdButtonSelected.png');
+	border: none;
+	cursor: pointer;
+}
+.AddToLabel
+{
+	font-size: 10px;
+	font-family: Arial;
+	color: #1fb6e7;
+}
+.VenueName
+{
+	font-family: Arial;
+	font-size: 16px;
+	color: #1fb6e7;
+	padding-bottom: 10px;
+	font-weight: bold;
+	text-decoration: none;
+}
+.EventHeader
+{
+	font-family: Arial;
+	font-size: 30px;
+	color: White;
+	padding-bottom: 10px;
+	margin: 0;
+	font-weight: normal;
+	text-decoration: none;
+}
+.GroupHeader
+{
+	font-family: Arial;
+	font-size: 30px;
+	color: White;
+	line-height: 35px;
+	margin: 0;
+	font-weight: normal;
+	text-decoration: none;
+}
+.EventHeaderBlue
+{
+	font-family: Arial;
+	font-size: 30px;
+	color: #1fb6e7;
+	padding-bottom: 10px;
+	margin-bottom: 0;
+	font-weight: normal;
+	text-decoration: none;
+}
+.SearchLabel
+{
+	font-family:Arial;
+	font-size: 16px;
+	font-weight: bold;
+	color: #a5c13a;
+	text-decoration: none;
+}
+.VenueLabel
+{
+	font-family:Arial;
+	font-size: 12px;
+	font-weight: bold;
+	text-decoration: none;
+	color: #1fb6e7;
+}
+.NumLabel
+{
+	font-family:Arial;
+	font-size: 12px;
+	color: #535252;	
+}
+
+.EventBody
+{
+	font-size: 12px;
+	color: #535252;
+	font-family: Arial;
+	line-height: 20px;
+	width: 440px;
+}
+.MessageBody
+{
+	font-size: 12px;
+	color: #535252;
+	font-family: Arial;
+	line-height: 20px;
+
+}
+.AddLink
+{
+	color: #09718F;
+	text-decoration: underline;
+	cursor: pointer;
+	font-size: 12px;
+	font-weight: normal;
+}
+.addthis_button_compact
+{
+	color: #09718F;
+	text-decoration: underline;
+	cursor: pointer;
+	font-size: 12px;
+	font-weight: bold;
+	font-family: Arial;
+}
+.AddUnderLink
+{
+	font-family: Arial;
+	font-weight: bold;
+	color: #1fb6e7;
+	font-size: 12px;
+	text-decoration: underline;
+	padding-bottom: 11px;
+}
+.AddLinkNoPadding
+{
+	font-family: Arial;
+	font-weight: bold;
+	color: #1fb6e7;
+	font-size: 12px;
+	text-decoration: none;
+}
+
+.AddLinkNoPaddingDisabled
+{
+	font-family: Arial;
+	font-weight: normal;
+	color: #93d6ef;
+	font-size: 12px;
+	text-decoration: none;
+	cursor: default;
+}
+
+.AddGreyLink
+{
+	font-family: Arial;
+	font-weight: bold;
+	color: #121010;
+	font-size: 12px;
+	text-decoration: underline;
+	padding-bottom: 11px;
+}
+.AddGreyLinkAlt
+{
+	font-family: Arial;
+	font-weight: bold;
+	color: #535252;
+	font-size: 12px;
+	text-decoration: underline;
+	padding-bottom: 11px;
+}
+.AddLinkSmall
+{
+	font-family: Arial;
+	font-weight: bold;
+	color: #1fb6e7;
+	font-size: 10px;
+	text-decoration: underline;
+}
+.AddLinkSmallUn
+{
+	font-family: Arial;
+	font-weight: bold;
+	color: #1fb6e7;
+	font-size: 10px;
+	text-decoration: none;
+	
+}
+.AddPagerNextLink
+{
+	font-family: Arial;
+	font-weight: bold;
+	color: #09718F;
+	font-size: 12px;
+	text-decoration: none;
+	padding-bottom: 11px;
+	position: absolute;
+	right: 15px;	
+	padding-right: 3px;
+	padding-left: 3px;
+}
+.AddPagerPreviousLink
+{
+	font-family: Arial;
+	font-weight: bold;
+	color: #09718F;
+	font-size: 12px;
+	text-decoration: none;
+	padding-bottom: 11px;
+	position: absolute;
+	right: 90px;	
+	padding-right: 3px;
+	padding-left: 3px;
+}
+.AddPagerPreviousDisabled
+{
+	font-family: Arial;
+	font-weight: bold;
+	color: #6fa8bf;
+	font-size: 12px;
+	text-decoration: none;
+	padding-bottom: 11px;
+	position: absolute;
+	right: 90px;	
+	cursor: text;
+	padding-right: 3px;
+	padding-left: 3px;
+}
+
+
+
+.AddLinkNotBold
+{
+	font-family: Arial;
+	color: #1fb6e7;
+	font-size: 12px;
+	text-decoration: none;
+}
+
+.PagerPipe
+{
+	color: White;
+	position:absolute;
+	right: 64px;
+	font-size: 10px;
+	font-weight: bolder;
+}
+
+.AddLinkNextDisabled
+{
+	font-family: Arial;
+	font-weight: bold;
+	color: #6fa8bf;
+	font-size: 12px;
+	text-decoration: none;
+	padding-bottom: 11px;
+	position: absolute;
+	right: 15px;
+	cursor: text;	
+}
+
+.AddLinkNextDisabled a:disabled
+{
+	font-family: Arial;
+	font-weight: bold;
+	color: #6fa8bf;
+	font-size: 12px;
+	text-decoration: none;
+	padding-bottom: 11px;
+	position: absolute;
+	right: 15px;	
+	cursor: text;
+}
+
+.PagesPager
+{
+	color: #535252;
+	font-family: Arial;
+	font-size: 12px;
+	font-weight: bold;
+	padding-left: 6px;
+	padding-bottom: 11px;
+}
+
+.AddLinkDisabled
+{
+	font-family: Arial;
+	font-weight: bold;
+	color: #535252;
+	font-size: 12px;
+	text-decoration: none;
+	padding-bottom: 11px;
+}
+.AddGreenLink
+{
+	font-family: Arial;
+	font-weight: bold;
+	color: #A5C13A;
+	font-size: 12px;
+	text-decoration: none;
+	padding-bottom: 11px;
+}
+.AddPurpleLink
+{
+	font-family: Arial;
+	font-weight: bold;
+	color: #d190f4;
+	font-size: 12px;
+	text-decoration: none;
+	padding-bottom: 11px;
+}
+
+.AddLightGreenLink
+{
+	font-family: Arial;
+	font-weight: bold;
+	color: #7cae0c;
+	font-size: 12px;
+	text-decoration: none;
+	padding-bottom: 11px;
+}
+.RotatorArrow
+{
+	float: left;
+	margin-top: 162px;
+	margin-left: 270px;
+	cursor: pointer;
+}
+.RotatorArrowDown
+{
+	float: left;
+	margin-top: 162px;
+	margin-left: 20px;
+	cursor: pointer;
+}
+.AddOrangeLink
+{
+	font-family: Arial;
+	color: #fe9b1b;
+	font-size: 12px;
+	text-decoration: none;
+	padding-bottom: 11px;
+}
+.AddGreenLinkBig
+{
+	font-family: Arial;
+	color: #A5C13A;
+	font-size: 20px;
+	text-decoration: none;
+	padding-bottom: 11px;
+}
+.AddWhiteLink
+{
+	font-family: Arial;
+	font-weight: bold;
+	color: White;
+	font-size: 12px;
+	text-decoration: none;
+	padding-bottom: 11px;
+	cursor: pointer;
+}
+.AddWhiteLinkSmall
+{
+	font-family: Arial;
+	font-weight: bold;
+	color: #535252;
+	font-size: 10px;
+	text-decoration: none;
+	cursor: pointer;
+}
+.AddLinkBig
+{
+	font-family: Arial;
+	font-weight: bold;
+	color: #1fb6e7;
+	font-size: 16px;
+	text-decoration: none;
+	padding-bottom: 11px;
+}
+.Link
+{
+	color: #27819b;
+	text-decoration: none;
+	cursor: pointer;
+	font-size: 12px;
+	font-weight: normal;
+	padding-bottom: 11px;
+	padding-right: 10px;
+}
+
+.GreenLink
+{
+	font-family: Arial;
+	font-weight: bold;
+	color: #1fb6e7;
+	text-decoration: none;
+	padding-bottom: 11px;
+}
+
+.TagLink
+{
+	color:#33a923;
+	float:left;
+	font-family:Arial;
+	font-size:12px;
+	text-decoration:none;
+	font-weight: normal;
+	padding-right: 4px;
+}
+.AddLinkGoing
+{
+	font-family: Arial;
+	font-style: italic;
+	font-weight: bold;
+	color: #A5C13A;
+	font-size: 16px;
+	text-decoration: none;
+	padding-bottom: 11px;
+}
+.Comment
+{
+	font-size: 11px;
+	font-family: Arial;
+	color: #535252;
+	line-height: 20px;
+}
+.SayLabel
+{
+	font-size: 25px;
+	font-family: Arial;
+	color: White;
+	padding-bottom: 5px;
+}
+.AddCommentTextBox
+{
+	background: url('image/AddCommentMiddle.jpg') repeat-y;
+	/*background-image: url('image/AddCommentBackground.jpg');
+	background-repeat: no-repeat;*/
+	padding: 5px;
+	border: none;
+	width: 536px;
+	height: 111px;
+	background-color: White;
+}
+.FooterTitle
+{
+	font-family: Arial;
+	font-size: 30px;
+	color: White;
+}
+.OtherEventTitle
+{
+	font-family: Arial;
+	font-size: 12px;
+	color: #1fb6e7;
+	font-weight: bold;
+	text-decoration: none;
+}
+.PresentedByTitle
+{
+	font-family: Arial;
+	font-size: 12px;
+	color: White;
+}
+.OtherEventSummary
+{
+	font-family: Arial;
+	font-size: 12px;
+	color: #999999;
+}
+div#topDiv:after 
+{
+   content: "."; 
+   display: block; 
+   height: 0; 
+   clear: both; 
+   visibility: hidden;
+}
+
+/*hack for IE 6*/
+* html div#topDiv {height: 1%;}
+
+/*hack for IE 7*/
+* + html div#topDiv {height: 1%;}
+
+div.topDiv:after 
+{
+   content: "."; 
+   display: block; 
+   height: 0; 
+   clear: both; 
+   visibility: hidden;
+}
+
+/*hack for IE 6*/
+* html div.topDiv {height: 1%;}
+
+/*hack for IE 7*/
+* + html div.topDiv {height: 1%;}
+
+div#topDiv2:after 
+{
+   content: "."; 
+   display: block; 
+   height: 0; 
+   clear: both; 
+   visibility: hidden;
+}
+
+/*hack for IE 6*/
+* html div#topDiv3 {height: 1%;}
+
+/*hack for IE 7*/
+* + html div#topDiv3 {height: 1%;}
+
+div#topDiv3:after 
+{
+   content: "."; 
+   display: block; 
+   height: 0; 
+   clear: both; 
+   visibility: hidden;
+}
+
+/*hack for IE 6*/
+* html div#topDiv3 {height: 1%;}
+
+/*hack for IE 7*/
+* + html div#topDiv3 {height: 1%;}
+
+div#topDiv4:after 
+{
+   content: "."; 
+   display: block; 
+   height: 0; 
+   clear: both; 
+   visibility: hidden;
+}
+
+/*hack for IE 6*/
+* html div#topDiv4 {height: 1%;}
+
+/*hack for IE 7*/
+* + html div#topDiv4 {height: 1%;}
+
+div#topDiv5:after 
+{
+   content: "."; 
+   display: block; 
+   height: 0; 
+   clear: both; 
+   visibility: hidden;
+}
+
+/*hack for IE 6*/
+* html div#topDiv5 {height: 1%;}
+
+/*hack for IE 7*/
+* + html div#topDiv5 {height: 1%;}
+
+div#topDiv6:after 
+{
+   content: "."; 
+   display: block; 
+   height: 0; 
+   clear: both; 
+   visibility: hidden;
+}
+
+/*hack for IE 6*/
+* html div#topDiv6 {height: 1%;}
+
+/*hack for IE 7*/
+* + html div#topDiv6 {height: 1%;}
+
+.AdTitle
+{
+	color: White;
+	font-weight: bold;
+	font-family: Arial;
+	font-size: 14px;
+	margin-top: 10px;
+	text-decoration: none;
+	padding-left: 2px;
+	padding-right: 2px;
+}
+.AdBody
+{
+	color: #535252;
+	font-family: Arial;
+	font-size: 12px;
+	line-height: 16px;
+}
+.ReadMoreLink
+{
+	 font-family: Arial; 
+	 font-weight: bold;
+	 color: #1fb6e7; 
+	 font-size: 12px;
+	 text-decoration: none;
+}
+.PollQuestion
+{
+	font-family: Arial;
+	color: White;
+	font-size: 16px;
+	font-weight: bold;
+	text-decoration: none;
+}
+.AnswerList
+{
+	font-family: Arial;
+	color: White;
+	font-weight: bold;
+	font-size: 12px;
+	line-height: 20px;
+}
+.EventTabStrip
+{
+	padding-left: 5px;
+}
+
+#ctl00_ContentPlaceHolder1_RadTabStrip1  .RadTabStrip .rtsLink, 
+#ctl00_ContentPlaceHolder1_RadTabStrip1 .RadTabStripVertical .rtsLink
+{
+	cursor: pointer !important;
+}
+#ctl00_ContentPlaceHolder1_RadTabStrip2 .RadTabStrip .rtsLink,
+#ctl00_ContentPlaceHolder1_RadTabStrip2 .RadTabStripVertical .rtsLink
+{
+	cursor: pointer !important;
+}
+#ctl00_ContentPlaceHolder1_RadTabStrip3 .RadTabStrip .rtsLink,
+#ctl00_ContentPlaceHolder1_RadTabStrip3 .RadTabStripVertical .rtsLink
+{
+	cursor: pointer !important;
+}
+
+.MessageDiv label
+{
+	font-family: Arial;
+	font-size: 12px;
+	color: White;
+	margin-bottom: 3px;
+}
+.AspLabel
+{
+	font-family: Arial;
+	font-size: 14px;
+	color: #535252;
+}
+
+.FriendDiv label
+{
+	font-family: Arial;
+	font-size: 14px;
+	color: White;
+	font-weight: bold;
+}
+
+.RegisterDiv label
+{
+	font-family: Arial;
+	font-size: 12px;
+	color: #535252;
+}
+.CheckText
+{
+	font-family: Arial;
+	font-size: 14px;
+	color: #535252;
+}
+.MusicCheckBoxes
+{
+	border:  solid 1px #dedbdb;
+}
+.ErrorLabel
+{
+	color: #3dc2ec;
+	font-family: Arial;
+	font-size: 12px;
+	font-weight: bold;
+}
+.ReLabel
+{
+	color: #999999;
+	font-size: 14px;
+	font-family: Arial;
+}
+.SendMessageModal
+{
+	background-color: Black;
+}
+.EventGoersLabel
+{
+	color: #1fb6e7;
+	font-size: 16px;
+	font-family: Arial;
+	text-decoration: none;
+	font-weight: bold;
+}
+.PageLinkSelected
+{
+	text-decoration: none;
+	color: #6fa8bf;
+	padding: 0px;
+	padding-bottom: 11px;
+	font-size: 13px;
+	font-family: Arial;
+	font-weight: bold;
+	padding-right: 3px;
+	padding-left: 3px;
+}
+.PageLink
+{
+	text-decoration: none;
+	color: #09718F;
+	padding: 0px;
+	padding-bottom: 11px;
+	font-size: 13px;
+	font-family: Arial;
+	font-weight: bold;
+	padding-right: 3px;
+	padding-left: 3px;
+}
+.CommaText
+{
+	text-decoration: none;
+	color: #1fb6e7;
+	padding-right: 3px;
+	padding-bottom: 11px;
+	font-size: 13px;
+	font-family: Arial;
+	font-weight: bold;
+}
+.TopPagerPanel
+{
+	padding-top: 6px;
+	height: 18px;
+	position: relative;
+	border: solid 1px #dedbdb;
+}
+.BottomPagerPanel
+{
+	height: 21px;
+	position: relative;
+	border: solid 1px #dedbdb;
+}
+.SearchButtons
+{
+	padding-top: 5px;
+	padding-left: 12px;
+	padding-right: 7px;
+}
+.SearchVenuePadding
+{
+	margin-left: 70px;
+}
+.PanelBarLabel
+{
+	font-family: Arial;
+	font-size: 14px;
+	color: #535252;
+}
+
+.FriendPic
+{
+	padding: 10px;
+}
+.FriendEvent
+{
+	font-family: Arial;
+	font-size: 16px;
+	color: White;
+}
+.PreferencesTitle
+{
+	font-family: Arial;
+	font-size: 16px !important;
+	color: #09718F !important;
+}
+.PreferencesTitleAlt
+{
+	font-family: Arial;
+	font-size: 16px !important;
+	color: #33a923 !important;
+}
+.Prefs div.Pad
+{
+	margin-bottom: 30px;
+}
+
+.Prefs div.Pad2
+{
+	
+	background-color: white;
+	margin-bottom: 30px;
+}
+
+.WhiteHeader
+{
+	font-family: Arial; 
+	font-size: 20px; 
+	color: White;
+	padding-bottom: 12px;
+}
+.PollQuestion
+{
+	font-family: Arial;
+	font-size: 20px;
+	color: #535252;
+}
+.AddressLabel
+{
+	font-family: Arial;
+	font-size: 14px;
+	color: White;
+	font-style: italic;
+}
+.CalendarHeader
+{
+	font-family: Arial;
+	font-size: 16px;
+	color: White;
+	text-decoration: underline;
+}
+.CalendarTime
+{
+	font-family: Arial;
+	line-height: 20px; 
+	font-size: 16px;
+	color: #262626;
+}
+.CalendarDescription
+{
+	color: #262626;
+	font-size: 12px;
+}
+.SmallLink
+{
+	color: #1fb6e7; 
+	font-family: Arial; 
+	font-size: 10px; 
+	text-decoration: none;
+	font-weight: bold;
+}
+.CommentLabel
+{
+	color: #A5C13A;
+	font-weight: bold;
+}
+.HiddenDiv
+{
+	visibility: hidden;
+}
+.EventToolTip
+{
+	background-color: Black;
+}
+
+.rtsLevel a
+{
+	background-color: Transparent;
+	color: #999999;
+	font-size: 14px;
+	height: 30px;
+	text-decoration: none;
+	font-family: Arial;
+	margin: 5px;
+}
+.rtsLevel a:selected
+{
+	background-color: #363636;
+	color: White;
+	font-size: 14px;
+	height: 26px;
+	text-decoration: none;
+	font-family: Arial;
+	margin: 5px;
+}
+
+.FavoritesPanel
+{
+	padding: 7px;
+	font-size: 12px;
+	color: #535252;
+	font-family: Arial;
+	line-height: 20px;
+	overflow: hidden;
+}
+.Padding
+{
+	padding-left: 20px;
+	display: block;
+}
+.FriendMessage
+{
+	padding-left: 5px;
+	padding-top: 5px;
+	width: 440px;
+	background-color: white;
+	border: solid 1px #333333;
+	height: 25px;
+	vertical-align: middle;
+}
+div#BottomFooter a
+{ 
+	font-size: 10px; 
+	color: #09718F;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-family: Arial;
+	line-height: 10px;
+}
+div#BottomFooter div#copy
+{
+	color: #535252;
+	text-decoration: none;
+	font-family: Arial;
+	font-size: 12px;
+	text-transform: none;
+}
+.MailHeader
+{
+	border-top: solid 4px #fe7806;
+	height: 50px;
+	width: 560px;
+	background-color: white;
+	margin-bottom: 3px;
+	
+	cursor: pointer;
+}
+
+.MailContent
+{
+	width: 560px;
+	background-color: white;
+	margin-bottom: 3px;
+}
+
+.AdCss
+{
+	background: Transparent;
+}
+
+input.TopHeaderImage
+{
+	padding: 0 7px 4px 0;
+}
+input.TopHeaderImage:hover,
+input.TopHeaderImage:selected
+{
+	padding: 0 7px 4px 0;
+	border-bottom: solid 4px white;
+}
+.rtsLevel a
+{
+	margin: 0px;
+	padding: 0px;
+}
+
+.rtsImg
+{
+	border: 0;
+}
+
+.HomeDay
+{
+	text-transform: uppercase;
+	color: White;
+	font-family: Arial;
+	font-size: 20px;
+}
+.HomeMonth
+{
+	color: #A467C2;
+	text-transform: uppercase;
+	font-family: Arial;
+	font-size: 12px;
+}
+.HomeNumber
+{
+	text-transform: uppercase;
+	color: White;
+	font-family: Arial;
+	font-size: 35px;
+	font-weight: bold;
+}
+.HomeEvent
+{
+	font-family: Arial;
+	font-size: 20px;
+	color: White;
+	text-decoration: none;
+}
+.HomeSummary
+{
+	font-family: Arial;
+	font-size: 12px;
+	color: #535252;
+}
+
+.rtsLI
+{
+	background-image: none !important;
+	font-size: 12px !important;
+	color: #535252 !important;
+	font-family: Arial !important;
+}
+
+.rtsLevel1 .rtsOut
+{
+	background-image: none !important;
+	padding: 0px !important;
+	margin: 0px !important;
+}
+
+.rtsLink
+{
+	background-image: none !important;
+	font-size: 20px !important;
+	color: #535252 !important;
+	font-family: Arial !important;
+	outline: none !important;
+	outline-width: 0px;
+	outline-style: none;
+	
+}
+
+.rtsLevel a
+{	
+}
+
+.rtsLevel a.rtsSelected
+{
+	background-color: Transparent;
+}
+
+.HigherItalic
+{
+	font-size: 20px;
+	font-weight: bold;
+	font-family: Pristina;
+}
+
+.RadioSelect:selected
+{
+	background-color: #666666;
+}
+
+.Paddings
+{
+	padding: 5px 10px 5px 10px;
+}
+.Paddings20
+{
+	padding: 20px;
+}
+.rpRootGroup
+{
+	padding: 0 !important;
+}
+
+.VenueCheckBoxes
+{
+	background-color: white;
+}
+
+.FloatRight
+{
+	float: right;
+}
+
+.radr_clipRegion
+{
+	position: absolute !important;
+}
+
+.RadTabStripLeft_Black .rtsLevel .rtsUL, 
+.RadTabStripLeft_Black .rtsLevel .rtsLI
+{
+	width: 280px !important;
+}
+
+.RadTabStripLeft_Vista .rtsLevel .rtsUL, 
+.RadTabStripLeft_Vista .rtsLevel .rtsLI
+{
+	width: 280px !important;
+}
+
+.RadTabStripLeft_Vista .rtsLevel .rtsLI
+{
+	height: 47px;
+	margin-top: 1px !important;
+}
+.RadTabStripLeft_Vista .rtsLevel a
+{
+	height: 45px !important;
+}
+
+.RadTabStripLeft_Black .rtsLevel .rtsLI
+{
+	height: 47px;
+	margin-top: 1px !important;
+}
+.RadTabStripLeft_Black .rtsLevel a
+{
+	height: 45px !important;
+}
+
+.MyTabs
+{
+	padding-top: 10px !important;
+	color: #09718f !important;
+	font: Arial 12px;
+}
+
+
+
+.MyTabsMessages
+{
+	border: solid 1px #dedbdb !important;
+	cursor: pointer;
+	font: Arial 12px;
+	color: #535252 !important;
+	width: 278px;
+}
+
+.rtsSelected
+{
+	background-color: Transparent;
+	color: #09718F !important;
+	font-size: 14px;
+	height: 30px !important;
+	text-decoration: none;
+	font-family: Arial;
+	margin: 5px;
+}
+
+.MyTabsMessages:hover
+{
+	border: solid 1px #dedbdb !important;
+	cursor: pointer;
+	font: Arial 12px;
+	color: #09718f !important;
+	width: 278px;
+}
+
+.MyTabsMessages:hover .rtsIn
+{
+	text-align: right !important;
+}
+
+.MyTabsMessages .rtsIn
+{
+	text-align: left !important;
+}
+
+.rtsSelected .rtsIn
+{
+	text-align: right !important;
+}
+
+.MyTabsMessagesSelected
+{
+	cursor: default;
+	border: solid 1px #dedbdb !important;
+	font: Arial 12px;
+	color: #09718f !important;
+	width: 278px;
+}
+
+.MyTabsMessages .rtsSelected
+{
+	cursor: default;
+	border: solid 1px #dedbdb !important;
+	font: Arial 12px;
+	color: #09718f !important;
+	width: 278px;
+}
+
+.MyTabsMessagesSelected .rtsIn
+{
+	text-align: right !important;
+}
+
+
+.MyTabsMessagesHover
+{
+	cursor: default;
+	border: solid 1px #dedbdb !important;
+	width: 278px;
+}
+
+.MyTabsMessagesHover .rtsIn
+{
+	text-align: right !important;
+}
+
+.MyTabsFriends
+{
+	background-image: url('images/MyFriends.png') !important;
+	background-position: 12px  !important;	
+	cursor: pointer;
+	border: solid 1px #dedbdb  !important;
+}
+
+.MyTabsFriendsSelected
+{
+	background-color: white !important;
+	background-image: url('images/MyFriendsHover.png') !important;	
+	background-position: 12px  !important;
+	cursor: default;	
+	border: solid 1px #dedbdb  !important;
+}
+
+.MyTabsFriendsHover
+{
+	background-image: url('images/MyFriendsHover.png') !important;	
+	background-position: 12px  !important;
+	cursor: pointer !important;	
+	border: solid 1px #dedbdb  !important;
+}
+
+.MyTabsGroups
+{
+	background-image: url('images/MyGroups.png') !important;
+	background-position: 12px  !important;	
+	cursor: pointer;
+	border: solid 1px #dedbdb  !important;
+}
+
+.MyTabsGroupsSelected
+{
+	background-color: white  !important;
+	background-image: url('images/MyGroupsHover.png') !important;	
+	background-position: 12px  !important;
+	cursor: default;	
+	border: solid 1px #dedbdb  !important;
+}
+
+.MyTabsGroupsHover
+{
+	background-image: url('images/MyGroupsHover.png') !important;	
+	background-position: 12px  !important;
+	cursor: pointer !important;	
+	border: solid 1px #dedbdb  !important;
+}
+
+.MyTabsPreferences
+{
+	background-image: url('images/MyPreferences.png') !important;
+	background-position: 12px !important;	
+	cursor: pointer;
+	border: solid 1px #dedbdb  !important;
+}
+
+
+.MyTabsPreferencesSelected
+{
+	background-color: white  !important;
+	background-image: url('images/MyPreferencesHover.png') !important;	
+	background-position: 12px !important;
+	cursor: default;
+	border: solid 1px #dedbdb  !important;	
+}
+
+.MyTabsPreferencesHover
+{
+	background-image: url('images/MyPreferencesHover.png') !important;	
+	background-position: 12px !important;
+	cursor: pointer !important;	
+	border: solid 1px #dedbdb  !important;
+}
+
+.MyTabsSelected
+{
+	padding-top: 10px !important;
+	color: #ff7401 !important;
+	border: solid 1px #dedbdb  !important;
+}
+
+.RadTabStrip_Black .rtsLi
+{
+	height: 30px;	
+}
+
+.RadTabStrip_Vista .rtsLi
+{
+	height: 30px;	
+}
+
+div.radwindow_Black table td.topleft
+{
+	background: none !important;
+}
+
+div.radwindow_Vista table td.topleft
+{
+	background: none !important;
+}
+
+div.radwindow_Black table td.titlebar
+{
+	background: none !important;
+}
+
+div.radwindow_Vista table td.titlebar
+{
+	background: none !important;
+}
+
+div.radwindow_Black table td.topright
+{
+	background: none !important;
+}
+
+div.radwindow_Vista table td.topright
+{
+	background: none !important;
+}
+
+div.radwindow_Black table td.bodyleft
+{
+	background: none !important;
+}
+
+div.radwindow_Vista table td.bodyleft
+{
+	background: none !important;
+}
+
+
+div.radwindow_Black table td.bodyright
+{
+	background: none !important;
+}
+
+div.radwindow_Vista table td.bodyright
+{
+	background: none !important;
+}
+
+div.radwindow_Black table td.footerleft
+{
+	background: none !important;
+}
+
+div.radwindow_Vista table td.footerleft
+{
+	background: none !important;
+}
+
+div.radwindow_Black table td.footerright
+{
+	background: none !important;
+}
+
+div.radwindow_Vista table td.footerright
+{
+	background: none !important;
+}
+
+div.radwindow_Black table td.footercenter
+{
+	background: none !important;
+}
+
+div.radwindow_Vista table td.footercenter
+{
+	background: none !important;
+}
+
+div.radwindow_Black .windowcontent
+{
+	border: solid 3px black !important;	
+}
+
+div.radwindow_Vista .windowcontent
+{
+	border: solid 3px black !important;	
+}
+
+.RadTabStripLeft_Black .rtsLink
+{
+	margin-left: 0 !important;
+}
+
+.RadTabStripLeft_Vista .rtsLink
+{
+	margin-left: 0 !important;
+}
+
+.MessageDiv h1
+{
+	color: White;
+	font: 20px Arial, sans-serif;
+	font-weight: bold;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+.MessageDiv h4
+{
+	color: White;
+	font: 16px Arial, sans-serif;
+	font-weight: bold;
+}
+
+
+.RadPanelBar .rpRootGroup, .RadPanelBar .rpGroup, .RadPanelBar .rpItem
+{
+	background-color: white !important;
+	color: #535252 !important;
+}
+.RadPanelBar_Default .rpExpanded
+{
+	border-bottom: 0 !important;
+	color: #535252 !important;
+}
+.RadPanelBar .rpLevel1
+{
+	border: 0 !important;	
+}
+
+.RadPanelBar_Default .rpRootGroup .rpTemplate
+{
+	background-color: white !important;	
+}
+
+.RadPanelBar_Default ul.rpRootGroup
+{
+	border: 0 !important;	
+}
+
+.RadPanelBar_Default
+{
+	background: none !important;
+}
+
+.RadTabStrip_Black .rtsLink
+{
+	font: 20px Arial !important;
+}
+
+.RadTabStrip_Vista .rtsLink
+{
+	font: 20px Arial !important;
+}
+
+.RadTabStripTop_Black .rtsLevel1 .rtsIn
+{
+	padding-top: 0px !important;	
+}
+
+.RadTabStripTop_Vista .rtsLevel1 .rtsIn
+{
+	padding-top: 0px !important;	
+}
+
+.RadPanelBar_Default .rpGroup .rpLink, .RadPanelBar_Default .rpGroup .rpTemplate
+{
+	font-size: 13px !important;
+}
+
+.XButton
+{
+	background-image: 'url(~/image/XSelected.png)';
+}
+.XButton:hover
+{
+	background-image: 'url(~/image/X.png)';
+}
+.RadPanelBar_Default .rpGroup
+{
+	overflow: hidden !important;
+}
+
+.InputClass
+{
+	margin-top: 3px;
+	border: solid 1px #dedbdb;
+	width: 300px; 
+	height: 180px; 
+	padding: 5px;
+}
+.FloatLeft
+{
+	float: left;
+}
+
+.FloatRight
+{
+	float: right;
+}
+
+object.toHidde:hidden {
+    position: absolute;
+    left: -10000px;
+    z-index: 1;
+}
+toHidde.hidden
+{
+	position: absolute;
+    left: -10000px;
+    z-index: 1;
+}
+object:hidden
+{
+	position: absolute;
+    left: -10000px;
+    z-index: 1;
+}
+
+
+.SearchButton
+{
+	cursor: pointer;
+	font-weight: bold;
+	padding:0;
+	padding-bottom: 4px; 
+	font-size: 11px;
+	height: 30px; 
+	width: 112px;
+	background-color: transparent; 
+	color: White; 
+	background-image: url('image/PostButtonNoPost.png'); 
+	background-repeat:no-repeat; 
+	border: 0; 
+}
+
+.SearchButton2
+{
+	cursor: pointer;
+	font-weight: bold;
+	padding:0;
+	padding-bottom: 4px; 
+	font-size: 9px;
+	height: 30px; 
+	width: 112px;
+	background-color: transparent; 
+	color: White; 
+	background-image: url('image/PostButtonNoPost.png'); 
+	background-repeat:no-repeat; 
+	border: 0; 
+}
+
+.SearchButtonSmall
+{
+	cursor: pointer;
+	font-weight: bold;
+	padding:0;
+	padding-bottom: 4px; 
+	font-size: 11px;
+	height: 32px; 
+	width: 70px;
+	background-color: transparent; 
+	color: White; 
+	background-image: url('image/SmallButton.png'); 
+	background-repeat:no-repeat; 
+	border: 0; 
+
+}
+
+.MeaslesHeader
+{
+	font-family: Arial;
+	font-size: 14px;
+	color: #02d201;
+	border-bottom: solid 2px White;
+	font-weight: bold;
+}
+
+.HeaderColumn
+{
+	border-bottom: solid 2px White;
+	padding-right: 10px;
+	text-align: center;
+	vertical-align: bottom;
+}
+
+.MeaslesRow
+{
+	font-family: Arial;
+	font-size: 12px;
+	color: #02d201;
+	border-bottom: solid 2px #535252;
+	text-align: center;
+}
+
+.NameColumnAlt
+{
+	font-family: Arial;
+	font-size: 12px;
+	color: #535252;
+	text-align: right;
+	font-weight: bold;
+	padding: 5px;
+}
+
+.NameColumn
+{
+	font-family: Arial;
+	font-size: 12px;
+	color: #02d201;
+	text-align: right;
+	font-weight: bold;
+	padding: 5px;
+}
+.ContentColumnAlt
+{
+	border-bottom: solid 2px #535252;
+	padding: 5px;
+	font-family: Arial;
+	font-size: 12px;
+	color: #1fb6e7;
+	font-weight: bold;
+	text-align: center;
+	
+}
+
+.ContentColumn
+{
+	border-bottom: solid 2px #02d201;
+	padding: 5px;
+	font-family: Arial;
+	font-size: 12px;
+	color: #1fb6e7;
+	font-weight: bold;
+	text-align: center;
+}
+
+
+.NAColumn
+{
+	font-family: Arial;
+	font-size: 12px;
+	color: Red;
+	font-weight: bold;
+	text-align: center;
+}
+
+.XColumn
+{
+	font-family: Arial;
+	font-size: 12px;
+	color: #1fb6e7;
+	font-weight: bold;
+	text-align: center;
+}
+
+.GreenButton
+{
+	cursor: pointer;
+	font-weight: bold;
+	padding:0;
+	width: 200px;
+	padding-bottom: 4px; 
+	font-size: 11px;
+	height: 30px; 
+	background-color: transparent; 
+	color: White; 
+	background-image: url('image/GreenButton.png'); 
+	background-repeat:no-repeat; 
+	border: 0; 
+	font-size:12px;
+	padding-left:10px;
+	padding-top:7px;
+}
+.PaddingTop
+{
+	padding-top: 5px;
+}
+
+.HelpImage
+{
+	cursor: pointer;
+}
+
+tr.isAlt
+{
+	background-color: transparent;
+	font-family: Arial;
+	font-size: 14px;
+	border-bottom: solid 1px #dedbdb;
+}
+
+tr.notAlt
+{
+	background-color: transparent;
+	font-family: Arial;
+	font-size: 14px;
+	border-bottom: solid 1px #dedbdb;
+}
+
+
+.SayFriendPanel
+{
+	margin: 10px;
+	padding: 5px;
+}
+.RadScheduler .rsHorizontalHeaderTable
+{
+	width: 100% !important;
+}
+.RadScheduler .rsContentTable
+{
+	width: 100% !important;
+}
+
+.radwindow .contentrow .windowcontent
+{
+	z-index: 3000;	
+}
+
+
+.radr_Default .radr_button.radr_buttonRight
+{
+	right: -242px !important;
+	position: relative;
+	top: 30% !important;
+}
+
+.radr_Web20 .radr_button.radr_buttonRight
+{
+	right: -820px !important;
+	position: relative;
+	top: 30% !important;
+}
+
+.radr_button.radr_buttonLeft
+{
+	top: 30% !important;
+	float: left;
+}
+
+.radr_Black .radr_buttonLeft
+{
+	top: 30% !important;
+	float: left;
+}
+
+.radr_Vista .radr_buttonLeft
+{
+	top: 30% !important;
+	float: left;
+}
+
+.radr_Black .radr_buttonRight
+{
+	right: -402px !important;
+	position: relative;
+	top: 30% !important;
+}
+
+.radr_Vista .radr_buttonRight
+{
+	right: -402px !important;
+	position: relative;
+	top: 30% !important;
+}
+
+
+
+.radr_button .radr_buttonRight
+{
+	right: -402px !important;
+	position: relative;
+	top: 115px !important;
+}
+
+.radr_Default .radr_button .radr_buttonRight
+{
+	right: -402px !important;
+	position: relative;
+	top: 115px !important;
+}
+
+.FakeButton
+{
+	display: none;
+}
+
+
+.TermsPanel 
+{
+	background-color: white;
+	padding: 10px;
+}
+
+
+h1.Text14
+{
+	color: #535252;
+	font-size: 14px !important;
+	font-weight: bold;
+	text-decoration: none;
+	margin: 0;
+	padding: 0;
+}
+
+h1.Tags
+{
+	clear: none; float: left; margin: 0;padding: 0;
+}
+
+h2.Tags
+{
+	clear: none; float: left; margin: 0;padding: 0;
+}
+
+h1.BlueButton
+{
+	margin: 0;
+	padding: 0;
+	font-family: Arial;
+	font-size: 12px !important;
+	font-weight: normal;
+	color: #09718F !important;
+}
+
+H1
+{
+	font-size: 20px !important;
+	color: #535252;
+	margin-top: 5px;
+	text-decoration: none;
+}
+
+H1.SideColumn
+{
+	font-size: 16px !important;
+	color: #535252;
+	font-weight: bold;
+	margin-bottom: 5px;
+	text-decoration: none;
+}
+
+H1.Calendar
+{
+	font-size: 20px !important;
+	color: #535252;
+	margin-bottom: 1px;
+	text-decoration: none;
+}
+
+.SemiH2
+{
+	color: #535252;
+	font-size: 12px !important;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.HippoH22
+{
+	font-size: 14px !important;
+	margin: 0;
+	padding: 0;
+	font-weight: normal !important;
+}
+
+.HippoH2
+{
+	font-size: 16px !important;
+	margin: 0;
+	padding: 0;
+	font-weight: normal !important;
+}
+
+h2.Home
+{
+	font-size: 18px !important;
+}
+
+h1.HomeH2
+{
+	font-size: 30px !important;
+	margin-top: 0px !important;
+	margin-left: 20px;
+	padding-top: 15px;
+	margin-bottom: 0px !important;
+}
+
+.TextHome
+{
+	font-size: 12px;
+	font-family: Arial;
+	color: #333333;
+}
+
+h2.HomeH2
+{
+	font-size: 24px !important;
+	margin-top: 10px !important;
+	margin-bottom: 0px !important;
+	margin-left: 420px;
+}
+
+H2
+{
+	color: #535252;
+	font-size: 12px !important;
+	font-weight: bold;
+	margin-bottom: 5px;
+	margin-top: 5px;
+	text-decoration: none;
+}
+th
+{
+	color: #535252;
+	font-size: 12px !important;
+	font-weight: bold;
+	margin-bottom: 5px;
+	margin-top: 5px;
+}
+
+label,
+li
+{
+	font-size: 12px;
+}
+.TextNormal li
+{
+	font-family: 'Helvetica Neue','Helvetica','Arial',sans-serif;
+		color: #535252 !important;
+		font-size: 12px;
+		font-weight: normal;
+}
+.radeditor.Default .rade_wrapper_corner.rade_corner_top_right 
+ {
+-moz-background-clip:border;
+-moz-background-inline-policy:continuous;
+-moz-background-origin:padding;
+background:transparent url(image/WebResourceEditor.gif) no-repeat scroll 100% -14px !important;
+}
+
+.radeditor.Default .rade_wrapper_corner.rade_corner_top_left {
+-moz-background-clip:border;
+-moz-background-inline-policy:continuous;
+-moz-background-origin:padding;
+background:transparent url(image/WebResourceEditor.gif) no-repeat scroll 0 -26px !important;
+}
+.radeditor.Default .rade_wrapper_corner.rade_corner_bottom_left {
+-moz-background-clip:border;
+-moz-background-inline-policy:continuous;
+-moz-background-origin:padding;
+background:transparent url(image/WebResourceEditor.gif) no-repeat scroll 0 -65px !important;
+}
+
+.radeditor.Default .rade_wrapper_corner.rade_corner_bottom_right {
+-moz-background-clip:border;
+-moz-background-inline-policy:continuous;
+-moz-background-origin:padding;
+background:transparent url(image/WebResourceEditor.gif) no-repeat scroll -8px -53px !important;
+}
+
+.rade_dialog .rade_toolbar, 
+.rade_dialog .rade_toolbar li {
+background-image:none !important;
+display:none !important;
+}
+
+.InsertLink
+{
+	background-image: url(NewImages/LinkIcon.png) !important;
+	cursor: pointer;
+	margin-top: 2px;
+}
+
+.InsertLink:hover
+{
+	background-image: url(NewImages/LinkIcon.png) !important;
+	cursor: pointer;
+	margin-top: 2px;
+}
+
+.rade_tool:active, 
+.rade_tool:focus, 
+.rade_tool_selected, 
+.rade_tool_selected:hover, 
+.rade_tool_selected:active, 
+.rade_tool_selected:focus 
+{
+	background: none !important;
+}
+
+.rade_toolbar li 
+{
+	background: none !important;
+}
+
+.rade_tool {
+cursor:default;
+display:block;
+height:21px;
+outline-color:-moz-use-text-color;
+outline-style:none;
+outline-width:medium;
+text-decoration:none;
+width:21px;
+padding: 0 !important;
+margin: 0 !important;
+}
+
+.rade_tool span {
+background-repeat:no-repeat;
+display:block;
+height:21px;
+width:21px;
+}
+
+.rade_tool span {
+background-repeat:no-repeat;
+display:block;
+height:21px !important;
+width:21px !important;
+}
+
+element.style {
+height:200px;
+width:300px;
+}
+.radeditor.Black.rade_wrapper {
+height:480px;
+width:640px;
+}
+
+.radeditor.Vista.rade_wrapper {
+height:480px;
+width:640px;
+}
+
+.radeditor.Black.rade_wrapper {
+
+border:1px solid black !important;
+
+}
+
+.radeditor.Vista.rade_wrapper {
+
+border:1px solid black !important;
+
+}
+
+
+.hippoShareDigg
+{
+	background-position:0 -25px;
+	-moz-background-clip:border;
+	-moz-background-inline-policy:continuous;
+	-moz-background-origin:padding;
+	background:transparent url(http://i.cdn.turner.com/cnn/.element/img/3.0/global/icons/share_sprite_3.gif) no-repeat scroll 0 2px;
+	display:block;
+	padding:3px 0 4px 25px;
+}
+
+.PrefsLink
+{
+	font-size: 10px;
+	font-family: Arial;
+	color: #33a923;
+	text-decoration: underline;
+}
+
+.PrefsTip
+{
+	border: solid 1px #dedbdb !important;
+	width: 206px !important;
+	height: 254px !important;
+}
+
+
+.RadScheduler .rsApt
+{
+	cursor: pointer;
+}
+
+.RadRotator
+{
+	visibility: visible !important;
+}
+/*
+.radr_Default .radr_button.radr_buttonDown 
+{
+	display: block;
+	background-position:0 -40px;
+	left:50%;
+	margin-left:-10px;
+	top:100%;
+}
+.radr_Default .radr_button.radr_buttonDown 
+{
+	background-position:0 -40px;
+	left:50%;
+	margin-left:-10px;
+	top:100%;
+}
+.radr_Default .radr_button 
+{
+	background-image:url(WebResource.axd?d=tNXezzmGKa2NolE9-r64R1r5K1Ew5Ttj4hsRzFxbmsSl8ZhCDsMkGfIXOxkeDo6fdX9mpvdTyupXR1bbf-7h7P3l6hoImdM_C2B5Q9bGP3c1&t=634038585057567693);
+	background-repeat:no-repeat;
+	height:20px;
+	line-height:20px;
+	width:20px;
+}
+.radr_button.radr_buttonDown 
+{
+	background-position:0 -30px;
+	left:50%;
+	margin-left:-8px;
+	margin-top:1px;
+	top:100%;
+}
+.radr_Default .radr_button 
+{
+	background-image:url(WebResource.axd?d=tNXezzmGKa2NolE9-r64R1r5K1Ew5Ttj4hsRzFxbmsSl8ZhCDsMkGfIXOxkeDo6fdX9mpvdTyupXR1bbf-7h7P3l6hoImdM_C2B5Q9bGP3c1&t=634038585057567693);
+	background-repeat:no-repeat;
+	cursor:pointer;
+	float:left;
+	height:20px;
+	line-height:20px;
+	margin-left:20px;
+	margin-top:162px;
+	width:20px;
+}
+.radr_button 
+{
+	display:none;
+	font-size:1px;
+	height:15px;
+	line-height:15px;
+	outline-color:-moz-use-text-color;
+	outline-style:none;
+	outline-width:medium;
+	position:absolute;
+	text-indent:-9999px;
+	width:15px;
+}
+*/
+
+
+
+
+
+
+div.radwindow table.titlebarcontrols ul.controlbuttons
+{
+	padding-right: 10px !important;
+}
+
+
+.ResultsLabel
+{
+	font-family: Arial;
+	font-size: 14px;
+	color: #535252;
+}
+
+.SearchHeader
+{
+	font-family: Arial;
+	font-size: 24px;
+	color: #ffffff;
+}
+.updateProgress 
+{    
+    position:absolute;
+    height: 300px;
+    background-color:#1FB6E7; 
+    opacity: .1;
+    filter: alpha(opacity=10);
+    width: 600px;
+    z-index: 10000;
+}
+.updateProgressResults
+{
+    position:absolute;
+    background: transparent #1FB6E7; 
+    /*opacity: .3;
+    filter: alpha(opacity=30);*/
+    z-index: 10000;
+}
+.insideUpdateProgress
+{
+    position: absolute;
+    height: 300px;
+    width: 600px;
+    margin-top:13px; 
+    opacity: 1 !important;
+    filter: alpha(opacity=100) !important;
+    z-index: 20000;
+}
+.updateProgressMessage {
+    margin:3px; 
+    font-family:Trebuchet MS; 
+    font-size:small; 
+    color: #ffffff;
+    font-weight: bold;
+    vertical-align: middle;
+    opacity: 1 !important;
+    filter: alpha(opacity=100) !important;
+}
+.background {
+    background-color:#1FB6E7; 
+    filter:alpha(opacity=10); 
+    opacity:0.1; 
+} 
+
+.PageButtons
+{
+	font-family: Arial; 
+	font-size: 14px;
+	text-decoration: none; 
+	color: #535252;
+	font-weight: bold;
+}
+
+.OptionTitle
+{
+	font-family: Arial;
+	font-size: 11px;
+	color: White;
+	font-weight: bold;
+}
+
+.OptionLink
+{
+	font-family: Arial;
+	font-weight: bold;
+	color: #1fb6e7;
+	font-size: 10px;
+	text-decoration: none;
+	padding-bottom: 11px;
+	cursor: pointer;
+}
+
+.EventOptionLink
+{
+	font-family: Arial;
+	font-weight: bold;
+	color: #1fb6e7;
+	font-size: 10px;
+	text-decoration: none;
+	padding-bottom: 11px;
+	cursor: pointer;
+}
+
+.GroupDescription
+{
+	font-family: Arial;
+	font-size: 12px;
+	line-height: 19px;
+	padding-top: 15px;
+	padding-left: 8px;	
+}
+
+.GroupTitles
+{
+	font-family: Arial;
+	font-size: 18px;
+	color: White;
+	padding-top: 15px;	
+}
+
+.AddressText
+{
+	font-family: Arial;
+	font-size: 11px;
+	color: #535252;
+}
+
+.AddressTextNoColor
+{
+	font-family: Arial;
+	font-size: 11px;
+}
+
+.MemberName
+{
+	font-family: Arial;
+	font-weight: bold;
+	color: #1fb6e7;
+	font-size: 14px;
+	text-decoration: none;
+}
+
+.MemberTitle
+{
+	font-family: Arial;
+	font-weight: bold;
+	color: White;
+	font-size: 14px;
+	text-decoration: none;
+}
+
+.MemberDescription
+{
+	font-family: Arial;
+	font-size: 12px;
+	line-height: 18px;	
+}
+
+.EventMemberDescription
+{
+	font-family: Arial;
+	font-size: 12px;
+	line-height: 18px;	
+}
+
+.CaptionText
+{
+	color: #535252;
+	font-family: Arial;
+	font-size: 11px;
+	line-height: 11px;
+	background-color: Black;
+	padding: 5px;
+	height: 50px;
+	border-top: solid 1px #626262;	
+	float: left;
+	width: 400px;
+}
+
+.ThreadSelected
+{
+	font-family: Arial;
+	font-size: 12px;
+	font-weight: bold;
+	text-decoration: none;
+	vertical-align: middle;
+}
+
+.Thread
+{
+	font-family: Arial;
+	font-size: 12px;
+	font-weight: normal;
+	text-decoration: none;
+	vertical-align: middle;
+}
+
+.AddressTitle 
+{
+	color:White;
+	cursor:pointer;
+	font-family:Arial;
+	font-size:12px;
+	font-weight:bold;
+	padding-bottom:5px;
+	padding-top:5px;
+	text-decoration:none;
+}
+
+.AddressTitleNoColor
+{
+	cursor:pointer;
+	font-family:Arial;
+	font-size:12px;
+	font-weight:bold;
+	padding-bottom:5px;
+	padding-top:5px;
+	text-decoration:none;
+}
+
+.StuffBox
+{
+	border: 0;
+}
+
+* + html div.commentTop
+{
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="images/BigCommentTop.png", sizingMethod="image");
+}
+
+.RadScheduler .rsMonthView .rsShowMore
+{
+	color: #535252 !important;
+}
+
+.MessageBoard
+{
+	float: left;
+}
+
+.AdTemplates input
+{
+	margin-top: 35px;
+	margin-left: 20px;
+}
+
+.AdImage
+{
+	cursor: pointer;
+}
+
+.GroupTabs
+{
+	border-bottom: solid 1px #717171;
+}
+
+
+
+.GroupTab
+{
+
+	height:25px !important;
+	margin-bottom: 0px !important;
+}
+
+.GroupTab .rtsIn
+{
+	padding-top: 0px !important;
+}
+
+.GroupTab .rtsIn .rtsTxt
+{
+	border-bottom:1px solid #666666;
+	border-right:1px solid #666666;
+	padding-bottom: 5px !important;
+	background-image:url(images/GroupTabArrow2.png);
+	background-position:right center;
+	background-repeat:no-repeat;
+	padding-right:40px;
+}
+
+.RadScheduler_Web20 .rsMonthView .rsApt
+{
+	height: auto !important;
+	max-height: 70px !important;
+}
+
+
+.RadInput_Black .riEmpty, html body .RadInput_Empty_Black 
+{
+	color:#E6E6E6 !important;
+}
+
+.RadInput_Vista .riEmpty, html body .RadInput_Empty_Black 
+{
+	color:#E6E6E6 !important;
+}
+
+
+.RadPanelBar_Default .rpLink
+{
+	border: 0 !important;
+	background-color: White !important;
+}
+.MessagesRadPanel
+{
+	border-top: solid 1px #dedbdb;
+	border-right: solid 1px #dedbdb;
+}
+
+.NewNav 
+{
+	color:#09718F;
+	float:left;
+	font-family:Arial;
+	font-size:12px;
+	padding-left:15px;
+	padding-right:15px;
+	padding-top:6px;
+	text-decoration:none;
+}
+
+.NoPad
+{
+	margin: 0;
+	padding: 0;
+	display: inline;
+}
+
+a.Footer
+{
+	 text-transform: uppercase; 
+	 color: #09718F;
+	 font-size: 12px;
+	 font-weight: normal;
+}
+
+h1 a.NewNav
+{
+	color:#09718F;
+	float:left;
+	font-family:Arial;
+	font-size:12px;
+	padding: 0;
+	padding-left:15px;
+	padding-right:15px;
+	padding-top:6px;
+	text-decoration:none;
+	font-weight: normal;
+	margin: 0;
+}
+h1 a.NewNavHover
+{
+	background-color:#d3d1d1;
+	float:left;
+	font-family:Arial;
+	font-size:12px;
+	padding-left:14px;
+	padding-right:14px;
+	padding-top:6px;
+	text-decoration:none;	
+	border-left: solid 1px #09718F;
+	border-right: solid 1px #09718F;
+	height: 22px;
+	color:#09718F;
+	font-weight: normal;
+	margin: 0;
+}
+
+.NavyLink
+{
+	color: #09718F;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.NavyLinkUD
+{
+	color: #09718F;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.NormalLink
+{
+	color: #535252;
+	text-decoration: none;
+	cursor: pointer;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+.NavyLink12
+{
+	color: #09718F;
+	text-decoration: none;
+	cursor: pointer;
+	font-size: 12px;
+	font-weight: normal;
+}
+
+.NavyLink12UD
+{
+	color: #09718F;
+	text-decoration: underline;
+	cursor: pointer;
+	font-size: 12px;
+	font-weight: normal;
+}
+
+.NavyLink16UD
+{
+	color: #09718F;
+	text-decoration: underline;
+	cursor: pointer;
+	font-size: 16px;
+	font-weight: normal;
+}
+
+.NavyLinkSmall
+{
+	color: #09718F;
+	text-decoration: none;
+	cursor: pointer;
+	font-size: 10px;
+}
+
+.Text12
+{
+	color: #535252;
+	font-size: 12px;
+	font-weight: normal;
+	text-decoration: none !important;
+}
+
+.Text12Pd
+{
+	color: #535252;
+	font-size: 12px;
+	font-weight: normal;
+	padding-left: 36px;
+}
+
+.Text12UD
+{
+	color: #535252;
+	font-size: 12px;
+	font-weight: normal;
+	text-decoration: underline;
+}
+
+.Text12UDPd
+{
+	color: #535252;
+	font-size: 12px;
+	font-weight: normal;
+	text-decoration: underline;
+	padding-left: 36px;
+}
+
+.Text12Dark
+{
+	color: #535252;
+	font-size: 12px;
+}
+
+.Text14
+{
+	color: #535252;
+	font-size: 14px;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.DateTimeLabel
+{
+	color: #535252;
+	font-size: 12px;
+	font-style: italic;
+	font-family: Arial;
+}
+
+.Navy14Link
+{
+	color: #09718F;
+	text-decoration: underline;
+	cursor: pointer;
+	font-size: 14px;
+}
+
+.Navy11Link
+{
+	color: #09718F;
+	text-decoration: underline;
+	cursor: pointer;
+	font-size: 11px;
+}
+
+.Asterisk
+{
+	color: #09718F;
+}
+
+.Blue14Link
+{
+	color: #6fa8bf;
+	text-decoration: none;
+	cursor: pointer;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.Blue12Link
+{
+	color: #6fa8bf;
+	text-decoration: none;
+	cursor: pointer;
+	font-size: 12px;
+}
+
+.DisabledListItem
+{
+	color: #6fa8bf;
+	background-color: #dedbdb;
+}
+
+.Green14Link
+{
+	color:#33a923;
+	float:left;
+	font-family:Arial;
+	font-size:14px;
+	text-decoration:none;
+}
+
+.Green12Link
+{
+	color:#33a923;
+	float:left;
+	font-family:Arial;
+	font-size:12px;
+	text-decoration:none;
+}
+
+.Green12LinkNF
+{
+	color:#33a923;
+	font-family:Arial;
+	font-size:12px;
+	text-decoration:none;
+}
+
+.Green12LinkNFUD
+{
+	color:#33a923;
+	font-family:Arial;
+	font-size:12px;
+	text-decoration:underline;
+	cursor: pointer;
+}
+
+.Green14LinkNFUD
+{
+	color:#33a923;
+	font-family:Arial;
+	font-size:14px;
+	text-decoration:underline;
+	cursor: pointer;
+}
+
+.Green14LinkNFUDB
+{
+	color:#33a923;
+	font-family:Arial;
+	font-size:14px;
+	text-decoration:underline;
+	cursor: pointer;
+	font-weight: bold;
+}
+
+.Green14LinkNF
+{
+	color:#33a923;
+	font-family:Arial;
+	font-size:14px;
+	text-decoration:none;
+	font-weight: bold;
+}
+
+.NewNav:hover
+{
+	background-color:#d3d1d1;
+	float:left;
+	font-family:Arial;
+	font-size:12px;
+	padding-left:14px;
+	padding-right:14px;
+	padding-top:6px;
+	text-decoration:none;	
+	border-left: solid 1px #09718F;
+	border-right: solid 1px #09718F;
+	height: 22px;
+	color:#09718F;
+}
+
+.NewNavHover
+{
+	background-color:#d3d1d1;
+	float:left;
+	font-family:Arial;
+	font-size:12px;
+	padding-left:14px;
+	padding-right:14px;
+	padding-top:6px;
+	text-decoration:none;	
+	border-left: solid 1px #09718F;
+	border-right: solid 1px #09718F;
+	height: 22px;
+	color:#09718F;
+}
+
+.NewNavGreen 
+{
+	color:#33a923;
+	float:left;
+	font-family:Arial;
+	font-size:12px;
+	padding-left:15px;
+	padding-right:15px;
+	padding-top:6px;
+	text-decoration:none;
+}
+
+h1 a.NewNavGreen
+{
+	color:#33a923;
+	float:left;
+	font-family:Arial;
+	font-size:12px;
+	padding: 0;
+	padding-left:15px;
+	padding-right:15px;
+	padding-top:6px;
+	text-decoration:none;
+	font-weight: normal;
+	margin: 0;
+}
+
+.NewNavGreen:hover
+{
+	background-color:#d3d1d1;
+	float:left;
+	font-family:Arial;
+	font-size:12px;
+	padding-left:14px;
+	padding-right:14px;
+	padding-top:6px;
+	text-decoration:none;	
+	border-left: solid 1px #09718F;
+	border-right: solid 1px #09718F;
+	height: 22px;
+	color: #33a923;
+}
+h1 a.NewNavGreenHover
+{
+	background-color:#d3d1d1;
+	float:left;
+	font-family:Arial;
+	font-size:12px;
+	padding-left:14px;
+	padding-right:14px;
+	padding-top:6px;
+	text-decoration:none;	
+	border-left: solid 1px #09718F;
+	border-right: solid 1px #09718F;
+	height: 22px;
+	color: #33a923;
+	font-weight: normal;
+	margin: 0;
+}
+.NewNavGreenHover
+{
+	background-color:#d3d1d1;
+	float:left;
+	font-family:Arial;
+	font-size:12px;
+	padding-left:14px;
+	padding-right:14px;
+	padding-top:6px;
+	text-decoration:none;	
+	border-left: solid 1px #09718F;
+	border-right: solid 1px #09718F;
+	height: 22px;
+	color: #33a923;
+}
+
+.NewNavPurple
+{
+	color:#33a923;
+	float:left;
+	font-family:Arial;
+	font-size:12px;
+	padding-left:15px;
+	padding-right:15px;
+	padding-top:7px;
+	text-decoration:none;
+}
+
+h1 a.NewNavPurple
+{
+	color:#33a923;
+	float:left;
+	font-family:Arial;
+	font-size:12px;
+	padding: 0;
+	padding-left:15px;
+	padding-right:15px;
+	padding-top:7px;
+	text-decoration:none;
+	font-weight: normal;
+	margin: 0;
+}
+
+.NewNavPurple:hover
+{
+	background-color:#d3d1d1;
+	float:left;
+	font-family:Arial;
+	font-size:12px;
+	padding-left:14px;
+	padding-right:14px;
+	padding-top:7px;
+	text-decoration:none;	
+	border-left: solid 1px #09718F;
+	border-right: solid 1px #09718F;
+	height: 21px;
+	color: #33a923;
+}
+h1 a.NewNavPurpleHover
+{
+	background-color:#d3d1d1;
+	float:left;
+	font-family:Arial;
+	font-size:12px;
+	padding-left:14px;
+	padding-right:14px;
+	padding-top:7px;
+	text-decoration:none;	
+	border-left: solid 1px #09718F;
+	border-right: solid 1px #09718F;
+	height: 21px;
+	color: #33a923;
+	font-weight: normal;
+	margin: 0;
+}
+.NewNavPurpleHover
+{
+	background-color:#d3d1d1;
+	float:left;
+	font-family:Arial;
+	font-size:12px;
+	padding-left:14px;
+	padding-right:14px;
+	padding-top:7px;
+	text-decoration:none;	
+	border-left: solid 1px #09718F;
+	border-right: solid 1px #09718F;
+	height: 21px;
+	color: #33a923;
+}
+
+.NoBorderTextBox
+{
+	border: 0;
+	outline: none;
+	font-family: Arial;
+	color: #535252;
+	font-size: 12px;
+}
+
+.radr_Default .radr_buttonLeft
+{
+	background-image: url('NewImages/ArrowLeft.png') !important;
+	margin-top: 0 !important;
+	background-position: top !important;
+	height: 52px !important;
+}
+
+.radr_Default .radr_buttonRight
+{
+	background-image: url('NewImages/ArrowRight.png') !important;
+	margin-top: 0 !important;
+	background-position: top !important;
+	height: 52px !important;
+}
+
+.radr_Web20 .radr_buttonLeft
+{
+	background-image: url('NewImages/ArrowLeft.png') !important;
+	margin-top: 0 !important;
+	background-position: top !important;
+	height: 52px !important;
+}
+
+.radr_Web20 .radr_buttonRight
+{
+	background-image: url('NewImages/ArrowRight.png') !important;
+	margin-top: 0 !important;
+	background-position: top !important;
+	height: 52px !important;
+}
+
+.radr_Default .radr_clipRegion
+{
+	border: 0 !important;
+}
+
+.radr_Vista .radr_buttonRight
+{
+	background-image:url('NewImages/ArrowRight.png') !important;
+	background-position: 0 !important;
+	background-repeat:no-repeat;
+	line-height:19px !important;
+	right: -413px !important;
+	position: relative;
+	top: 40% !important;
+	margin-top: 0 !important;
+	height: 52px !important;
+}
+
+.radr_Vista .radr_button.radr_buttonLeft
+{
+	background-image:url('NewImages/ArrowLeft.png') !important;
+	background-position: 0 !important;
+	background-repeat:no-repeat;
+	top: 40% !important;
+	margin-top: 0 !important;
+	height: 52px !important;
+	left: -19px !important;
+}
+
+.radr_Black .radr_button.radr_buttonRight 
+{
+	background-image:url('NewImages/ArrowRight.png') !important;
+	background-position: 0 !important;
+	background-repeat:no-repeat;
+	line-height:19px !important;
+	right: -809px !important;
+	position: relative;
+	top: 40% !important;
+	margin-top: 0 !important;
+	height: 52px !important;
+}
+
+.radr_Black .radr_button.radr_buttonLeft
+{
+	background-image:url('NewImages/ArrowLeft.png') !important;
+	background-position: 0 !important;
+	background-repeat:no-repeat;
+	top: 40% !important;
+	margin-top: 0 !important;
+	height: 52px !important;
+	left: -19px !important;
+}
+
+.radr_Black .radr_clipRegion
+{
+	border: solid 1px #525252 !important;
+}
+
+.radr_Vista .radr_clipRegion
+{
+	border: solid 1px #525252 !important;
+	width: 412px !important;
+}
+
+.HiddeButtons .radr_button .radr_buttonRight
+{
+	display: none !important;	
+}
+
+.HiddeButtons .radr_button .radr_buttonLeft
+{
+	display: none !important;	
+}
+.HiddeButtons .radr_Black .radr_button.radr_buttonRight
+{
+	display: none !important;	
+}
+
+.HiddeButtons .radr_Vista .radr_button.radr_buttonRight
+{
+	display: none !important;	
+}
+
+.HiddeButtons .radr_Black .radr_button.radr_buttonLeft
+{
+	display: none !important;	
+}
+
+.HiddeButtons .radr_Vista .radr_button.radr_buttonLeft
+{
+	display: none !important;	
+}
+
+.ContentFooter
+{
+	font-size: 12px;
+	line-height: 16px;
+	color: #7c7c7e;
+	font-family: Arial;
+}
+
+div.radtooltip_Vista table.ToolTipWrapper td.ToolTipContent
+{
+	padding-top: 20px !important;
+	padding-bottom: 15px !important;
+	padding-left: 15px !important;
+	padding-right: 15px !important;
+}
+
+div.radtooltip_Web20 table.ToolTipWrapper td.ToolTipLeftMiddle, div.radtooltip_Web20 table.ToolTipWrapper td.ToolTipRightMiddle
+{
+	font-size: 14px !important;
+}
+div.radtooltip_Web20 table.ToolTipWrapper td.ToolTipContent
+{
+	background: url("WebResource.axd?d=tNXezzmGKa2NolE9-r64R1r5K1Ew5Ttj4hsRzFxbmsSx1KKl7OwoBD5XwOmJM9kf4MU_Bd6KtdXkroggNdB14MjwQHE17WszgS8_rI8AkS01&t=634038585057567693") repeat-x scroll 0 transparent !important;
+	padding-left: 10px !important;
+	padding-right: 10px !important;
+	padding-bottom: 10px !important;
+}
+
+.CalendarLink
+{
+	font-family:Arial;
+	color: #535252;
+	text-decoration: underline;
+	font-size: 12px;
+}
+
+html body .RadInput_Web20 .riTextBox, html body .RadInputMgr_Web20
+{
+	color: #535252 !important;
+}
+
+.rade_contentCell iframe
+{
+	height: 90% !important;
+}
+
+.RadTabStrip_Vista .rtsLink 
+{
+	border: solid 1px #dedbdb !important;
+}
+
+.RadTabStripTop_Vista .rtsSelected 
+{
+    border-bottom: 1px solid #FFFFFF !important;
+}
+
+.RadTabStripTop_Vista .rtsLevel 
+{
+    margin-bottom: -1px !important;
+    padding-bottom: 0 !important;
+    z-index: 3000;
+}
+
+.RadTabStripTop_Vista .rtsLink {
+    background: none !important;
+    margin-top: 0px !important;
+}
+
+.RadTabStrip_Vista .rtsIn 
+{
+    font: 16px arial !important;
+    padding-top: 4px !important;
+}
+
+.OneMessage
+{
+	border-bottom: solid 1px #dedbdb;
+	color: #535252 !important;
+	
+}
+.OneMessageSelected
+{
+	border: 0 !important;
+	color: #535252 !important;
+}
+.OneMessageContent
+{
+	margin: 5px;
+	width: 270px;
+	padding: 0;
+	line-height: 16px;
+	color: #535252 !important;
+}
+
+.RadScheduler .rsHeader h2 
+{
+	color: White !important;    
+}
+
+
+.RadTreeView_Vista, .RadTreeView_Vista a.rtIn, .RadTreeView_Vista .rtEdit .rtIn input
+{
+	font-size: 12px !important;
+	font-family: Arial !important;
+}
+
+.RadTreeView_Vista .rtSelected .rtIn
+{
+	background: none !important;
+	color: inherit !important;
+	border: none !important;
+	padding: 2px 3px !important;
+}
+
+.RadTreeView_Vista .rtHover .rtIn
+{
+	background: none !important;
+	color: inherit !important;
+	border: none !important;
+	padding: 2px 3px !important;
+}
+
+.Text12NU
+{
+	text-decoration: none !important;
+	color: #535252;
+	font-size: 12px;
+	font-weight: normal;
+}
+
+.Text12NU a span
+{
+	text-decoration: none !important;
+	color: #535252;
+	font-size: 12px;
+	font-weight: normal;
+}
+
+.radr_relativeWrapper
+{
+	overflow: visible;
+	position: static !important;
+	background-color: White;
+}
+
+.radr_button
+{
+	position: relative !important;	
+}
+
+.aboutLink
+{
+	text-decoration: none;
+}
+
+.PagePad
+{
+	padding-right: 10px;
+}
+
+.PageIntro
+{
+	width: 600px;
+	font-size: 16px;
+}
+
+.AboutTimer
+{
+	clear: both;
+	height: 300px;
+	padding-top: 40px;
+	line-height: 20px;
+}
+
+.TimerInside
+{
+	float: left; 
+	padding-right: 15px;
+}
+
+.TimerIn
+{
+	line-height: 16px;
+	width: 358px; 
+	height: 294px; 
+	border: solid 1px #ebe7e7;
+}
+
+.AboutIntro
+{
+	 float: left;
+	 width: 430px;
+	 margin-top: -3px;
+}
+
+.Floaty
+{
+	float: left;
+}
+
+.FloatyRight
+{
+	float: right;
+}
+
+.Pad40
+{
+	padding-top: 40px;
+}
+
+.AboutHome
+{
+	width: 100px;
+}
+
+.PosRel
+{
+	 position: relative;
+}
+
+.UpTopLink
+{
+	 position: fixed;
+	 bottom: 400px;
+	 left: 100px;
+}
+
+.Pad20
+{
+	 padding-bottom: 20px;
+}
+
+.headerDiv
+{
+	 width: 860px;
+}
+
+.headerInside
+{
+	height: 114px; 
+	background: transparent; 
+	padding-bottom: 0px; 
+	margin-bottom: 0px;
+	position: relative;
+}
+
+.imgBorder
+{
+	border: 0;
+}
+
+.MyAccount
+{
+	cursor: pointer;
+	background-image: url('../NewImages/MyAccount.png'); 
+	background-repeat: no-repeat; 
+	width: 108px; 
+	height: 33px;
+}
+
+.MyAccountLeft
+{
+	float: left;
+	height: 33px; 
+	width: 80px;
+}
+
+.MyAccountRight
+{
+	float: left;
+	height: 33px; 
+	width: 28px;
+}
+
+.MyAccountTable
+{
+	 margin-top: -10; 
+	 margin-left: -26px;
+	 position: absolute;
+	 display: none;
+	 z-index: 1000;
+	 width: 190px;
+}
+
+.MyAccountTableOpen
+{
+	 margin-top: -10; 
+	 margin-left: -26px;
+	 position: absolute;
+	 display: block;
+	 z-index: 1000;
+	 width: 190px;
+}
+
+.MyAccountDrop
+{
+	 background-color: #ebe7e7; 
+	 border: solid 1px #09718f;
+	 padding: 10px;
+}
+
+.MyAccountContent
+{
+	 clear: both; 
+	 padding-bottom: 5px;
+}
+
+.WholeNav
+{
+	 padding-top: 0px;
+	 margin-top: 0px; 
+	 height: 28px;
+	 background-color: #ebe7e7;
+	 background-repeat: repeat-x;
+	 border-top: 3px solid #585757;
+	 border-bottom: 3px solid #585757;
+}
+
+.InnerNav
+{
+	 width: 860px;
+}
+
+.NavWrapper
+{
+	float: left; 
+	padding-bottom: 0px; 
+	margin-bottom: 0px; 
+	height: 27px; 
+	width: 860px;
+}
+
+.footerSocial
+{
+	width: 890px; 
+	margin-top: 100px;
+}
+
+.footerSocial2
+{
+	bottom: 0px;
+	right: 0px;
+	position: absolute;
+	padding-bottom: 5px;
+}
+
+.FacebookTop
+{
+	padding-right: 4px;
+}
+
+.facebookSocial
+{
+	border: 0; 
+	width: 34px;
+}
+
+.footerWrapper
+{
+	margin-left: 20px;
+	width: 890px;
+	height: 70px; 
+	border: solid 1px #09718F; 
+	background-color: #ebe7e7;
+}
+
+.footerInner
+{
+	padding-left: 20px;
+}
+
+h2.PadTop
+{
+	padding-top: 10px;
+}
+
+.PaymentTable td
+{
+	padding-top: 3px;
+	padding-right: 5px;
+}
+
+.AdWrapper
+{
+	
+	width: 820px; clear: both;padding-bottom: 150px;
+}
+
+.InnerWrapper
+{
+	width: 570px; float: left;
+}
+
+.Wrapper
+{
+	padding-bottom: 15px; clear: both;
+}
+
+.RatingWrapper
+{
+	float: left;padding-top: 6px;padding-left: 10px;
+}
+
+.LinksWrapper
+{
+	padding-right: 10px;float: left;
+}
+
+.RotatorWrapper
+{
+	float: right; width: 430px;padding-left: 5px;padding-right: 10px;
+}
+
+.CommunicateWrapper
+{
+	padding-right: 10px;padding-top: 8px;
+}
+
+.AddThisWrapper
+{
+	padding-top: 10px;
+}
+
+.CommunicateInnerWrapper
+{
+	float: right;padding-left: 5px;
+}
+
+.OthersWrapper
+{
+	width: 240px; float: left;padding-left: 10px;
+}
+
+.AdsWrapper
+{
+	width: 820px;clear: both;
+}
+
+.AdsInnerWrapper
+{
+	padding-top: 40px;float: left; width: 820px;
+}
+
+.AdsInnerInnerWrapper
+{
+	float: right;padding-right: 10px;padding-top: 10px;
+}
+
+.AdsInnerInnerWrapper .NavyLinkSmall
+{
+	font-size: 12px;
+	font-weight: bold;
+	color: #09718F;
+}
+
+.CloudsWrapper
+{
+	float: right; width: 240px;
+}
+
+.CloundsInnerWrapper
+{
+	padding-top: 28px; clear: both;	
+}
+
+.
+{
+	width: 847px;clear: both;margin-left: -18px;position: absolute;bottom: 0px;margin-bottom: -8px;
+}
+
+.AdsFooterInner
+{
+	clear: both;padding-top: 10px;	
+}
+
+.AdsFooterInnerB
+{
+	float: left;width: 6px;
+}
+
+.AdsFooterInnerA
+{
+	 height: 6px;width: 835px;float: left; background: url('NewImages/EventFooterTop.png'); background-repeat: repeat-x; background-position: top;
+}
+
+.AdsFooterInnerC
+{
+	clear: both; background-color: #ebe7e7;
+}
+
+.AdsFooterInnerD
+{
+	background-image: url('NewImages/EventFooterLeft.png'); background-repeat: repeat-y;
+}
+
+.AdsFooterInnerE
+{
+	width: 835px; background-color: #ebe7e7;
+}
+
+.AdsFooterInnerF
+{
+	background-image: url('NewImages/EventFooterRight.png'); background-repeat: repeat-y;	
+}
+
+.AdsFooterWrapper
+{
+	width: 847px; clear: both; margin-left: -18px; position: absolute; bottom: 0px; margin-bottom: -8px;
+}
+
+.FooterBottom
+{
+	clear: both;
+}
+
+.FooterBottom2
+{
+	position: relative;
+}
+
+.FooterBottomInner
+{
+	height: 6px;width: 835px;float: left; background: url('NewImages/EventFooterBottom.png'); background-repeat: repeat-x; background-position: top;
+}
+
+.InnerMore
+{
+	float: right; cursor: pointer; font-style: none;
+}
+
+.MoreNo
+{
+	display: none;
+}
+
+.MoreMore
+{
+	display: block;	
+}
+
+.ToSpan
+{
+	color: #cccccc; font-weight: bold;
+}
+
+.RotatorImage
+{
+	width: 412px; height: 250px;background-color: white;
+}
+
+.SimilarSide
+{
+	padding-bottom: 10px;
+}
+
+.CommunicateWith
+{
+	float: right; clear: both; width: 400px;
+}
+
+.YouTubeWrapper
+{
+	float:left; z-index: 1;
+}
+
+.CommentsWrapper
+{
+	float: left; width: 240px;
+}
+
+.TripWrapper
+{
+	float: left; padding-left: 10px; padding-top: 12px; padding-right: 10px;
+}
+
+.fbWrapper
+{
+	float: left;
+	padding-top: 8px;
+}
+
+.Pad10
+{
+	padding: 10px;
+}
+
+.TripOptain
+{
+	width: 275px; padding-left: 20px; float: right;
+}
+
+.TripBring
+{
+	width: 260px; float: left;	
+}
+
+.TripDress
+{
+	width: 275px;float: right;
+}
+
+.TripDirections
+{
+	clear: both; padding-top: 20px; padding-bottom: 20px;	
+}
+
+.TripMap
+{
+	clear: both; padding-top: 30px; padding-bottom: 30px;	
+}
+
+.TripMapInner
+{
+	width: 205px; float: left;
+}
+
+.TripMapInnerB
+{
+	width: 350px; float: right;padding-top: 40px;
+}
+
+.CommentsWrap
+{
+	float: left; width: 570px;
+}
+
+.TripMapCanvas
+{
+	width: 350px; height: 415px; display: block;
+}
+
+.MapHeader
+{
+	width: 250px;
+}
+
+.MapLiteral2
+{
+	width: 350px; height: 200px; display: block;margin-bottom: 10px;	
+}
+
+.MapLiteral3
+{
+	width: 350px; height: 415px; display: block;padding-bottom: 50px;	
+}
+
+.LocaleLink
+{
+	padding-left: 10px;float: left;
+}
+.LocaleLink2
+{
+	padding-right: 20px;float: left;
+}
+
+.LocaleLink3
+{
+	float: left;padding-top: 10px;	
+}
+
+.LocaleLink4
+{
+	width: 433px;clear: both;
+}
+
+.LocaleLink5
+{
+	float: left;width: 5px;	
+}
+
+.LocaleLink6
+{
+	height: 5px;width: 423px;float: left; background: url('NewImages/CalendarTop.png'); background-repeat: repeat-x; background-position: top;
+}
+
+.LocaleLink7
+{
+	clear: both; background-color: White;
+}
+
+.LocaleLink8
+{
+	background-image: url('NewImages/CalendarLeft.png'); background-repeat: repeat-y;
+}
+
+.LocaleLink9
+{
+	width: 423px; background-color: White;
+}
+
+.LocaleLink10
+{
+	background-image: url('NewImages/CalendarRight.png'); background-repeat: repeat-y;
+}
+
+.LocaleLink11
+{
+	height: 5px;width: 423px;float: left; background: url('NewImages/CalendarBottom.png'); background-repeat: repeat-x; background-position: top;	
+}
+
+.LocaleLink12
+{
+	font-weight: normal;
+}
+
+.LocaleLink13
+{
+	font-style: italic;	
+}
+
+.AdsClass
+{
+	margin-left: -16px;padding-top: 5px;
+}
+
+.AdTemplate1
+{
+	width: 198px; height: 262px;border: solid 1px #d9d6d6; margin-right: 2px; position: relative;
+}
+
+.AdTemplate1Wrapper
+{
+	padding-top: 2px; clear: both; padding-left: 1px;	
+}
+
+.AdTemplate1Inner
+{
+	float: left;padding-right: 2px;
+}
+
+.AdTemplate1InnerInner
+{
+	clear: both; padding-left: 2px; padding-right: 2px; padding-top: 3px;
+}
+
+.AdTemplate2Wrapper
+{
+	padding-top: 10px; clear: both;	
+}
+
+.AdTemplate2Inner
+{
+	padding-top: 5px; clear: both; padding-right: 4px;padding-left: 4px; padding-bottom: 5px;
+}
+
+.AdTemplate2InnerInner
+{
+	clear: both; padding-left: 4px; padding-right: 4px;
+}
+
+.AdEmpty
+{
+	width: 198px; height: 262px;border-left: solid 1px #d9d6d6;border-top: solid 1px #d9d6d6;border-bottom: solid 1px #d9d6d6; padding-right: 3px;
+}
+
+.AdEmptyInner
+{
+	padding-left: 10px; padding-top: 5px;
+}
+
+.AdEmptyInnerInner
+{
+	width: 198px; height: 262px;border-top: solid 1px #d9d6d6;border-bottom: solid 1px #d9d6d6; padding-right: 4px;
+}
+
+.AdEmptyInnerInnerInner
+{
+	width: 198px; height: 262px;border-top: solid 1px #d9d6d6;border-right: solid 1px #d9d6d6;border-bottom: solid 1px #d9d6d6; padding-right: 3px;	
+}
+
+.AdEmptyTop
+{
+	width: 198px; height: 262px;border-left: solid 1px #d9d6d6;border-top: solid 1px #d9d6d6;border-bottom: solid 1px #d9d6d6;border-right: solid 1px #d9d6d6;padding-right: 2px;
+}
+
+.AdEmptyTop2
+{
+	width: 198px; height: 262px;border-left: solid 1px #d9d6d6;border-top: solid 1px #d9d6d6;border-bottom: solid 1px #d9d6d6;padding-right: 3px;
+}
+
+.AdTopInner
+{
+
+	width: 198px; height: 262px;border: solid 1px #d9d6d6; padding-right: 2px;	
+}
+
+.CommentsTop
+{
+	padding-top: 30px;
+}
+
+.CommentsInner
+{
+	padding-bottom: 8px;	
+}
+
+.CommentsInnerInner
+{
+	padding-bottom: 20px;
+}
+
+.CommentTop
+{
+	clear: both; padding-top: 20px;	
+}
+
+.CommentInner
+{
+	width: 430px;
+}
+
+.CommentTopBack
+{
+	height: 14px;width: 398px;float: left; border-top: solid 1px #dedbdb;background-color: White;
+}
+
+.CommentMiddleBack
+{
+	border-left: solid 1px #dedbdb;background-color: White;
+}
+
+.CommentMiddleInner
+{
+	width: 400px;
+}
+
+.CommentBottom
+{
+	border-right: solid 1px #dedbdb;background-color: White;	
+}
+
+.CommentBottomInner
+{
+	width: 400px;float: left; border-bottom: solid 1px #dedbdb;background-color: White;height: 14px;
+}
+
+.CommentsBottom
+{
+	padding-top: 5px; float: right;	
+}
+
+.PostButton
+{
+	border: 0; padding-top: 3px;	
+}
+
+.CommentPageTop
+{
+	padding-bottom: 10px; width: 439px;	
+}
+
+.CommentPageTopInner
+{
+	width: 439px;
+}
+
+.CommentPagerTopInnerInner
+{
+	height: 15px;width: 398px;float: left; background: url('NewImages/BackBorder.png'); background-repeat: repeat-x; background-position: top;	
+}
+
+.CommentPageInner
+{
+	background-image: url('NewImages/BackLeftBorder.png'); background-repeat: repeat-y;
+}
+
+.CommentPagerInnerInner
+{
+	width: 400px; background-color: White; font-size: 18px;	
+}
+
+.CommentPagerA
+{
+	float: left; width: 72px;
+}
+
+.CommentPagerB
+{
+	background-image: url('NewImages/BackRightBorder.png'); background-repeat: repeat-y;
+}
+
+.CommentPagerC
+{
+	width: 400px;float: left; background: url('NewImages/BackBottomBorder.png'); background-repeat: repeat-x; background-position: top;
+}
+
+.CommentPagerD
+{
+	cursor: pointer;
+}
+
+h1.UserNameH1
+{
+	color: #09718F;
+	text-decoration: none;
+	cursor: pointer;
+	font-size: 12px;
+	font-weight: normal;
+	margin: 0;
+	padding: 0;
+}
+
+.BlueButtonTop
+{
+	font-size: 12px; text-decoration: none; padding-top: 5px;padding-left: 6px; 
+	padding-right: 6px;height: 27px;
+	background: url('http://hippohappenings.com/NewImages/ButtonPixel.png'); 
+	background-repeat: repeat-x;
+}
+
+
+.HippoRatingTop
+{
+	width: 120px;float: left;height: 50px;padding-right: 10px;
+}
+
+.HippoRatingInner
+{
+	position: relative;
+}
+
+.LoadDiv
+{
+	z-index: 10000;width: 120px;display: none;position: absolute;
+}
+
+.LoadDivInner
+{
+	position: absolute; width: 100%; height: 100%; background-color: #09718F;opacity: .1;filter: alpha(opacity=10);
+}
+
+.LoadDiv2
+{
+	position: absolute; width: 100%; height: 100%; 
+}
+
+.LoadDiv3
+{
+	padding: 0px; margin: 0px; height: 30px;
+}
+
+.RatingTop
+{
+	float: left; padding-right: 5px;
+}
+
+.RatingInnerInner
+{
+	padding: 0px; margin: 0px; float: left;
+}
+
+.RatingButton1
+{
+	cursor: pointer;width: 12px; height: 18px;background-color: transparent;padding: 0px; margin: 0px; border: 0; background-repeat: no-repeat; background-image: url(NewImages/EmptyLeftHalf.png);
+}
+
+.RatingButton2
+{
+	cursor: pointer;width: 12px; height: 18px;background-color: transparent;padding: 0px; margin: 0px; border: 0; background-repeat: no-repeat; background-image: url(NewImages/EmptyRightHalf.png);
+}
+
+.RatingButton3
+{
+	cursor: pointer;width: 12px; height: 18px;background-color: transparent;padding: 0px; margin: 0px; border: 0; background-repeat: no-repeat; background-image: url(NewImages/EmptyLeftHalf.png);
+}
+
+.RatingButton4
+{
+	cursor: pointer;width: 12px; height: 18px;background-color: transparent;padding: 0px; margin: 0px; border: 0; background-repeat: no-repeat; background-image: url(NewImages/EmptyRightHalf.png);
+}
+
+.RatingButton5
+{
+	cursor: pointer;width: 12px; height: 18px;background-color: transparent;padding: 0px; margin: 0px; border: 0; background-repeat: no-repeat; background-image: url(NewImages/EmptyLeftHalf.png);
+}
+
+.RatingButton6
+{
+	cursor: pointer;width: 12px; height: 18px;background-color: transparent;padding: 0px; margin: 0px; border: 0; background-repeat: no-repeat; background-image: url(NewImages/EmptyRightHalf.png);
+}
+
+.RatingButton7
+{
+	cursor: pointer;width: 12px; height: 18px;background-color: transparent;padding: 0px; margin: 0px; border: 0; background-repeat: no-repeat; background-image: url(NewImages/EmptyLeftHalf.png);
+}
+
+.RatingButton8
+{
+	cursor: pointer;width: 12px; height: 18px;background-color: transparent;padding: 0px; margin: 0px; border: 0; background-repeat: no-repeat; background-image: url(NewImages/EmptyRightHalf.png);
+}
+
+.RatingButton9
+{
+	cursor: pointer;width: 12px; height: 18px;background-color: transparent;padding: 0px; margin: 0px; border: 0; background-repeat: no-repeat; background-image: url(NewImages/EmptyLeftHalf.png);
+}
+
+.RatingButton10
+{
+	cursor: pointer;width: 12px; height: 18px;background-color: transparent;padding: 0px; margin: 0px; border: 0; background-repeat: no-repeat; background-image: url(NewImages/EmptyRightHalf.png);
+}
+
+.RatingMiddle
+{
+	clear: both; width: 100%; display: none;	
+}
+
+.RatingImage
+{
+	padding: 0px; margin: 0px;
+}
+
+.RatingHippo
+{
+	padding-top: 3px;
+}
+
+.RatingHippoInner
+{
+	float: right;padding-top: 3px;
+}
+
+.Points1
+{
+	padding-right: 75px;padding-top: 40px;
+}
+
+.Points2
+{
+	padding: 8px;height: 18px; width: 203px; font-size: 14px;background: url('http://hippohappenings.com/NewImages/FeatureVenueButton.png'); background-repeat: repeat-x;
+}
+
+.Points3
+{
+	padding-top: 40px;
+}
+
+.Points4
+{
+	padding-top: 50px; padding-right: 10px;
+}
+
+.Add1
+{
+	padding-right: 75px;padding-top: 40px;
+}
+
+.Add2
+{
+	padding: 7px;height: 19px; width: 204px; font-size: 14px;background: url('http://hippohappenings.com/NewImages/AddEventButton.png'); background-repeat: repeat-x;
+}
+
+.Add3
+{
+	padding-top: 40px;
+}
+
+.Add4
+{
+	padding-right: 75px;padding-top: 35px;
+}
+
+.Add5
+{
+	padding: 8px;height: 18px; width: 203px; font-size: 14px;background: url('http://hippohappenings.com/NewImages/AddVenueButton.png'); background-repeat: repeat-x;
+}
+
+.Add6
+{
+	padding-top: 35px;
+}
+
+.Add7
+{
+	padding: 8px;height: 18px; width: 203px; font-size: 14px;background: url('http://hippohappenings.com/NewImages/AddTripButton.png'); background-repeat: repeat-x;
+}
+
+.Add8
+{
+	padding: 8px;height: 18px; width: 203px; font-size: 14px;background: url('http://hippohappenings.com/NewImages/AddBulletinButton.png'); background-repeat: repeat-x;
+}
+
+.Add9
+{
+	padding-top: 100px; padding-right: 10px;
+}
+
+.Add10
+{
+	float: right; padding-top: 10px;
+}
+
+.Green1
+{
+	font-size: 12px; text-decoration: none; padding-top: 5px;padding-left: 6px; 
+	padding-right: 6px;height: 27px;
+	background: url('http://hippohappenings.com/NewImages/GreenButtonPixel.png'); 
+	background-repeat: repeat-x;
+}
+
+.Feature1
+{
+	font-size: 16px;
+}
+
+.Feature2
+{
+	width: 600px;
+}
+
+.Feature3
+{
+	padding-right: 75px;padding-top: 40px;	
+}
+
+.Feature4
+{
+	padding: 7px;height: 19px; width: 204px; font-size: 14px;background: url('http://hippohappenings.com/NewImages/FeatureEventButton.png'); background-repeat: repeat-x;	
+}
+
+.Feature5
+{
+	padding: 7px;height: 19px; width: 204px; font-size: 14px;background: url('http://hippohappenings.com/NewImages/FeatureEventButton.png'); background-repeat: repeat-x;
+}
+
+.Feature6
+{
+	padding-top: 40px;
+}
+
+.Feature7
+{
+	float: right; padding-top: 5px;
+}
+
+.Feature8
+{
+	padding: 8px;height: 18px; width: 203px; font-size: 14px;background: url('http://hippohappenings.com/NewImages/FeatureVenueButton.png'); background-repeat: repeat-x;
+}
+
+.Feature9
+{
+	padding: 8px;height: 18px; width: 203px; font-size: 14px;background: url('http://hippohappenings.com/NewImages/FeatureVenueButton.png'); background-repeat: repeat-x;
+}
+
+.Feature10
+{
+	padding: 8px;height: 18px; width: 203px; font-size: 14px;background: url('http://hippohappenings.com/NewImages/FeatureTripButton.png'); background-repeat: repeat-x;
+}
+
+.Feature11
+{
+	padding: 8px;height: 18px; width: 203px; font-size: 14px;background: url('http://hippohappenings.com/NewImages/FeatureBulletinButton.png'); background-repeat: repeat-x;
+}
+
+.Friend1
+{
+	float: left; padding-top: 5px; width: 380px;
+}
+
+.Friend2
+{
+	float: left; width: 380px;
+}
+
+.Friend3
+{
+	float:left; width: 380px; height: 171px; border: solid 1px #dedbdb;
+}
+
+.Friend4
+{
+	width: 152px; height: 152px;vertical-align: middle;padding-left: 10px; padding-top: 10px; float: left;
+}
+
+.Friend5
+{
+	border: solid 1px #dedbdb;	
+}
+
+.Friend6
+{
+	float: left; padding-left: 10px; padding-top: 10px;
+}
+
+.Friend7
+{
+	padding-right: 5px;padding-bottom: 5px;	
+}
+
+.Friend8
+{
+	padding-bottom: 5px;
+}
+
+.Friend9
+{
+	padding-left: 20px;
+}
+
+.Friend10
+{
+	clear: both;padding-bottom: 5px;
+}
+
+.Friend11
+{
+	float:left; width: 360px; border: solid 1px #dedbdb;margin-top: 10px;padding: 10px;
+}
+
+.Friend12
+{
+	float: left;padding-top: 20px;	
+}
+
+.Friend13
+{
+	height: 20px;
+}
+
+.Friend14
+{
+	float:right; padding-right: 10px;
+}
+
+.Friend15
+{
+	float: left; width: 420px;
+}
+
+.Friend16
+{
+	padding-left: 2px; padding-bottom: 5px;	
+}
+
+.Friend17
+{
+	position: relative;float: left;
+}
+
+.Friend18
+{
+	z-index: 10000;left: 55px; top: -50px; padding: 10px;position: absolute;display: none;background-color: white; width: 150px; border: solid 3px #09718F;
+}
+
+.Friend19
+{
+	margin-right: 10px;margin-bottom: 10px;width: 72px; height: 50px; float: left;background-image: url('NewImages/HippoBadge.png');
+}
+
+.Friend20
+{
+	font-weight: bold;
+}
+
+.Friend21
+{
+	display: none;
+}
+
+.Friend22
+{
+	margin-right: 10px;margin-bottom: 10px;width: 72px; height: 50px; float: left;background-image: url('NewImages/HippoBronzeBadge.png');
+}
+
+.Friend23
+{
+	margin-right: 10px;margin-bottom: 10px;width: 72px; height: 50px; float: left;background-image: url('NewImages/HippoSilverBadge.png');
+}
+
+.Friend24
+{
+	margin-right: 10px;margin-bottom: 10px;width: 72px; height: 50px; float: left;background-image: url('NewImages/HippoGoldBadge.png');
+}
+
+.Friend25
+{
+	margin-right: 10px;margin-bottom: 10px;width: 72px; height: 50px; float: left;background-image: url('NewImages/HippoGlobalBadge.png');
+}
+
+.BodyNoPad
+{
+	padding: 0; margin: 0;
+}
+
+.MasterBackground
+{
+	background-color: white;	
+}
+
+.MasterTopPixel
+{
+	background: url('NewImages/HeaderGradient.png'); background-repeat: repeat-x; background-position: top;
+}
+
+.MasterBottomPixel
+{
+	background: url('NewImages/GreenBottomPixel.png'); background-position: bottom; background-repeat: repeat-x;
+}
+
+.MasterBottomFeet
+{
+	background: url('images/GrassyFeet2.png'); background-repeat: no-repeat; background-position: bottom center;
+}
+
+.MasterWrapper
+{
+	 display: block;height: 100%; bottom: 0px; 
+}
+
+.MasterInnerWrapper
+{
+	z-index: 1000;
+}
+
+.MasterInnerInner
+{
+	z-index: 1600;
+}
+
+.Master1
+{
+	width: 860px; padding-left: 20px; z-index: 1600;
+}
+
+.Master2
+{
+	min-height: 1000px;
+}
+
+.Master3
+{
+	width: 860px;padding-top: 10px;	
+}
+
+.Master4
+{
+	height: 15px;width: 828px;float: left;
+	background-image: url(NewImages/BackBorder.png);	
+}
+
+.Master5
+{
+	background-image: url(NewImages/BackLeftBorder.png);
+}
+
+.Master6
+{
+	width: 857px; 
+	background-image: url(NewImages/HomeMainGreen.png); 
+	background-repeat: repeat-x;
+	border-left: 4px solid #4a4949;
+	border-right: 4px solid #4a4949;
+	font-size: 18px; padding-left: 4px;
+	background-color: White;
+	background-position: bottom;
+}
+
+.Master7
+{
+	padding-bottom: 10px;position: relative;	
+}
+
+.Master8
+{
+	background-image: url(NewImages/BackRightBorder.png);
+}
+
+.Master9
+{
+	width: 830px;float: left;height: 15px;
+	background-image: url(NewImages/BackBottomBorder.png);
+}
+
+.Home1
+{
+	width: 860px;	
+}
+
+.Home2
+{
+	height: 15px;width: 828px;float: left; 
+	background-image: url(NewImages/BackBorder.png);
+}
+
+.Home3
+{
+}
+
+.Home4
+{
+	float: left; padding-right: 20px; padding-left: 13px;width: 105px;	
+}
+
+.Home5
+{
+	float: right; margin-top: -5px;	
+}
+
+.Home6
+{
+	float: left; padding-right: 20px;width: 103px;	
+}
+
+.Home7
+{
+	float: left; padding-right: 20px;width: 135px;	
+}
+
+.Home8
+{
+	float: right;width: 265px;	
+}
+
+.Home9
+{
+	width: 285px;	
+	clear: both;
+}
+
+.Home10
+{
+	clear: both;
+	position: relative;
+}
+
+.Home11
+{
+	padding-top: 5px;z-index: 10000;height: 240px;width: 853px;display: none;position: absolute;	
+}
+
+.Home11Suggest
+{
+	padding-top: 30px;z-index: 10000;display: none;position: absolute;	
+}
+
+.Home12
+{
+	position: absolute; width: 100%; height: 100%; background-color: #333333;opacity: .5;filter: alpha(opacity=50);	
+}
+
+.Home13
+{
+	position: absolute; width: 100%; height: 100%;	
+}
+
+.Home14
+{
+	height: 240px;
+	padding-top: 5px;
+}
+
+.ClHome14
+{
+	margin-left: -14px;
+}
+
+.Home15
+{
+	padding-top: 30px;
+	clear: both;
+}
+
+.HomeSearch
+{
+	padding-top: 10px;
+	clear: both;
+	padding-right: 21px;
+	position: relative;
+	right: 539px;
+}
+
+.Home16
+{
+	float: left; padding-right: 4px;	
+}
+
+.Home17
+{
+	font-size: 12px; text-decoration: none; padding-left: 5px; padding-right: 5px;height: 24px;float: left;background: url('NewImages/SmallButtonPixel.png'); background-repeat: repeat-x;
+}
+
+.Home18
+{
+	border: 0; padding-top: 5px; float: left;	
+}
+
+.Home19
+{
+	border: 0; float: left;	
+}
+
+.Home20
+{
+	margin-top: 3px;width: 24px; border: solid 1px #3ed629; height: 14px;
+}
+
+.Home21
+{
+	font-size: 12px; text-decoration: none; padding-left: 4px; padding-right: 4px;height: 24px;float: left;background: url('NewImages/SmallButtonPixel.png'); background-repeat: repeat-x;
+}
+
+.Home22
+{
+	padding-right: 10px; clear: both; padding-top: 50px; padding-bottom: 20px; position: relative; 
+}
+
+.Home23
+{
+	text-decoration: underline;
+	font-size: 14px;
+}
+
+.Home24
+{
+	width: 830px;float: left;height: 15px; 
+	background-image: url(NewImages/BackBottomBorder.png);
+}
+
+.Home25
+{
+	width: 860px;padding-top: 28px;
+}
+
+.Home26
+{
+	width: 820px; background-color: White; font-size: 18px; padding-left: 10px;
+}
+
+.Home27
+{
+	padding-top: 30px;display: none;
+}
+
+.Home28
+{
+	padding-top: 30px;	
+}
+
+.Home29
+{
+	width: 830px;float: left; height: 15px; 
+	background-image: url(NewImages/BackBottomBorder.png);
+}
+
+.Home30
+{
+	 height: 14px;width: 828px;float: left; 
+	 background-image: url(NewImages/BackBorder.png);
+}
+
+.Home31
+{
+	width: 500px;
+}
+
+.Home32
+{
+	width: 830px;float: left;height: 15px; 
+	background-image: url(NewImages/BackBottomBorder.png);
+}
+
+.Home33
+{
+	padding-top: 20px;
+}
+
+.Home34
+{
+	width: 820px;padding-top: 26px;
+}
+
+.Home35
+{
+	padding: 40px; width: 300px;
+}
+
+.Home36
+{
+	width: 388px; float: left;padding-right: 22px;
+}
+
+.Home37
+{
+	float: right;padding-top: 5px;
+}
+
+.Home38
+{
+	float:left;width: 200px; height: 130px;padding-right: 7px;padding-bottom: 5px;
+}
+
+.Home39
+{
+	font-style: italic;font-size: 10px;	
+}
+
+.Home40
+{
+	width: 200px; height: 130px;padding-right: 7px;padding-bottom: 5px;float:left;
+}
+
+.Home41
+{
+	width: 300px; padding: 40px;
+}
+
+.Home42
+{
+	background-color: White;width: 240px; height: 238px;
+	/*border: solid 1px #585757;*/ 
+	margin-right: 1px; position: relative;
+}
+
+.Home43
+{
+	margin-left: 10px;margin-right: 10px;margin-top: 5px;margin-bottom: 5px; line-height: 13px;
+}
+
+.Home14 .radr_relativeWrapper
+{
+	border: 2px solid #585757;
+}
+
+.AdsClass .radr_relativeWrapper
+{
+	/*border: 1px solid #585757;*/
+}
+
+.Home44
+{
+	padding-top: 5px;
+	color: #535252;
+}
+
+.Home45
+{
+	width: 199px; height: 192px;border-left: solid 1px #d9d6d6;border-top: solid 1px #d9d6d6;border-bottom: solid 1px #d9d6d6; padding-right: 1px;
+}
+
+.Home46
+{
+	width: 200px; height: 192px;border-top: solid 1px #d9d6d6;border-bottom: solid 1px #d9d6d6; padding-right: 1px;
+}
+
+.Home47
+{
+	width: 198px; height: 192px;border-top: solid 1px #d9d6d6;border-right: solid 1px #d9d6d6;border-bottom: solid 1px #d9d6d6; padding-right: 1px;
+}
+
+.Home48
+{
+	width: 198px; height: 192px;border: solid 1px #d9d6d6; padding-right: 1px;
+}
+
+.Home49
+{
+	width: 199px; height: 192px;border-top: solid 1px #d9d6d6;border-bottom: solid 1px #d9d6d6; padding-right: 2px;
+}
+
+.Home50
+{
+	width: 199px; height: 192px;border-top: solid 1px #d9d6d6;border-right: solid 1px #d9d6d6;border-bottom: solid 1px #d9d6d6; padding-right: 1px;
+}
+
+.Home51
+{
+	width: 200px;
+	border: 1px solid #dedbdb;
+}
+
+h1.Home
+{
+	font-size: 18px !important;
+	margin: 0;
+	padding: 0;
+	font-weight: inherit;
+	color: #535252;
+	padding-top: 10px;
+}
+
+
+
+h2.Event
+{
+	color: #535252;
+	text-decoration: underline;
+	cursor: pointer;
+	font-size: 14px !important;
+	font-weight: normal;
+	padding: 0;
+	margin: 0;
+	height: 30px;
+	line-height: 14px;
+	overflow: hidden;
+}
+
+.HomeEventTitle
+{
+	color: #535252;
+	text-decoration: underline;
+	font-size: 14px !important;
+}
+
+.HomeTime
+{
+	color: #535252;
+	font-style: italic;
+	font-weight: bold;
+}
+
+.MoreTimes
+{
+	font-size: 11px;
+	color: #535252;
+	font-style: italic;
+}
+
+.ReadMoreHome
+{
+	position: absolute;
+	right: 5px;
+	bottom: 2px;
+	font-size: 10px;
+	color: #535252;
+	width: 52px;
+	text-decoration: underline;
+}
+
+.ReadMoreHome2
+{
+	position: absolute;
+	right: 5px;
+	font-size: 10px;
+	color: #535252;
+	width: 52px;
+	text-decoration: underline;
+}
+
+.PostFreeDiv
+{
+	width: 400px;
+	text-align: center;
+	font-family: 'Bradley Hand ITC', 'Bradley Hand ITC TT', 'Arial Unicode MS', 'Helvetica';
+	color: #434242;
+	font-size: 30px;
+	font-weight: bold;
+	line-height: 24px;
+	margin-right: 20px;
+	margin-top: 50px;
+	letter-spacing: -.4px;
+	margin-bottom: -95px;
+	z-index: 10000;
+	position: relative;
+}
+
+.PostFreeBulletin
+{
+	width: 400px;
+	text-align: center;
+	font-family: 'Bradley Hand ITC', 'Bradley Hand ITC TT', 'Arial Unicode MS', 'Helvetica';
+	color: #434242;
+	font-size: 30px;
+	font-weight: bold;
+	line-height: 25px;
+	margin-right: 20px;
+	margin-top: 20px;
+	letter-spacing: -.4px;
+	z-index: 10000;
+}
+
+.PostFreeBulletin h2
+{
+	text-align: center;
+	font-family: 'Bradley Hand ITC', 'Bradley Hand ITC TT', 'Arial Unicode MS', 'Helvetica';
+	color: #434242;
+	font-size: 30px !important;
+	font-weight: bold;
+	line-height: 25px !important;
+	margin: 0 !important;
+	padding: 0 !important;
+	letter-spacing: -.4px;
+}
+
+.PostFreeBulletin a
+{
+	text-decoration: underline;
+	color: #434242;
+}
+
+.PostFreeDiv h2
+{
+	text-align: center;
+	font-family: 'Bradley Hand ITC', 'Bradley Hand ITC TT', 'Arial Unicode MS', 'Helvetica';
+	color: #434242;
+	font-size: 30px !important;
+	font-weight: bold;
+	line-height: 24px !important;
+	margin: 0 !important;
+	padding: 0 !important;
+	letter-spacing: -.4px;
+}
+
+.PostFreeDiv a
+{
+	text-decoration: underline;
+	color: #434242;
+	position: absolute;
+	left: 90px;
+}
+
+.PostArrowBulletin
+{
+	margin-left: -420px;
+	margin-bottom: -80px;
+}
+
+.PostArrow
+{
+	margin-bottom: -70px;
+	right: 180px;
+	position: relative;
+}
+
+.HomeButtons
+{
+	float: right;
+	margin-right: -12px;
+}
+
+.HomeLeft
+{
+	float: left;
+	padding-left: 30px;
+}
+
+.FeaturePrice
+{
+	color: #40B830;
+    font-family: 'Bradley Hand ITC', 'Bradley Hand ITC TT', 'Arial Unicode MS', 'Helvetica';
+    font-size: 30px !important;
+    font-weight: bold;
+    letter-spacing: -0.5px;
+    line-height: 20px !important;
+    text-align: center;
+    margin-right: 20px;
+    float:left;
+}
+
+.FeaturePrice h2
+{
+	color: #40B830;
+    font-family: 'Bradley Hand ITC', 'Bradley Hand ITC TT', 'Arial Unicode MS', 'Helvetica';
+    font-size: 30px !important;
+    font-weight: bold;
+    letter-spacing: -0.5px;
+    line-height: 20px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    text-align: center;
+}
+
+.GooglyLinks
+{
+	padding: 20px 0 20px 0;
+	float: left;
+}
+
+.GooglyLinks2
+{
+	padding: 20px 0 0 0;
+	float: left;
+}
+
+.GooglyLinksTrip
+{
+	position: absolute;
+}
+
+.HeaderBack
+{
+	background-image: url(NewImages/DayClouds.png);
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.BlueMainGradient
+{
+	background: url("NewImages/BlueMidGradient.png") repeat-x scroll center top transparent;
+	padding-top: 20px;
+}
+
+.HomeLeftDiv
+{
+	border-left: 4px solid #262626;
+	border-right: 4px solid #262626;
+}
+
+.MainName
+{
+	font-size: 24px;
+	color: #535252;
+	font-family: 'Bradley Hand ITC', 'Bradley Hand ITC TT', 'Arial Unicode MS', 'Helvetica';
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.ActionButtons
+{
+	position: relative;
+	clear: both;
+	left: 270px;
+	width: 350px;
+	padding-top: 20px;
+}
+
+.AdsTitle
+{
+	color: #535252;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 14px;
+    padding-bottom: 5px;
+    text-decoration: underline;
+}
+
+.LocDetect
+{
+	position: relative;
+}
+
+.fblike
+{
+	position: absolute;
+	bottom: 5px;
+	right: 0px;	
+}
+
+.MasterLeft
+{
+	
+}
+
+.GooglySearch
+{
+	padding: 20px 0 10px 0;
+	clear: both;
+}
+
+.GooglyContent
+{
+	padding: 10px 0 0 0;
+}
+
+.radr_clipRegion .radr_itemsList li
+{
+	overflow: hidden;
+}
+
+.ClInfo
+{
+	padding-top: 10px;
+	padding-left: 20px;
+}
+
+.calOpt {
+    background-image: url("//img1.meetupstatic.com/img/3160633744447839877/sprites/calicons.png");
+    background-repeat: no-repeat;
+    display: block;
+    float: left;
+    height: 16px;
+    margin-right: 0.35em;
+    width: 16px;
+}
+
+.google {
+    background-position: 0 0;
+}
+
+.CLEvents
+{
+	padding-top: 20px;
+}
+
+.HomeTitle
+{
+	font-size: 24px;
+}
+
+.SuggestHome {
+    background-color: #60D91A;
+    border: 1px solid #333333;
+    border-radius: 10px 10px 10px 10px;
+    clear: both;
+    float: left;
+    margin-bottom: 20px;
+    margin-top: 40px;
+    padding: 10px;
+    width: 400px;
+}

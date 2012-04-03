@@ -1,0 +1,3346 @@
+﻿body {
+        font-family: 'Helvetica Neue','Helvetica','Arial',sans-serif;
+        background-color: #393939;
+    }
+    #AlertDiv{
+    left: 40%; top: 40%;
+    position: absolute; width: 200px;
+    padding: 12px; 
+    border: #000000 1px solid;
+    background-color: white; 
+    text-align: left;
+    visibility: hidden;
+    z-index: 99;
+    }
+    #AlertButtons{
+    position: absolute;
+    right: 5%;
+    bottom: 5%;
+    }
+a
+{
+	cursor: pointer;
+}
+div.radwindow
+{
+	background-image: url(image/Yawza.png) !important;
+	background-color: #393939 !important;
+	background-repeat: no-repeat !important;
+	background-position: center !important;
+}
+div.radwindow_Vista .windowcontent
+{
+	background-image: url(image/ajax-loaderBig.gif) !important;
+	background-color: #393939 !important;
+	background-repeat: no-repeat !important;
+	background-position: center  190px !important;
+}
+div.radwindow .windowcontent
+{
+	background-image: url(image/ajax-loaderBig.gif) !important;
+	background-color: #393939 !important;
+	background-repeat: no-repeat !important;
+	background-position: center  190px !important;
+}
+.radwindow .contentrow .windowcontent
+{
+	background-color: #393939 !important;
+}
+.radwindow .contentrow
+{
+	background-color: #393939 !important;
+}
+
+.SearchWindow
+{
+	background-image: url(image/ajax-loader.gif) !important;
+}
+.TextBox
+{
+	color: #666666;
+	background: url(image/SearchTextBoxBackground.gif);
+	border: 0px;
+	border-right: solid 1px #000000;
+	font-size: 9px;
+	background-repeat: repeat-x;
+	padding: 3px 3px 0 0;
+	margin-top: 0;
+	width: 120px;
+	height: 15px;
+}
+.TextBoxLeftImage
+{
+	 border: 0;
+	 float: left; 
+	 background: url('image/SearchTextBoxLeftSide.gif'); 
+     background-repeat: no-repeat; 
+     background-position: left; 
+     height: 18px; 
+     clear: none;
+    padding: 0px; 
+     padding-left: 5px; 
+     margin: 0px; 
+}
+/*hack for IE 6*/
+* html .TextBox {margin-top: -1px;}
+
+/*hack for IE 7*/
+* + html .TextBox {margin-top: -1px;}
+
+.ListBox
+{
+	border: solid 1px #1fb6e7;
+}
+.BigWhiteButton
+{
+	color: White;
+	font-size: 30px;
+	font-weight: bold;
+	text-decoration: none;
+}
+.MsgDiv
+{
+	padding-left: 20px;
+}
+.TextBoxLeftImage25
+{ 
+	 float: left; 
+	 background: url('image/TextBoxLeft25.png'); 
+     background-repeat: no-repeat; 
+     background-position: left; 
+     height: 25px; 
+     clear: none; 
+     padding: 0px; 
+     padding-left: 5px; 
+     margin: 0px; 
+}
+.TextBox25
+{
+	color: #666666;
+	border: 0px;
+	background: url(image/TextBoxBackground25.png);
+	font-size: 12px;
+	background-repeat: repeat-x;
+	padding: 5px 4px 0 0;
+	width: 290px;
+	height: 20px;      /* 5px less than the acutal size.*/
+}
+/*hack for IE 6*/
+* html .TextBox25 {margin-top: -1px;}
+
+/*hack for IE 7*/
+* + html .TextBox25 {margin-top: -1px;}
+
+.TextBoxLeftImage100
+{ 
+	 float: left; 
+	 background: url('image/AdDescriptionLeftImage.png'); 
+     background-repeat: no-repeat; 
+     background-position: left; 
+     height: 102px; 
+     clear: none; 
+     padding: 0px; 
+     padding-left: 5px; 
+     margin: 0px; 
+}
+.TextBox100
+{
+	color: #666666;
+	border: 0px;
+	background: url(image/AdDescriptionBackground.png);
+	font-size: 12px;
+	background-repeat: repeat-x;
+	padding: 4px 4px 0px 0px;
+	padding-top: 5px;
+	margin: 0px;
+	width: 290px;
+	height: 100px;      /* 5px less than the acutal size.*/
+}
+
+/*hack for IE 6*/
+* html .TextBox100 {margin-top: -1px;}
+
+/*hack for IE 7*/
+* + html .TextBox100 {margin-top: -1px;}
+
+.TopButton
+{
+	padding: 0px;
+	margin: 0px;
+}
+.NavBarImage
+{
+	padding: 0px;
+	margin: 0px;
+	border: solid 1px pink;
+}
+.NavBarImage
+{
+	padding: 0px;
+	margin: 0px;
+	border: solid 1px pink;
+}
+.NavBarImageHome
+{
+	padding: 0px;
+	margin: 0px;
+	border: solid 1px pink;
+	width: 65px;
+	height: 27px;
+	background-image: url(./image/HomeLink.png);
+	border: none;
+	cursor: pointer;
+}
+.NavBarImageHome:hover,
+.NavBarImageHome:selected
+{
+	padding: 0px;
+	margin: 0px;
+	border: solid 1px pink;
+	width: 65px;
+	height: 27px;
+	background-image: url(./image/HomeLinkHover.png);
+	border: none;
+	cursor: pointer;
+}
+input.NavBarImageHome:hover
+{
+	padding: 0px;
+	margin: 0px;
+	border: solid 1px pink;
+	width: 65px;
+	height: 27px;
+	background-image: url(./image/HomeLinkHover.png);
+	border: none;
+	cursor: pointer;
+}
+.NavBarImageHomeSelected
+{
+	padding: 0px;
+	margin: 0px;
+	border: solid 1px pink;
+	width: 65px;
+	height: 27px;
+	background-image: url(./image/HomeLinkHover.png);
+	border: none;
+	cursor: pointer;
+}
+
+.NavBarImageVote
+{
+	padding: 0px;
+	margin: 0px;
+	border: solid 1px pink;
+	width: 65px;
+	height: 27px;
+	background-image: url(./image/Vote.png);
+	border: none;
+	cursor: pointer;
+}
+.NavBarImageVote:hover,
+.NavBarImageVote:selected
+{
+	padding: 0px;
+	margin: 0px;
+	border: solid 1px pink;
+	width: 65px;
+	height: 27px;
+	background-image: url(./image/VoteHover.png);
+	border: none;
+	cursor: pointer;
+}
+input.NavBarImageVote:hover
+{
+	padding: 0px;
+	margin: 0px;
+	border: solid 1px pink;
+	width: 65px;
+	height: 27px;
+	background-image: url(./image/VoteHover.png);
+	border: none;
+	cursor: pointer;
+}
+.NavBarImageVoteSelected
+{
+	padding: 0px;
+	margin: 0px;
+	border: solid 1px pink;
+	width: 65px;
+	height: 27px;
+	background-image: url(./image/VoteHover.png);
+	border: none;
+	cursor: pointer;
+}
+
+
+.NavBarImageFeedback
+{
+	padding: 0px;
+	margin: 0px;
+	border: solid 1px pink;
+	width: 100px;
+	height: 27px;
+	background-image: url(./image/Feedback.png);
+	border: none;
+	cursor: pointer;
+}
+.NavBarImageFeedback:hover,
+.NavBarImageFeedback:selected
+{
+	padding: 0px;
+	margin: 0px;
+	border: solid 1px pink;
+	width: 100px;
+	height: 27px;
+	background-image: url(./image/FeedbackHover.png);
+	border: none;
+	cursor: pointer;
+}
+input.NavBarImageFeedback:hover
+{
+	padding: 0px;
+	margin: 0px;
+	border: solid 1px pink;
+	width: 100px;
+	height: 27px;
+	background-image: url(./image/FeedbackHover.png);
+	border: none;
+	cursor: pointer;
+}
+.NavBarImageFeedbackSelected
+{
+	padding: 0px;
+	margin: 0px;
+	border: solid 1px pink;
+	width: 100px;
+	height: 27px;
+	background-image: url(./image/FeedbackHover.png);
+	border: none;
+	cursor: pointer;
+}
+
+
+
+.NavBarImageBlog
+{
+	padding: 0px;
+	margin: 0px;
+	border: solid 1px pink;
+	width: 99px;
+	height: 27px;
+	background-image: url('./image/BlogAnEventLink.png');
+	 border: none;
+	 cursor: pointer;
+}
+.NavBarImageBlog:hover,
+.NavBarImageBlog:selected
+{
+	padding: 0px;
+	margin: 0px;
+	border: solid 1px pink;
+	width: 99px;
+	height: 27px;
+	background-image: url('./image/BlogAnEventHover.png');
+	border: none;
+	cursor: pointer;
+}
+input.NavBarImageBlog:hover
+{
+	padding: 0px;
+	margin: 0px;
+	border: solid 1px pink;
+	width: 99px;
+	height: 27px;
+	background-image: url('./image/BlogAnEventHover.png');
+	border: none;
+	cursor: pointer;
+}
+.NavBarImageBlogSelected
+{
+	padding: 0px;
+	margin: 0px;
+	border: solid 1px pink;
+	width: 99px;
+	height: 27px;
+	background-image: url('./image/BlogAnEventHover.png');
+	border: none;
+	cursor: pointer;
+}
+.NavBarImageAbout
+{
+	padding: 0px;
+	margin: 0px;
+	border: solid 1px pink;
+	width: 49px;
+	height: 27px;
+	background-image: url('./image/About.png');
+	border: none;
+	cursor: pointer;
+}
+
+.NavBarImageAbout:hover,
+.NavBarImageAbout:selected
+{
+	padding: 0px;
+	margin: 0px;
+	border: solid 1px pink;
+	width: 49px;
+	height: 27px;
+	background-image: url('./image/AboutSelected.png');
+	border: none;
+	cursor: pointer;
+}
+input.NavBarImageAbout:hover
+{
+	padding: 0px;
+	margin: 0px;
+	border: solid 1px pink;
+	width: 49px;
+	height: 27px;
+	background-image: url('./image/AboutSelected.png');
+	border: none;
+	cursor: pointer;
+}
+.NavBarImageAboutSelected
+{
+	padding: 0px;
+	margin: 0px;
+	border: solid 1px pink;
+	width: 49px;
+	height: 27px;
+	background-image: url('./image/AboutSelected.png');
+	border: none;
+	cursor: pointer;
+}
+/*
+.NavBarImageFeedback
+{
+	padding: 0px;
+	margin: 0px;
+	border: solid 1px pink;
+	width: 100px;
+	height: 27px;
+	background-image: url('./image/FeedbackStarz.png');
+	border: none;
+	cursor: pointer;
+}*/
+.NavBarImageCalendar
+{
+	padding: 0px;
+	margin: 0px;
+	width: 94px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./image/MyCalendarSelected.png');
+	 border: none;
+	 cursor: pointer;
+}
+.NavBarImageCalendar:hover,
+.NavBarImageCalendar:selected
+{
+	padding: 0px;
+	margin: 0px;
+	width: 94px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./image/MyCalendar.png');
+	border: none;
+	cursor: pointer;
+}
+input.NavBarImageCalendar:hover
+{
+	padding: 0px;
+	margin: 0px;
+	width: 94px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./image/MyCalendar.png');
+	border: none;
+	cursor: pointer;
+}
+.NavBarImageCalendarSelected
+{
+	padding: 0px;
+	margin: 0px;
+	width: 94px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./image/MyCalendar.png');
+	border: none;
+	cursor: pointer;
+}
+.NavBarImageEvent
+{
+	padding: 0px;
+	margin: 0px;
+	width: 70px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./image/Events.png');
+	 border: none;
+	 cursor: pointer;
+}
+.NavBarImageEvent:hover,
+.NavBarImageEvent:selected
+{
+	padding: 0px;
+	margin: 0px;
+	width: 70px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./image/EventsSelected.png');
+	border: none;
+	cursor: pointer;
+}
+input.NavBarImageEvent:hover
+{
+	padding: 0px;
+	margin: 0px;
+	width: 70px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./image/EventsSelected.png');
+	border: none;
+	cursor: pointer;
+}
+.NavBarImageEventSelected
+{
+	padding: 0px;
+	margin: 0px;
+	width: 70px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./image/EventsSelected.png');
+	border: none;
+	cursor: pointer;
+}
+.NavBarImageAddEvent
+{
+	padding: 0px;
+	margin: 0px;
+	width: 82px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./images/AddEventButton.png');
+	 border: none;
+	 cursor: pointer;
+}
+.NavBarImageAddEvent:hover,
+.NavBarImageAddEvent:selected
+{
+	padding: 0px;
+	margin: 0px;
+	width: 82px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./images/AddEventButtonSelected.png');
+	border: none;
+	cursor: pointer;
+}
+input.NavBarImageAddEvent:hover
+{
+	padding: 0px;
+	margin: 0px;
+	width: 82px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./images/AddEventButtonSelected.png');
+	border: none;
+	cursor: pointer;
+}
+.NavBarImageAddEventSelected
+{
+	padding: 0px;
+	margin: 0px;
+	width: 82px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./images/AddEventButtonSelected.png');
+	border: none;
+	cursor: pointer;
+}
+
+.NavBarImageAddGroup
+{
+	padding: 0px;
+	margin: 0px;
+	width: 92px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./images/MakeGroup.png');
+	 border: none;
+	 cursor: pointer;
+}
+.NavBarImageAddGroup:hover,
+.NavBarImageAddGroup:selected
+{
+	padding: 0px;
+	margin: 0px;
+	width: 92px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./images/MakeGroupSelected.png');
+	border: none;
+	cursor: pointer;
+}
+input.NavBarImageAddGroup:hover
+{
+	padding: 0px;
+	margin: 0px;
+	width: 92px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./images/MakeGroupSelected.png');
+	border: none;
+	cursor: pointer;
+}
+.NavBarImageAddGroupSelected
+{
+	padding: 0px;
+	margin: 0px;
+	width: 92px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./images/MakeGroupSelected.png');
+	border: none;
+	cursor: pointer;
+}
+
+
+.NavBarImageVenue
+{
+	padding: 0px;
+	margin: 0px;
+	width: 65px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./image/VenuesLink.png');
+	 border: none;
+	 cursor: pointer;
+}
+.NavBarImageVenue:hover,
+.NavBarImageVenue:selected
+{
+	padding: 0px;
+	margin: 0px;
+	width: 65px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./image/VenuesLinkHover.png');
+	border: none;
+	cursor: pointer;
+}
+input.NavBarImageVenue:hover
+{
+	padding: 0px;
+	margin: 0px;
+	width: 65px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./image/VenuesLinkHover.png');
+	border: none;
+	cursor: pointer;
+}
+.NavBarImageVenueSelected
+{
+	padding: 0px;
+	margin: 0px;
+	width: 65px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./image/VenuesLinkHover.png');
+	border: none;
+	cursor: pointer;
+}
+.NavBarImageAddVenue
+{
+	padding: 0px;
+	margin: 0px;
+	width: 92px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./images/SubmitVenueButton.png');
+	 border: none;
+	 cursor: pointer;
+}
+.NavBarImageAddVenue:hover,
+.NavBarImageAddVenue:selected
+{
+	padding: 0px;
+	margin: 0px;
+	width: 92px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./images/SubmitVenueButtonSelected.png');
+	border: none;
+	cursor: pointer;
+}
+input.NavBarImageAddVenue:hover
+{
+	padding: 0px;
+	margin: 0px;
+	width: 92px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./images/SubmitVenueButtonSelected.png');
+	border: none;
+	cursor: pointer;
+}
+.NavBarImageAddVenueSelected
+{
+	padding: 0px;
+	margin: 0px;
+	width: 92px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./images/SubmitVenueButtonSelected.png');
+	border: none;
+	cursor: pointer;
+}
+
+.NavBarImageAd
+{
+	padding: 0px;
+	margin: 0px;
+	width: 115px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./image/AdsClassifiedsLink.png');
+	 border: none;
+	 cursor: pointer;
+}
+.NavBarImageAd:hover,
+.NavBarImageAd:selected
+{
+	padding: 0px;
+	margin: 0px;
+	width: 115px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./image/AdsClassifiedsSelected.png');
+	border: none;
+	cursor: pointer;
+}
+input.NavBarImageAd:hover
+{
+	padding: 0px;
+	margin: 0px;
+	width: 115px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./image/AdsClassifiedsSelected.png');
+	border: none;
+	cursor: pointer;
+}
+.NavBarImageAdSelected
+{
+	padding: 0px;
+	margin: 0px;
+	width: 115px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./image/AdsClassifiedsSelected.png');
+	border: none;
+	cursor: pointer;
+}
+
+
+.NavBarImageGroup
+{
+	padding: 0px;
+	margin: 0px;
+	width: 70px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./images/Groups.png');
+	 border: none;
+	 cursor: pointer;
+}
+.NavBarImageGroup:hover,
+.NavBarImageGroup:selected
+{
+	padding: 0px;
+	margin: 0px;
+	width: 70px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./images/GroupsSelected.png');
+	border: none;
+	cursor: pointer;
+}
+input.NavBarImageGroup:hover
+{
+	padding: 0px;
+	margin: 0px;
+	width: 70px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./images/GroupsSelected.png');
+	border: none;
+	cursor: pointer;
+}
+.NavBarImageGroupSelected
+{
+	padding: 0px;
+	margin: 0px;
+	width: 70px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./images/GroupsSelected.png');
+	border: none;
+	cursor: pointer;
+}
+
+
+.NavBarImageAddAd
+{
+	padding: 0px;
+	margin: 0px;
+	width: 71px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./images/PostAdButton.png');
+	 border: none;
+	 cursor: pointer;
+}
+.NavBarImageAddAd:hover,
+.NavBarImageAddAd:selected
+{
+	padding: 0px;
+	margin: 0px;
+	width: 71px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./images/PostAdButtonSelected.png');
+	border: none;
+	cursor: pointer;
+}
+input.NavBarImageAddAd:hover
+{
+	padding: 0px;
+	margin: 0px;
+	width: 71px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./images/PostAdButtonSelected.png');
+	border: none;
+	cursor: pointer;
+}
+.NavBarImageAddAdSelected
+{
+	padding: 0px;
+	margin: 0px;
+	width: 71px;
+	height: 27px;
+	border: solid 1px pink;
+	background-image: url('./images/PostAdButtonSelected.png');
+	border: none;
+	cursor: pointer;
+}
+.AddToLabel
+{
+	font-size: 10px;
+	font-family: Arial;
+	color: #1fb6e7;
+}
+.VenueName
+{
+	font-family: Arial;
+	font-size: 16px;
+	color: #1fb6e7;
+	padding-bottom: 10px;
+	font-weight: bold;
+	text-decoration: none;
+}
+.EventHeader
+{
+	font-family: Arial;
+	font-size: 30px;
+	color: White;
+	padding-bottom: 10px;
+	margin: 0;
+	font-weight: normal;
+	text-decoration: none;
+}
+.GroupHeader
+{
+	font-family: Arial;
+	font-size: 30px;
+	color: White;
+	line-height: 35px;
+	margin: 0;
+	font-weight: normal;
+	text-decoration: none;
+}
+.EventHeaderBlue
+{
+	font-family: Arial;
+	font-size: 30px;
+	color: #1fb6e7;
+	padding-bottom: 10px;
+	margin-bottom: 0;
+	font-weight: normal;
+	text-decoration: none;
+}
+.SearchLabel
+{
+	font-family:Arial;
+	font-size: 16px;
+	font-weight: bold;
+	color: #a5c13a;
+	text-decoration: none;
+}
+.VenueLabel
+{
+	font-family:Arial;
+	font-size: 12px;
+	font-weight: bold;
+	text-decoration: none;
+	color: #1fb6e7;
+}
+.NumLabel
+{
+	font-family:Arial;
+	font-size: 12px;
+	color: #cccccc;	
+}
+.DateTimeLabel
+{
+	color: White;
+	font-size: 14px;
+	font-style: italic;
+	font-family: Arial;
+}
+.EventBody
+{
+	font-size: 12px;
+	color: #cccccc;
+	font-family: Arial;
+	line-height: 20px;
+	width: 440px;
+}
+.MessageBody
+{
+	font-size: 12px;
+	color: #cccccc;
+	font-family: Arial;
+	line-height: 20px;
+
+}
+.AddLink
+{
+	font-family: Arial;
+	font-weight: bold;
+	color: #1fb6e7;
+	font-size: 12px;
+	text-decoration: none;
+	padding-bottom: 11px;
+}
+.addthis_button_compact
+{
+	font-family: Arial;
+	font-weight: bold;
+	color: #1fb6e7;
+	font-size: 12px;
+	text-decoration: none;
+	padding-bottom: 11px;
+}
+.AddUnderLink
+{
+	font-family: Arial;
+	font-weight: bold;
+	color: #1fb6e7;
+	font-size: 12px;
+	text-decoration: underline;
+	padding-bottom: 11px;
+}
+.AddLinkNoPadding
+{
+	font-family: Arial;
+	font-weight: bold;
+	color: #1fb6e7;
+	font-size: 12px;
+	text-decoration: none;
+}
+
+.AddLinkNoPaddingDisabled
+{
+	font-family: Arial;
+	font-weight: normal;
+	color: #93d6ef;
+	font-size: 12px;
+	text-decoration: none;
+	cursor: default;
+}
+
+.AddGreyLink
+{
+	font-family: Arial;
+	font-weight: bold;
+	color: #121010;
+	font-size: 12px;
+	text-decoration: underline;
+	padding-bottom: 11px;
+}
+.AddGreyLinkAlt
+{
+	font-family: Arial;
+	font-weight: bold;
+	color: #cccccc;
+	font-size: 12px;
+	text-decoration: underline;
+	padding-bottom: 11px;
+}
+.AddLinkSmall
+{
+	font-family: Arial;
+	font-weight: bold;
+	color: #1fb6e7;
+	font-size: 10px;
+	text-decoration: underline;
+}
+.AddLinkSmallUn
+{
+	font-family: Arial;
+	font-weight: bold;
+	color: #1fb6e7;
+	font-size: 10px;
+	text-decoration: none;
+	
+}
+.AddPagerNextLink
+{
+	font-family: Arial;
+	font-weight: bold;
+	color: #1fb6e7;
+	font-size: 12px;
+	text-decoration: none;
+	padding-bottom: 11px;
+	position: absolute;
+	right: 15px;	
+	padding-right: 3px;
+	padding-left: 3px;
+}
+.AddPagerPreviousLink
+{
+	font-family: Arial;
+	font-weight: bold;
+	color: #1fb6e7;
+	font-size: 12px;
+	text-decoration: none;
+	padding-bottom: 11px;
+	position: absolute;
+	right: 90px;	
+	padding-right: 3px;
+	padding-left: 3px;
+}
+.AddPagerPreviousDisabled
+{
+	font-family: Arial;
+	font-weight: bold;
+	color: #93d6ef;
+	font-size: 12px;
+	text-decoration: none;
+	padding-bottom: 11px;
+	position: absolute;
+	right: 90px;	
+	cursor: text;
+	padding-right: 3px;
+	padding-left: 3px;
+}
+
+
+
+.AddLinkNotBold
+{
+	font-family: Arial;
+	color: #1fb6e7;
+	font-size: 12px;
+	text-decoration: none;
+}
+
+.PagerPipe
+{
+	color: White;
+	position:absolute;
+	right: 64px;
+	font-size: 10px;
+	font-weight: bolder;
+}
+
+.AddLinkNextDisabled
+{
+	font-family: Arial;
+	font-weight: bold;
+	color: #93d6ef;
+	font-size: 12px;
+	text-decoration: none;
+	padding-bottom: 11px;
+	position: absolute;
+	right: 15px;
+	cursor: text;	
+}
+
+.AddLinkNextDisabled a:disabled
+{
+	font-family: Arial;
+	font-weight: bold;
+	color: #93d6ef;
+	font-size: 12px;
+	text-decoration: none;
+	padding-bottom: 11px;
+	position: absolute;
+	right: 15px;	
+	cursor: text;
+}
+
+.PagesPager
+{
+	color: #cccccc;
+	font-family: Arial;
+	font-size: 12px;
+	font-weight: bold;
+	padding-left: 6px;
+	padding-bottom: 11px;
+}
+
+.AddLinkDisabled
+{
+	font-family: Arial;
+	font-weight: bold;
+	color: #cccccc;
+	font-size: 12px;
+	text-decoration: none;
+	padding-bottom: 11px;
+}
+.AddGreenLink
+{
+	font-family: Arial;
+	font-weight: bold;
+	color: #A5C13A;
+	font-size: 12px;
+	text-decoration: none;
+	padding-bottom: 11px;
+}
+.AddPurpleLink
+{
+	font-family: Arial;
+	font-weight: bold;
+	color: #d190f4;
+	font-size: 12px;
+	text-decoration: none;
+	padding-bottom: 11px;
+}
+
+.AddLightGreenLink
+{
+	font-family: Arial;
+	font-weight: bold;
+	color: #7cae0c;
+	font-size: 12px;
+	text-decoration: none;
+	padding-bottom: 11px;
+}
+.RotatorArrow
+{
+	float: left;
+	margin-top: 162px;
+	margin-left: 270px;
+	cursor: pointer;
+}
+.RotatorArrowDown
+{
+	float: left;
+	margin-top: 162px;
+	margin-left: 20px;
+	cursor: pointer;
+}
+.AddOrangeLink
+{
+	font-family: Arial;
+	font-weight: bold;
+	color: #ff6b09;
+	font-size: 12px;
+	text-decoration: none;
+	padding-bottom: 11px;
+}
+.AddGreenLinkBig
+{
+	font-family: Arial;
+	font-weight: bold;
+	color: #A5C13A;
+	font-size: 20px;
+	text-decoration: none;
+	padding-bottom: 11px;
+}
+.AddWhiteLink
+{
+	font-family: Arial;
+	font-weight: bold;
+	color: White;
+	font-size: 12px;
+	text-decoration: none;
+	padding-bottom: 11px;
+	cursor: pointer;
+}
+.AddWhiteLinkSmall
+{
+	font-family: Arial;
+	font-weight: bold;
+	color: #cccccc;
+	font-size: 10px;
+	text-decoration: none;
+	cursor: pointer;
+}
+.AddLinkBig
+{
+	font-family: Arial;
+	font-weight: bold;
+	color: #1fb6e7;
+	font-size: 16px;
+	text-decoration: none;
+	padding-bottom: 11px;
+}
+.Link
+{
+	font-family: Arial;
+	font-weight: bold;
+	color: #1fb6e7;
+	text-decoration: none;
+	padding-bottom: 11px;
+}
+
+.GreenLink
+{
+	font-family: Arial;
+	font-weight: bold;
+	color: #1fb6e7;
+	text-decoration: none;
+	padding-bottom: 11px;
+}
+
+.TagLink
+{
+	font-family: Arial;
+	font-weight: bold;
+	color: #b1a812;
+	text-decoration: none;
+	padding-bottom: 11px;
+}
+.AddLinkGoing
+{
+	font-family: Arial;
+	font-style: italic;
+	font-weight: bold;
+	color: #A5C13A;
+	font-size: 16px;
+	text-decoration: none;
+	padding-bottom: 11px;
+}
+.Comment
+{
+	font-size: 11px;
+	font-family: Arial;
+	color: #cccccc;
+	line-height: 20px;
+}
+.SayLabel
+{
+	font-size: 25px;
+	font-family: Arial;
+	color: White;
+	padding-bottom: 5px;
+}
+.AddCommentTextBox
+{
+	background: url('image/AddCommentMiddle.jpg') repeat-y;
+	/*background-image: url('image/AddCommentBackground.jpg');
+	background-repeat: no-repeat;*/
+	padding: 5px;
+	border: none;
+	width: 536px;
+	height: 111px;
+	background-color: White;
+}
+.FooterTitle
+{
+	font-family: Arial;
+	font-size: 30px;
+	color: White;
+}
+.OtherEventTitle
+{
+	font-family: Arial;
+	font-size: 12px;
+	color: #1fb6e7;
+	font-weight: bold;
+	text-decoration: none;
+}
+.PresentedByTitle
+{
+	font-family: Arial;
+	font-size: 12px;
+	color: White;
+}
+.OtherEventSummary
+{
+	font-family: Arial;
+	font-size: 12px;
+	color: #999999;
+}
+div#topDiv:after 
+{
+   content: "."; 
+   display: block; 
+   height: 0; 
+   clear: both; 
+   visibility: hidden;
+}
+
+/*hack for IE 6*/
+* html div#topDiv {height: 1%;}
+
+/*hack for IE 7*/
+* + html div#topDiv {height: 1%;}
+
+div.topDiv:after 
+{
+   content: "."; 
+   display: block; 
+   height: 0; 
+   clear: both; 
+   visibility: hidden;
+}
+
+/*hack for IE 6*/
+* html div.topDiv {height: 1%;}
+
+/*hack for IE 7*/
+* + html div.topDiv {height: 1%;}
+
+div#topDiv2:after 
+{
+   content: "."; 
+   display: block; 
+   height: 0; 
+   clear: both; 
+   visibility: hidden;
+}
+
+/*hack for IE 6*/
+* html div#topDiv3 {height: 1%;}
+
+/*hack for IE 7*/
+* + html div#topDiv3 {height: 1%;}
+
+div#topDiv3:after 
+{
+   content: "."; 
+   display: block; 
+   height: 0; 
+   clear: both; 
+   visibility: hidden;
+}
+
+/*hack for IE 6*/
+* html div#topDiv3 {height: 1%;}
+
+/*hack for IE 7*/
+* + html div#topDiv3 {height: 1%;}
+
+div#topDiv4:after 
+{
+   content: "."; 
+   display: block; 
+   height: 0; 
+   clear: both; 
+   visibility: hidden;
+}
+
+/*hack for IE 6*/
+* html div#topDiv4 {height: 1%;}
+
+/*hack for IE 7*/
+* + html div#topDiv4 {height: 1%;}
+
+div#topDiv5:after 
+{
+   content: "."; 
+   display: block; 
+   height: 0; 
+   clear: both; 
+   visibility: hidden;
+}
+
+/*hack for IE 6*/
+* html div#topDiv5 {height: 1%;}
+
+/*hack for IE 7*/
+* + html div#topDiv5 {height: 1%;}
+
+div#topDiv6:after 
+{
+   content: "."; 
+   display: block; 
+   height: 0; 
+   clear: both; 
+   visibility: hidden;
+}
+
+/*hack for IE 6*/
+* html div#topDiv6 {height: 1%;}
+
+/*hack for IE 7*/
+* + html div#topDiv6 {height: 1%;}
+
+.AdTitle
+{
+	color: White;
+	font-weight: bold;
+	font-family: Arial;
+	font-size: 14px;
+	margin-top: 10px;
+	text-decoration: none;
+	padding-left: 2px;
+	padding-right: 2px;
+}
+.AdBody
+{
+	color: #cccccc;
+	font-family: Arial;
+	font-size: 12px;
+	line-height: 16px;
+}
+.ReadMoreLink
+{
+	 font-family: Arial; 
+	 font-weight: bold;
+	 color: #1fb6e7; 
+	 font-size: 12px;
+	 text-decoration: none;
+}
+.PollQuestion
+{
+	font-family: Arial;
+	color: White;
+	font-size: 16px;
+	font-weight: bold;
+	text-decoration: none;
+}
+.AnswerList
+{
+	font-family: Arial;
+	color: White;
+	font-weight: bold;
+	font-size: 12px;
+	line-height: 20px;
+}
+.EventTabStrip
+{
+	padding-left: 5px;
+}
+
+#ctl00_ContentPlaceHolder1_RadTabStrip1  .RadTabStrip .rtsLink, 
+#ctl00_ContentPlaceHolder1_RadTabStrip1 .RadTabStripVertical .rtsLink
+{
+	cursor: pointer !important;
+}
+#ctl00_ContentPlaceHolder1_RadTabStrip2 .RadTabStrip .rtsLink,
+#ctl00_ContentPlaceHolder1_RadTabStrip2 .RadTabStripVertical .rtsLink
+{
+	cursor: pointer !important;
+}
+#ctl00_ContentPlaceHolder1_RadTabStrip3 .RadTabStrip .rtsLink,
+#ctl00_ContentPlaceHolder1_RadTabStrip3 .RadTabStripVertical .rtsLink
+{
+	cursor: pointer !important;
+}
+
+.EventDiv label
+{
+	font-family: Arial;
+	font-size: 14px;
+	color: #cccccc;
+}
+.EventDiv2 label
+{
+	font-family: Arial;
+	font-size: 12px;
+	color: #cccccc;
+}
+.EventDiv2 .AddGreenLink
+{
+	font-family: Arial;
+	font-weight: bold;
+	color: #A5C13A;
+	font-size: 10px;
+	text-decoration: none;
+	padding-bottom: 11px;
+}
+.EventDiv2 .AddLink
+{
+	font-family: Arial;
+	font-weight: bold;
+	color: #1fb6e7;
+	font-size: 10px;
+	text-decoration: none;
+	padding-bottom: 11px;
+}
+.EventDiv h1
+{
+	font-family: Arial;
+	font-size: 30px;
+	color: White;
+	padding-bottom: 10px;
+	margin-bottom: 0;
+	font-weight: normal;
+	text-decoration: none;
+	margin-top: 0;
+}
+.EventDiv h1.searches
+{
+	font-family: Arial;
+	font-size: 30px;
+	color: White;
+	margin-top: 0;
+	margin-bottom: 0;
+	font-weight: normal;
+	text-decoration: none;
+}
+.EventDiv h2.searches{
+	color:#cccccc;
+	font-family:Arial;
+	font-size:24px;
+	font-weight:normal;
+	margin-bottom:0;
+	margin-top:0;
+	padding-left:20px;
+	text-decoration:none;
+	padding-top: 20px;
+}
+.EventDiv h2
+{
+	font-family: Arial;
+	font-size: 24px;
+	color: White;
+	padding-bottom: 10px;
+	margin-bottom: 0;
+	font-weight: normal;
+	text-decoration: none;
+}
+
+.EventDiv h3
+{
+	color: #cccccc;
+	font-size:12px;
+	line-height:20px;
+	text-decoration:underline;
+}
+
+.EventDiv h1.Green
+{
+	font-family: Arial;
+	font-size: 20px;
+	color: #A5C13A;
+}
+.EventDiv h1.Blue
+{
+	font-family: Arial;
+	font-size: 20px;
+	color: #1fb6e7;
+}
+.MessageDiv label
+{
+	font-family: Arial;
+	font-size: 12px;
+	color: White;
+	margin-bottom: 3px;
+}
+.AspLabel
+{
+	font-family: Arial;
+	font-size: 14px;
+	color: #cccccc;
+}
+
+.FriendDiv label
+{
+	font-family: Arial;
+	font-size: 14px;
+	color: White;
+	font-weight: bold;
+}
+
+.RegisterDiv label
+{
+	font-family: Arial;
+	font-size: 12px;
+	color: #cccccc;
+}
+.CheckText
+{
+	font-family: Arial;
+	font-size: 14px;
+	color: #cccccc;
+}
+.MusicCheckBoxes
+{
+	border: solid 4px #515151;
+}
+.ErrorLabel
+{
+	color: #3dc2ec;
+	font-family: Arial;
+	font-size: 12px;
+	font-weight: bold;
+}
+.ReLabel
+{
+	color: #999999;
+	font-size: 14px;
+	font-family: Arial;
+}
+.SendMessageModal
+{
+	background-color: Black;
+}
+.EventGoersLabel
+{
+	color: #1fb6e7;
+	font-size: 16px;
+	font-family: Arial;
+	text-decoration: none;
+	font-weight: bold;
+}
+.PageLinkSelected
+{
+	text-decoration: none;
+	color: #93d6ef;
+	padding: 0px;
+	padding-bottom: 11px;
+	font-size: 13px;
+	font-family: Arial;
+	font-weight: bold;
+	padding-right: 3px;
+	padding-left: 3px;
+}
+.PageLink
+{
+	text-decoration: none;
+	color: #1fb6e7;
+	padding: 0px;
+	padding-bottom: 11px;
+	font-size: 13px;
+	font-family: Arial;
+	font-weight: bold;
+	padding-right: 3px;
+	padding-left: 3px;
+}
+.CommaText
+{
+	text-decoration: none;
+	color: #1fb6e7;
+	padding-right: 3px;
+	padding-bottom: 11px;
+	font-size: 13px;
+	font-family: Arial;
+	font-weight: bold;
+}
+.TopPagerPanel
+{
+	padding-top: 6px;
+	height: 18px;
+	position: relative;
+	background-color: #1b1b1b;
+}
+.BottomPagerPanel
+{
+	height: 21px;
+	position: relative;
+	background-color: #1b1b1b;
+}
+.SearchButtons
+{
+	padding-top: 5px;
+	padding-left: 12px;
+	padding-right: 7px;
+}
+.SearchVenuePadding
+{
+	margin-left: 70px;
+}
+.PanelBarLabel
+{
+	font-family: Arial;
+	font-size: 14px;
+	color: #cccccc;
+}
+.MessageItem
+{
+	background-color: #333333;
+	height: 35px;
+	width: 860px;
+}
+
+.FriendPic
+{
+	padding: 10px;
+}
+.FriendEvent
+{
+	font-family: Arial;
+	font-size: 20px;
+	color: White;
+}
+.PreferencesTitle
+{
+	font-family: Arial;
+	font-size: 20px !important;
+	color: #1fb6e7 !important;
+}
+.PreferencesTitleAlt
+{
+	font-family: Arial;
+	font-size: 20px !important;
+	color: #a5c13a !important;
+}
+.Prefs div.Pad
+{
+	margin-bottom: 30px;
+}
+
+.Prefs div.Pad2
+{
+	
+	background-color: #1b1b1b;
+	margin-bottom: 30px;
+}
+
+.WhiteHeader
+{
+	font-family: Arial; 
+	font-size: 20px; 
+	color: White;
+	padding-bottom: 12px;
+}
+.PollQuestion
+{
+	font-family: Arial;
+	font-size: 20px;
+	color: #cccccc;
+}
+.AddressLabel
+{
+	font-family: Arial;
+	font-size: 14px;
+	color: White;
+	font-style: italic;
+}
+.CalendarHeader
+{
+	font-family: Arial;
+	font-size: 16px;
+	color: White;
+	text-decoration: underline;
+}
+.CalendarTime
+{
+	font-family: Arial;
+	line-height: 20px; 
+	font-size: 16px;
+	color: #262626;
+}
+.CalendarDescription
+{
+	color: #262626;
+	font-size: 12px;
+}
+.SmallLink
+{
+	color: #1fb6e7; 
+	font-family: Arial; 
+	font-size: 10px; 
+	text-decoration: none;
+	font-weight: bold;
+}
+.CommentLabel
+{
+	color: #A5C13A;
+	font-weight: bold;
+}
+.HiddenDiv
+{
+	visibility: hidden;
+}
+.EventToolTip
+{
+	background-color: Black;
+}
+
+.rtsLevel a
+{
+	background-color: Transparent;
+	color: #999999;
+	font-size: 14px;
+	height: 30px;
+	text-decoration: none;
+	font-family: Arial;
+	margin: 5px;
+}
+.rtsLevel a:selected
+{
+	background-color: #363636;
+	color: White;
+	font-size: 14px;
+	height: 26px;
+	text-decoration: none;
+	font-family: Arial;
+	margin: 5px;
+}
+
+.FavoritesPanel
+{
+	padding: 7px;
+	font-size: 12px;
+	color: #cccccc;
+	font-family: Arial;
+	line-height: 20px;
+	overflow: hidden;
+}
+.Padding
+{
+	padding-left: 20px;
+	display: block;
+}
+.FriendMessage
+{
+	padding-left: 5px;
+	padding-top: 5px;
+	width: 440px;
+	background-color: #1b1b1b;
+	border: solid 4px #333333;
+	height: 25px;
+	vertical-align: middle;
+}
+div#BottomFooter a
+{
+	color: #cccccc;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-family: Arial;
+	font-size: 8px;
+}
+div#BottomFooter div#copy
+{
+	color: #cccccc;
+	text-decoration: none;
+	font-family: Arial;
+	font-size: 12px;
+}
+.MailHeader
+{
+	border-top: solid 4px #fe7806;
+	height: 50px;
+	width: 560px;
+	background-color: #333333;
+	margin-bottom: 3px;
+	
+	cursor: pointer;
+}
+
+.MailContent
+{
+	width: 560px;
+	background-color: #333333;
+	margin-bottom: 3px;
+}
+
+.AdCss
+{
+	background: Transparent;
+}
+
+input.TopHeaderImage
+{
+	padding: 0 7px 4px 0;
+}
+input.TopHeaderImage:hover,
+input.TopHeaderImage:selected
+{
+	padding: 0 7px 4px 0;
+	border-bottom: solid 4px white;
+}
+.rtsLevel a
+{
+	margin: 0px;
+	padding: 0px;
+}
+
+.rtsImg
+{
+	border: 0;
+}
+
+.HomeDay
+{
+	text-transform: uppercase;
+	color: White;
+	font-family: Arial;
+	font-size: 20px;
+}
+.HomeMonth
+{
+	color: #A467C2;
+	text-transform: uppercase;
+	font-family: Arial;
+	font-size: 12px;
+}
+.HomeNumber
+{
+	text-transform: uppercase;
+	color: White;
+	font-family: Arial;
+	font-size: 35px;
+	font-weight: bold;
+}
+.HomeEvent
+{
+	font-family: Arial;
+	font-size: 20px;
+	color: White;
+	text-decoration: none;
+}
+.HomeSummary
+{
+	font-family: Arial;
+	font-size: 12px;
+	color: #cccccc;
+}
+
+.rtsLI
+{
+	background-image: none !important;
+	font-size: 12px !important;
+	color: #cccccc !important;
+	font-family: Arial !important;
+}
+
+.rtsLevel1 .rtsOut
+{
+	background-image: none !important;
+	padding: 0px !important;
+	margin: 0px !important;
+}
+
+.rtsLink
+{
+	background-image: none !important;
+	font-size: 20px !important;
+	color: #999999 !important;
+	font-family: Arial !important;
+	outline: none !important;
+	outline-width: 0px;
+	outline-style: none;
+	
+}
+.rtsSelected
+{
+	background-color: Transparent;
+	color: White !important;
+	font-size: 14px;
+	height: 30px !important;
+	text-decoration: none;
+	font-family: Arial;
+	margin: 5px;
+}
+.rtsLevel a
+{	
+}
+
+.rtsLevel a.rtsSelected
+{
+	background-color: Transparent;
+	/*background-image: none !important;*/
+	/*color: White !important;*/
+	/*border-left: solid 0px #1b1b1b !important;
+	border-top: solid 0px #1b1b1b !important;
+	border-bottom: solid 0px #1b1b1b !important;*/
+}
+
+.HigherItalic
+{
+	font-size: 20px;
+	font-weight: bold;
+	font-family: Pristina;
+}
+
+.RadioSelect:selected
+{
+	background-color: #666666;
+}
+
+.Paddings
+{
+	padding: 5px 10px 5px 10px;
+}
+.Paddings20
+{
+	padding: 20px;
+}
+.rpRootGroup
+{
+	padding: 0 !important;
+}
+
+.VenueCheckBoxes
+{
+	background-color: #1b1b1b;
+}
+
+.FloatRight
+{
+	float: right;
+}
+
+.radr_clipRegion
+{
+	position: absolute !important;
+}
+
+.RadTabStripLeft_Black .rtsLevel .rtsUL, 
+.RadTabStripLeft_Black .rtsLevel .rtsLI
+{
+	width: 280px !important;
+}
+.RadTabStripLeft_Black .rtsLevel .rtsLI
+{
+	height: 45px;
+	margin-top: 1px !important;
+}
+.RadTabStripLeft_Black .rtsLevel a
+{
+	height: 45px !important;
+}
+
+.MyTabs
+{
+	padding-top: 10px !important;
+	color: #1fb6e7 !important;
+	text-decoration: blink;
+}
+
+
+
+.MyTabsMessages
+{
+	background-image: url('images/MyMessages.png') !important;
+	background-position: 12px !important;	
+	border: solid 3px #1b1b1b  !important;
+	cursor: pointer;
+}
+
+.MyTabsMessagesSelected
+{
+	background-color: #1b1b1b  !important;
+	background-image: url('images/MyMessagesHover.png') !important;
+	background-position: 12px !important;	
+	cursor: default;
+	border: solid 3px #1b1b1b  !important;
+}
+
+.MyTabsMessagesHover
+{
+	background-image: url('images/MyMessagesHover.png') !important;
+	background-position: 12px !important;	
+	cursor: pointer !important;
+	border: solid 3px #1b1b1b !important;
+}
+
+.MyTabsFriends
+{
+	background-image: url('images/MyFriends.png') !important;
+	background-position: 12px  !important;	
+	cursor: pointer;
+	border: solid 3px #1b1b1b  !important;
+}
+
+.MyTabsFriendsSelected
+{
+	background-color: #1b1b1b  !important;
+	background-image: url('images/MyFriendsHover.png') !important;	
+	background-position: 12px  !important;
+	cursor: default;	
+	border: solid 3px #1b1b1b  !important;
+}
+
+.MyTabsFriendsHover
+{
+	background-image: url('images/MyFriendsHover.png') !important;	
+	background-position: 12px  !important;
+	cursor: pointer !important;	
+	border: solid 3px #1b1b1b  !important;
+}
+
+.MyTabsGroups
+{
+	background-image: url('images/MyGroups.png') !important;
+	background-position: 12px  !important;	
+	cursor: pointer;
+	border: solid 3px #1b1b1b  !important;
+}
+
+.MyTabsGroupsSelected
+{
+	background-color: #1b1b1b  !important;
+	background-image: url('images/MyGroupsHover.png') !important;	
+	background-position: 12px  !important;
+	cursor: default;	
+	border: solid 3px #1b1b1b  !important;
+}
+
+.MyTabsGroupsHover
+{
+	background-image: url('images/MyGroupsHover.png') !important;	
+	background-position: 12px  !important;
+	cursor: pointer !important;	
+	border: solid 3px #1b1b1b  !important;
+}
+
+.MyTabsPreferences
+{
+	background-image: url('images/MyPreferences.png') !important;
+	background-position: 12px !important;	
+	cursor: pointer;
+	border: solid 3px #1b1b1b  !important;
+}
+
+
+.MyTabsPreferencesSelected
+{
+	background-color: #1b1b1b  !important;
+	background-image: url('images/MyPreferencesHover.png') !important;	
+	background-position: 12px !important;
+	cursor: default;
+	border: solid 3px #1b1b1b  !important;	
+}
+
+.MyTabsPreferencesHover
+{
+	background-image: url('images/MyPreferencesHover.png') !important;	
+	background-position: 12px !important;
+	cursor: pointer !important;	
+	border: solid 3px #1b1b1b  !important;
+}
+
+.MyTabsSelected
+{
+	padding-top: 10px !important;
+	color: #ff7401 !important;
+	border: solid 3px #1b1b1b  !important;
+}
+
+.RadTabStrip_Black .rtsLi
+{
+	height: 30px;	
+}
+
+div.radwindow_Black table td.topleft
+{
+	background: none !important;
+}
+
+div.radwindow_Black table td.titlebar
+{
+	background: none !important;
+}
+
+div.radwindow_Black table td.topright
+{
+	background: none !important;
+}
+
+div.radwindow_Black table td.bodyleft
+{
+	background: none !important;
+}
+
+
+div.radwindow_Black table td.bodyright
+{
+	background: none !important;
+}
+
+div.radwindow_Black table td.footerleft
+{
+	background: none !important;
+}
+
+div.radwindow_Black table td.footerright
+{
+	background: none !important;
+}
+
+div.radwindow_Black table td.footercenter
+{
+	background: none !important;
+}
+
+div.radwindow_Black .windowcontent
+{
+	border: solid 3px black !important;	
+}
+
+.RadTabStripLeft_Black .rtsLink
+{
+	margin-left: 0 !important;
+}
+
+.MessageDiv h1
+{
+	color: White;
+	font: 20px Arial, sans-serif;
+	font-weight: bold;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+.MessageDiv h4
+{
+	color: White;
+	font: 16px Arial, sans-serif;
+	font-weight: bold;
+}
+.OneMessage
+{
+	border-bottom: solid 3px #363636;
+	color: #cccccc;
+}
+.OneMessageSelected
+{
+	border: 0 !important;
+	color: #cccccc;
+}
+.OneMessageContent
+{
+	margin: 5px;
+	width: 300px;
+	color: #cccccc;
+	padding: 0;
+	line-height: 26px;
+}
+
+.RadPanelBar .rpRootGroup, .RadPanelBar .rpGroup, .RadPanelBar .rpItem
+{
+	background-color: #393939;
+}
+.RadPanelBar_Default .rpExpanded
+{
+	border-bottom: 0 !important;
+}
+.RadPanelBar .rpLevel1
+{
+	border: 0 !important;	
+}
+
+.RadPanelBar_Default .rpRootGroup .rpTemplate
+{
+	background-color: #393939;	
+}
+
+.RadPanelBar_Default ul.rpRootGroup
+{
+	border: 0 !important;	
+}
+
+.RadPanelBar_Default
+{
+	background: none !important;
+}
+
+.RadTabStrip_Black .rtsLink
+{
+	font: 20px Arial !important;
+}
+
+.RadTabStripTop_Black .rtsLevel1 .rtsIn
+{
+	padding-top: 0px !important;	
+}
+
+.RadPanelBar_Default .rpGroup .rpLink, .RadPanelBar_Default .rpGroup .rpTemplate
+{
+	font-size: 13px !important;
+}
+
+.XButton
+{
+	background-image: 'url(~/image/XSelected.png)';
+}
+.XButton:hover
+{
+	background-image: 'url(~/image/X.png)';
+}
+.RadPanelBar_Default .rpGroup
+{
+	overflow: hidden !important;
+}
+
+.InputClass
+{
+	margin-top: 3px;
+	border: 0;
+	width: 300px; 
+	height: 180px; 
+	background-color: #666666; 
+	padding: 5px;
+	color: #1fb6e7;
+}
+.FloatLeft
+{
+	float: left;
+}
+
+.FloatRight
+{
+	float: right;
+}
+
+object.toHidde:hidden {
+    position: absolute;
+    left: -10000px;
+    z-index: 1;
+}
+toHidde.hidden
+{
+	position: absolute;
+    left: -10000px;
+    z-index: 1;
+}
+object:hidden
+{
+	position: absolute;
+    left: -10000px;
+    z-index: 1;
+}
+.ToolTipWrapper 
+{
+	border: solid 3px #1fb6e7;
+	background-color: #333333 !important;
+}
+.ToolTipWrapper td
+{
+	background-color: #333333 !important;
+}
+
+div.radtooltip_Vista table.ToolTipWrapper
+{
+	padding-top: 10px;
+	border: solid 3px #ff6b09 !important;
+}
+
+div.radtooltip_Vista table.ToolTipWrapper td.ToolTipTopLeft, div.radtooltip_Vista table.ToolTipWrapper td.ToolTipTopCenter, div.radtooltip_Vista table.ToolTipWrapper td.ToolTipTopRight, div.radtooltip_Vista table.ToolTipWrapper td.ToolTipLeftMiddle, div.radtooltip_Vista table.ToolTipWrapper td.ToolTipContent, div.radtooltip_Vista table.ToolTipWrapper td.ToolTipRightMiddle, div.radtooltip_Vista table.ToolTipWrapper td.ToolTipBottomLeft, div.radtooltip_Vista table.ToolTipWrapper td.ToolTipBottomCenter, div.radtooltip_Vista table.ToolTipWrapper td.ToolTipBottomRight
+{
+	background: none !important;
+}
+
+div.radtooltip_Vista table.ToolTipWrapper td.ToolTipTopCenter, div.radtooltip_Vista table.ToolTipWrapper td.ToolTipBottomCenter
+{
+	background: none !important;
+}
+table.ToolTipWrapper td.ToolTipRightMiddle {
+width:15px !important;
+}
+
+
+div.radwindow_Office2007 table td.topleft
+{
+	background: none !important;
+}
+
+div.radwindow_Office2007 table td.titlebar
+{
+	background: none !important;
+}
+
+div.radwindow_Office2007 table td.topright
+{
+	background: none !important;
+}
+
+div.radwindow_Office2007 table td.bodyleft
+{
+	background: none !important;
+}
+
+
+div.radwindow_Office2007 table td.bodyright
+{
+	background: none !important;
+}
+
+div.radwindow_Office2007 table td.footerleft
+{
+	background: none !important;
+}
+
+div.radwindow_Office2007 table td.footerright
+{
+	background: none !important;
+}
+
+div.radwindow_Office2007 table td.footercenter
+{
+	background: none !important;
+}
+
+div.radwindow_Office2007 .windowcontent
+{
+	border: solid 3px #1fb6e7 !important;	
+}
+
+div.radwindow_Office2007 .titlerow
+{
+	display: none;
+}
+
+.SearchButton
+{
+	cursor: pointer;
+	font-weight: bold;
+	padding:0;
+	padding-bottom: 4px; 
+	font-size: 11px;
+	height: 30px; 
+	width: 112px;
+	background-color: transparent; 
+	color: White; 
+	background-image: url('image/PostButtonNoPost.png'); 
+	background-repeat:no-repeat; 
+	border: 0; 
+}
+
+.SearchButton2
+{
+	cursor: pointer;
+	font-weight: bold;
+	padding:0;
+	padding-bottom: 4px; 
+	font-size: 9px;
+	height: 30px; 
+	width: 112px;
+	background-color: transparent; 
+	color: White; 
+	background-image: url('image/PostButtonNoPost.png'); 
+	background-repeat:no-repeat; 
+	border: 0; 
+}
+
+.SearchButtonSmall
+{
+	cursor: pointer;
+	font-weight: bold;
+	padding:0;
+	padding-bottom: 4px; 
+	font-size: 11px;
+	height: 32px; 
+	width: 70px;
+	background-color: transparent; 
+	color: White; 
+	background-image: url('image/SmallButton.png'); 
+	background-repeat:no-repeat; 
+	border: 0; 
+
+}
+
+.MeaslesHeader
+{
+	font-family: Arial;
+	font-size: 14px;
+	color: #02d201;
+	border-bottom: solid 2px White;
+	font-weight: bold;
+}
+
+.HeaderColumn
+{
+	border-bottom: solid 2px White;
+	padding-right: 10px;
+	text-align: center;
+	vertical-align: bottom;
+}
+
+.MeaslesRow
+{
+	font-family: Arial;
+	font-size: 12px;
+	color: #02d201;
+	border-bottom: solid 2px #cccccc;
+	text-align: center;
+}
+
+.NameColumnAlt
+{
+	font-family: Arial;
+	font-size: 12px;
+	color: #cccccc;
+	text-align: right;
+	font-weight: bold;
+	padding: 5px;
+}
+
+.NameColumn
+{
+	font-family: Arial;
+	font-size: 12px;
+	color: #02d201;
+	text-align: right;
+	font-weight: bold;
+	padding: 5px;
+}
+.ContentColumnAlt
+{
+	border-bottom: solid 2px #cccccc;
+	padding: 5px;
+	font-family: Arial;
+	font-size: 12px;
+	color: #1fb6e7;
+	font-weight: bold;
+	text-align: center;
+	
+}
+
+.ContentColumn
+{
+	border-bottom: solid 2px #02d201;
+	padding: 5px;
+	font-family: Arial;
+	font-size: 12px;
+	color: #1fb6e7;
+	font-weight: bold;
+	text-align: center;
+}
+
+
+.NAColumn
+{
+	font-family: Arial;
+	font-size: 12px;
+	color: Red;
+	font-weight: bold;
+	text-align: center;
+}
+
+.XColumn
+{
+	font-family: Arial;
+	font-size: 12px;
+	color: #1fb6e7;
+	font-weight: bold;
+	text-align: center;
+}
+
+.GreenButton
+{
+	cursor: pointer;
+	font-weight: bold;
+	padding:0;
+	width: 200px;
+	padding-bottom: 4px; 
+	font-size: 11px;
+	height: 30px; 
+	background-color: transparent; 
+	color: White; 
+	background-image: url('image/GreenButton.png'); 
+	background-repeat:no-repeat; 
+	border: 0; 
+	font-size:12px;
+	padding-left:10px;
+	padding-top:7px;
+}
+.PaddingTop
+{
+	padding-top: 5px;
+}
+
+.HelpImage
+{
+	cursor: pointer;
+}
+
+tr.isAlt
+{
+	background-color: #603e6a;
+	font-family: Arial;
+	font-size: 14px;
+	border-bottom:2px solid #121010;
+}
+
+tr.notAlt
+{
+	background-color: #A5C13A;
+	font-family: Arial;
+	font-size: 14px;
+	border-bottom:2px solid #121010;
+}
+
+div.radtooltip_Black a.CloseButton, 
+div.radtooltip_Black a.CloseButton:hover 
+{
+	-moz-background-clip:border;
+	-moz-background-inline-policy:continuous;
+	-moz-background-origin:padding;
+	background:transparent url('image/CloseButton.png') no-repeat scroll 0 0 !important;
+	display:block;
+	float:right;
+	height:30px !important;
+	line-height:16px;
+	margin-right:-5px;
+	outline-color:-moz-use-text-color;
+	outline-style:none;
+	outline-width:medium;
+	text-indent:-9999px;
+	width:50px !important;
+}
+
+div.radtooltip_Vista a.CloseButton, 
+div.radtooltip_Vista a.CloseButton:hover 
+{
+	-moz-background-clip:border;
+	-moz-background-inline-policy:continuous;
+	-moz-background-origin:padding;
+	background:transparent url('image/CloseButton.png') no-repeat scroll 0 !important;
+	display:block;
+	float:right;
+	line-height:16px;
+	margin-right:-5px;
+	outline-color:-moz-use-text-color;
+	outline-style:none;
+	outline-width:medium;
+	text-indent:-9999px;
+	width:50px !important;
+}
+
+.SayFriendPanel
+{
+	margin: 10px;
+	padding: 5px;
+}
+.RadScheduler .rsHorizontalHeaderTable
+{
+	width: 100% !important;
+}
+.RadScheduler .rsContentTable
+{
+	width: 100% !important;
+}
+
+.radwindow .contentrow .windowcontent
+{
+	z-index: 3000;	
+}
+.HiddeButtons .radr_button .radr_buttonRight
+{
+	display: none !important;	
+}
+
+.HiddeButtons .radr_button .radr_buttonLeft
+{
+	display: none !important;	
+}
+.HiddeButtons .radr_Default .radr_button.radr_buttonRight
+{
+	display: none !important;	
+}
+
+.HiddeButtons .radr_Default .radr_button.radr_buttonLeft
+{
+	display: none !important;	
+}
+
+.radr_button.radr_buttonRight
+{
+	right: -402px !important;
+	position: relative;
+	top: 115px !important;
+}
+
+.radr_button .radr_buttonRight
+{
+	right: -402px !important;
+	position: relative;
+	top: 115px !important;
+}
+
+.radr_Default .radr_button .radr_buttonRight
+{
+	right: -402px !important;
+	position: relative;
+	top: 115px !important;
+}
+
+.FakeButton
+{
+	display: none;
+}
+
+.RadCalendarPopup
+{
+	left: 489px !important;
+	top: 300px !important;
+}
+
+.TermsPanel 
+{
+	background-color: #666666;
+	padding: 10px;
+}
+
+.TermsPanel H1
+{
+	font-size: 16px !important;
+	color: White;
+}
+
+.TermsPanel H2
+{
+	color: #333333;
+	font-size: 12px !important;
+	font-weight: bold;
+}
+
+.TermsPanel label,
+.TermsPanel li
+{
+	color: White !important;
+}
+
+.radeditor.Default .rade_wrapper_corner.rade_corner_top_right 
+ {
+-moz-background-clip:border;
+-moz-background-inline-policy:continuous;
+-moz-background-origin:padding;
+background:transparent url(image/WebResourceEditor.gif) no-repeat scroll 100% -14px !important;
+}
+
+.radeditor.Default .rade_wrapper_corner.rade_corner_top_left {
+-moz-background-clip:border;
+-moz-background-inline-policy:continuous;
+-moz-background-origin:padding;
+background:transparent url(image/WebResourceEditor.gif) no-repeat scroll 0 -26px !important;
+}
+.radeditor.Default .rade_wrapper_corner.rade_corner_bottom_left {
+-moz-background-clip:border;
+-moz-background-inline-policy:continuous;
+-moz-background-origin:padding;
+background:transparent url(image/WebResourceEditor.gif) no-repeat scroll 0 -65px !important;
+}
+
+.radeditor.Default .rade_wrapper_corner.rade_corner_bottom_right {
+-moz-background-clip:border;
+-moz-background-inline-policy:continuous;
+-moz-background-origin:padding;
+background:transparent url(image/WebResourceEditor.gif) no-repeat scroll -8px -53px !important;
+}
+
+.rade_dialog .rade_toolbar, 
+.rade_dialog .rade_toolbar li {
+background-image:none !important;
+display:none !important;
+}
+
+.InsertLink
+{
+	background-image: url(image/LinkButton.gif) !important;
+	cursor: pointer;
+	margin-top: 2px;
+}
+
+.rade_tool:active, 
+.rade_tool:focus, 
+.rade_tool_selected, 
+.rade_tool_selected:hover, 
+.rade_tool_selected:active, 
+.rade_tool_selected:focus 
+{
+	background: none !important;
+}
+
+.rade_toolbar li 
+{
+	background: none !important;
+}
+
+.rade_tool {
+cursor:default;
+display:block;
+height:21px;
+outline-color:-moz-use-text-color;
+outline-style:none;
+outline-width:medium;
+text-decoration:none;
+width:21px;
+padding: 0 !important;
+margin: 0 !important;
+}
+
+.rade_tool span {
+background-repeat:no-repeat;
+display:block;
+height:21px;
+width:21px;
+}
+
+.rade_tool span {
+background-repeat:no-repeat;
+display:block;
+height:21px !important;
+width:21px !important;
+}
+
+element.style {
+height:200px;
+width:300px;
+}
+.radeditor.Black.rade_wrapper {
+height:480px;
+width:640px;
+}
+
+.radeditor.Black.rade_wrapper {
+
+border:1px solid black !important;
+
+}
+
+.hippoShareDigg
+{
+	background-position:0 -25px;
+	-moz-background-clip:border;
+	-moz-background-inline-policy:continuous;
+	-moz-background-origin:padding;
+	background:transparent url(http://i.cdn.turner.com/cnn/.element/img/3.0/global/icons/share_sprite_3.gif) no-repeat scroll 0 2px;
+	display:block;
+	padding:3px 0 4px 25px;
+}
+
+.PrefsLink
+{
+	font-size: 10px;
+	font-family: Arial;
+	color: #6ea702;
+	text-decoration: underline;
+}
+
+.PrefsTip
+{
+	border: solid 2px #ff6b09 !important;
+	width: 206px !important;
+	height: 254px !important;
+}
+
+
+.RadScheduler .rsApt
+{
+	cursor: pointer;
+}
+
+.radr_relativeWrapper
+{
+	height: 100% !important;
+}
+
+.RadRotator
+{
+	visibility: visible !important;
+}
+/*
+.radr_Default .radr_button.radr_buttonDown 
+{
+	display: block;
+	background-position:0 -40px;
+	left:50%;
+	margin-left:-10px;
+	top:100%;
+}
+.radr_Default .radr_button.radr_buttonDown 
+{
+	background-position:0 -40px;
+	left:50%;
+	margin-left:-10px;
+	top:100%;
+}
+.radr_Default .radr_button 
+{
+	background-image:url(WebResource.axd?d=tNXezzmGKa2NolE9-r64R1r5K1Ew5Ttj4hsRzFxbmsSl8ZhCDsMkGfIXOxkeDo6fdX9mpvdTyupXR1bbf-7h7P3l6hoImdM_C2B5Q9bGP3c1&t=634038585057567693);
+	background-repeat:no-repeat;
+	height:20px;
+	line-height:20px;
+	width:20px;
+}
+.radr_button.radr_buttonDown 
+{
+	background-position:0 -30px;
+	left:50%;
+	margin-left:-8px;
+	margin-top:1px;
+	top:100%;
+}
+.radr_Default .radr_button 
+{
+	background-image:url(WebResource.axd?d=tNXezzmGKa2NolE9-r64R1r5K1Ew5Ttj4hsRzFxbmsSl8ZhCDsMkGfIXOxkeDo6fdX9mpvdTyupXR1bbf-7h7P3l6hoImdM_C2B5Q9bGP3c1&t=634038585057567693);
+	background-repeat:no-repeat;
+	cursor:pointer;
+	float:left;
+	height:20px;
+	line-height:20px;
+	margin-left:20px;
+	margin-top:162px;
+	width:20px;
+}
+.radr_button 
+{
+	display:none;
+	font-size:1px;
+	height:15px;
+	line-height:15px;
+	outline-color:-moz-use-text-color;
+	outline-style:none;
+	outline-width:medium;
+	position:absolute;
+	text-indent:-9999px;
+	width:15px;
+}
+*/
+
+div.radwindow_Vista table td.titlebar
+{
+	background-image: none !important;
+}
+
+div.radwindow_Vista.minimizedwindow td.titlebar
+{
+	border: solid 3px #ff6b09 !important;
+}
+
+div.radwindow_Vista table.titlebarcontrols a.windowicon
+{
+	background-color: #333333 !important;
+}
+
+div.radwindow.radwindow_Vista.normalwindow.transparentwindow td.corner, div.radwindow.radwindow_Vista.normalwindow.transparentwindow td.titlebar, div.radwindow.radwindow_Vista.transparentwindow td.footercenter
+{
+	opacity: 1 !important;
+	filter: alpha(opacity=100) !important;
+}
+
+div.radwindow_Vista .topresize
+{
+	background: none !important;
+}
+
+div.radwindow_Vista table td.topleft
+{
+	background: none !important;
+}
+
+div.radwindow .radwindow_Vista .normalwindow .transparentwindow td.titlebar
+{
+	border: solid 3px #ff6b09 !important;
+	border-bottom: none !important;
+}
+
+div.radwindow_Vista table.titlebarcontrols em
+{
+	padding: 0 !important;
+	padding-bottom: 10px !important;
+}
+
+div.radwindow table.titlebarcontrols ul.controlbuttons
+{
+	padding-right: 10px !important;
+}
+
+div.radwindow_Vista table td.topright
+{
+	background: none !important;
+}
+
+div.radwindow_Vista table td.bottomleft
+{
+	background: none !important;
+}
+
+div.radwindow_Vista table td.bottomright
+{
+	background: none !important;
+}
+
+div.radwindow_Vista table td.bodyleft
+{
+	background: none !important;
+}
+
+div.radwindow_Vista table td.bodyright
+{
+	background: none !important;
+}
+
+div.radwindow_Vista table td.footercenter
+{
+	background: none !important;
+}
+
+div.radwindow_Vista table td.footerright
+{
+	background: none !important;
+}
+
+div.radwindow_Vista table td.footerleft
+{
+	background: none !important;
+}
+
+div.radwindow_Vista table.titlebarcontrols em
+{
+	font-size: 18px !important;
+	font-family: Arial !important;
+	font-weight: bold !important;
+	color: #ffffff !important;	
+}
+
+div.radwindow_Vista .windowcontent
+{
+	border: solid 3px #ff6b09 !important;
+	border-top: none !important;
+	background-color: #393939 !important;
+}
+
+
+
+div.radwindow_Vista.minimizedwindow, div.radwindow_Vista.minimizedwindow .corner
+{
+	background: #333333 !important;
+}
+
+.ResultsLabel
+{
+	font-family: Arial;
+	font-size: 18px;
+	color: #ff6b09;
+}
+
+.SearchHeader
+{
+	font-family: Arial;
+	font-size: 24px;
+	color: #ffffff;
+}
+.updateProgress 
+{    
+    position:absolute;
+    height: 300px;
+    background-color:#1FB6E7; 
+    opacity: .1;
+    filter: alpha(opacity=10);
+    width: 600px;
+    z-index: 10000;
+}
+.updateProgressResults
+{
+    position:absolute;
+    background: transparent #1FB6E7; 
+    /*opacity: .3;
+    filter: alpha(opacity=30);*/
+    z-index: 10000;
+}
+.insideUpdateProgress
+{
+    position: absolute;
+    height: 300px;
+    width: 600px;
+    margin-top:13px; 
+    opacity: 1 !important;
+    filter: alpha(opacity=100) !important;
+    z-index: 20000;
+}
+.updateProgressMessage {
+    margin:3px; 
+    font-family:Trebuchet MS; 
+    font-size:small; 
+    color: #ffffff;
+    font-weight: bold;
+    vertical-align: middle;
+    opacity: 1 !important;
+    filter: alpha(opacity=100) !important;
+}
+.background {
+    background-color:#1FB6E7; 
+    filter:alpha(opacity=10); 
+    opacity:0.1; 
+} 
+
+.PageButtons
+{
+	font-family: Arial; 
+	font-size: 14px;
+	text-decoration: none; 
+	color: #cccccc;
+	font-weight: bold;
+}
+
+.OptionTitle
+{
+	font-family: Arial;
+	font-size: 11px;
+	color: White;
+	font-weight: bold;
+}
+
+.OptionLink
+{
+	font-family: Arial;
+	font-weight: bold;
+	color: #1fb6e7;
+	font-size: 10px;
+	text-decoration: none;
+	padding-bottom: 11px;
+	cursor: pointer;
+}
+
+.EventOptionLink
+{
+	font-family: Arial;
+	font-weight: bold;
+	color: #1fb6e7;
+	font-size: 10px;
+	text-decoration: none;
+	padding-bottom: 11px;
+	cursor: pointer;
+}
+
+.GroupDescription
+{
+	font-family: Arial;
+	font-size: 12px;
+	line-height: 19px;
+	padding-top: 15px;
+	padding-left: 8px;	
+}
+
+.GroupTitles
+{
+	font-family: Arial;
+	font-size: 18px;
+	color: White;
+	padding-top: 15px;	
+}
+
+.AddressText
+{
+	font-family: Arial;
+	font-size: 11px;
+	color: #cccccc;
+}
+
+.AddressTextNoColor
+{
+	font-family: Arial;
+	font-size: 11px;
+}
+
+.MemberName
+{
+	font-family: Arial;
+	font-weight: bold;
+	color: #1fb6e7;
+	font-size: 14px;
+	text-decoration: none;
+}
+
+.MemberTitle
+{
+	font-family: Arial;
+	font-weight: bold;
+	color: White;
+	font-size: 14px;
+	text-decoration: none;
+}
+
+.MemberDescription
+{
+	font-family: Arial;
+	font-size: 12px;
+	line-height: 18px;	
+}
+
+.EventMemberDescription
+{
+	font-family: Arial;
+	font-size: 12px;
+	line-height: 18px;	
+}
+
+.CaptionText
+{
+	color: #cccccc;
+	font-family: Arial;
+	font-size: 11px;
+	line-height: 11px;
+	background-color: Black;
+	padding: 5px;
+	height: 50px;
+	border-top: solid 1px #626262;	
+	float: left;
+	width: 400px;
+}
+
+.ThreadSelected
+{
+	font-family: Arial;
+	font-size: 12px;
+	font-weight: bold;
+	text-decoration: none;
+	vertical-align: middle;
+}
+
+.Thread
+{
+	font-family: Arial;
+	font-size: 12px;
+	font-weight: normal;
+	text-decoration: none;
+	vertical-align: middle;
+}
+
+.AddressTitle 
+{
+	color:White;
+	cursor:pointer;
+	font-family:Arial;
+	font-size:12px;
+	font-weight:bold;
+	padding-bottom:5px;
+	padding-top:5px;
+	text-decoration:none;
+}
+
+.AddressTitleNoColor
+{
+	cursor:pointer;
+	font-family:Arial;
+	font-size:12px;
+	font-weight:bold;
+	padding-bottom:5px;
+	padding-top:5px;
+	text-decoration:none;
+}
+
+.StuffBox
+{
+	border: 0;
+}
+
+* + html div.commentTop
+{
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="images/BigCommentTop.png", sizingMethod="image");
+}
+
+.RadScheduler .rsMonthView .rsShowMore
+{
+	color: #cccccc !important;
+}
+
+.MessageBoard
+{
+	float: left;
+}
+
+.AdTemplates input
+{
+	margin-top: 35px;
+	margin-left: 20px;
+}
+
+.AdImage
+{
+	cursor: pointer;
+}
+
+.GroupTabs
+{
+	border-bottom: solid 1px #717171;
+}
+
+div.radwindow_Vista.minimizedwindow .corner.topleft, 
+div.radwindow_Vista.minimizedwindow .corner.topright
+{
+	display: none;
+}
+
+div.radwindow_Vista.minimizedwindow td.titlebar, 
+div.radwindow_Vista.minimizedwindow:hover td.titlebar
+{
+	width: 100%;
+}
+
+div.radwindow_Vista.minimizedwindow,
+div.radwindow_Vista.minimizedwindow .corner
+{
+	background: none !important;
+}
+
+div.radwindow_Vista table td.titlebar
+{
+	border-left: solid 3px #FF6B09 !important;
+	border-top: solid 3px #FF6B09 !important;
+	border-right: solid 3px #FF6B09 !important;
+}
+
+.GroupTab
+{
+
+	height:25px !important;
+	margin-bottom: 0px !important;
+}
+
+.GroupTab .rtsIn
+{
+	padding-top: 0px !important;
+}
+
+.GroupTab .rtsIn .rtsTxt
+{
+	border-bottom:1px solid #666666;
+	border-right:1px solid #666666;
+	padding-bottom: 5px !important;
+	background-image:url(images/GroupTabArrow2.png);
+	background-position:right center;
+	background-repeat:no-repeat;
+	padding-right:40px;
+}
+
+.RadScheduler_Web20 .rsMonthView .rsApt
+{
+	height: auto !important;
+	max-height: 70px !important;
+}
+
+
+.RadInput_Black .riEmpty, html body .RadInput_Empty_Black 
+{
+	color:#E6E6E6 !important;
+}
+
+
+div.radwindow table
+{
+    background-color: #393939 !important;
+}
+.RadPanelBar_Default .rpLink
+{
+	border: 0 !important;
+}
+.MessagesRadPanel
+{
+	border-top: solid 3px #666666;
+	border-right: solid 3px #666666;
+}

@@ -1,0 +1,170 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="/RadControls/Editor/Skins/Monochrome/Dialogs.css" />
+<link rel="stylesheet" type="text/css" href="StyleSheet.css" />
+</head>
+<body >
+<script language="javascript" src="/RadControls/Editor/Scripts/7_3_0/RadWindow.js"></script>
+<!--<script language="javascript">
+	function GetDialogArguments()
+	{
+		if (window.radWindow) 
+		{
+			return window.radWindow.Argument;
+		}
+		else
+		{
+			return null;
+		}
+	}
+
+	var isRadWindow = true;
+	var radWindow = GetEditorRadWindowManager().GetCurrentRadWindow(window);
+	if (radWindow)
+	{ 
+		if (window.dialogArguments) 
+		{ 
+			radWindow.Window = window;
+		} 
+		radWindow.OnLoad(); 
+	}
+</script>-->
+ <h1>Enter a Link</h1>
+
+<fieldset style="width: 200px; height: 192px;font-family: Arial; font-size: 14px; color: #cccccc; border: 0;">
+       
+       <div style="float: left;">
+                <h2>Link Name:</h2> <input type="text" id="linkName"/>
+            </div>
+            <div style="float: left; padding-left: 5px;padding-top: 10px;position: relative;">                
+                <div class="Text12" style="position: absolute;float: left;"><div id="div5" style="z-index: 10000; left: -100px; top: 20px;
+                    padding: 10px;position: absolute;display: 
+                    none;background-color: white; width: 150px; border: solid 2px #6fa8bf;">It is better to include
+                    words describing the link as opposed to spelling out the address/url of the link in the Name field.
+                    </div>
+                    <img onmouseout="var theDiv = document.getElementById('div5');theDiv.style.display = 'none';" 
+                    onmouseover="var theDiv = document.getElementById('div5');theDiv.style.display = 'block';" 
+                     src="http://hippohappenings.com/NewImages/HelpIconNew.png" />
+                    </div>
+            </div>
+       <br/><br/><br/>
+       <h2>Link URL:</h2> <input type="text" id="linkUrl"/><br/>
+<!--              Link target: <input type="text" id="linkTarget"/><br/>
+       Link class: <input type="text" id="linkClass"/><br/>-->
+    <br />  
+    <div align="center" style="padding-left: 25px;">
+        <div style="float: left;padding-right: 10px;">
+            <div class="topDiv" style="clear: both;">
+                <img style="float: left;" src="http://hippohappenings.com/NewImages/ButtonLeft.png" height="27px" />
+                <div style="font-size: 12px; text-decoration: none; padding-top: 5px;padding-left: 6px; padding-right: 6px;height: 27px;float: left;background: url('http://hippohappenings.com/NewImages/ButtonPixel.png'); background-repeat: repeat-x;">
+                    <a onclick="javascript:insertLink();" class="NavyLink">Insert Link</a>
+                </div>
+                <img style="float: left;" src="http://hippohappenings.com/NewImages/ButtonRight.png" height="27px" />
+            </div>
+        </div>
+        <div style="float: left;">
+            <div class="topDiv" style="clear: both;">
+                <img style="float: left;" src="http://hippohappenings.com/NewImages/ButtonLeft.png" height="27px" />
+                <div style="font-size: 12px; text-decoration: none; padding-top: 5px;padding-left: 6px; padding-right: 6px;height: 27px;float: left;background: url('http://hippohappenings.com/NewImages/ButtonPixel.png'); background-repeat: repeat-x;">
+                    <a onclick="Search()" class="NavyLink">Cancel</a>
+                </div>
+                <img style="float: left;" src="http://hippohappenings.com/NewImages/ButtonRight.png" height="27px" />
+            </div>
+        </div>
+    </div>
+
+   </fieldset>
+   <script type="text/javascript">
+   function GetRadWindow() 
+                { 
+                  var oWindow = null; 
+                  if (window.radWindow) 
+                     oWindow = window.radWindow; 
+                  else if (window.frameElement.radWindow) 
+                     oWindow = window.frameElement.radWindow; 
+                  return oWindow; 
+                }   
+                function CloseWindow()
+                {
+                
+                    var oWindow = GetRadWindow(); 
+                    oWindow.Close(); 
+                }
+              
+                function Search() 
+                { 
+                    CloseWindow();
+                } 
+   if (window.attachEvent)
+   {
+       window.attachEvent("onload", initDialog);
+   }
+   else if (window.addEventListener)
+   {
+       window.addEventListener("load", initDialog, false);
+   }
+   var linkUrl = document.getElementById("linkUrl");
+//   var linkTarget = document.getElementById("linkTarget");
+//   var linkClass = document.getElementById("linkClass");
+   var linkName = document.getElementById("linkName");
+   var workLink = null;
+   function getRadWindow()
+   {
+          if (window.radWindow)
+       {
+           return window.radWindow;
+       }
+       if (window.frameElement && window.frameElement.radWindow)
+       {
+           return window.frameElement.radWindow;
+       }
+       return null;
+   }
+   function initDialog()
+   {
+      var clientParameters = getRadWindow().ClientParameters; //return the arguments supplied from the parent page
+           
+      linkName.value = clientParameters.innerHTML;
+//      linkTarget.value = clientParameters.target;
+//      linkClass.value = clientParameters.className;
+//      linkName.value = clientParameters.innerHTML;
+     
+//      workLink = clientParameters;
+   }
+   function insertLink() //fires when the Insert Link button is clicked
+   {
+      //create an object and set some custom properties to it     
+//      workLink.href = linkName.value;
+//      workLink.target = linkTarget.value;
+//      workLink.className = linkClass.value;
+//      workLink.name = linkName.value;
+        var url = document.getElementById("linkUrl").value;
+                                                                
+        if (url.indexOf("http://") == -1 && 
+        url.indexOf("https://") == -1) 
+        {
+            url = "http://" + url;
+        }
+      var returnValue =
+			{
+			    url: url,
+			    name: document.getElementById("linkName").value
+			};
+      getRadWindow().close(returnValue); //use the close function of the getRadWindow to close the dialog and pass the arguments from the dialog to the callback function on the main page.
+   }
+   </script>
+
+<!--&nbsp;&nbsp;<input id="url" size="35"  /><br />
+&nbsp;&nbsp;<button class="Button" onclick="javascript:insertLink();">Insert&nbsp;Youtube	</button>
+	<script language="javascript">
+		function sinsertYoutube()
+		{
+			var returnValue = 
+			{
+				url:document.getElementById("url").value
+			};
+			CloseDlg(returnValue);
+		}
+	</script>-->
+</body>
+</html>
